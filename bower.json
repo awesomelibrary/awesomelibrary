@@ -8,7 +8,10 @@
   ],
   
   "dependencies": {
-    "angular": "1.0.*",
-    "angular-resource": "1.0.*"
+    "jquery": "1.10.x",
+    "angular": "1.0.x",
+    "angular-resource": "1.0.x",
+    "bootstrap": "2.3.x",
+    "font-awesome": "3.2.x"
   }
 }

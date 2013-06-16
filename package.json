@@ -18,6 +18,9 @@
   },
   
   "dependencies": {
-    "bower": "0.9.x"
+    "bower": "0.9.x",
+    "express": "3.x",
+    "less-middleware": "0.1.x",
+    "ejs": "0.8.x"
   }
 }
