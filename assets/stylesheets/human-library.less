@@ -1,17 +1,16 @@
-//= include zywa-biblioteka/book.css.scss
-
+@import "book.less"
 ////////////////////////////
 // kolory biblioteki
-$library-red: #d3401e;
-$library-dark-red: #9d3016;
+//$library-red: #d3401e;
+//$library-dark-red: #9d3016;
 
-@mixin zywa-transform {
-  $params: border 0.15s ease-out;
-  transition: $params;
-  -moz-transition: $params;
-  -webkit-transition: $params;
-  -o-transition: $params; 
-}
+//@mixin zywa-transform {
+//  $params: border 0.15s ease-out;
+//  transition: $params;
+//  -moz-transition: $params;
+//  -webkit-transition: $params;
+//  -o-transition: $params; 
+//}
 
 ///////////////////////
 // globalne ustawienia
@@ -19,7 +18,7 @@ input[type=text] {
   font-size: inherit;
   border-width: 0 0 1px 0;
   border-style: solid;
-  border-color: $library-dark-red;
+  //border-color: $library-dark-red;
   outline: none;
   padding: 0;
   color: inherit;
@@ -43,7 +42,7 @@ input[type=text]:focus {
 button {
   color: white;
   font-size: 18px;
-  background-color: $library-red;
+  //background-color: $library-red;
   border-style: none;
   outline: none;
   padding-top: 1px;
@@ -73,7 +72,7 @@ body {
   height: 30px;
   margin: 0;
   padding: 5px 10px 5px 10px;
-  background-color: $library-red;
+  //background-color: $library-red;
   color: white;
   
   h1 {
@@ -118,11 +117,11 @@ body {
 ///////////////////////////
 // overlay
 .overlay-darkness, .overlay, button, a {
-  $params: opacity 0.15s ease-out;
-  transition: $params;
-  -moz-transition: $params;
-  -webkit-transition: $params;
-  -o-transition: $params;
+  //$params: opacity 0.15s ease-out;
+  //transition: $params;
+  //-moz-transition: $params;
+  //-webkit-transition: $params;
+  //-o-transition: $params;
 }
 .overlay-darkness {
   position: absolute;

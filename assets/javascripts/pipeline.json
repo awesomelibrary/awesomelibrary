@@ -1,0 +1,9 @@
+{
+  "all.js": [
+    "components/jquery/jquery.js",
+    "components/angular/angular.js",
+    "components/angular-resource/angular-resource.js",
+    "components/bootstrap/docs/assets/js/bootstrap.js",
+    "assets/javascripts/human-library.js"
+  ]
+}
