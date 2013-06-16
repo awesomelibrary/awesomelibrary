@@ -1,0 +1,23 @@
+{
+  "name": "human-library",
+  "version": "0.0.0",
+  "description": "Human library system",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+
+    "repository": {
+    "type": "git",
+    "url": "git@github.com:shityboy/human-library.git"
+  },
+  "author": "",
+  "license": "BSD",
+  "bugs": {
+    "url": "https://github.com/shityboy/human-library/issues"
+  },
+  
+  "dependencies": {
+    "bower": "0.9.x"
+  }
+}
