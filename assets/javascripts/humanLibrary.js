@@ -1,0 +1,1 @@
+angular.module('humanLibrary', ['humanLibrary.controllers', 'humanLibrary.directives', 'humanLibrary.filters']);
