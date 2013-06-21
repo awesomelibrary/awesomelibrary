@@ -1,9 +1,9 @@
 ////////////////////////////
 // kolory biblioteki
-$library-red: #d3401e;
-$library-dark-red: #9d3016;
-$library-highlighted-red: #ec917c;
-$library-bluegrey-even: #f6f3f7;
+@library-red: #d3401e;
+@library-dark-red: #9d3016;
+@library-highlighted-red: #ec917c;
+@library-bluegrey-even: #f6f3f7;
 
 .book {
   font-size: 1.5em;
@@ -13,17 +13,17 @@ $library-bluegrey-even: #f6f3f7;
   border-radius: 4px;
   overflow: hidden;
   height: 25px;
-  color: $library-dark-red;
-  $params: all 0.15s ease-out;
-  transition: $params;
-  -moz-transition: $params;
-  -webkit-transition: $params;
-  -o-transition: $params;
+  color: @library-dark-red;
+  @params: all 0.15s ease-out;
+  transition: @params;
+  -moz-transition: @params;
+  -webkit-transition: @params;
+  -o-transition: @params;
   * {
-    transition: $params;
-    -moz-transition: $params;
-    -webkit-transition: $params;
-    -o-transition: $params;
+    transition: @params;
+    -moz-transition: @params;
+    -webkit-transition: @params;
+    -o-transition: @params;
   }
   
   /////////////////////////////
@@ -134,7 +134,7 @@ $library-bluegrey-even: #f6f3f7;
     }
   }
 }
-.even { background-color: $library-bluegrey-even !important; }
+.even { background-color: @library-bluegrey-even !important; }
 .odd { background-color: white !important; }
 .rotate {
   transform: rotate(180deg);

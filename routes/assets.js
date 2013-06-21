@@ -11,8 +11,18 @@ module.exports = function(app) {
         if (/\.(less)$/i.test(assetPath)) {
           res.type('css');
           fs.readFile(assetPath, "utf8", function(err, data) {
-            less.render(data, function(err, css) {
-              res.send(css);
+            
+            var parser = new(less.Parser)({
+                paths: [path.dirname(assetPath)]
+            });
+            
+            parser.parse(data, function(err, tree) {
+              if (err) {
+                console.log(err);
+                res.send(500);
+              } else {
+                res.send(tree.toCSS());
+              }
             });
           });
         } else if (/\.(css)$/i.test(assetPath)) {

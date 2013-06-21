@@ -1,16 +1,8 @@
-//@import "book.less"
+@import "book.less";
 ////////////////////////////
 // kolory biblioteki
-//$library-red: #d3401e;
-//$library-dark-red: #9d3016;
-
-//@mixin zywa-transform {
-//  $params: border 0.15s ease-out;
-//  transition: $params;
-//  -moz-transition: $params;
-//  -webkit-transition: $params;
-//  -o-transition: $params; 
-//}
+@library-red: #d3401e;
+@library-dark-red: #9d3016;
 
 ///////////////////////
 // globalne ustawienia
@@ -39,10 +31,10 @@ input[type=text]:focus {
 
 /////////////////////////////
 // przyciski
-button {
+/*button {
   color: white;
   font-size: 18px;
-  //background-color: $library-red;
+  background-color: @library-red;
   border-style: none;
   outline: none;
   padding-top: 1px;
@@ -54,14 +46,10 @@ button {
 }
 button:hover {
   opacity: 0.5;
-}
+}*/
   
 ///////////////////////
 // layout
-body {
-  font-size: 12px;
-  font-family: Verdana, sans-serif;
-}
 
 #header {
   position: absolute;
@@ -72,7 +60,7 @@ body {
   height: 30px;
   margin: 0;
   padding: 5px 10px 5px 10px;
-  //background-color: $library-red;
+  background-color: @library-red;
   color: white;
   
   h1 {
@@ -117,11 +105,11 @@ body {
 ///////////////////////////
 // overlay
 .overlay-darkness, .overlay, button, a {
-  //$params: opacity 0.15s ease-out;
-  //transition: $params;
-  //-moz-transition: $params;
-  //-webkit-transition: $params;
-  //-o-transition: $params;
+  @params: opacity 0.15s ease-out;
+  transition: @params;
+  -moz-transition: @params;
+  -webkit-transition: @params;
+  -o-transition: @params;
 }
 .overlay-darkness {
   position: absolute;

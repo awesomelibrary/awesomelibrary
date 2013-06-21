@@ -1,5 +1,5 @@
 {
-  "all.css": [
-    "assets/stylesheets/human-library.less"
+  "all.css": [ "assets/stylesheets/humanLibrary.less"
+    , "components/bootstrap/less/bootstrap.less"
   ]
 }

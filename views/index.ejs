@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html ng-app="humanLibrary">
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <title>ŻYWA BIBLIOTEKA</title>
-    <meta name="description" content="System obsługi Żywej Biblioteki.">
+    <meta name="description" content="System obsługi Żywej Biblioteki." />
     <%- stylesheets() %>
   </head>
 
@@ -12,16 +12,18 @@
 
     <div id="header">
       <h1>ŻYWA BIBLIOTEKA</h1>
-      <div class="controlls">
+      <ul class="pull-right inline">
+        <li><button class="btn" ng-click="addBook()">Dodaj książkę</button></li>
+        <li><button class="btn" ng-click="overlay.visible = true">Import/Eksport</button></li>
+      </ul>
+<!--      <div class="controlls">
         <span class="filters">
           <input type="checkbox" ng-model="library.filters.showAvailable" id="show-available"/><label for="show-available">Dostępne</label>
           <input type="checkbox" ng-model="library.filters.showRented" id="show-rented"/><label for="show-rented">Wypożyczone</label>
           <input type="checkbox" ng-model="library.filters.showOnBreak" id="show-on-break"/><label for="show-on-break">Na przerwie</label>
           <input type="checkbox" ng-model="library.filters.showAbsent" id="show-absent"/><label for="show-absent">Nieobecne</label>
         </span>
-        <a class="add-book" ng-click="addBook()">Dodaj książkę</a>
-        <a class="export" ng-click="overlay.visible = true">Import/Eksport</a>
-      </div>
+      </div>-->
     </div>
 
     <div id="content">
@@ -29,7 +31,7 @@
         <div class="basic">
           <input class="name" type="text" placeholder="Wpisz nazwę książki" ng-model="book.name" ng-class="{gray: book.status == 'break' || book.status == 'absent'}" />
           <div class="status-bar" ng-class="{gray: book.status == 'break' || book.status == 'absent'}" style="border-color: {{book.bar.color}};">
-            <div class="status-progress" style="width: {{book.bar.progress}}%; background-color: {{book.bar.color}};"></div>
+            <div class="status-progress" style="width: {{book.bar.progress}}; background-color: {{book.bar.color}};"></div>
           </div>
           <div class="status" ng-bind="book.niceStatus"></div>
           <button id="return-button-{{$index}}" ng-click="returnBook(book.id)" ng-show="book.status == 'rented'">Zwróć</button>
