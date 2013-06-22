@@ -4,7 +4,7 @@
   "description": "Human library system",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "supervisor -w config,routes,app.js -e \"js|json\" app.js"
   },
 
   "repository": {
@@ -16,12 +16,16 @@
   "license": "BSD",
   "bugs": {
     "url": "https://github.com/shityboy/human-library/issues"
-  },
+  }
   
-  "dependencies": {
+  , "dependencies": {
     "bower": "0.9.x",
     "express": "3.x",
     "less": "1.4.x",
     "ejs": "0.8.x"
+  }
+  
+  , "devDependencies": {
+    "supervisor": "0.5.x"
   }
 }

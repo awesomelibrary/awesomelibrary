@@ -25,18 +25,8 @@ module.exports = function(app) {
               }
             });
           });
-        } else if (/\.(css)$/i.test(assetPath)) {
-          res.type('css');
-          fs.readFile(assetPath, "utf8", function(err, data) {
-            res.send(data);
-          });
-        } else if (/\.(js)$/i.test(assetPath)) {
-          res.type('js');
-          fs.readFile(assetPath, "utf8", function(err, data) {
-            res.send(data);
-          });
         } else {
-          res.send(404);
+          res.sendfile(assetPath);
         }
       } else {
         res.send(404);

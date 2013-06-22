@@ -13,7 +13,7 @@
     <div id="header">
       <h1>ŻYWA BIBLIOTEKA</h1>
       <ul class="pull-right inline">
-        <li><button class="btn" ng-click="addBook()">Dodaj książkę</button></li>
+        <li><button class="btn" ng-click="addBook()"><i class="icon-plus"></i> Dodaj książkę</button></li>
         <li><button class="btn" ng-click="overlay.visible = true">Import/Eksport</button></li>
       </ul>
 <!--      <div class="controlls">
@@ -27,26 +27,26 @@
     </div>
 
     <div id="content">
-      <div class="book" ng-repeat="book in library.books|status:library.filters|orderBy:['niceStatus', 'name']" style="{{book.style}}" book>
+      <div class="book" ng-repeat="book in library.books|status:library.filters" style="{{book.style}}" book>
         <div class="basic">
           <input class="name" type="text" placeholder="Wpisz nazwę książki" ng-model="book.name" ng-class="{gray: book.status == 'break' || book.status == 'absent'}" />
           <div class="status-bar" ng-class="{gray: book.status == 'break' || book.status == 'absent'}" style="border-color: {{book.bar.color}};">
             <div class="status-progress" style="width: {{book.bar.progress}}; background-color: {{book.bar.color}};"></div>
           </div>
           <div class="status" ng-bind="book.niceStatus"></div>
-          <button id="return-button-{{$index}}" ng-click="returnBook(book.id)" ng-show="book.status == 'rented'">Zwróć</button>
+          <button class="btn" id="return-button-{{$index}}" ng-click="returnBook(book.id)" ng-show="book.status == 'rented'">Zwróć</button>
           <span ng-show="book.status == 'available'">
-            <button ng-click="rentBook(book.id)">Wypożycz</button>
+            <button class="btn" ng-click="rentBook(book.id)">Wypożycz</button>
             na
             <input class="period" type="text" ng-model="book.period" />
             minut
           </span>
-          <div class="right-corner">
-            <a class="more" ng-click="toggleMore()" ng-class="{rotate: book.style != ''}"></a>
-            <div class="counter">{{book.rentals.length}}</div>
-            <span id="break-panel-{{$index}}" ng-class="{hidden: book.status != 'available' &&  book.status != 'break'}"><input type="checkbox" ng-click="toggleStatus(book.id, 'break')" ng-checked="book.status == 'break'" id="break{{$index}}"/><label for="break{{$index}}">Na przerwie</label></span>
-            <span id="absent-panel-{{$index}}" ng-class="{hidden: book.status != 'available' && book.status != 'absent'}"><input type="checkbox" ng-click="toggleStatus(book.id, 'absent')" ng-checked="book.status == 'absent'" id="absent{{$index}}"/><label for="absent{{$index}}">Nieobecna</label></span>
-          </div>
+          <ul class="pull-right inline">
+            <li><span id="absent-panel-{{$index}}" ng-class="{hidden: book.status != 'available' && book.status != 'absent'}"><label for="absent{{$index}}"><input type="checkbox" ng-click="toggleStatus(book.id, 'absent')" ng-checked="book.status == 'absent'" id="absent{{$index}}" /> Nieobecna</label></span></li>
+            <li><span id="break-panel-{{$index}}" ng-class="{hidden: book.status != 'available' &&  book.status != 'break'}"><label for="break{{$index}}"><input type="checkbox" ng-click="toggleStatus(book.id, 'break')" ng-checked="book.status == 'break'" id="break{{$index}}" /> Na przerwie</label></span></li>
+            <li>{{book.rentals.length}}</li>
+            <li><button class="btn btn-link" ng-click="toggleMore()"><i class="icon-collapse"></i></button></li>
+          </ul>
         </div>
         <div ng-hide="book.style == ''">
           <hr />

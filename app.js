@@ -8,8 +8,7 @@ var express = require('express')
   , user = require('./routes/user')
   , http = require('http')
   , path = require('path')
-  , jsPipelineConf = require('./assets/javascripts/pipeline.json')
-  , cssPipelineConf = require('./assets/stylesheets/pipeline.json');
+  , config = require("./config/config.json");
 
 var app = express();
 
@@ -35,10 +34,10 @@ if ('development' == app.get('env')) {
 // helpers
 app.locals.javascripts = function() {
   var toReturn = "";
-  for (var key in jsPipelineConf) {
-    for (var i = 0; i < jsPipelineConf[key].length; i++) {
+  for (var key in config.zAssets.javascripts) {
+    for (var i = 0; i < config.zAssets.javascripts[key].length; i++) {
       if (i !== 0) { toReturn += '\n    '; }
-      toReturn += '<script src="/assets/' + jsPipelineConf[key][i] + '"></script>';
+      toReturn += '<script src="/assets/' + config.zAssets.javascripts[key][i] + '"></script>';
     }
   }
   return toReturn;
@@ -46,10 +45,10 @@ app.locals.javascripts = function() {
 
 app.locals.stylesheets = function() {
   var toReturn = "";
-  for (var key in cssPipelineConf) {
-    for (var i = 0; i < cssPipelineConf[key].length; i++) {
+  for (var key in config.zAssets.stylesheets) {
+    for (var i = 0; i < config.zAssets.stylesheets[key].length; i++) {
       if (i !== 0) { toReturn += '\n    '; }
-      toReturn += '<link rel="stylesheet" href="/assets/' + cssPipelineConf[key][i] + '">';
+      toReturn += '<link rel="stylesheet" href="/assets/' + config.zAssets.stylesheets[key][i] + '">';
     }
   }
   return toReturn;

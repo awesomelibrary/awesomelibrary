@@ -6,7 +6,7 @@
 @library-bluegrey-even: #f6f3f7;
 
 .book {
-  font-size: 1.5em;
+  //font-size: 1.5em;
   margin: 1px 5px 0 5px;
   padding: 10px 5px 10px 5px;
   background-color: white;
@@ -19,18 +19,18 @@
   -moz-transition: @params;
   -webkit-transition: @params;
   -o-transition: @params;
-  * {
+  /* {
     transition: @params;
     -moz-transition: @params;
     -webkit-transition: @params;
     -o-transition: @params;
-  }
+  }*/
   
   /////////////////////////////
   // linki
-  a:hover {
+  /*a:hover {
     opacity: 0.5;
-  }
+  }*/
   
   /////////////////////////////
   // linia pozioma
@@ -41,11 +41,9 @@
     background-color: #cfcfcf;
   }
   
-  .basic button{
-  }
   /////////////////////////////
   // input nazwa książki
-  .name { width: 300px; }
+  /*.name { width: 300px; }
   .name.gray { border-color: #E8E8E8; color: #E8E8E8; }
 
   /////////////////////////////
@@ -58,13 +56,12 @@
   .remove-book-button {
     position: absolute;
     right: 0;
-  }
+  }*/
     
   /////////////////////////////
   // pasek statusu (postępu)
   .status-bar {
     display: inline-block;
-    vertical-align: middle;
     width: 200px;
     height: 23px;
     margin: 0 0 4px 0;
@@ -89,7 +86,7 @@
     width: 80px;
     text-align: center;
   }
-  .period {
+  /*.period {
     width: 35px;
     text-align: center;
   }
@@ -132,10 +129,8 @@
         margin-top: 3px;
       }
     }
-  }
+  }*/
 }
-.even { background-color: @library-bluegrey-even !important; }
-.odd { background-color: white !important; }
 .rotate {
   transform: rotate(180deg);
   -ms-transform: rotate(180deg);

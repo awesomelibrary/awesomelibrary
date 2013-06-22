@@ -1,0 +1,27 @@
+{
+
+  "zAssets": {
+    "javascripts": {
+      "all.js": ["components/jquery/jquery.js"
+        , "components/angular/angular.js"
+        , "components/angular-resource/angular-resource.js"
+        , "assets/javascripts/humanLibraryControllers.js"
+        , "assets/javascripts/humanLibraryDirectives.js"
+        , "assets/javascripts/humanLibraryFilters.js"
+        , "assets/javascripts/humanLibrary.js"
+      ]
+    }
+    , "stylesheets":  {
+      "all.css": [ "assets/stylesheets/humanLibrary.less"
+        , "components/bootstrap/less/bootstrap.less"
+        , "components/font-awesome/less/font-awesome.less"]
+    }
+    , "others": ["components/font-awesome/font/FontAwesome.otf"
+      , "components/font-awesome/font/fontawesome-webfont.eot"
+      , "components/font-awesome/font/fontawesome-webfont.svg"
+      , "components/font-awesome/font/fontawesome-webfont.ttf"
+      , "components/font-awesome/font/fontawesome-webfont.woff"]
+  }
+
+
+}
