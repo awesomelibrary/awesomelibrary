@@ -6,7 +6,7 @@
 @library-bluegrey-even: #f6f3f7;
 
 .book {
-  //font-size: 1.5em;
+  font-size: 14px;
   margin: 1px 5px 0 5px;
   padding: 10px 5px 10px 5px;
   background-color: white;
@@ -25,6 +25,10 @@
     -webkit-transition: @params;
     -o-transition: @params;
   }*/
+
+  .basic ul.inline li {
+    vertical-align: middle;
+  }
   
   /////////////////////////////
   // linki
@@ -62,9 +66,10 @@
   // pasek statusu (postępu)
   .status-bar {
     display: inline-block;
+    vertical-align: middle;
     width: 200px;
     height: 23px;
-    margin: 0 0 4px 0;
+    //margin: 0 0 4px 0;
     border: 1px solid #00ff00;
     border-radius: 4px;
     .status-progress {
@@ -86,11 +91,7 @@
     width: 80px;
     text-align: center;
   }
-  /*.period {
-    width: 35px;
-    text-align: center;
-  }
-
+  /*
   //licznik i rozwijanie książki
   .right-corner {
     float: right;

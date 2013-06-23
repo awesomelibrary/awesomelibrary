@@ -1,9 +1,30 @@
 angular.module('humanLibrary.controllers', []).
   controller('LibraryCtrl', ['$scope', '$timeout', function($scope, $timeout) {
+
+    // Constructor of Library object
+    var Library = (function() {
+      function Library() {
+      }
+
+      // Deleting book from library
+      Library.prototype.deleteBook = function(book) {
+        if (angular.isArray(this.books)) {
+          var index = this.books.indexOf(book);
+          if (index !== -1) { 
+            this.books.splice(index, 1);
+          }
+          return index;
+        }
+        return -1;
+      };
+
+      return Library;
+
+    })();
+    
     var bootstrap = function() {
-      $scope.library = $scope.library || {};
+      $scope.library = $scope.library || new Library();
       $scope.library.books = $scope.library.books || [];
-      $scope.library.nextId = $scope.library.nextId || 0;
       $scope.library.filters = $scope.library.filters || {};
       $scope.library.filters.showAvailable = $scope.library.filters.showAvailable || true;
       $scope.library.filters.showRented = $scope.library.filters.showRented || true;
@@ -12,7 +33,7 @@ angular.module('humanLibrary.controllers', []).
     };
 
     if ((typeof Storage !== "undefined" && Storage !== null) && localStorage.library) {
-      $scope.library = angular.fromJson(localStorage.library);
+      //$scope.library = angular.fromJson(localStorage.library);
     }
 
     bootstrap();
@@ -32,11 +53,6 @@ angular.module('humanLibrary.controllers', []).
       $scope.library = angular.fromJson($scope.overlay.data);
       bootstrap();
       $scope.overlay.visible = false;
-      return $scope.save();
-    };
-
-    $scope.removeBook = function(id) {
-      $scope.library.books.splice($scope.indexOfBookWithId(id), 1);
       return $scope.save();
     };
 
@@ -89,10 +105,6 @@ angular.module('humanLibrary.controllers', []).
           return i;
         }
       }
-    };
-
-    $scope.indexOfBookWithId = function(id) {
-      return indexById($scope.library.books, id);
     };
 
     $scope.indexOfRentalWithId = function(index, id) {
