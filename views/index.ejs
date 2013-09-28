@@ -1,141 +1,96 @@
 <!DOCTYPE html>
 <html ng-app="humanLibrary">
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ŻYWA BIBLIOTEKA</title>
-    <meta name="description" content="Żywa biblioteka" />
-    
-    <link rel="stylesheet" type="text/css" href="stylesheets/humanLibrary.css" />
-    <link rel="stylesheet" type="text/css" href="vendor/bower_components/bootstrap/dist/css/bootstrap.css" />
-  </head>
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>ŻYWA BIBLIOTEKA</title>
+        <meta name="description" content="Żywa biblioteka" />
 
-  <body ng-controller="LibraryCtrl">
-    <nav class="navbar navbar-default navbar-static-top" role="navigation">
-      <a class="navbar-brand" href="/">Żywa biblioteka</a>
-      <button class="btn btn-primary navbar-btn" ng-click="library.addBook()"><i class="glyphicon glyphicon-plus"></i> Dodaj książkę</button>
-    </nav>
+        <link rel="stylesheet" type="text/css" href="stylesheets/humanLibrary.css" />
+        <link rel="stylesheet" type="text/css" href="vendor/bower_components/bootstrap/dist/css/bootstrap.css" />
+    </head>
 
-    <div class="container">
-      <div class="row">
-        <div class="col-md-4 col-lg-4">
-          <div class="panel panel-default">
-            <div class="panel-heading">
-              <h3 class="panel-title">Były bezdomny</h3>
-            </div>
-            <div class="panel-body">
-              Taki i taki
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4 col-lg-4">
-          <div class="panel panel-default">
-            <div class="panel-heading">
-              <h3 class="panel-title">Były bezdomny</h3>
-            </div>
-            <div class="panel-body">
-              Taki i taki
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4 col-lg-4">
-          <div class="panel panel-default">
-            <div class="panel-heading">
-              <h3 class="panel-title">Były bezdomny</h3>
-            </div>
-            <div class="panel-body">
-              Taki i taki
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-4 col-lg-4">
-          <div class="panel panel-default">
-            <div class="panel-heading">
-              <h3 class="panel-title">Były bezdomny</h3>
-            </div>
-            <div class="panel-body">
-              Taki i taki
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4 col-lg-4">
-          <div class="panel panel-default">
-            <div class="panel-heading">
-              <h3 class="panel-title">Były bezdomny</h3>
-            </div>
-            <div class="panel-body">
-              Taki i taki
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4 col-lg-4">
-          <div class="panel panel-default">
-            <div class="panel-heading">
-              <h3 class="panel-title">Były bezdomny</h3>
-            </div>
-            <div class="panel-body">
-              Taki i taki
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    <body ng-controller="LibraryCtrl">
+        <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <a class="navbar-brand" href="/">Żywa biblioteka</a>
+            <button class="btn btn-primary navbar-btn" ng-click="library.addBook()"><i class="glyphicon glyphicon-plus"></i> Dodaj książkę</button>
+        </nav>
 
-    <!--<div id="content">
-      <div class="book" ng-repeat="book in library.books|status:library.filters" style="{{book.style}}" book>
-        <div class="basic form-inline">
-          <input class="name" type="text" placeholder="Wpisz nazwę książki" ng-model="book.name" ng-class="{gray: book.status == 'break' || book.status == 'absent'}" />
-          <div class="status-bar" ng-class="{gray: book.status == 'break' || book.status == 'absent'}" style="border-color: {{book.bar.color}};">
-            <div class="status-progress" style="width: {{book.bar.progress}}; background-color: {{book.bar.color}};"></div>
-          </div>
-          <label class="status" ng-bind="book.niceStatus"></label>
-          <button ng-show="book.status == 'rented'" class="btn" id="return-button-{{$index}}" ng-click="returnBook(book.id)">Zwróć</button>
-          <button ng-show="book.status == 'available'" class="btn" ng-click="rentBook(book.id)">Wypożycz</button>
-          <label ng-show="book.status == 'available'">na</label>
-          <input ng-show="book.status == 'available'" class="period input-mini text-center" type="text" ng-model="book.period" />
-          <label ng-show="book.status == 'available'">minut</label>
-          <label class="checkbox">
-            <input type="checkbox" ng-click="toggleStatus(book.id, 'absent')" ng-checked="book.status == 'absent'" /> Nieobecna
-          </label>
-          <label class="checkbox">
-            <input type="checkbox" ng-click="toggleStatus(book.id, 'break')" ng-checked="book.status == 'break'" /> Na przerwie
-          </label>
-          <label><a ng-click="toggleMore()"><i class="icon-collapse"></i></a></label>
-          <button class="btn btn-link" ng-click="library.deleteBook(book)"><i class="icon-trash"></i></button>
+        <div class="container">
+            <div class="row" ng-repeat="row in library.groupedBooks">
+                <div class="col-md-4 col-lg-4" ng-repeat="book in row">
+                    <div class="panel panel-default panel-book">
+                        <div class="panel-heading">
+                            <ul class="list-inline">
+                                <li><input class="form-control input-sm" type="text" ng-model="book.name" /></li>
+                                <li>
+                                    <button class="btn btn-default btn-sm" ng-click="library.deleteBook(book)">
+                                        <span class="glyphicon glyphicon-trash"></span>
+                                    </button>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="panel-body">
+                            Taki i taki
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div ng-hide="book.style == ''">
-          <hr />
-          <div class="notes-remove-panel">
-            <input class="notes" type="text" placeholder="Tutaj możesz zapisywać notatki do książki" ng-model="book.notes" />
-          </div>
-          <hr />
-          <div class="rentals">
-            <div class="rental" ng-repeat="rental in book.rentals">
-              <span>[{{rental.period}} minut] {{rental.rented|date:'d.M.yyyy | H:mm:ss'}}</span>
-              <span ng-hide="rental.returned == null">- {{rental.returned | date:'H:mm:ss'}}</span>
-              <button ng-click="removeRental($parent.book.id, rental.id)">Usuń</button>
+
+        <!--<div id="content">
+          <div class="book" ng-repeat="book in library.books|status:library.filters" style="{{book.style}}" book>
+            <div class="basic form-inline">
+              <input class="name" type="text" placeholder="Wpisz nazwę książki" ng-model="book.name" ng-class="{gray: book.status == 'break' || book.status == 'absent'}" />
+              <div class="status-bar" ng-class="{gray: book.status == 'break' || book.status == 'absent'}" style="border-color: {{book.bar.color}};">
+                <div class="status-progress" style="width: {{book.bar.progress}}; background-color: {{book.bar.color}};"></div>
+              </div>
+              <label class="status" ng-bind="book.niceStatus"></label>
+              <button ng-show="book.status == 'rented'" class="btn" id="return-button-{{$index}}" ng-click="returnBook(book.id)">Zwróć</button>
+              <button ng-show="book.status == 'available'" class="btn" ng-click="rentBook(book.id)">Wypożycz</button>
+              <label ng-show="book.status == 'available'">na</label>
+              <input ng-show="book.status == 'available'" class="period input-mini text-center" type="text" ng-model="book.period" />
+              <label ng-show="book.status == 'available'">minut</label>
+              <label class="checkbox">
+                <input type="checkbox" ng-click="toggleStatus(book.id, 'absent')" ng-checked="book.status == 'absent'" /> Nieobecna
+              </label>
+              <label class="checkbox">
+                <input type="checkbox" ng-click="toggleStatus(book.id, 'break')" ng-checked="book.status == 'break'" /> Na przerwie
+              </label>
+              <label><a ng-click="toggleMore()"><i class="icon-collapse"></i></a></label>
+              <button class="btn btn-link" ng-click="library.deleteBook(book)"><i class="icon-trash"></i></button>
+            </div>
+            <div ng-hide="book.style == ''">
+              <hr />
+              <div class="notes-remove-panel">
+                <input class="notes" type="text" placeholder="Tutaj możesz zapisywać notatki do książki" ng-model="book.notes" />
+              </div>
+              <hr />
+              <div class="rentals">
+                <div class="rental" ng-repeat="rental in book.rentals">
+                  <span>[{{rental.period}} minut] {{rental.rented|date:'d.M.yyyy | H:mm:ss'}}</span>
+                  <span ng-hide="rental.returned == null">- {{rental.returned | date:'H:mm:ss'}}</span>
+                  <button ng-click="removeRental($parent.book.id, rental.id)">Usuń</button>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </div>
-    <div class="overlay-darkness hidden" ng-class="{hidden: !overlay.visible}" ng-click="overlay.visible = false"></div>
-    <div class="overlay hidden" ng-class="{hidden: !overlay.visible}">
-      <textarea ng-model="overlay.data"></textarea>
-      <button class="import" ng-click="import()">Importuj</button>
-      <button class="cancel" ng-click="overlay.visible = false">Anuluj</button>
-    </div>-->
-    
-    <script src="vendor/bower_components/jquery/jquery.js"></script>
-    <script src="vendor/bower_components/bootstrap/dist/js/bootstrap.js"></script>
-    <script src="vendor/bower_components/angular/angular.js"></script>
-    <script src="javascripts/humanLibraryServices.js"></script>
-    <script src="javascripts/humanLibraryControllers.js"></script>
-    <script src="javascripts/humanLibraryDirectives.js"></script>
-    <script src="javascripts/humanLibraryFilters.js"></script>
-    <script src="javascripts/humanLibrary.js"></script>
-  </body>
+        <div class="overlay-darkness hidden" ng-class="{hidden: !overlay.visible}" ng-click="overlay.visible = false"></div>
+        <div class="overlay hidden" ng-class="{hidden: !overlay.visible}">
+          <textarea ng-model="overlay.data"></textarea>
+          <button class="import" ng-click="import()">Importuj</button>
+          <button class="cancel" ng-click="overlay.visible = false">Anuluj</button>
+        </div>-->
+
+        <script src="vendor/bower_components/jquery/jquery.js"></script>
+        <script src="vendor/bower_components/bootstrap/dist/js/bootstrap.js"></script>
+        <script src="vendor/bower_components/angular/angular.js"></script>
+        <script src="javascripts/humanLibraryServices.js"></script>
+        <script src="javascripts/humanLibraryControllers.js"></script>
+        <script src="javascripts/humanLibraryDirectives.js"></script>
+        <script src="javascripts/humanLibraryFilters.js"></script>
+        <script src="javascripts/humanLibrary.js"></script>
+    </body>
 </html>
