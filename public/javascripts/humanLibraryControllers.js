@@ -1,42 +1,11 @@
 angular.module('humanLibrary.controllers', []).
-  controller('LibraryCtrl', ['$scope', '$timeout', function($scope, $timeout) {
+  controller('LibraryCtrl', ['$scope', '$timeout', '$library', function($scope, $timeout, $library) {
 
-    // Constructor of Library object
-    var Library = (function() {
-      function Library() {
-      }
-
-      // Deleting book from library
-      Library.prototype.deleteBook = function(book) {
-        if (angular.isArray(this.books)) {
-          var index = this.books.indexOf(book);
-          if (index !== -1) { 
-            this.books.splice(index, 1);
-          }
-          return index;
-        }
-        return -1;
-      };
-
-      return Library;
-
-    })();
-    
-    var bootstrap = function() {
-      $scope.library = $scope.library || new Library();
-      $scope.library.books = $scope.library.books || [];
-      $scope.library.filters = $scope.library.filters || {};
-      $scope.library.filters.showAvailable = $scope.library.filters.showAvailable || true;
-      $scope.library.filters.showRented = $scope.library.filters.showRented || true;
-      $scope.library.filters.showOnBreak = $scope.library.filters.showOnBreak || true;
-      $scope.library.filters.showAbsent = $scope.library.filters.showAbsent || true;
-    };
+    $scope.library = new $library();
 
     if ((typeof Storage !== "undefined" && Storage !== null) && localStorage.library) {
       //$scope.library = angular.fromJson(localStorage.library);
     }
-
-    bootstrap();
 
     $scope.overlay = {
       visible: false,
@@ -56,24 +25,24 @@ angular.module('humanLibrary.controllers', []).
       return $scope.save();
     };
 
-    $scope.addBook = function() {
-      $scope.library.books.push({
-        id: $scope.library.nextId,
-        nextId: 0,
-        name: '',
-        status: 'available',
-        niceStatus: '',
-        period: 30,
-        rentals: [],
-        style: '',
-        bar: {
-          progress: 100,
-          color: '#00ff00'
-        }
-      });
-      $scope.library.nextId += 1;
-      return $scope.save();
-    };
+//    $scope.addBook = function() {
+//      $scope.library.books.push({
+//        id: $scope.library.nextId,
+//        nextId: 0,
+//        name: '',
+//        status: 'available',
+//        niceStatus: '',
+//        period: 30,
+//        rentals: [],
+//        style: '',
+//        bar: {
+//          progress: 100,
+//          color: '#00ff00'
+//        }
+//      });
+//      $scope.library.nextId += 1;
+//      return $scope.save();
+//    };
 
     $scope.toggleStatus = function(id, status) {
       var bookIndex;
