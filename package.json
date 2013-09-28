@@ -1,23 +1,29 @@
-{
-  "name": "human-library",
-  "version": "0.0.0",
-  "description": "Human library system",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-
-    "repository": {
-    "type": "git",
-    "url": "git@github.com:shityboy/human-library.git"
-  },
-  "author": "",
-  "license": "BSD",
-  "bugs": {
-    "url": "https://github.com/shityboy/human-library/issues"
-  },
+{  "name": "human-library"
+  ,"version": "0.0.0"
+  ,"description": "Human library system"
+  ,"main": "app.js"
   
-  "dependencies": {
-    "bower": "0.9.x"
+  ,"scripts": {
+    "start": "node app.js"
+    ,"prepublish": "bower install"
   }
+
+  ,"repository": {
+    "type": "git"
+    ,"url": "git@github.com:shityboy/human-library.git"
+  }
+
+  ,"author": "Piotr Baranowski"
+  ,"license": "BSD"
+  ,"bugs": {
+    "url": "https://github.com/bolczyslaw/human-library/issues"
+  }
+  
+  ,"dependencies": { "bower": "1.2.x"
+    ,"express": "3.x"
+    ,"less-middleware": "0.1.x"
+    ,"ejs": "0.8.x"
+  }
+  
+  ,"devDependencies": { "supervisor": "0.5.x" }
 }

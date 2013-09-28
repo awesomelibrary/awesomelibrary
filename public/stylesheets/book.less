@@ -1,0 +1,141 @@
+////////////////////////////
+// kolory biblioteki
+@library-red: #d3401e;
+@library-dark-red: #9d3016;
+@library-highlighted-red: #ec917c;
+@library-bluegrey-even: #f6f3f7;
+
+.book {
+  font-size: 14px;
+  margin: 1px 5px 0 5px;
+  padding: 10px 5px 10px 5px;
+  background-color: white;
+  border-radius: 4px;
+  overflow: hidden;
+  height: 25px;
+  color: @library-dark-red;
+  @params: all 0.15s ease-out;
+  transition: @params;
+  -moz-transition: @params;
+  -webkit-transition: @params;
+  -o-transition: @params;
+  /* {
+    transition: @params;
+    -moz-transition: @params;
+    -webkit-transition: @params;
+    -o-transition: @params;
+  }*/
+
+  .basic ul.inline li {
+    vertical-align: middle;
+  }
+  
+  /////////////////////////////
+  // linki
+  /*a:hover {
+    opacity: 0.5;
+  }*/
+  
+  /////////////////////////////
+  // linia pozioma
+  hr {
+    height: 6px;
+    outline-width: 0;
+    border-width: 0;
+    background-color: #cfcfcf;
+  }
+  
+  /////////////////////////////
+  // input nazwa książki
+  /*.name { width: 300px; }
+  .name.gray { border-color: #E8E8E8; color: #E8E8E8; }
+
+  /////////////////////////////
+  // input notatki do książki
+  .notes {
+    position: absolute;
+    right: 126px;
+    left: 0;
+  }
+  .remove-book-button {
+    position: absolute;
+    right: 0;
+  }*/
+    
+  /////////////////////////////
+  // pasek statusu (postępu)
+  .status-bar {
+    display: inline-block;
+    vertical-align: middle;
+    width: 200px;
+    height: 23px;
+    //margin: 0 0 4px 0;
+    border: 1px solid #00ff00;
+    border-radius: 4px;
+    .status-progress {
+      width: 100%;
+      height: 100%;
+      background-color: #00ff00;
+      border-radius: 4px;
+    }
+  }
+  .status-bar.gray {
+    border-color: #E8E8E8 !important;
+    .status-progress { background-color: #E8E8E8 !important; }
+  }
+
+  /////////////////////////////
+  // opis statusu książki, licznik czasu
+  .status {
+    display: inline-block;
+    width: 80px;
+    text-align: center;
+  }
+  /*
+  //licznik i rozwijanie książki
+  .right-corner {
+    float: right;
+    display: inline-block;
+    vertical-align: middle;
+    
+    .counter {
+      float: right;
+      width: 50px;
+      text-align: right;
+    }
+    
+    .more {
+      display: block;
+      float: right;
+      width: 20px;
+      height: 20px;
+      margin: 1px 0 1px 5px; 
+      background: url('images/book-buttons.png');
+    }
+  }
+  
+  .notes-remove-panel {
+    position: relative;
+    height: 28px;
+  }
+  
+  .rentals {
+    height: 195px;
+    overflow: auto;
+    .rental {
+      line-height: 30px;
+      width: 600px;
+      button {
+        float: right;
+        margin-top: 3px;
+      }
+    }
+  }*/
+}
+.rotate {
+  transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  -webkit-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+  -moz-transform: rotate(180deg); 
+}
