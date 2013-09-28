@@ -1,31 +1,29 @@
-{
-  "name": "human-library",
-  "version": "0.0.0",
-  "description": "Human library system",
-  "main": "index.js",
-  "scripts": {
-    "start": "supervisor -w config,routes,app.js -e \"js|json\" app.js"
-  },
+{  "name": "human-library"
+  ,"version": "0.0.0"
+  ,"description": "Human library system"
+  ,"main": "app.js"
+  
+  ,"scripts": {
+    "start": "node app.js"
+    ,"prepublish": "bower install"
+  }
 
-  "repository": {
-    "type": "git",
-    "url": "git@github.com:shityboy/human-library.git"
-  },
+  ,"repository": {
+    "type": "git"
+    ,"url": "git@github.com:shityboy/human-library.git"
+  }
 
-  "author": "",
-  "license": "BSD",
-  "bugs": {
-    "url": "https://github.com/shityboy/human-library/issues"
+  ,"author": "Piotr Baranowski"
+  ,"license": "BSD"
+  ,"bugs": {
+    "url": "https://github.com/bolczyslaw/human-library/issues"
   }
   
-  , "dependencies": {
-    "bower": "0.9.x",
-    "express": "3.x",
-    "less": "1.4.x",
-    "ejs": "0.8.x"
+  ,"dependencies": { "bower": "1.2.x"
+    ,"express": "3.x"
+    ,"less-middleware": "0.1.x"
+    ,"ejs": "0.8.x"
   }
   
-  , "devDependencies": {
-    "supervisor": "0.5.x"
-  }
+  ,"devDependencies": { "supervisor": "0.5.x" }
 }
