@@ -17,36 +17,32 @@
             <button class="btn btn-primary navbar-btn" ng-click="library.addBook()"><i class="glyphicon glyphicon-plus"></i> Dodaj książkę</button>
         </nav>
 
-        <div class="container">
-            <div class="row" ng-repeat="row in library.groupedBooks">
-                <div class="col-md-4 col-lg-4" ng-repeat="book in row" data-hl-book-progress>
-                    <div class="panel panel-default panel-book" ng-class="{'panel-success': book.currentRental == null, 'panel-default': book.currentRental != null}">
-                        <div class="panel-heading">
-                            <ul class="list-inline">
-                                <li><input class="form-control input-sm" type="text" ng-model="book.name" /></li>
-                                <li>
-                                    <button class="btn btn-default btn-sm" ng-click="library.deleteBook(book)">
-                                        <span class="glyphicon glyphicon-trash"></span>
-                                    </button>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="panel-body">
-                            <ul class="list-unstyled">
-                                <li>
-                                    <div class="progress">
-                                        <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" ng-style="{width: progress.percent+'%'}"></div>
-                                    </div>
-                                    {{progress.timer|timer}}
-                                </li>
-                                <li>
-                                    <button class="btn btn-default btn-sm" ng-click="book.rent()">Wypożycz</button>
-                                    <button class="btn btn-default btn-sm" ng-click="book.reRent()">Zwróć i wypożycz</button>
-                                    <button class="btn btn-default btn-sm" ng-click="book.return()">Zwróć</button>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
+        <div class="books-container">
+            <div class="panel panel-default panel-book" ng-repeat="book in library.books" ng-class="{'panel-success': book.currentRental == null, 'panel-default': book.currentRental != null}"  data-hl-book-progress>
+                <div class="panel-heading">
+                    <ul class="list-inline">
+                        <li><input class="form-control input-sm" type="text" ng-model="book.name" /></li>
+                        <li>
+                            <button class="btn btn-default btn-sm" ng-click="library.deleteBook(book)">
+                                <span class="glyphicon glyphicon-trash"></span>
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+                <div class="panel-body">
+                    <ul class="list-unstyled">
+                        <li>
+                            <div class="progress">
+                                <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" ng-style="{width: progress.percent+'%'}"></div>
+                            </div>
+                            {{progress.timer|timer}}
+                        </li>
+                        <li>
+                            <button class="btn btn-default btn-sm" ng-click="book.rent()">Wypożycz</button>
+                            <button class="btn btn-default btn-sm" ng-click="book.reRent()">Zwróć i wypożycz</button>
+                            <button class="btn btn-default btn-sm" ng-click="book.return()">Zwróć</button>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>

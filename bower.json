@@ -1,10 +1,16 @@
-{  "name": "human-library"
-  ,"version": "0.0.0"
-  
-  ,"dependencies": { "jquery": "2.0.x"
-    ,"angular": "1.0.x"
-    ,"angular-resource": "1.0.x"
-    ,"bootstrap": "3.0.x"
-  }
+{
+    "name": "human-library"
+    , "version": "0.0.0"
+
+    , "dependencies": {
+        "jquery": "2.0.x"
+        , "angular": "1.0.x"
+        , "angular-resource": "1.0.x"
+        , "bootstrap": "3.0.x"
+    }
+    
+    , "devDependencies": {
+        "angular-mocks": "1.0.x"
+    }
 
 }

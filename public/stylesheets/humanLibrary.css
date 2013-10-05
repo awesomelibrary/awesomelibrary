@@ -1,6 +1,13 @@
 body {
   padding-top: 70px;
 }
+.books-container {
+  position: relative;
+}
+.books-container .panel-book {
+  width: 350px;
+  display: inline-block;
+}
 /*input[type=text] {
 //  font-size: inherit;
 //  border-width: 0 0 1px 0;

@@ -1,32 +1,33 @@
 angular.module('humanLibrary.directives', []).
         directive('hlBookProgress', [function() {
-                return { restrict: 'A'
-                    ,link: function($scope, $elem, $attrs) {
+                return {restrict: 'A'
+                    , link: function($scope, $elem, $attrs) {
 
+                        window.console.log('sth');
                         // progress bar and timer 
-                        var Progress = (function(){
+                        var Progress = (function() {
                             function Progress(book) {
                                 this.book = book;
                                 this.percent = 0;
                                 this.timer = 0;
                                 this.refresh();
                             };
-                            
+
                             Progress.prototype.refresh = function() {
                                 if (null === this.book.currentRental) {
                                     this.percent = 0;
                                     this.timer = 0;
                                 } else {
-                                    this.timer = 60000*30 + this.book.currentRental.rentedAt - (new Date()).getTime()
-                                    this.percent = (60000*30 - this.timer) / (600*30);
+                                    this.timer = 60000 * 30 + this.book.currentRental.rentedAt - (new Date()).getTime()
+                                    this.percent = (60000 * 30 - this.timer) / (600 * 30);
                                 }
                             };
 
                             return Progress;
                         })();
-                        
+
                         $scope.progress = new Progress($scope.book);
-                        
+
                         //refresh progress on tick
                         $scope.$on('tick', function(e, attrs) {
                             $scope.progress.refresh();
