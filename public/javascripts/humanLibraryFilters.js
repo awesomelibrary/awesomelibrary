@@ -10,20 +10,6 @@ angular.module('humanLibrary.filters', []).
                 return output;
             };
         }).
-        filter('every', function() {
-            return function(input, number) {
-                // if it is not array, return null
-                if (!angular.isArray) { return null; }
-                
-                var i = 0, output = [];
-                while (i < input.length) {
-                    output.push(input.slice(i, i+number));
-                    i += number;
-                }
-                
-                return output;
-            };
-        }).
         filter('timer', function() {
             return function(input) {
                 // if it is not array, return null
