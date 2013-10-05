@@ -1,11 +1,46 @@
 angular.module('humanLibrary.services', ['humanLibrary.filters']).
-        factory('$book', [function() {
+        factory('$rental', [function() {
+                
+                var Rental = function() {
+                    this.rentedAt = (new Date()).getTime();
+                    this.returnedAt = null;
+                };
+                
+                return Rental;
+                
+            }]).
+        factory('$book', ['$rental', function($rental) {
 
                 // Book constructor
                 var Book = function() {
+                    this.rentals = [];
                     this.name = "";
+                    this.currentRental = null;
+                    this.break = false;
                 };
-
+                                
+                // Begin new rental
+                Book.prototype.rent = function() {
+                    if  (null === this.currentRental && !this.break) {
+                        this.currentRental = new $rental();
+                        this.rentals.push(this.currentRental);
+                    }
+                };
+                
+                // Re-rent book
+                Book.prototype.reRent = function() {
+                    this.return();
+                    this.rent();
+                };
+                
+                // Return book
+                Book.prototype.return = function() {
+                    if  (null !== this.currentRental) {
+                        this.currentRental.returnedAt = (new Date()).getTime();
+                        this.currentRental = null;
+                    }
+                };
+                
                 return Book;
 
             }]).

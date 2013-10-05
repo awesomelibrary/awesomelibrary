@@ -2,6 +2,27 @@ angular.module('humanLibrary.controllers', []).
   controller('LibraryCtrl', ['$scope', '$timeout', '$library', function($scope, $timeout, $library) {
 
     $scope.library = new $library();
+    
+    // Ticker
+    var Ticker = (function() {
+
+        function Ticker() {
+            this.start();
+        };
+        
+        Ticker.prototype.start = function() {
+            $scope.$broadcast('tick');
+            that = this;
+            this.timeoutId = $timeout(function() {
+                that.start();
+            }, 1000);
+        };
+        
+        return Ticker;
+
+    })();
+    
+    var ticker = new Ticker();
 
     if ((typeof Storage !== "undefined" && Storage !== null) && localStorage.library) {
       //$scope.library = angular.fromJson(localStorage.library);
@@ -44,37 +65,6 @@ angular.module('humanLibrary.controllers', []).
 //      return $scope.save();
 //    };
 
-    $scope.toggleStatus = function(id, status) {
-      var bookIndex;
-      bookIndex = $scope.indexOfBookWithId(id);
-      if ($scope.library.books[bookIndex].status === status) {
-        $scope.library.books[bookIndex].status = 'available';
-      } else {
-        $scope.library.books[bookIndex].status = status;
-      }
-      return $scope.save();
-    };
-
-    $scope.removeRental = function(bookId, rentalId) {
-      var bookIndex, rentalIndex;
-      bookIndex = $scope.indexOfBookWithId(bookId);
-      rentalIndex = $scope.indexOfRentalWithId(bookIndex, rentalId);
-      if (rentalIndex === 0 && $scope.library.books[bookIndex].status === 'rented') {
-        $scope.returnBook(bookId);
-      }
-      $scope.library.books[bookIndex].rentals.splice(rentalIndex, 1);
-      return $scope.save();
-    };
-
-    var indexById = function(array, id) {
-      var entry, i, _i, _len;
-      for (i = _i = 0, _len = array.length; _i < _len; i = ++_i) {
-        entry = array[i];
-        if (entry.id === id) {
-          return i;
-        }
-      }
-    };
 
     $scope.indexOfRentalWithId = function(index, id) {
       return indexById($scope.library.books[index].rentals, id);

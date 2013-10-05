@@ -13,13 +13,27 @@ angular.module('humanLibrary.filters', []).
         filter('every', function() {
             return function(input, number) {
                 // if it is not array, return null
-                if (!angular.isArray) { return input; }
+                if (!angular.isArray) { return null; }
                 
                 var i = 0, output = [];
                 while (i < input.length) {
                     output.push(input.slice(i, i+number));
                     i += number;
                 }
+                
+                return output;
+            };
+        }).
+        filter('timer', function() {
+            return function(input) {
+                // if it is not array, return null
+                if (!angular.isNumber) { return null; }
+                
+                var output = '';
+                var m = Math.floor(input / 60000);
+                output += (m < 10 ? '0' + m : m) + ':';
+                var s = Math.floor(input % 60000 / 1000);
+                output += s < 10 ? '0' + s : s;
                 
                 return output;
             };
