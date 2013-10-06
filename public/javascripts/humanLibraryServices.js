@@ -1,7 +1,8 @@
 angular.module('humanLibrary.services', ['humanLibrary.filters']).
         factory('$rental', [function() {
 
-                var Rental = function() {
+                var Rental = function(period) {
+                    this.period = angular.isDefined(period) ? period : 30000; //1800000;
                     this.rentedAt = (new Date()).getTime();
                     this.returnedAt = null;
                 };

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="humanLibrary">
+<html data-ng-app="humanLibrary">
     <head>
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
@@ -11,22 +11,22 @@
         <link rel="stylesheet" type="text/css" href="vendor/bower_components/bootstrap/dist/css/bootstrap.css" />
     </head>
 
-    <body ng-controller="LibraryCtrl">
+    <body data-ng-controller="LibraryCtrl">
         <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
             <a class="navbar-brand" href="/">Żywa biblioteka</a>
-            <button class="btn btn-primary navbar-btn" ng-click="library.addBook()"><i class="glyphicon glyphicon-plus"></i> Dodaj książkę</button>
+            <button class="btn btn-primary navbar-btn" data-ng-click="library.addBook()"><i class="glyphicon glyphicon-plus"></i> Dodaj książkę</button>
         </nav>
 
         <div class="books-container">
-            <div class="panel panel-default panel-book" ng-repeat="book in library.books" ng-class="{'panel-success': book.currentRental == null, 'panel-default': book.currentRental != null}"  data-hl-book-progress>
+            <div class="panel panel-default panel-book" data-ng-repeat="book in library.books" data-ng-class="{'panel-success': !book.currentRental, 'panel-danger': progress.status == 'danger', 'panel-warning': progress.status == 'warning' }"  data-hl-book-progress>
                 <div class="panel-heading">
                     <div class="row">
                         <div class="col-lg-9 book-name">
-                            <input class="form-control input-md" type="text" placeholder="Wpisz tytuł książki..." ng-model="book.name">
+                            <input class="form-control input-md" type="text" placeholder="Wpisz tytuł książki..." data-ng-model="book.name">
                             <span class="badge">{{book.rentals.length}}</span>
                         </div>
                         <div class="col-lg-3 text-right">
-                            <button class="btn btn-default btn-md" ng-click="library.deleteBook(book)">
+                            <button class="btn btn-default btn-md" data-ng-click="library.deleteBook(book)">
                                 <span class="glyphicon glyphicon-trash"></span>
                             </button>
                         </div>
@@ -36,18 +36,18 @@
                     <div class="row">
                         <div class="col-lg-9">
                             <div class="progress">
-                                <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" ng-style="{width: progress.percent+'%'}"></div>
+                                <div class="progress-bar" data-ng-class="{'progress-bar-warning': progress.status == 'warning', 'progress-bar-danger': progress.status == 'danger'}" role="progress" aria-valuenow="{{progress.percent}}" aria-valuemin="0" aria-valuemax="100" data-ng-style="{width: progress.percent+'%'}"></div>
                             </div>
                         </div>
                         <div class="col-lg-3 text-right">
-                            {{progress.timer|timer}}
+                            <span class="text-muted" data-ng-class="{'text-primary': book.currentRental, 'text-warning': progress.status == 'warning', 'text-danger': progress.status == 'danger' }">{{progress.timer|timer}}</span>
                         </div>
                     </div>
                     <ul class="list-unstyled">
                         <li>
-                            <button class="btn btn-default btn-sm" ng-click="book.rent()">Wypożycz</button>
-                            <button class="btn btn-default btn-sm" ng-click="book.reRent()">Zwróć i wypożycz</button>
-                            <button class="btn btn-default btn-sm" ng-click="book.return()">Zwróć</button>
+                            <button class="btn btn-default btn-sm" data-ng-click="book.rent()">Wypożycz</button>
+                            <button class="btn btn-default btn-sm" data-ng-click="book.reRent()">Zwróć i wypożycz</button>
+                            <button class="btn btn-default btn-sm" data-ng-click="book.return()">Zwróć</button>
                         </li>
                     </ul>
                 </div>
@@ -55,48 +55,48 @@
         </div>
 
         <!--<div id="content">
-          <div class="book" ng-repeat="book in library.books|status:library.filters" style="{{book.style}}" book>
+          <div class="book" data-ng-repeat="book in library.books|status:library.filters" style="{{book.style}}" book>
             <div class="basic form-inline">
-              <input class="name" type="text" placeholder="Wpisz nazwę książki" ng-model="book.name" ng-class="{gray: book.status == 'break' || book.status == 'absent'}" />
-              <div class="status-bar" ng-class="{gray: book.status == 'break' || book.status == 'absent'}" style="border-color: {{book.bar.color}};">
+              <input class="name" type="text" placeholder="Wpisz nazwę książki" data-ng-model="book.name" data-ng-class="{gray: book.status == 'break' || book.status == 'absent'}" />
+              <div class="status-bar" data-ng-class="{gray: book.status == 'break' || book.status == 'absent'}" style="border-color: {{book.bar.color}};">
                 <div class="status-progress" style="width: {{book.bar.progress}}; background-color: {{book.bar.color}};"></div>
               </div>
-              <label class="status" ng-bind="book.niceStatus"></label>
-              <button ng-show="book.status == 'rented'" class="btn" id="return-button-{{$index}}" ng-click="returnBook(book.id)">Zwróć</button>
-              <button ng-show="book.status == 'available'" class="btn" ng-click="rentBook(book.id)">Wypożycz</button>
-              <label ng-show="book.status == 'available'">na</label>
-              <input ng-show="book.status == 'available'" class="period input-mini text-center" type="text" ng-model="book.period" />
-              <label ng-show="book.status == 'available'">minut</label>
+              <label class="status" data-ng-bind="book.niceStatus"></label>
+              <button data-ng-show="book.status == 'rented'" class="btn" id="return-button-{{$index}}" data-ng-click="returnBook(book.id)">Zwróć</button>
+              <button data-ng-show="book.status == 'available'" class="btn" data-ng-click="rentBook(book.id)">Wypożycz</button>
+              <label data-ng-show="book.status == 'available'">na</label>
+              <input data-ng-show="book.status == 'available'" class="period input-mini text-center" type="text" data-ng-model="book.period" />
+              <label data-ng-show="book.status == 'available'">minut</label>
               <label class="checkbox">
-                <input type="checkbox" ng-click="toggleStatus(book.id, 'absent')" ng-checked="book.status == 'absent'" /> Nieobecna
+                <input type="checkbox" data-ng-click="toggleStatus(book.id, 'absent')" data-ng-checked="book.status == 'absent'" /> Nieobecna
               </label>
               <label class="checkbox">
-                <input type="checkbox" ng-click="toggleStatus(book.id, 'break')" ng-checked="book.status == 'break'" /> Na przerwie
+                <input type="checkbox" data-ng-click="toggleStatus(book.id, 'break')" data-ng-checked="book.status == 'break'" /> Na przerwie
               </label>
-              <label><a ng-click="toggleMore()"><i class="icon-collapse"></i></a></label>
-              <button class="btn btn-link" ng-click="library.deleteBook(book)"><i class="icon-trash"></i></button>
+              <label><a data-ng-click="toggleMore()"><i class="icon-collapse"></i></a></label>
+              <button class="btn btn-link" data-ng-click="library.deleteBook(book)"><i class="icon-trash"></i></button>
             </div>
-            <div ng-hide="book.style == ''">
+            <div data-ng-hide="book.style == ''">
               <hr />
               <div class="notes-remove-panel">
-                <input class="notes" type="text" placeholder="Tutaj możesz zapisywać notatki do książki" ng-model="book.notes" />
+                <input class="notes" type="text" placeholder="Tutaj możesz zapisywać notatki do książki" data-ng-model="book.notes" />
               </div>
               <hr />
               <div class="rentals">
-                <div class="rental" ng-repeat="rental in book.rentals">
+                <div class="rental" data-ng-repeat="rental in book.rentals">
                   <span>[{{rental.period}} minut] {{rental.rented|date:'d.M.yyyy | H:mm:ss'}}</span>
-                  <span ng-hide="rental.returned == null">- {{rental.returned | date:'H:mm:ss'}}</span>
-                  <button ng-click="removeRental($parent.book.id, rental.id)">Usuń</button>
+                  <span data-ng-hide="rental.returned == null">- {{rental.returned | date:'H:mm:ss'}}</span>
+                  <button data-ng-click="removeRental($parent.book.id, rental.id)">Usuń</button>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <div class="overlay-darkness hidden" ng-class="{hidden: !overlay.visible}" ng-click="overlay.visible = false"></div>
-        <div class="overlay hidden" ng-class="{hidden: !overlay.visible}">
-          <textarea ng-model="overlay.data"></textarea>
-          <button class="import" ng-click="import()">Importuj</button>
-          <button class="cancel" ng-click="overlay.visible = false">Anuluj</button>
+        <div class="overlay-darkness hidden" data-ng-class="{hidden: !overlay.visible}" data-ng-click="overlay.visible = false"></div>
+        <div class="overlay hidden" data-ng-class="{hidden: !overlay.visible}">
+          <textarea data-ng-model="overlay.data"></textarea>
+          <button class="import" data-ng-click="import()">Importuj</button>
+          <button class="cancel" data-ng-click="overlay.visible = false">Anuluj</button>
         </div>-->
 
         <script src="vendor/bower_components/jquery/jquery.js"></script>
