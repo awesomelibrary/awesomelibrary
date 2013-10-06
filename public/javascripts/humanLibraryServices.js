@@ -30,6 +30,7 @@ angular.module('humanLibrary.services', ['humanLibrary.filters']).
                     this.name = "";
                     this.currentRental = null;
                     this.break = false;
+                    this.notes = '';
                 };
 
                 // Begin new rental
@@ -60,10 +61,19 @@ angular.module('humanLibrary.services', ['humanLibrary.filters']).
 
                 // Cancel last return
                 Book.prototype.cancelLastReturn = function() {
-                    if (null === this.currentRental && this.rentals.length >= 1) {
-                        var rental = this.rentals[0];
+                    var that = this;
+                    var cancel = function() {
+                        var rental = that.rentals[0];
                         rental.reopen();
-                        this.currentRental = rental;
+                        that.currentRental = rental;
+                    };
+                    if (this.isRented()) {
+                        if (this.rentals.length >= 2) {
+                            this.cancelLastRental();
+                            cancel();
+                        }
+                    } else if (this.rentals.length >= 1) {
+                        cancel();
                     }
                 };
 

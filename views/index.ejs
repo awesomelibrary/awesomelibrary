@@ -22,13 +22,20 @@
                 <div class="panel-heading">
                     <div class="row">
                         <div class="col-lg-9 book-name">
-                            <input class="form-control input-md" type="text" placeholder="Wpisz tytuł książki..." data-ng-model="book.name">
-                            <span class="badge">{{book.rentals.length}}</span>
+                            <p>
+                                <input class="form-control input-md" type="text" placeholder="Wpisz tytuł książki..." data-ng-model="book.name" />
+                                <span class="badge">{{book.rentals.length}}</span>
+                            </p>
                         </div>
                         <div class="col-lg-3 text-right">
                             <button class="btn btn-default btn-md" data-ng-click="library.deleteBook(book)">
                                 <span class="glyphicon glyphicon-trash"></span>
                             </button>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <input class="form-control input-sm book-notes" type="text" placeholder="Notatki..." data-ng-model="book.notes" />
                         </div>
                     </div>
                 </div>
@@ -43,28 +50,21 @@
                             <span class="text-muted" data-ng-class="{'text-primary': book.currentRental, 'text-warning': progress.status == 'warning', 'text-danger': progress.status == 'danger' }">{{progress.timer|timer}}</span>
                         </div>
                     </div>
-                    <ul class="list-unstyled">
-                        <li>
-                            <div class="btn-group btn-group-sm">
-                                <button class="btn btn-default" data-ng-disabled="!book.isRented()" data-ng-click="book.return()">Zwróć</button>
-                                <button type="button" class="btn btn-default dropdown-toggle" data-ng-disabled="!book.isRented()" data-toggle="dropdown">
-                                    <span class="caret"></span>
-                                </button>
-                                <ul class="dropdown-menu" role="menu">
-                                    <li><a href data-ng-click="book.cancelLastRental()">Anuluj wypożyczenie</a></li>
-                                </ul>
-                            </div>                            
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <button class="btn btn-default btn-sm" data-ng-click="book.return()">Zwróć</button>
                             <div class="btn-group btn-group-sm pull-right">
                                 <button class="btn btn-default" data-ng-click="book.rent()">Wypożycz</button>
-                                <button type="button" class="btn btn-default dropdown-toggle" data-ng-disabled="book.isRented()" data-toggle="dropdown">
+                                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
                                     <span class="caret"></span>
                                 </button>
                                 <ul class="dropdown-menu" role="menu">
-                                    <li><a href data-ng-click="book.cancelLastReturn()">Kontynuuj ostatnie wypożyczenie</a></li>
+                                    <li><a href data-ng-click="book.cancelLastReturn()">Kontynuuj ostatnie</a></li>
+                                    <li><a href data-ng-click="book.cancelLastRental()">Anuluj aktualne</a></li>
                                 </ul>
                             </div>                            
-                        </li>
-                    </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

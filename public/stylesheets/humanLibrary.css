@@ -19,6 +19,9 @@ body {
   right: 25px;
   top: 8px;
 }
+.books-container .panel-book .book-notes {
+  height: 21px;
+}
 /*input[type=text] {
 //  font-size: inherit;
 //  border-width: 0 0 1px 0;
