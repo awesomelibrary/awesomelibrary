@@ -3,7 +3,6 @@ angular.module('humanLibrary.directives', []).
                 return {restrict: 'A'
                     , link: function($scope, $elem, $attrs) {
 
-                        window.console.log('sth');
                         // progress bar and timer 
                         var Progress = (function() {
                             function Progress(book) {

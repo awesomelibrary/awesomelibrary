@@ -8,6 +8,17 @@ body {
   width: 350px;
   display: inline-block;
 }
+.books-container .panel-book .book-name {
+  position: relative;
+}
+.books-container .panel-book .book-name input {
+  padding-right: 45px;
+}
+.books-container .panel-book .book-name .badge {
+  position: absolute;
+  right: 25px;
+  top: 8px;
+}
 /*input[type=text] {
 //  font-size: inherit;
 //  border-width: 0 0 1px 0;

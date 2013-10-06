@@ -21,9 +21,12 @@
             <div class="panel panel-default panel-book" ng-repeat="book in library.books" ng-class="{'panel-success': book.currentRental == null, 'panel-default': book.currentRental != null}"  data-hl-book-progress>
                 <div class="panel-heading">
                     <div class="row">
-                        <div class="col-lg-9"><input class="form-control input-sm" type="text" ng-model="book.name" /></div>
+                        <div class="col-lg-9 book-name">
+                            <input class="form-control input-md" type="text" placeholder="Wpisz tytuł książki..." ng-model="book.name">
+                            <span class="badge">{{book.rentals.length}}</span>
+                        </div>
                         <div class="col-lg-3 text-right">
-                            <button class="btn btn-default btn-sm" ng-click="library.deleteBook(book)">
+                            <button class="btn btn-default btn-md" ng-click="library.deleteBook(book)">
                                 <span class="glyphicon glyphicon-trash"></span>
                             </button>
                         </div>
