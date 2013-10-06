@@ -45,9 +45,9 @@
                     </div>
                     <ul class="list-unstyled">
                         <li>
-                            <button class="btn btn-default btn-sm" data-ng-click="book.rent()">Wypożycz</button>
-                            <button class="btn btn-default btn-sm" data-ng-click="book.reRent()">Zwróć i wypożycz</button>
-                            <button class="btn btn-default btn-sm" data-ng-click="book.return()">Zwróć</button>
+                            <button class="btn btn-default btn-sm pull-right" data-ng-click="book.rent()">Wypożycz</button>
+                            <button class="btn btn-default btn-sm" data-ng-disabled="!book.isRented()" data-ng-click="book.return()">Zwróć</button>
+                            <button class="btn btn-default btn-sm" data-ng-disabled="!book.isRented()" data-ng-click="book.cancelLastRental()">Anuluj</button>
                         </li>
                     </ul>
                 </div>
