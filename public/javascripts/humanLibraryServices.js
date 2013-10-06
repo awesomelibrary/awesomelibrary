@@ -7,6 +7,18 @@ angular.module('humanLibrary.services', ['humanLibrary.filters']).
                     this.returnedAt = null;
                 };
 
+                // End rental
+                Rental.prototype.end = function() {
+                    if (null === this.returnedAt) {
+                        this.returnedAt = (new Date()).getTime();
+                    }
+                };
+
+                // Reopen rental
+                Rental.prototype.reopen = function() {
+                    this.returnedAt = null;
+                };
+
                 return Rental;
 
             }]).
@@ -25,7 +37,7 @@ angular.module('humanLibrary.services', ['humanLibrary.filters']).
                     this.return();
                     if (!this.break) {
                         this.currentRental = new $rental();
-                        this.rentals.push(this.currentRental);
+                        this.rentals.unshift(this.currentRental);
                     }
                 };
 
@@ -46,10 +58,19 @@ angular.module('humanLibrary.services', ['humanLibrary.filters']).
                     }
                 };
 
+                // Cancel last return
+                Book.prototype.cancelLastReturn = function() {
+                    if (null === this.currentRental && this.rentals.length >= 1) {
+                        var rental = this.rentals[0];
+                        rental.reopen();
+                        this.currentRental = rental;
+                    }
+                };
+
                 // Return book
                 Book.prototype.return = function() {
                     if (null !== this.currentRental) {
-                        this.currentRental.returnedAt = (new Date()).getTime();
+                        this.currentRental.end();
                         this.currentRental = null;
                     }
                 };

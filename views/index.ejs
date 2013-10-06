@@ -45,9 +45,24 @@
                     </div>
                     <ul class="list-unstyled">
                         <li>
-                            <button class="btn btn-default btn-sm pull-right" data-ng-click="book.rent()">Wypożycz</button>
-                            <button class="btn btn-default btn-sm" data-ng-disabled="!book.isRented()" data-ng-click="book.return()">Zwróć</button>
-                            <button class="btn btn-default btn-sm" data-ng-disabled="!book.isRented()" data-ng-click="book.cancelLastRental()">Anuluj</button>
+                            <div class="btn-group btn-group-sm">
+                                <button class="btn btn-default" data-ng-disabled="!book.isRented()" data-ng-click="book.return()">Zwróć</button>
+                                <button type="button" class="btn btn-default dropdown-toggle" data-ng-disabled="!book.isRented()" data-toggle="dropdown">
+                                    <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href data-ng-click="book.cancelLastRental()">Anuluj wypożyczenie</a></li>
+                                </ul>
+                            </div>                            
+                            <div class="btn-group btn-group-sm pull-right">
+                                <button class="btn btn-default" data-ng-click="book.rent()">Wypożycz</button>
+                                <button type="button" class="btn btn-default dropdown-toggle" data-ng-disabled="book.isRented()" data-toggle="dropdown">
+                                    <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href data-ng-click="book.cancelLastReturn()">Kontynuuj ostatnie wypożyczenie</a></li>
+                                </ul>
+                            </div>                            
                         </li>
                     </ul>
                 </div>
