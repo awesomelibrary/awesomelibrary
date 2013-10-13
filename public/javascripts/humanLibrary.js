@@ -3,5 +3,7 @@ angular.module( 'humanLibrary'
       ,'humanLibrary.services'
       ,'humanLibrary.directives'
       ,'humanLibrary.filters'
+      ,'humanLibrary.translations'
+      ,'ngLocale'
     ]
   );

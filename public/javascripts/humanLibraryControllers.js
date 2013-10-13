@@ -1,6 +1,5 @@
 angular.module('humanLibrary.controllers', []).
   controller('LibraryCtrl', ['$scope', '$timeout', '$library', function($scope, $timeout, $library) {
-
     $scope.library = new $library();
     
     // Ticker
