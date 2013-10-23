@@ -7,8 +7,8 @@
         <title>{{ 'title'|translate }}</title>
         <meta name="description" content="Żywa biblioteka" />
 
-        <link rel="stylesheet" type="text/css" href="stylesheets/humanLibrary.css" />
-        <link rel="stylesheet" type="text/css" href="vendor/bower_components/bootstrap/dist/css/bootstrap.css" />
+        <link rel="stylesheet" type="text/css" href="assets/stylesheets/humanLibrary.css" />
+        <link rel="stylesheet" type="text/css" href="assets/vendor/bower_components/bootstrap/dist/css/bootstrap.css" />
     </head>
 
     <body data-ng-controller="LibraryCtrl">
@@ -18,7 +18,7 @@
         </nav>
 
         <div class="books-container">
-            <div class="panel panel-default panel-book" data-ng-repeat="book in library.books" data-ng-class="{'panel-success': !book.currentRental, 'panel-danger': progress.status == 'danger', 'panel-warning': progress.status == 'warning' }"  data-hl-book-progress>
+            <div class="panel panel-default panel-book" data-ng-repeat="book in library.books" data-ng-class="{'panel-success': !book.currentRental, 'panel-danger': progress.status == 'danger', 'panel-warning': progress.status == 'warning' }" data-ng-style="{top: top, left: left}">
                 <div class="panel-heading">
                     <div class="row">
                         <div class="col-lg-9 book-name">
@@ -69,16 +69,16 @@
             </div>
         </div>
 
-        <script src="vendor/bower_components/jquery/jquery.js"></script>
-        <script src="vendor/bower_components/bootstrap/dist/js/bootstrap.js"></script>
-        <script src="vendor/bower_components/angular/angular.js"></script>
-        <script src="vendor/bower_components/angular-i18n/angular-locale_pl-pl.js"></script>
-        <script src="vendor/bower_components/angular-translate/angular-translate.js"></script>
-        <script src="javascripts/humanLibraryTranslations.js"></script>
-        <script src="javascripts/humanLibraryServices.js"></script>
-        <script src="javascripts/humanLibraryControllers.js"></script>
-        <script src="javascripts/humanLibraryDirectives.js"></script>
-        <script src="javascripts/humanLibraryFilters.js"></script>
-        <script src="javascripts/humanLibrary.js"></script>
+        <script src="assets/vendor/bower_components/jquery/jquery.js"></script>
+        <script src="assets/vendor/bower_components/bootstrap/dist/js/bootstrap.js"></script>
+        <script src="assets/vendor/bower_components/angular/angular.js"></script>
+        <script src="assets/vendor/bower_components/angular-i18n/angular-locale_pl-pl.js"></script>
+        <script src="assets/vendor/bower_components/angular-translate/angular-translate.js"></script>
+        <script src="assets/javascripts/humanLibraryTranslations.js"></script>
+        <script src="assets/javascripts/humanLibraryServices.js"></script>
+        <script src="assets/javascripts/humanLibraryControllers.js"></script>
+        <script src="assets/javascripts/humanLibraryDirectives.js"></script>
+        <script src="assets/javascripts/humanLibraryFilters.js"></script>
+        <script src="assets/javascripts/humanLibrary.js"></script>
     </body>
 </html>

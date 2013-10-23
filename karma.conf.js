@@ -9,12 +9,12 @@ module.exports = function(config) {
         , frameworks: ['jasmine']
         // list of files / patterns to load in the browser
         , files: [
-            'public/vendor/bower_components/jquery/jquery.js'
-            , 'public/vendor/bower_components/bootstrap/dist/js/bootstrap.js'
-            , 'public/vendor/bower_components/angular/angular.js'
-            , 'public/vendor/bower_components/angular-mocks/angular-mocks.js'
-            , 'public/javascripts/*.js'
-            , 'test/unit/**/*Spec.js'
+            'src/assets/vendor/bower_components/jquery/jquery.js'
+            , 'src/assets/vendor/bower_components/bootstrap/dist/js/bootstrap.js'
+            , 'src/assets/vendor/bower_components/angular/angular.js'
+            , 'src/assets/vendor/bower_components/angular-mocks/angular-mocks.js'
+            , 'src/assets/javascripts/*.js'
+            , 'tests/unit/**/*Spec.js'
         ]
         // list of files to exclude
         , exclude: []

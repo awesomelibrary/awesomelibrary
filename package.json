@@ -5,8 +5,7 @@
     , "main": "app.js"
 
     , "scripts": {
-        "start": "node app.js"
-        , "prepublish": "bower install"
+        "prepublish": "bower install"
         , "test": "karma start"
     }
 
@@ -23,13 +22,10 @@
 
     , "dependencies": {
         "bower": "1.2.x"
-        , "express": "3.x"
-        , "less-middleware": "0.1.x"
-        , "ejs": "0.8.x"
     }
 
     , "devDependencies": {
-        "protractor": "0.9.x"
-        , "karma": "0.11.x"
+        "karma": "0.11.x"
+        , "less": "1.5.x"
     }
 }

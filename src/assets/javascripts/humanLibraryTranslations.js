@@ -39,5 +39,5 @@ angular.module('humanLibrary.translations', ['pascalprecht.translate'])
                             }
                     });
                     
-                $translateProvider.preferredLanguage('en');
+                $translateProvider.preferredLanguage('pl');
             }]);
