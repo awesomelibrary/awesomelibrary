@@ -21,37 +21,37 @@
             <div class="panel panel-default panel-book" data-ng-repeat="book in library.books" data-ng-class="{'panel-success': !book.currentRental, 'panel-danger': progress.status == 'danger', 'panel-warning': progress.status == 'warning' }" data-ng-style="{top: top, left: left}">
                 <div class="panel-heading">
                     <div class="row">
-                        <div class="col-lg-9 book-name">
+                        <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9 book-name">
                             <p>
                                 <input class="form-control input-md" type="text" placeholder="{{ 'manageBooks.namePlaceholder'|translate }}" data-ng-model="book.name" />
                                 <span class="badge">{{book.rentals.length}}</span>
                             </p>
                         </div>
-                        <div class="col-lg-3 text-right">
+                        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 text-right">
                             <button class="btn btn-default btn-md" data-ng-click="library.deleteBook(book)">
                                 <span class="glyphicon glyphicon-trash"></span>
                             </button>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-lg-12">
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                             <input class="form-control input-sm book-notes" type="text" placeholder="{{ 'manageBooks.notesPlaceholder'|translate }}" data-ng-model="book.notes" />
                         </div>
                     </div>
                 </div>
                 <div class="panel-body">
                     <div class="row">
-                        <div class="col-lg-9">
+                        <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
                             <div class="progress">
                                 <div class="progress-bar" data-ng-class="{'progress-bar-warning': progress.status == 'warning', 'progress-bar-danger': progress.status == 'danger'}" role="progress" aria-valuenow="{{progress.percent}}" aria-valuemin="0" aria-valuemax="100" data-ng-style="{width: progress.percent+'%'}"></div>
                             </div>
                         </div>
-                        <div class="col-lg-3 text-right">
+                        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 text-right">
                             <span class="text-muted" data-ng-class="{'text-primary': book.currentRental, 'text-warning': progress.status == 'warning', 'text-danger': progress.status == 'danger' }">{{progress.timer|timer}}</span>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-lg-12">
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                             <button class="btn btn-default btn-sm" data-ng-click="book.return()">{{ 'manageBooks.actions.return'|translate }}</button>
                             <div class="btn-group btn-group-sm pull-right">
                                 <button class="btn btn-default" data-ng-click="book.rent()">{{ 'manageBooks.actions.rent'|translate }}</button>

@@ -19,7 +19,7 @@ body {
 @media -sass-debug-info{filename{font-family:file\:\/\/\/home\/bolo\/Projekty\/human-library\/src\/assets\/stylesheets\/humanLibrary\.less}line{font-family:\000038}}
 .books-container {
   position: relative;
-  border-bottom: 1px solid black;
+  /*border-bottom: 1px solid black;*/
 }
 /* line 13, /home/bolo/Projekty/human-library/src/assets/stylesheets/humanLibrary.less */
 @media -sass-debug-info{filename{font-family:file\:\/\/\/home\/bolo\/Projekty\/human-library\/src\/assets\/stylesheets\/humanLibrary\.less}line{font-family:\0000313}}
