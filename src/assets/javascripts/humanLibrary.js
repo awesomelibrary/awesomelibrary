@@ -6,4 +6,4 @@ angular.module('humanLibrary', [
             ,'humanLibrary.translations'
             ,'ngLocale'
         ])
-    .value('$bookCard', {width: 350, height: 188});
+    .value('$bookCard', {width: 300, height: 167});

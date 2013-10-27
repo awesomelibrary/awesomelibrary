@@ -7,6 +7,7 @@ angular.module('humanLibrary.translations', ['pascalprecht.translate'])
                         , mainMenu: {
                                 header: 'Żywa Biblioteka'
                                 , addBook: 'Dodaj książkę'
+                                , archive: 'Zapis i odczyt danych'
                             }
                         , manageBooks: {
                                 namePlaceholder: 'Wpisz tytuł książki...'
