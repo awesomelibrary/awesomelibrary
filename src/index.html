@@ -7,8 +7,9 @@
         <title>{{ 'title'|translate }}</title>
         <meta name="description" content="Żywa biblioteka" />
 
+        <!-- build:css humanLibrary.css -->
         <link rel="stylesheet" type="text/css" href="assets/stylesheets/humanLibrary.css" />
-        <link rel="stylesheet" type="text/css" href="assets/vendor/bower_components/bootstrap/dist/css/bootstrap.css" />
+        <!-- endbuild -->
     </head>
 
     <body data-ng-controller="LibraryCtrl">
@@ -67,6 +68,7 @@
             </div>
         </div>
 
+        <!-- build:js human-library.js -->
         <script src="assets/vendor/bower_components/jquery/jquery.js"></script>
         <script src="assets/vendor/bower_components/bootstrap/dist/js/bootstrap.js"></script>
         <script src="assets/vendor/bower_components/angular/angular.js"></script>
@@ -78,5 +80,7 @@
         <script src="assets/javascripts/humanLibraryDirectives.js"></script>
         <script src="assets/javascripts/humanLibraryFilters.js"></script>
         <script src="assets/javascripts/humanLibrary.js"></script>
+        <!-- endbuild -->
+        
     </body>
 </html>
