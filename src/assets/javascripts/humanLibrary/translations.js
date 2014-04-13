@@ -5,8 +5,7 @@ angular.module('humanLibrary.translations', ['pascalprecht.translate']).config([
         title: 'Żywa Biblioteka',
         mainMenu: {
             header: 'Żywa Biblioteka',
-            addBook: 'Dodaj książkę',
-            archive: 'Zapis i odczyt danych'
+            admitBook: 'Przyjmij książkę'
         },
         manageBooks: {
             namePlaceholder: 'Wpisz tytuł książki...',
@@ -14,8 +13,7 @@ angular.module('humanLibrary.translations', ['pascalprecht.translate']).config([
             actions: {
                 'return': 'Zwróć',
                 rent: 'Wypożycz',
-                cancelCurrentRental: 'Anuluj aktualne wypożyczenie',
-                continueLastRental: 'Kontynuuj ostatnie wypożyczenie'
+                cancelRental: 'Anuluj wypożyczenie'
             }
         }
     });
@@ -25,7 +23,7 @@ angular.module('humanLibrary.translations', ['pascalprecht.translate']).config([
         title: 'Human Library',
         mainMenu: {
             header: 'Human Library',
-            addBook: 'Add book'
+            admitBook: 'Admit book'
         },
         manageBooks: {
             namePlaceholder: 'Enter book title...',
@@ -33,11 +31,9 @@ angular.module('humanLibrary.translations', ['pascalprecht.translate']).config([
             actions: {
                 'return': 'Return',
                 rent: 'Rent',
-                cancelCurrentRental: 'Cancel current rental',
-                continueLastRental: 'Continue last rental'
+                cancelRental: 'Cancel rental'
             }
         }
     });
 
-    $translateProvider.preferredLanguage('pl');
-}]);
+    $translateProvider.preferredLanguage('pl');}]);

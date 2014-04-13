@@ -87,13 +87,16 @@ gulp.task('clean-bower', function () {
 });
 
 gulp.task('clean-css', function () {
-    gulp.src('./src/assets/stylesheets/**/*.css', {
+    gulp.src('./src/assets/stylesheets/humanLibrary.css', {
         read: false
     }).pipe(clean());
 });
 
 gulp.task('beautify', function () {
-    gulp.src('./src/assets/javascripts/**/*.js').pipe(beautify()).pipe(gulp.dest('./src/assets/javascripts/'));
+    var options = {
+        keepArrayIndentation: true
+    };
+    gulp.src('./src/assets/javascripts/**/*.js').pipe(beautify(options)).pipe(gulp.dest('./src/assets/javascripts/'));
 
-    gulp.src(['gulpfile.js', 'karma.conf.js']).pipe(beautify()).pipe(gulp.dest('./'));
+    gulp.src(['gulpfile.js', 'karma.conf.js']).pipe(beautify(options)).pipe(gulp.dest('./'));
 });

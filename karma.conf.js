@@ -3,15 +3,25 @@
 module.exports = function (config) {
     config.set({
         // base path, that will be used to resolve files and exclude
-        basePath: ''
+        basePath: '',
         // frameworks to use
-        ,
-        frameworks: ['jasmine']
+        frameworks: ['jasmine'],
         // list of files / patterns to load in the browser
-        ,
-        files: ['src/assets/vendor/bower_components/jquery/jquery.js', 'src/assets/vendor/bower_components/bootstrap/dist/js/bootstrap.js', 'src/assets/vendor/bower_components/angular/angular.js', 'src/assets/vendor/bower_components/angular-mocks/angular-mocks.js', 'src/assets/javascripts/*.js', 'tests/unit/**/*Spec.js']
+        files: [
+            'src/assets/vendor/bower_components/jquery/dist/jquery.js',
+            'src/assets/vendor/bower_components/bootstrap/dist/js/bootstrap.js',
+            'src/assets/vendor/bower_components/angular/angular.js',
+            'src/assets/vendor/bower_components/angular-mocks/angular-mocks.js',
+            'src/assets/javascripts/humanLibrary.js',
+            'src/assets/javascripts/humanLibrary/controllers.js',
+            'src/assets/javascripts/humanLibrary/directives.js',
+            'src/assets/javascripts/humanLibrary/filters.js',
+            'src/assets/javascripts/humanLibrary/services.js',
+            'src/assets/javascripts/humanLibrary/translations.js',
+            'src/assets/javascripts/**/*.js',
+            'tests/unit/**/*Spec.js'
+            ],
         // list of files to exclude
-        ,
         exclude: []
         // test results reporter to use
         // possible values: 'dots', 'progress', 'junit', 'growl', 'coverage'

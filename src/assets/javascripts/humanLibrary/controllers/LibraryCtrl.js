@@ -1,6 +1,19 @@
-angular.module('humanLibrary.controllers', []).
-controller('LibraryCtrl', ['$scope', '$timeout', '$library', function ($scope, $timeout, $library) {
-    $scope.library = new $library();
+angular.module('humanLibrary.controllers').
+controller('LibraryCtrl', ['$scope', '$timeout', 'libraryLocalStorage', 'rental', 'book', function ($scope, $timeout, libraryLocalStorage, Rental, Book) {
+
+    $scope.library = libraryLocalStorage.load();
+
+    $scope.$watch('library', function (newLibrary) {
+        libraryLocalStorage.save(newLibrary);
+    }, true);
+
+    $scope.rentBook = function (book) {
+        book.rent(new Rental());
+    };
+
+    $scope.admitBook = function () {
+        $scope.library.admitBook(new Book());
+    };
 
     // Ticker
     var Ticker = (function () {
@@ -65,5 +78,4 @@ controller('LibraryCtrl', ['$scope', '$timeout', '$library', function ($scope, $
     //    };
     $scope.indexOfRentalWithId = function (index, id) {
         return indexById($scope.library.books[index].rentals, id);
-    };
-}]);
+    };}]);

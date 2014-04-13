@@ -26,6 +26,9 @@
     "gulp-less": "^1.2.3",
     "gulp-watch": "~0.5.4",
     "gulp-clean": "~0.2.4",
-    "gulp-beautify": "^1.0.3"
+    "gulp-beautify": "^1.0.3",
+    "karma-jasmine": "^0.1.5",
+    "karma-phantomjs-launcher": "^0.1.4",
+    "karma-cli": "^0.0.4"
   }
 }

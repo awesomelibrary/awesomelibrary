@@ -1,4 +1,4 @@
-describe("library created by $library service", function() {
+describe("service library", function() {
     
     var book, library, filter, every;
     
@@ -15,12 +15,12 @@ describe("library created by $library service", function() {
         };
 
         module(['$provide', function($provide) {
-            $provide.value('$book', book);
+            $provide.value('book', book);
             $provide.value('$filter', filter);
         }]);
     
         inject(['$injector', function($injector) {
-            library = new ($injector.get('$library'))();
+            library = new ($injector.get('library'))();
         }]);
     });
     
@@ -28,18 +28,18 @@ describe("library created by $library service", function() {
         expect(library.books.length).toBe(0);
     });
 
-    describe('addBook() method', function() {
+    describe('admitBook() method', function() {
 
         it("should create book entry", function() {
-            library.addBook();
+            library.admitBook(new book());
             expect(library.books.length).toBe(1);
             expect(library.books[0]).toEqual(jasmine.any(book));
             expect(book.calls.length).toBe(1);
         });
 
         it("should create two diffrent book entries when called twice", function() {
-            library.addBook();
-            library.addBook();
+            library.admitBook(new book());
+            library.admitBook(new book());
             expect(library.books.length).toBe(2);
             expect(library.books[0]).toEqual(jasmine.any(book));
             expect(library.books[1]).toEqual(jasmine.any(book));
@@ -48,9 +48,9 @@ describe("library created by $library service", function() {
         });
 
         it("should preserve old book entries when called more than once", function() {
-            library.addBook();
+            library.admitBook(new book());
             var firstBook = library.books[0];
-            library.addBook();
+            library.admitBook(new book());
             expect(library.books).toContain(firstBook);
         });
         

@@ -1,27 +1,5 @@
-angular.module('humanLibrary.directives', []).directive('booksContainer', ['$window', '$bookCard', function ($window, $bookCard) {
-    return {
-        restrict: 'C',
-        link: function ($scope, $elem, $attrs) {
-
-            var refresh = function () {
-                var width = $elem.width();
-                $scope.capacity = Math.floor(width / $bookCard.width);
-                $scope.margin = (width % $bookCard.width) / ($scope.capacity + 1);
-                $scope.$broadcast('refreshBooksPositions');
-            };
-
-            refresh();
-
-            angular.element($window).bind('resize', function () {
-                refresh();
-            });
-
-            $scope.$watch('library.books.length', function (newValue, oldValue) {
-                $scope.$broadcast('refreshBooksPositions');
-            });
-        }
-    };
-}]).directive('panelBook', ['$bookCard', function ($bookCard) {
+angular.module('humanLibrary.directives').
+directive('panelBook', ['$bookCard', function ($bookCard) {
     return {
         restrict: 'C',
         link: function ($scope, $elem, $attrs) {
@@ -36,13 +14,13 @@ angular.module('humanLibrary.directives', []).directive('booksContainer', ['$win
                 }
 
                 Progress.prototype.refresh = function () {
-                    if (null === this.book.currentRental) {
+                    if (null === this.book.currentRental()) {
                         this.percent = 0;
                         this.timer = 0;
                         this.status = '';
                     } else {
-                        this.timer = this.book.currentRental.period + this.book.currentRental.rentedAt - (new Date()).getTime();
-                        var period = Math.round(this.book.currentRental.period / 1000),
+                        this.timer = this.book.currentRental().period + this.book.currentRental().rentedAt - (new Date()).getTime();
+                        var period = Math.round(this.book.currentRental().period / 1000),
                             timer = Math.round(this.timer / 1000);
                         this.percent = (period - timer) / (period) * 100;
                         if (this.percent > 100) {
@@ -61,7 +39,6 @@ angular.module('humanLibrary.directives', []).directive('booksContainer', ['$win
                 return Progress;
             })();
 
-            // book position on the grid
             var refresh = function () {
                 var row = Math.floor($scope.$index / $scope.capacity);
                 $scope.top = (20 + $bookCard.height) * row + 20;
@@ -74,17 +51,16 @@ angular.module('humanLibrary.directives', []).directive('booksContainer', ['$win
                 refresh();
             });
 
-            // progress instance
             $scope.progress = new Progress($scope.book);
 
-            // refresh progress on tick
             $scope.$on('tick', function (e, attrs) {
                 $scope.progress.refresh();
             });
-            // refresh progress on rentals history change (new rental, delete rental)
-            $scope.$watch('book.currentRental', function (newValue, oldValue) {
+
+            $scope.$watch(function () {
+                return $scope.book.currentRental();
+            }, function () {
                 $scope.progress.refresh();
             });
         }
-    };
-}]);
+    };}]);

@@ -1,18 +1,12 @@
 {
-    "name": "human-library"
-    , "version": "0.0.0"
-
-    , "dependencies": {
-        "jquery": "2.0.x"
-        , "angular": "1.0.x"
-        , "angular-resource": "1.0.x"
-        , "angular-i18n": "1.0.x"
-        , "angular-translate": "1.1.x"
-        , "bootstrap": "3.0.x"
-    }
-    
-    , "devDependencies": {
-        "angular-mocks": "1.0.x"
-    }
-
+  "name": "human-library",
+  "version": "0.0.0",
+  "dependencies": {
+    "bootstrap": "~3.1.1",
+    "angular": "~1.2.16",
+    "angular-i18n": "~1.2.16",
+    "angular-translate": "~2.1.0",
+    "jquery": "~2.1.0",
+    "angular-mocks": "~1.2.16"
+  }
 }
