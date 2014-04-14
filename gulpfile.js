@@ -18,7 +18,7 @@ gulp.task('src', ['bower', 'connect-src', 'watch']);
 gulp.task('dist', ['build', 'connect-dist']);
 
 gulp.task('build', ['usemin'], function () {
-    gulp.src('./src/assets/vendor/bower_components/bootstrap/dist/fonts/**/*').pipe(gulp.dest('./dist/fonts/'));
+    gulp.src('./src/assets/vendor/bower_components/bootstrap/dist/fonts/**/*').pipe(gulp.dest('./dist/assets/fonts/'));
 });
 
 gulp.task('watch', ['watch-less', 'watch-js', 'watch-html']);
