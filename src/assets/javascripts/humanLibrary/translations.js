@@ -5,7 +5,7 @@ angular.module('humanLibrary.translations', ['pascalprecht.translate']).config([
         title: 'Żywa Biblioteka',
         mainMenu: {
             header: 'Żywa Biblioteka',
-            admitBook: 'Przyjmij książkę'
+            admitBook: '+ Przyjmij książkę'
         },
         manageBooks: {
             namePlaceholder: 'Wpisz tytuł książki...',
@@ -23,7 +23,7 @@ angular.module('humanLibrary.translations', ['pascalprecht.translate']).config([
         title: 'Human Library',
         mainMenu: {
             header: 'Human Library',
-            admitBook: 'Admit book'
+            admitBook: '+ Admit book'
         },
         manageBooks: {
             namePlaceholder: 'Enter book title...',
@@ -36,4 +36,5 @@ angular.module('humanLibrary.translations', ['pascalprecht.translate']).config([
         }
     });
 
-    $translateProvider.preferredLanguage('pl');}]);
+    $translateProvider.preferredLanguage('pl');
+}]);

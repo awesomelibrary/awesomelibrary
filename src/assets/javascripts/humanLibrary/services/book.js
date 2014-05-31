@@ -46,4 +46,4 @@ factory('book', ['$window', function ($window) {
 
     return Book;
 
-    }]);
+}]);

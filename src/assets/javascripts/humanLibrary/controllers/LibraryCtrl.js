@@ -78,4 +78,5 @@ controller('LibraryCtrl', ['$scope', '$timeout', 'libraryLocalStorage', 'rental'
     //    };
     $scope.indexOfRentalWithId = function (index, id) {
         return indexById($scope.library.books[index].rentals, id);
-    };}]);
+    };
+}]);

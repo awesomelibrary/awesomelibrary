@@ -1,37 +1,37 @@
-describe("service book", function() {
+describe("service book", function () {
 
     var Book, Rental;
 
-    beforeEach(function() {
+    beforeEach(function () {
 
         module('humanLibrary.services');
-        inject(['$injector', function($injector) {
-                Book = $injector.get('book');
-                Rental = $injector.get('rental');
-            }]);
+        inject(['$injector', function ($injector) {
+            Book = $injector.get('book');
+            Rental = $injector.get('rental');
+        }]);
     });
 
-    it("should not be rented", function() {
+    it("should not be rented", function () {
         var book = new Book();
 
         expect(book.isRented()).toBe(false);
     });
 
-    it("should not have current rental", function() {
+    it("should not have current rental", function () {
         var book = new Book();
 
         expect(book.currentRental()).toBeNull();
     });
 
-    it("should not cancel last rental", function() {
+    it("should not cancel last rental", function () {
         var book = new Book();
         book.cancelRental();
         expect(book.rentals.length).toEqual(0);
     });
 
-    describe("after rent", function() {
+    describe("after rent", function () {
 
-        it("should be rented", function() {
+        it("should be rented", function () {
             var rental = new Rental(),
                 book = new Book();
 
@@ -39,7 +39,7 @@ describe("service book", function() {
             expect(book.isRented()).toBe(true);
         });
 
-        it("should have current rental", function() {
+        it("should have current rental", function () {
             var rental = new Rental(),
                 book = new Book();
 
@@ -47,7 +47,7 @@ describe("service book", function() {
             expect(book.currentRental()).toBe(rental);
         });
 
-        it("should add rental to rental list", function() {
+        it("should add rental to rental list", function () {
             var rental = new Rental(),
                 book = new Book();
 
@@ -55,7 +55,7 @@ describe("service book", function() {
             expect(book.rentals.indexOf(rental)).not.toEqual(-1);
         });
 
-        it("can't be rented", function() {
+        it("can't be rented", function () {
             var rental = new Rental(),
                 book = new Book();
 
@@ -65,7 +65,7 @@ describe("service book", function() {
             expect(book.rentals.indexOf(rental)).toEqual(-1);
         });
 
-        it("should cancel last rental", function() {
+        it("should cancel last rental", function () {
             var rental = new Rental(),
                 book = new Book();
 
@@ -78,23 +78,25 @@ describe("service book", function() {
 
     });
 
-    describe("after return", function() {
+    describe("after return", function () {
 
-        it("should not be rented", function() {
+        it("should not be rented", function () {
             var rental = new Rental(),
                 book = new Book();
 
             book.rent(rental);
-            book.return();
+            book.
+            return ();
             expect(book.isRented()).toBe(false);
         });
 
-        it("should not have current rental", function() {
+        it("should not have current rental", function () {
             var rental = new Rental(),
                 book = new Book();
 
             book.rent(rental);
-            book.return();
+            book.
+            return ();
             expect(book.currentRental()).toBeNull();
         });
 

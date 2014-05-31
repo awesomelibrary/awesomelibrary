@@ -22,4 +22,4 @@ factory('library', [function () {
 
     return Library;
 
-    }]);
+}]);

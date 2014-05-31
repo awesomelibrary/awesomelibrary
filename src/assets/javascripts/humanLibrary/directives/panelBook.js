@@ -63,4 +63,5 @@ directive('panelBook', ['$bookCard', function ($bookCard) {
                 $scope.progress.refresh();
             });
         }
-    };}]);
+    };
+}]);

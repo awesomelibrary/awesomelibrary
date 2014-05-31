@@ -21,4 +21,5 @@ directive('booksContainer', ['$window', '$bookCard', function ($window, $bookCar
                 $scope.$broadcast('refreshBooksPositions');
             });
         }
-    };}]);
+    };
+}]);

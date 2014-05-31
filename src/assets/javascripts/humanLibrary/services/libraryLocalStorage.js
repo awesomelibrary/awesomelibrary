@@ -40,4 +40,4 @@ factory('libraryLocalStorage', ['$window', 'library', 'book', 'rental', function
 
     return new LibraryLocalStorage();
 
-    }]);
+}]);

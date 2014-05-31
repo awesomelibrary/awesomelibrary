@@ -26,4 +26,4 @@ factory('rental', [function () {
 
     return Rental;
 
-    }]);
+}]);
