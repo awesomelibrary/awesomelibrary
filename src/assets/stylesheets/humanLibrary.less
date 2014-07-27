@@ -2,35 +2,10 @@
 @import "bootstrapVariables.less";
 @import "fonts.less";
 
+@import "widgets/cardBook.less";
+@import "widgets/form.less";
+
 body { padding-top: 51px; }
-
-.books-container {
-    
-    position: relative;
-    /*border-bottom: 1px solid black;*/
-    
-    .panel-book { 
-        width: 300px;
-        display: inline-block;
-        position: absolute;
-        transition-property: left, top;
-        transition-duration: 300ms;
-        transition-delay: 200ms;
-
-        .book-name {
-            position: relative;
-            input { padding-right: 45px; }
-            .badge {
-                position: absolute;
-                right: 25px;
-                top: 8px;
-            }
-        }
-
-        .book-notes { height: 21px; }
-    }
-
-}
 
 ////////////////////////////////////////////////////////////////////////////////
 // Elementy występujące raz w całej aplikacji

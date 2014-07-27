@@ -8,12 +8,12 @@ angular.module('humanLibrary.translations', ['pascalprecht.translate']).config([
             admitBook: '+ Przyjmij książkę'
         },
         manageBooks: {
-            namePlaceholder: 'Wpisz tytuł książki...',
-            notesPlaceholder: 'Notatki...',
+            namePlaceholder: 'Imię...',
+            titlePlaceholder: 'Tytuł...',
             actions: {
                 'return': 'Zwróć',
                 rent: 'Wypożycz',
-                cancelRental: 'Anuluj wypożyczenie'
+                cancelRental: 'Anuluj'
             }
         }
     });
@@ -26,12 +26,12 @@ angular.module('humanLibrary.translations', ['pascalprecht.translate']).config([
             admitBook: '+ Admit book'
         },
         manageBooks: {
-            namePlaceholder: 'Enter book title...',
-            notesPlaceholder: 'Notes...',
+            namePlaceholder: 'Name...',
+            titlePlaceholder: 'Title...',
             actions: {
                 'return': 'Return',
                 rent: 'Rent',
-                cancelRental: 'Cancel rental'
+                cancelRental: 'Cancel'
             }
         }
     });

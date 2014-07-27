@@ -1,7 +1,7 @@
 angular.module('humanLibrary.directives').
-directive('panelBook', ['$bookCard', function ($bookCard) {
+directive('hlBook', ['$bookCard', function ($bookCard) {
     return {
-        restrict: 'C',
+        restrict: 'A',
         link: function ($scope, $elem, $attrs) {
             // progress bar and timer 
             var Progress = (function () {

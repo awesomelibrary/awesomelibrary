@@ -1,0 +1,13 @@
+.form-control {
+    padding: 0 0 1px 0;
+    background-color: transparent;
+    .box-shadow(none);
+    border: none;
+    height: auto;
+
+    &:focus, &:hover {
+        padding-bottom: 0;
+        border-bottom: 1px  solid @input-border;
+        .box-shadow(none);
+    }
+}
