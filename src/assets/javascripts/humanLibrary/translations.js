@@ -5,7 +5,8 @@ angular.module('humanLibrary.translations', ['pascalprecht.translate']).config([
         title: 'Żywa Biblioteka',
         mainMenu: {
             header: 'Żywa Biblioteka',
-            admitBook: '+ Przyjmij książkę'
+            admitBook: '+ Przyjmij książkę',
+            newEdition: 'Nowa edycja'
         },
         manageBooks: {
             namePlaceholder: 'Imię...',
@@ -23,7 +24,8 @@ angular.module('humanLibrary.translations', ['pascalprecht.translate']).config([
         title: 'Human Library',
         mainMenu: {
             header: 'Human Library',
-            admitBook: '+ Admit book'
+            admitBook: '+ Admit book',
+            newEdition: 'New edition'
         },
         manageBooks: {
             namePlaceholder: 'Name...',

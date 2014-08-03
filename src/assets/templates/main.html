@@ -1,8 +1,13 @@
 <nav id="hl-navbar" class="navbar navbar-default navbar-fixed-top" role="navigation">
     <div class="container-fluid">
-        <span class="navbar-brand">{{ 'mainMenu.header'|translate }}</span>
+        <a href class="navbar-brand">{{ 'mainMenu.header'|translate }}</a>
         <ul class="nav navbar-nav navbar-right">
             <li><button class="btn btn-primary navbar-btn" data-ng-click="admitBook()">{{ 'mainMenu.admitBook'|translate }}</button></li>
+            <li>
+                <button class="btn btn-default navbar-btn" data-ng-click="newEdition()" title="{{ 'mainMenu.newEdition'|translate }}">
+                    <i class="glyphicon glyphicon-trash"></i>
+                </button>
+            </li>
         </ul>
     </div>
 </nav>

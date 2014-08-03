@@ -1,5 +1,5 @@
 angular.module('humanLibrary.controllers').
-controller('LibraryCtrl', ['$scope', '$timeout', 'libraryLocalStorage', 'rental', 'book', function ($scope, $timeout, libraryLocalStorage, Rental, Book) {
+controller('LibraryCtrl', ['$scope', '$timeout', 'libraryLocalStorage', 'rental', 'book', 'library', function ($scope, $timeout, libraryLocalStorage, Rental, Book, Library) {
 
     $scope.library = libraryLocalStorage.load();
 
@@ -13,6 +13,10 @@ controller('LibraryCtrl', ['$scope', '$timeout', 'libraryLocalStorage', 'rental'
 
     $scope.admitBook = function () {
         $scope.library.admitBook(new Book());
+    };
+
+    $scope.newEdition = function () {
+        $scope.library = new Library();
     };
 
     // Ticker
@@ -58,24 +62,6 @@ controller('LibraryCtrl', ['$scope', '$timeout', 'libraryLocalStorage', 'rental'
         return $scope.save();
     };
 
-    //    $scope.addBook = function() {
-    //      $scope.library.books.push({
-    //        id: $scope.library.nextId,
-    //        nextId: 0,
-    //        name: '',
-    //        status: 'available',
-    //        niceStatus: '',
-    //        period: 30,
-    //        rentals: [],
-    //        style: '',
-    //        bar: {
-    //          progress: 100,
-    //          color: '#00ff00'
-    //        }
-    //      });
-    //      $scope.library.nextId += 1;
-    //      return $scope.save();
-    //    };
     $scope.indexOfRentalWithId = function (index, id) {
         return indexById($scope.library.books[index].rentals, id);
     };
