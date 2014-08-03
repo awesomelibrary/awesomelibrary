@@ -7,8 +7,7 @@ factory('rental', [function () {
         this.returnedAt = null;
     };
 
-    //    Rental.prototype.PERIOD = 1800000;
-    Rental.prototype.PERIOD = 18000;
+    Rental.prototype.PERIOD = 1800000;
 
     Rental.prototype.end = function () {
         if (null === this.returnedAt) {

@@ -2,8 +2,7 @@
 @import "bootstrapVariables.less";
 @import "fonts.less";
 
-@import "widgets/cardBook.less";
-@import "widgets/form.less";
+@import "widgets/panel-book.less";
 
 body { padding-top: 51px; }
 
@@ -15,151 +14,9 @@ body { padding-top: 51px; }
     }
 }
 
-//@import "book.less";
 ////////////////////////////
 // kolory biblioteki
 @library-red: #d3401e;
 @library-dark-red: #9d3016;
 
-///////////////////////
-// globalne ustawienia
-/*input[type=text] {
-//  font-size: inherit;
-//  border-width: 0 0 1px 0;
-//  border-style: solid;
-  //border-color: $library-dark-red;
-  outline: none;
-  padding: 0;
-  color: inherit;
-  font-family: inherit;
-  vertical-align: middle;
-  margin: 1px 0 4px 0;
-  background-color: inherit;
-}
-input[type=text]:focus {
-  margin-top: 0;
-  border-width: 1px 0 1px 0;
-  // border-color: black;
-}*/
-/*.hidden {
-  opacity: 0 !important;
-  visibility: hidden;
-}*/
-
-/////////////////////////////
-// przyciski
-/*button {
-  color: white;
-  font-size: 18px;
-  background-color: @library-red;
-  border-style: none;
-  outline: none;
-  padding-top: 1px;
-  padding-bottom: 1px;
-  margin: 0 0 2px 0;
-  vertical-align: middle;
-  border-radius: 4px;
-  width: 120px;
-}
-button:hover {
-  opacity: 0.5;
-}*/
-
-///////////////////////
-// layout
-
-/*#header {
-  position: absolute;
-  min-width: 1180px;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 30px;
-  margin: 0;
-  padding: 5px 10px 5px 10px;
-  background-color: @library-red;
-  color: white;
-  
-  h1 {
-    float: left;
-    padding: 0;
-    margin: 0;
-    font-size: 1.6em;
-    font-weight: bold;
-  }
-  
-  .controlls {
-    float: right;
-  }
-  
-  h1, .controlls {
-    line-height: 30px;
-  }
-  
-  a, a:active, a:visited { color: white }
-  a:hover { opacity: 0.5; }
-  
-  .filters {
-    margin-right: 50px;
-  }
-}*/
-
-/*#content {
-  min-width: 1200px;
-  background: url('images/background.jpg') left top repeat;
-  position: absolute;
-  top: 40px;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  overflow: auto;
-}
-
-.book, #header {
-  box-shadow: 0 0 5px 1px #777777;
-}*/
-
-///////////////////////////
-// overlay
-/*.overlay-darkness, .overlay, button, a {
-  @params: opacity 0.15s ease-out;
-  transition: @params;
-  -moz-transition: @params;
-  -webkit-transition: @params;
-  -o-transition: @params;
-}
-.overlay-darkness {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  background-color: black;
-  opacity: 0.7;
-}
-.overlay {
-  background-color: white;
-  position: absolute;
-  width: 590px;
-  height: 390px;
-  border-radius: 4px;
-  padding: 10px;
-  left: 50%;
-  top: 50%;
-  margin: -200px 0 0 -300px;
-  overflow: auto;
-  textarea {
-    display: block;
-    width: 584px;
-    height: 339px;    
-    border-radius: 4px;
-  }
-  .import, .cancel {
-    position: absolute;
-    bottom: 8px;
-    width: 250px;
-    height: 35px;
-  }
-  .import { left: 10px; }
-  .cancel { right: 10px; }
-}*/
+@animationBounce: cubic-bezier(.2,0,.2,1.2);
