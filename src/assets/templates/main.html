@@ -8,6 +8,11 @@
                     <i class="glyphicon glyphicon-trash"></i>
                 </button>
             </li>
+            <li>
+                <a data-ng-controller="LibraryExportCtrl" data-ng-href="{{libraryExportUrl}}" download="humanLibraryExport.json" title="{{ 'mainMenu.exportLibrary'|translate }}">
+                    <i class="glyphicon glyphicon-cloud-download"></i>
+                </a>
+            </li>
         </ul>
     </div>
 </nav>
