@@ -1,3 +1,10 @@
+# dependencies
 /node_modules/
 bower_components/
+
+# webstorm
 /.idea/
+
+# others
+/dist/
+/dev/
