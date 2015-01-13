@@ -131,3 +131,5 @@ gulp.task('beautify', function() {
     gulp.src('./tests/**/*.js').pipe(beautify()).pipe(gulp.dest('./tests/'));
     gulp.src(['gulpfile.js', 'karma.conf.js']).pipe(beautify()).pipe(gulp.dest('./'));
 });
+
+gulp.task('ci');
