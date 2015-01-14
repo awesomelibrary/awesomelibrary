@@ -8,47 +8,20 @@
   <title data-ng-bind="'title' | translate"></title>
   <meta name="description" content="Żywa biblioteka" />
 
-  <!-- build:css assets/stylesheets/humanLibrary.css -->
-  <link rel="stylesheet" type="text/css" href="assets/stylesheets/humanLibrary.css" />
-  <!-- endbuild -->
+  <!-- inject:css -->
+  <!-- endinject -->
 </head>
 
 <body data-ng-controller="LibraryCtrl">
   <div data-ng-include="'assets/templates/main.html'"></div>
 
-  <!-- build:js assets/javascripts/human-library.js -->
-  <script src="assets/vendor/bower_components/jquery/dist/jquery.js"></script>
-  <script src="assets/vendor/bower_components/bootstrap/dist/js/bootstrap.js"></script>
-  <script src="assets/vendor/bower_components/angular/angular.js"></script>
-  <script src="assets/vendor/bower_components/angular-i18n/angular-locale_pl-pl.js"></script>
-  <script src="assets/vendor/bower_components/angular-translate/angular-translate.js"></script>
-
-  <script src="assets/javascripts/humanLibrary.js"></script>
-
-  <script src="assets/javascripts/humanLibrary/controllers.js"></script>
-  <script src="assets/javascripts/humanLibrary/controllers/LibraryCtrl.js"></script>
-
-  <script src="assets/javascripts/humanLibrary/directives.js"></script>
-  <script src="assets/javascripts/humanLibrary/directives/booksContainer.js"></script>
-  <script src="assets/javascripts/humanLibrary/directives/hlBook.js"></script>
-
-  <script src="assets/javascripts/humanLibrary/filters.js"></script>
-  <script src="assets/javascripts/humanLibrary/filters/status.js"></script>
-  <script src="assets/javascripts/humanLibrary/filters/timer.js"></script>
-
-  <script src="assets/javascripts/humanLibrary/services.js"></script>
-  <script src="assets/javascripts/humanLibrary/services/book.js"></script>
-  <script src="assets/javascripts/humanLibrary/services/library.js"></script>
-  <script src="assets/javascripts/humanLibrary/services/libraryLocalStorage.js"></script>
-  <script src="assets/javascripts/humanLibrary/services/rental.js"></script>
-
-  <script src="assets/javascripts/humanLibrary/translations.js"></script>
-
-  <script src="assets/javascripts/humanLibrary/libraryExport.js"></script>
-  <script src="assets/javascripts/humanLibrary/libraryExport/controllers/LibraryExportCtrl.js"></script>
-  <script src="assets/javascripts/humanLibrary/libraryExport/services/libraryExport.js"></script>
-  <!-- endbuild -->
-
+  <script src="/bower_components/jquery/dist/jquery.js"></script>
+  <script src="/bower_components/bootstrap/dist/js/bootstrap.js"></script>
+  <script src="/bower_components/angular/angular.js"></script>
+  <script src="/bower_components/angular-i18n/angular-locale_pl-pl.js"></script>
+  <script src="/bower_components/angular-translate/angular-translate.js"></script>
+  <!-- inject:js -->
+  <!-- endinject -->
 </body>
 
 </html>
