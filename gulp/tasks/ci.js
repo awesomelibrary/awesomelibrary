@@ -1,5 +1,11 @@
 'use strict';
 
 var gulp = require('gulp');
+var runSequence = require('run-sequence');
 
-gulp.task('ci');
+var config = require('../defaults');
+
+gulp.task('ci', function(done) {
+  config.jsbeautifierVerifyOnly = true;
+  runSequence('jsbeautifier', done);
+});
