@@ -1,10 +1,39 @@
 'use strict';
 
 var gulp = require('gulp');
-var beautify = require('gulp-beautify');
+var jsbeautifier = require('gulp-jsbeautifier');
 
-gulp.task('beautify', function() {
-  gulp.src('./src/assets/javascripts/**/*.js').pipe(beautify()).pipe(gulp.dest('./src/assets/javascripts/'));
-  gulp.src('./tests/**/*.js').pipe(beautify()).pipe(gulp.dest('./tests/'));
-  gulp.src(['gulpfile.js', 'karma.conf.js']).pipe(beautify()).pipe(gulp.dest('./'));
+var config = require('../defaults');
+
+gulp.task('jsbeautifier', function() {
+
+  var jsbeautifyConfig = './.jsbeautifyrc';
+  var stream;
+
+  stream = gulp
+    .src([
+      './src/**/*.js',
+      './src/**/*.html',
+      './gulp/**/*.js',
+      './gulpfile.js',
+      './karma.conf.js',
+      '!./src/assets/vendor/bower_components/**'
+    ], {
+      base: './'
+    });
+
+  if (config.jsbeautifierVerifyOnly) {
+    return stream.pipe(jsbeautifier({
+      mode: 'VERIFY_ONLY',
+      config: jsbeautifyConfig
+    }));
+  }
+
+  return stream
+    .pipe(jsbeautifier({
+      mode: 'VERIFY_AND_WRITE',
+      config: jsbeautifyConfig
+    }))
+    .pipe(gulp.dest('./'));
+
 });
