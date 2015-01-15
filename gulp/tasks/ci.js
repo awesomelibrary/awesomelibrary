@@ -7,5 +7,11 @@ var config = require('../defaults');
 
 gulp.task('ci', function(done) {
   config.jsbeautifierVerifyOnly = true;
-  runSequence('jsbeautifier', done);
+  runSequence(
+    [
+      'jsbeautifier',
+      'build'
+    ],
+    done
+  );
 });
