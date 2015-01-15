@@ -3,10 +3,9 @@
 var gulp = require('gulp');
 var webserver = require('gulp-webserver');
 
-gulp.task('webserver-dev', ['inject', 'templates', 'assets', 'assets-bower', 'glyphiconfont'], function() {
-  gulp.src('./dev/')
+gulp.task('webserver-dist', function() {
+  gulp.src('./dist/')
     .pipe(webserver({
-      livereload: true,
       directoryListing: false,
       open: true
     }));
