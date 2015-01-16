@@ -13,7 +13,7 @@ gulp.task('inject', ['js', 'less'], function() {
     .src('./src/index.html')
     .pipe(inject(
       gulp.src([
-        '.' + baseDir + '/assets/javascripts/**/*.js',
+        '.' + baseDir + '/humanLibrary.js',
         '.' + baseDir + '/*.css'
       ], {
         read: false

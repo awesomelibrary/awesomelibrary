@@ -19,7 +19,7 @@ gulp.task('assets', function() {
 
 });
 
-gulp.task('assets-bower', function() {
+gulp.task('assets-bower', ['bower'], function() {
 
   var baseDir = config.dev ? './dev' : './dist';
 
@@ -29,7 +29,7 @@ gulp.task('assets-bower', function() {
 
 });
 
-gulp.task('glyphiconfont', function() {
+gulp.task('glyphiconfont', ['bower'], function() {
 
   var baseDir = config.dev ? './dev' : './dist';
 

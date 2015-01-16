@@ -1,10 +1,16 @@
-angular.module('humanLibrary.services').
-factory('book', ['$window', function($window) {
+'use strict';
 
-  var Book = function() {
+/**
+ * @param $window
+ * @returns {Book}
+ * @ngInject
+ */
+function bookServiceFactory($window) {
+
+  function Book() {
     this.rentals = [];
     this.name = "";
-  };
+  }
 
   Book.prototype.rent = function(rental) {
     if (this.isRented()) {
@@ -20,8 +26,7 @@ factory('book', ['$window', function($window) {
     this.rentals.shift();
   };
 
-  Book.prototype.
-  return = function() {
+  Book.prototype.return = function() {
 
     if (!this.isRented()) {
       return;
@@ -46,4 +51,6 @@ factory('book', ['$window', function($window) {
 
   return Book;
 
-}]);
+}
+
+module.exports = bookServiceFactory;

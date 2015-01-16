@@ -1,10 +1,17 @@
-angular.module('humanLibrary.libraryExport')
-  .controller('LibraryExportCtrl', ['$scope', 'libraryExport',
-    function($scope, libraryExport) {
+'use strict';
 
-      $scope.$watch('library', function(library) {
-        $scope.libraryExportUrl = libraryExport(library);
-      }, true);
+/**
+ * @param $scope
+ * @param libraryExport
+ * @constructor
+ * @ngInject
+ */
+function LibraryExportCtrl($scope, libraryExport) {
 
-    }
-  ]);
+  $scope.$watch('library', function(library) {
+    $scope.libraryExportUrl = libraryExport(library);
+  }, true);
+
+}
+
+module.exports = LibraryExportCtrl;

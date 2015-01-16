@@ -1,6 +1,8 @@
-angular.module('humanLibrary.filters', []).
-filter('timer', function() {
-  return function(input) {
+'use strict';
+
+function timerFilterFactory() {
+
+  function timerFilter(input) {
     // if it is not number, return null
     if (!angular.isNumber) {
       return null;
@@ -20,5 +22,10 @@ filter('timer', function() {
     output += s < 10 ? '0' + s : s;
 
     return output;
-  };
-});
+  }
+
+  return timerFilter;
+
+}
+
+module.exports = timerFilterFactory;

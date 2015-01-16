@@ -1,17 +1,19 @@
-angular.module('humanLibrary.services').
-factory('library', [function() {
+'use strict';
 
-  // Library constructor
-  var Library = function() {
+/**
+ * @returns {Library}
+ * @ngInject
+ */
+function libraryServiceFactory() {
+
+  function Library() {
     this.books = [];
-  };
+  }
 
-  // Adding book to the library
   Library.prototype.admitBook = function(book) {
     this.books.push(book);
   };
 
-  // Deleting book from the library
   Library.prototype.deleteBook = function(book) {
     var index = this.books.indexOf(book);
     if (index !== -1) {
@@ -22,4 +24,6 @@ factory('library', [function() {
 
   return Library;
 
-}]);
+}
+
+module.exports = libraryServiceFactory;
