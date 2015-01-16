@@ -1,11 +1,16 @@
-angular.module('humanLibrary.services').
-factory('rental', [function() {
+'use strict';
 
-  var Rental = function(period) {
+/**
+ * @returns {Rental}
+ * @ngInject
+ */
+function rentalServiceFactory() {
+
+  function Rental(period) {
     this.period = angular.isDefined(period) ? period : this.PERIOD;
     this.rentedAt = (new Date()).getTime();
     this.returnedAt = null;
-  };
+  }
 
   Rental.prototype.PERIOD = 1800000;
 
@@ -25,4 +30,6 @@ factory('rental', [function() {
 
   return Rental;
 
-}]);
+}
+
+module.exports = rentalServiceFactory;

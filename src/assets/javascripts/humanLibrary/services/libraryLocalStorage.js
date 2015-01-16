@@ -1,5 +1,14 @@
-angular.module('humanLibrary.services').
-factory('libraryLocalStorage', ['$window', 'library', 'book', 'rental', function($window, Library, Book, Rental) {
+'use strict';
+
+/**
+ * @param $window
+ * @param library
+ * @param book
+ * @param rental
+ * @returns {libraryLocalStorageServiceFactory.LibraryLocalStorage}
+ * @ngInject
+ */
+function libraryLocalStorageServiceFactory($window, Library, Book, Rental) {
 
   function LibraryLocalStorage() {}
 
@@ -40,4 +49,6 @@ factory('libraryLocalStorage', ['$window', 'library', 'book', 'rental', function
 
   return new LibraryLocalStorage();
 
-}]);
+}
+
+module.exports = libraryLocalStorageServiceFactory;

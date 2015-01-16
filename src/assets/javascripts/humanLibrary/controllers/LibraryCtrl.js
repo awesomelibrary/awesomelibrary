@@ -1,5 +1,16 @@
-angular.module('humanLibrary.controllers').
-controller('LibraryCtrl', ['$scope', '$timeout', 'libraryLocalStorage', 'rental', 'book', 'library', function($scope, $timeout, libraryLocalStorage, Rental, Book, Library) {
+'use strict';
+
+/**
+ * @param $scope
+ * @param $timeout
+ * @param libraryLocalStorage
+ * @param rental
+ * @param book
+ * @param library
+ * @constructor
+ * @ngInject
+ */
+function LibraryCtrl($scope, $timeout, libraryLocalStorage, Rental, Book, Library) {
 
   $scope.library = libraryLocalStorage.load();
 
@@ -28,7 +39,7 @@ controller('LibraryCtrl', ['$scope', '$timeout', 'libraryLocalStorage', 'rental'
 
     Ticker.prototype.start = function() {
       $scope.$broadcast('tick');
-      that = this;
+      var that = this;
       this.timeoutId = $timeout(function() {
         that.start();
       }, 1000);
@@ -65,4 +76,6 @@ controller('LibraryCtrl', ['$scope', '$timeout', 'libraryLocalStorage', 'rental'
   $scope.indexOfRentalWithId = function(index, id) {
     return indexById($scope.library.books[index].rentals, id);
   };
-}]);
+}
+
+module.exports = LibraryCtrl;
