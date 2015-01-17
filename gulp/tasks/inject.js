@@ -10,11 +10,11 @@ gulp.task('inject', ['js', 'less'], function() {
   var baseDir = config.dev ? '/dev' : '/dist';
 
   return gulp
-    .src('./src/index.html')
+    .src('./src/humanLibrary/index.html')
     .pipe(inject(
       gulp.src([
-        '.' + baseDir + '/humanLibrary.js',
-        '.' + baseDir + '/*.css'
+        '.' + baseDir + '/humanLibrary/index.js',
+        '.' + baseDir + '/humanLibrary/index.css'
       ], {
         read: false
       }), {
