@@ -10,8 +10,8 @@ gulp.task('less', ['bower'], function() {
   var baseDir = config.dev ? './dev/' : './dist/';
 
   return gulp
-    .src('./src/assets/stylesheets/humanLibrary.less')
+    .src('./src/humanLibrary/index.less')
     .pipe(less())
-    .pipe(gulp.dest(baseDir));
+    .pipe(gulp.dest(baseDir + 'humanLibrary/'));
 
 });

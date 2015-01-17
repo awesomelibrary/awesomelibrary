@@ -10,7 +10,8 @@ gulp.task('ci', function(done) {
   runSequence(
     [
       'jsbeautifier',
-      'build'
+      'build',
+      'test'
     ],
     done
   );

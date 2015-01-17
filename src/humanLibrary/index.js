@@ -6,17 +6,17 @@ require('angular-translate');
 
 angular
   .module('humanLibrary', ['pascalprecht.translate'])
-  .controller('LibraryCtrl', require('../assets/javascripts/humanLibrary/controllers/LibraryCtrl'))
-  .controller('LibraryExportCtrl', require('../assets/javascripts/humanLibrary/libraryExport/controllers/LibraryExportCtrl'))
-  .factory('Book', require('../assets/javascripts/humanLibrary/services/book'))
-  .factory('Library', require('../assets/javascripts/humanLibrary/services/library'))
-  .factory('libraryLocalStorage', require('../assets/javascripts/humanLibrary/services/libraryLocalStorage'))
-  .factory('Rental', require('../assets/javascripts/humanLibrary/services/rental'))
-  .factory('libraryExport', require('../assets/javascripts/humanLibrary/libraryExport/services/libraryExport'))
-  .directive('booksContainer', require('../assets/javascripts/humanLibrary/directives/booksContainer'))
-  .directive('hlBook', require('../assets/javascripts/humanLibrary/directives/hlBook'))
-  .filter('status', require('../assets/javascripts/humanLibrary/filters/status'))
-  .filter('timer', require('../assets/javascripts/humanLibrary/filters/timer'))
+  .controller('LibraryCtrl', require('./_controllers/LibraryCtrl'))
+  .controller('LibraryExportCtrl', require('./_controllers/LibraryExportCtrl'))
+  .factory('Book', require('./_services/book'))
+  .factory('Library', require('./_services/library'))
+  .factory('libraryLocalStorage', require('./_services/libraryLocalStorage'))
+  .factory('Rental', require('./_services/rental'))
+  .factory('libraryExport', require('./_services/libraryExport'))
+  .directive('booksContainer', require('./_directives/booksContainer'))
+  .directive('hlBook', require('./_directives/hlBook'))
+  .filter('status', require('./_filters/status'))
+  .filter('timer', require('./_filters/timer'))
   .value('$bookCard', {
     width: 300,
     height: 167

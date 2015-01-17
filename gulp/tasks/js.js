@@ -20,12 +20,12 @@ gulp.task('js', ['bower'], function() {
     stream = bundler.bundle();
 
     if (config.dev) {
-      stream = stream.on('error', notify.onError('Browserify found error on <%= error.message %>'));
+      stream = stream.on('error', notify.onError('Browserify error: <%= error.message %>'));
     }
 
     stream = stream
-      .pipe(source('humanLibrary.js'))
-      .pipe(gulp.dest(config.dev ? './dev/' : './dist/'))
+      .pipe(source('index.js'))
+      .pipe(gulp.dest((config.dev ? './dev/' : './dist/') + 'humanLibrary/'))
       .on('end', function() {
         gutil.log(gutil.colors.magenta('browserify'), 'finished');
       });
