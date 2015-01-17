@@ -19,16 +19,6 @@ gulp.task('assets', function() {
 
 });
 
-gulp.task('assets-bower', ['bower'], function() {
-
-  var baseDir = config.dev ? './dev' : './dist';
-
-  return gulp
-    .src('./bower_components/**')
-    .pipe(gulp.dest(baseDir + '/bower_components/'));
-
-});
-
 gulp.task('glyphiconfont', ['bower'], function() {
 
   var baseDir = config.dev ? './dev' : './dist';

@@ -2,5 +2,6 @@
 
 module.exports = {
   jsbeautifierVerifyOnly: false,
-  dev: true
+  dev: true,
+  singleRun: true
 };

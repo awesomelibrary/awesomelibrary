@@ -14,7 +14,6 @@ gulp.task('build', function(done) {
       'inject',
       'templates',
       'assets',
-      'assets-bower',
       'glyphiconfont'
     ],
     done
