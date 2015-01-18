@@ -5,7 +5,7 @@
  * @returns {Book}
  * @ngInject
  */
-function bookServiceFactory($window) {
+function BookServiceFactory($window) {
 
   function Book() {
     this.rentals = [];
@@ -53,4 +53,4 @@ function bookServiceFactory($window) {
 
 }
 
-module.exports = bookServiceFactory;
+module.exports = BookServiceFactory;

@@ -4,7 +4,7 @@
  * @returns {Library}
  * @ngInject
  */
-function libraryServiceFactory() {
+function LibraryServiceFactory() {
 
   function Library() {
     this.books = [];
@@ -26,4 +26,4 @@ function libraryServiceFactory() {
 
 }
 
-module.exports = libraryServiceFactory;
+module.exports = LibraryServiceFactory;

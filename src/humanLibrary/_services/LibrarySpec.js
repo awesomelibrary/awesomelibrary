@@ -1,4 +1,4 @@
-describe("service library", function() {
+describe("service Library", function() {
 
   var book, library, filter, every;
 
