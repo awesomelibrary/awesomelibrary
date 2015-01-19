@@ -13,7 +13,8 @@ gulp.task('default', function(done) {
     'clean', [
       'webserver-dev',
       'test',
-      'watch-templates'
+      'watch-templates',
+      'watch-less'
     ],
     done
   );
