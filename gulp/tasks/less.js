@@ -7,10 +7,10 @@ var config = require('../defaults');
 
 gulp.task('less', ['bower'], function() {
 
-  var baseDir = config.dev ? './dev/' : './dist/';
+  var baseDir = config.dev ? 'dev/' : 'dist/';
 
   return gulp
-    .src('./src/humanLibrary/index.less')
+    .src('src/humanLibrary/index.less')
     .pipe(less())
     .pipe(gulp.dest(baseDir + 'humanLibrary/'));
 

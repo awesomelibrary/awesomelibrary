@@ -10,7 +10,11 @@ gulp.task('default', function(done) {
   config.singleRun = false;
 
   runSequence(
-    'clean', ['webserver-dev', 'test'],
+    'clean', [
+      'webserver-dev',
+      'test',
+      'watch-templates'
+    ],
     done
   );
 

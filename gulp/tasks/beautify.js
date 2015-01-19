@@ -12,12 +12,12 @@ gulp.task('jsbeautifier', function() {
 
   stream = gulp
     .src([
-      './src/**/*.js',
-      './src/**/*.html',
-      './gulp/**/*.js',
-      './gulpfile.js',
-      './karma.conf.js',
-      '!./src/assets/vendor/bower_components/**'
+      'src/**/*.js',
+      'src/**/*.html',
+      'gulp/**/*.js',
+      'gulpfile.js',
+      'karma.conf.js',
+      '!src/assets/vendor/bower_components/**'
     ], {
       base: './'
     });
@@ -34,6 +34,6 @@ gulp.task('jsbeautifier', function() {
       mode: 'VERIFY_AND_WRITE',
       config: jsbeautifyConfig
     }))
-    .pipe(gulp.dest('./'));
+    .pipe(gulp.dest(''));
 
 });

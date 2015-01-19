@@ -3,12 +3,14 @@
 var gulp = require('gulp');
 
 var config = require('../defaults');
+var templatesConfig = require('../conifg/templates');
 
 gulp.task('templates', function() {
 
-  var baseDir = config.dev ? './dev/' : './dist/';
+  var baseDir = config.dev ? 'dev/' : 'dist/';
 
   return gulp
-    .src('./src/assets/templates/**/*.html')
-    .pipe(gulp.dest(baseDir + 'humanLibrary/assets/templates/'));
+    .src(templatesConfig.glob)
+    .pipe(gulp.dest(baseDir));
+
 });
