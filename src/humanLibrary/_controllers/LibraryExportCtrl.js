@@ -8,7 +8,7 @@
  */
 function LibraryExportCtrl($scope, libraryExport) {
 
-  $scope.$watch('library', function(library) {
+  $scope.$watch('vm.library', function(library) {
     $scope.libraryExportUrl = libraryExport(library);
   }, true);
 

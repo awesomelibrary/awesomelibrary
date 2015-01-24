@@ -1,16 +1,27 @@
 'use strict';
 
 var gulp = require('gulp');
+var watchLog = require('../watchLog');
 
 var config = require('../defaults');
-var templatesConfig = require('../conifg/templates');
 
 gulp.task('templates', function() {
 
   var baseDir = config.dev ? 'dev/' : 'dist/';
+  var templatesGlob = ['src/**/*.html', '!src/humanLibrary/index.html'];
 
-  return gulp
-    .src(templatesConfig.glob)
-    .pipe(gulp.dest(baseDir));
+  function humanLibraryTemplates() {
+    return gulp
+      .src(templatesGlob)
+      .pipe(gulp.dest(baseDir));
+  }
+
+  if (config.dev) {
+    gulp
+      .watch(templatesGlob, humanLibraryTemplates)
+      .on('change', watchLog('templates'))
+  }
+
+  return humanLibraryTemplates();
 
 });

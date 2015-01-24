@@ -4,17 +4,24 @@
  * @param $scope
  * @param $timeout
  * @param libraryLocalStorage
- * @param rental
- * @param book
- * @param library
+ * @param Rental
+ * @param Book
+ * @param Library
  * @constructor
  * @ngInject
  */
-function LibraryCtrl($scope, $timeout, libraryLocalStorage, Rental, Book, Library) {
+function LibraryCtrl($window, $scope, $timeout, libraryLocalStorage, Rental, Book, Library) {
 
-  $scope.library = libraryLocalStorage.load();
+  var vm = this;
 
-  $scope.$watch('library', function(newLibrary) {
+  vm.library = libraryLocalStorage.load();
+
+  if ($window.angular.isUndefined(vm.library)) {
+    vm.library = new Library();
+    libraryLocalStorage.save(vm.library);
+  }
+
+  $scope.$watch('vm.library', function(newLibrary) {
     libraryLocalStorage.save(newLibrary);
   }, true);
 
@@ -23,11 +30,11 @@ function LibraryCtrl($scope, $timeout, libraryLocalStorage, Rental, Book, Librar
   };
 
   $scope.admitBook = function() {
-    $scope.library.admitBook(new Book());
+    vm.library.admitBook(new Book());
   };
 
   $scope.newEdition = function() {
-    $scope.library = new Library();
+    vm.library = new Library();
   };
 
   // Ticker
@@ -51,31 +58,6 @@ function LibraryCtrl($scope, $timeout, libraryLocalStorage, Rental, Book, Librar
 
   var ticker = new Ticker();
 
-  if ((typeof Storage !== "undefined" && Storage !== null) && localStorage.library) {
-    //$scope.library = angular.fromJson(localStorage.library);
-  }
-
-  $scope.overlay = {
-    visible: false,
-    data: ''
-  };
-
-  $scope.save = function() {
-    if (typeof Storage !== "undefined" && Storage !== null) {
-      localStorage.library = angular.toJson($scope.library);
-    }
-  };
-
-  $scope["import"] = function() {
-    $scope.library = angular.fromJson($scope.overlay.data);
-    bootstrap();
-    $scope.overlay.visible = false;
-    return $scope.save();
-  };
-
-  $scope.indexOfRentalWithId = function(index, id) {
-    return indexById($scope.library.books[index].rentals, id);
-  };
 }
 
 module.exports = LibraryCtrl;

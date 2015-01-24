@@ -16,6 +16,7 @@ angular
   .factory('librarySerializer', require('./_services/librarySerializer'))
   .directive('booksContainer', require('./_directives/booksContainer'))
   .directive('hlBook', require('./_directives/hlBook'))
+  .directive('importLibrary', require('./_directives/importLibrary'))
   .filter('status', require('./_filters/status'))
   .filter('timer', require('./_filters/timer'))
   .value('$bookCard', {

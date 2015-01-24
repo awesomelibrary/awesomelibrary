@@ -12,9 +12,7 @@ gulp.task('default', function(done) {
   runSequence(
     'clean', [
       'webserver-dev',
-      'test',
-      'watch-templates',
-      'watch-less'
+      'test'
     ],
     done
   );
