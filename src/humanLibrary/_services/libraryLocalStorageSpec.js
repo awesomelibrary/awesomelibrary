@@ -1,49 +1,74 @@
 describe("service libraryLocalStorage", function() {
 
-  var Library, libraryLocalStorage, Rental, Book;
+  var Library;
+  var libraryLocalStorage;
+  var Rental;
+  var Book;
+  var $windowMock;
+  var librarySerializerMock;
 
   beforeEach(function() {
 
-    angular.mock.module('humanLibrary');
-    angular.mock.inject(['$injector', function($injector) {
+    $windowMock = jasmine.createSpyObj('$window', ['localStorage']);
+    $windowMock.angular = angular;
+    $windowMock.localStorage = {};
+
+    librarySerializerMock = jasmine.createSpyObj('librarySerializer', ['serialize', 'deserialize']);
+
+    angular.mock.module('humanLibrary', function($provide) {
+      $provide.value('$window', $windowMock);
+      $provide.value('librarySerializer', librarySerializerMock);
+    });
+
+    angular.mock.inject(function($injector) {
       Library = $injector.get('Library');
       Book = $injector.get('Book');
       Rental = $injector.get('Rental');
       libraryLocalStorage = $injector.get('libraryLocalStorage');
-    }]);
+    });
+
   });
 
-  it("should save library to local sotrage", function() {
-    var library = new Library();
+  describe('when storage is unavailable', function() {
 
-    libraryLocalStorage.save(library);
+    it('and loading should throw Local storage not available expection', function() {
+      expect(libraryLocalStorage.load).toThrow(new Error('Local storage not available'));
+    });
+
+    it('and saving should throw Local storage not available expection', function() {
+      expect(libraryLocalStorage.save).toThrow(new Error('Local storage not available'));
+    });
+
   });
 
-  it("should load empty library from local sotrage", function() {
-    var loadedLibrary, library = new Library();
+  describe('when storage is available', function() {
 
-    libraryLocalStorage.save(library);
-    loadedLibrary = libraryLocalStorage.load();
-    expect(loadedLibrary).toEqual(library);
-  });
+    beforeEach(function() {
+      $windowMock.Storage = {};
+    });
 
-  it("should load library with one book from local sotrage", function() {
-    var loadedLibrary, library = new Library();
+    it("should save library to local storage", function() {
+      var library = {};
+      var serializedLibrary = '{}';
+      librarySerializerMock.serialize.and.returnValue(serializedLibrary);
+      libraryLocalStorage.save(library);
+      expect(librarySerializerMock.serialize).toHaveBeenCalledWith(library);
+      expect($windowMock.localStorage.humanLibrary).toBe(serializedLibrary);
+    });
 
-    library.admitBook(new Book());
-    libraryLocalStorage.save(library);
-    loadedLibrary = libraryLocalStorage.load();
-    expect(loadedLibrary).toEqual(library);
-  });
+    it("and humanLibrary is in localStorage should load library from local storage", function() {
+      var library = {};
+      $windowMock.localStorage.humanLibrary = '{}';
+      librarySerializerMock.deserialize.and.returnValue(library);
+      expect(libraryLocalStorage.load()).toBe(library);
+      expect(librarySerializerMock.deserialize).toHaveBeenCalledWith($windowMock.localStorage.humanLibrary);
+    });
 
-  it("should load library with one book with one rental from local sotrage", function() {
-    var loadedLibrary, library = new Library();
+    it("and humanLibrary is NOT in localStorage load should return undefined", function() {
+      expect(libraryLocalStorage.load()).toBeUndefined();
+      expect(librarySerializerMock.deserialize).not.toHaveBeenCalled();
+    });
 
-    library.admitBook(new Book());
-    library.books[0].rent(new Rental());
-    libraryLocalStorage.save(library);
-    loadedLibrary = libraryLocalStorage.load();
-    expect(loadedLibrary).toEqual(library);
   });
 
 });

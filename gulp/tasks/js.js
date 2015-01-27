@@ -25,7 +25,7 @@ gulp.task('js', ['bower'], function() {
 
     stream = stream
       .pipe(source('index.js'))
-      .pipe(gulp.dest((config.dev ? './dev/' : './dist/') + 'humanLibrary/'))
+      .pipe(gulp.dest((config.dev ? 'dev/' : 'dist/') + 'humanLibrary/'))
       .on('end', function() {
         gutil.log(gutil.colors.magenta('browserify'), 'finished');
       });
@@ -50,7 +50,7 @@ gulp.task('js', ['bower'], function() {
   if (config.dev) {
     bundler = watchify(bundler);
     bundler.on('update', function(changedFiles) {
-      gutil.log(gutil.colors.magenta('browserify'), 'detected files', changedFiles, 'have changed, starting...');
+      gutil.log(gutil.colors.magenta('watchify'), 'detected files', changedFiles, 'have changed, starting...');
     });
     bundler.on('update', rebundle);
   }

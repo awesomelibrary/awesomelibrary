@@ -4,7 +4,7 @@
  * @returns {Rental}
  * @ngInject
  */
-function rentalServiceFactory() {
+function RentalServiceFactory() {
 
   function Rental(period) {
     this.period = angular.isDefined(period) ? period : this.PERIOD;
@@ -32,4 +32,4 @@ function rentalServiceFactory() {
 
 }
 
-module.exports = rentalServiceFactory;
+module.exports = RentalServiceFactory;

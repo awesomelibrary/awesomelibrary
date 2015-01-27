@@ -2,49 +2,42 @@
 
 /**
  * @param $window
- * @param library
- * @param book
- * @param rental
+ * @param librarySerializer
  * @returns {libraryLocalStorageServiceFactory.LibraryLocalStorage}
  * @ngInject
  */
-function libraryLocalStorageServiceFactory($window, Library, Book, Rental) {
+function libraryLocalStorageServiceFactory($window, librarySerializer) {
 
+  /**
+   * @private
+   * @throws Local storage not available
+   */
+  function checkIfLocalStorageIsAvailable() {
+    if ($window.angular.isUndefined($window.Storage)) {
+      throw new Error('Local storage not available');
+    }
+  }
+
+  /**
+   * @constructor
+   */
   function LibraryLocalStorage() {}
 
   LibraryLocalStorage.prototype.save = function(library) {
-    if ($window.angular.isUndefined($window.Storage)) {
-      return;
-    }
-    $window.localStorage.library = $window.angular.toJson(library);
+    checkIfLocalStorageIsAvailable();
+    $window.localStorage.humanLibrary = librarySerializer.serialize(library);
   };
 
   LibraryLocalStorage.prototype.load = function() {
 
-    var library;
+    checkIfLocalStorageIsAvailable();
 
-    if ($window.angular.isUndefined($window.Storage)) {
-      return new Library();
-    }
-    if ($window.angular.isUndefined($window.localStorage.library)) {
-      return new Library();
+    if ($window.angular.isUndefined($window.localStorage.humanLibrary)) {
+      return;
     }
 
-    library = $window.angular.fromJson($window.localStorage.library);
+    return librarySerializer.deserialize($window.localStorage.humanLibrary);
 
-    $window.angular.forEach(library.books, function(book, bookIndex) {
-
-      $window.angular.forEach(book.rentals, function(rental, rentalIndex) {
-        this[rentalIndex] = $window.angular.extend(new Rental(), rental);
-      }, book.rentals);
-
-      this[bookIndex] = $window.angular.extend(new Book(), book);
-
-    }, library.books);
-
-    library = $window.angular.extend(new Library(), library);
-
-    return library;
   };
 
   return new LibraryLocalStorage();

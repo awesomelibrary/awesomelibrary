@@ -7,7 +7,7 @@ var config = require('../defaults');
 
 gulp.task('test', ['bower'], function(done) {
 
-  var unitTestsFile = './src/humanLibrary/unitTests.js';
+  var unitTestsFile = 'src/humanLibrary/unitTests.js';
   var preprocessors = {};
   preprocessors[unitTestsFile] = ['browserify'];
 

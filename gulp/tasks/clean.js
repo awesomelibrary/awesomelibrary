@@ -7,7 +7,7 @@ var config = require('../defaults');
 
 gulp.task('clean', function(done) {
 
-  var baseDir = config.dev ? './dev/*' : './dist/*';
+  var baseDir = config.dev ? 'dev/*' : 'dist/*';
 
   del(baseDir, done);
 

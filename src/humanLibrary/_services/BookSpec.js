@@ -1,4 +1,4 @@
-describe("service book", function() {
+describe("service Book", function() {
 
   var Book, Rental;
 

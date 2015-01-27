@@ -8,13 +8,17 @@ angular
   .module('humanLibrary', ['pascalprecht.translate'])
   .controller('LibraryCtrl', require('./_controllers/LibraryCtrl'))
   .controller('LibraryExportCtrl', require('./_controllers/LibraryExportCtrl'))
-  .factory('Book', require('./_services/book'))
-  .factory('Library', require('./_services/library'))
+  .factory('Book', require('./_services/Book'))
+  .factory('Library', require('./_services/Library'))
   .factory('libraryLocalStorage', require('./_services/libraryLocalStorage'))
-  .factory('Rental', require('./_services/rental'))
+  .factory('Rental', require('./_services/Rental'))
   .factory('libraryExport', require('./_services/libraryExport'))
+  .factory('librarySerializer', require('./_services/librarySerializer'))
   .directive('booksContainer', require('./_directives/booksContainer'))
   .directive('hlBook', require('./_directives/hlBook'))
+  .directive('hlImportLibrary', require('./_directives/hlImportLibrary'))
+  .directive('hlFileInputWrapper', require('./_directives/hlFileInputWrapper'))
+  .directive('hlFileInput', require('./_directives/hlFileInput'))
   .filter('status', require('./_filters/status'))
   .filter('timer', require('./_filters/timer'))
   .value('$bookCard', {
@@ -37,7 +41,8 @@ angular
           header: 'Żywa Biblioteka',
           admitBook: '+ Przyjmij książkę',
           newEdition: 'Nowa edycja',
-          exportLibrary: 'Eksportuj'
+          exportLibrary: 'Eksportuj bibliotekę',
+          importLibrary: 'Importuj bibliotekę'
         },
         manageBooks: {
           namePlaceholder: 'Imię...',
@@ -57,7 +62,8 @@ angular
           header: 'Human Library',
           admitBook: '+ Admit book',
           newEdition: 'New edition',
-          exportLibrary: 'Export'
+          exportLibrary: 'Export library',
+          importLibrary: 'Import library'
         },
         manageBooks: {
           namePlaceholder: 'Name...',

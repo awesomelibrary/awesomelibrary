@@ -2,10 +2,11 @@
 
 /**
  * @param $window
+ * @param librarySerializer
  * @returns {libraryExportService}
  * @ngInject
  */
-function libraryExportServiceFactory($window) {
+function libraryExportServiceFactory($window, librarySerializer) {
 
   var libraryBlob;
 
@@ -13,7 +14,7 @@ function libraryExportServiceFactory($window) {
     if ($window.angular.isDefined(libraryBlob)) {
       $window.URL.revokeObjectURL(libraryBlob);
     }
-    libraryBlob = new $window.Blob([$window.angular.toJson(library)], {
+    libraryBlob = new $window.Blob([librarySerializer.serialize(library)], {
       type: 'text/json'
     });
     return $window.URL.createObjectURL(libraryBlob);
