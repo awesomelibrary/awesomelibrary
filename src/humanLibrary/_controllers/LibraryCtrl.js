@@ -10,7 +10,7 @@
  * @constructor
  * @ngInject
  */
-function LibraryCtrl($window, $scope, $timeout, libraryLocalStorage, Rental, Book, Library) {
+function LibraryCtrl($window, $scope, $timeout, libraryLocalStorage, libraryExport, Rental, Book, Library) {
 
   var vm = this;
 
@@ -23,6 +23,7 @@ function LibraryCtrl($window, $scope, $timeout, libraryLocalStorage, Rental, Boo
 
   $scope.$watch('vm.library', function(newLibrary) {
     libraryLocalStorage.save(newLibrary);
+    $scope.libraryExportUrl = libraryExport(newLibrary);
   }, true);
 
   $scope.rentBook = function(book) {

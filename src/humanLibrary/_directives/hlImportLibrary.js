@@ -22,7 +22,7 @@ function hlImportLibraryDirective(librarySerializer) {
 
       fileReader.readAsText(file);
 
-      $element.val(null);
+      hlFileInputWrapperCtrl.fileInputElement.val(null);
     });
 
   }
