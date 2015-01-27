@@ -7,7 +7,6 @@ require('angular-translate');
 angular
   .module('humanLibrary', ['pascalprecht.translate'])
   .controller('LibraryCtrl', require('./_controllers/LibraryCtrl'))
-  .controller('LibraryExportCtrl', require('./_controllers/LibraryExportCtrl'))
   .factory('Book', require('./_services/Book'))
   .factory('Library', require('./_services/Library'))
   .factory('libraryLocalStorage', require('./_services/libraryLocalStorage'))
@@ -19,7 +18,6 @@ angular
   .directive('hlImportLibrary', require('./_directives/hlImportLibrary'))
   .directive('hlFileInputWrapper', require('./_directives/hlFileInputWrapper'))
   .directive('hlFileInput', require('./_directives/hlFileInput'))
-  .filter('status', require('./_filters/status'))
   .filter('timer', require('./_filters/timer'))
   .value('$bookCard', {
     width: 300,
