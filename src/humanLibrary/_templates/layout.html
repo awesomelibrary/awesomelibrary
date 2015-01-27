@@ -11,12 +11,14 @@
         </button>
       </li>
       <li>
-        <a data-ng-controller="LibraryExportCtrl" data-ng-href="{{libraryExportUrl}}" download="humanLibraryExport.json" title="{{ 'mainMenu.exportLibrary'|translate }}">
+        <a class="btn btn-default navbar-btn" data-ng-controller="LibraryExportCtrl" data-ng-href="{{libraryExportUrl}}" download="humanLibraryExport.json" title="{{ 'mainMenu.exportLibrary'|translate }}">
           <i class="glyphicon glyphicon-cloud-download"></i>
         </a>
       </li>
       <li>
-        <input import-library="vm.library" type="file">
+        <button class="btn btn-default navbar-btn" title="{{ 'mainMenu.importLibrary'|translate }}" hl-file-input-wrapper hl-import-library="vm.library">
+          <i class="glyphicon glyphicon-cloud-upload"></i>
+        </button>
       </li>
     </ul>
   </div>

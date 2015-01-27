@@ -3,10 +3,11 @@
 /**
  * @ngInject
  */
-function importLibraryDirective(librarySerializer) {
+function hlImportLibraryDirective(librarySerializer) {
 
-  function link($scope, $element) {
-    $element.on('change', function(changeEvent) {
+  function link($scope, $element, $attributes, hlFileInputWrapperCtrl) {
+
+    hlFileInputWrapperCtrl.fileInputElement.on('change', function(changeEvent) {
 
       var file = changeEvent.target.files[0];
       var fileReader = new FileReader();
@@ -23,15 +24,17 @@ function importLibraryDirective(librarySerializer) {
 
       $element.val(null);
     });
+
   }
 
   return {
     link: link,
+    require: 'hlFileInputWrapper',
     scope: {
-      library: '=importLibrary'
+      library: '=hlImportLibrary'
     }
   };
 
 }
 
-module.exports = importLibraryDirective;
+module.exports = hlImportLibraryDirective;

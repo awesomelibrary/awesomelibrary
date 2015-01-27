@@ -16,7 +16,9 @@ angular
   .factory('librarySerializer', require('./_services/librarySerializer'))
   .directive('booksContainer', require('./_directives/booksContainer'))
   .directive('hlBook', require('./_directives/hlBook'))
-  .directive('importLibrary', require('./_directives/importLibrary'))
+  .directive('hlImportLibrary', require('./_directives/hlImportLibrary'))
+  .directive('hlFileInputWrapper', require('./_directives/hlFileInputWrapper'))
+  .directive('hlFileInput', require('./_directives/hlFileInput'))
   .filter('status', require('./_filters/status'))
   .filter('timer', require('./_filters/timer'))
   .value('$bookCard', {
@@ -39,7 +41,8 @@ angular
           header: 'Żywa Biblioteka',
           admitBook: '+ Przyjmij książkę',
           newEdition: 'Nowa edycja',
-          exportLibrary: 'Eksportuj'
+          exportLibrary: 'Eksportuj bibliotekę',
+          importLibrary: 'Importuj bibliotekę'
         },
         manageBooks: {
           namePlaceholder: 'Imię...',
@@ -59,7 +62,8 @@ angular
           header: 'Human Library',
           admitBook: '+ Admit book',
           newEdition: 'New edition',
-          exportLibrary: 'Export'
+          exportLibrary: 'Export library',
+          importLibrary: 'Import library'
         },
         manageBooks: {
           namePlaceholder: 'Name...',
