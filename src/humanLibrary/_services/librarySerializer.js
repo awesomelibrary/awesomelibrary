@@ -15,18 +15,25 @@ function librarySerializerServiceFactory($window, Library, Book, Rental) {
     this.deserialize = function(libraryJson) {
 
       var library = $window.angular.fromJson(libraryJson);
+      var libraryDeserialized = new Library();
 
-      $window.angular.forEach(library.books, function(book, bookIndex) {
+      $window.angular.extend(libraryDeserialized, library)
 
-        $window.angular.forEach(book.rentals, function(rental, rentalIndex) {
+      $window.angular.forEach(libraryDeserialized.books, function(book, bookIndex) {
+
+        var bookModel = new Book()
+
+        $window.angular.extend(bookModel, book);
+
+        $window.angular.forEach(bookModel.rentals, function(rental, rentalIndex) {
           this[rentalIndex] = $window.angular.extend(new Rental(), rental);
-        }, book.rentals);
+        }, bookModel.rentals);
 
-        this[bookIndex] = $window.angular.extend(new Book(), book);
+        this[bookIndex] = bookModel;
 
-      }, library.books);
+      }, libraryDeserialized.books);
 
-      return $window.angular.extend(new Library(), library);
+      return libraryDeserialized;
 
     };
 

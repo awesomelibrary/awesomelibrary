@@ -62,17 +62,19 @@ describe('service librarySerializer', function() {
     it('should create book model', function() {
       strippedLibrary = {
         books: [{
+          name: 'a',
           rentals: []
         }]
       };
       deserializeLibrary();
       expect(library.books[0]).toEqual(jasmine.any(Book));
-      expect(library.books[0]).toEqual(jasmine.objectContaining(strippedLibrary.books[0]));
+      expect(library.books[0]).toEqual(strippedLibrary.books[0]);
     });
 
     it('should create rental model', function() {
       strippedLibrary = {
         books: [{
+          name: 'a',
           rentals: [{
             period: 1
           }]
@@ -80,7 +82,7 @@ describe('service librarySerializer', function() {
       };
       deserializeLibrary();
       expect(library.books[0].rentals[0]).toEqual(jasmine.any(Rental));
-      expect(library.books[0].rentals[0]).toEqual(jasmine.objectContaining(strippedLibrary.books[0].rentals[0]));
+      expect(library.books[0].rentals[0]).toEqual(strippedLibrary.books[0].rentals[0]);
     });
 
   });

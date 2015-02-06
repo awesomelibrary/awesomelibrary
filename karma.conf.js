@@ -5,7 +5,7 @@ module.exports = function(config) {
     frameworks: ['jasmine', 'browserify'],
     browserify: {
       debug: true,
-      transform: ['debowerify']
+      transform: ['debowerify', 'browserify-ngannotate']
     },
     reporters: ['progress'],
     colors: true,
