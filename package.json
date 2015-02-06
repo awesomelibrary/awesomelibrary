@@ -4,40 +4,17 @@
   "description": "Human library",
   "repository": {
     "type": "git",
-    "url": "git@github.com:bolczyslaw/human-library.git"
+    "url": "git@github.com:zaklinaczekodu/human-library.git"
   },
   "author": "Piotr Baranowski",
   "license": "BSD",
   "bugs": {
-    "url": "https://github.com/bolczyslaw/human-library/issues"
-  },
-  "devDependencies": {
-    "jasmine-core": "^2.1.3",
-    "jshint-stylish": "~0.1.5",
-    "karma-browserify": "^2.0.0",
-    "karma-jasmine": "^0.3.4",
-    "karma-phantomjs-launcher": "^0.1.4"
+    "url": "https://github.com/zaklinaczekodu/human-library/issues"
   },
   "dependencies": {
-    "browserify": "^8.1.0",
-    "browserify-ngannotate": "^0.5.0",
+    "browserify-ngannotate": "^0.7.1",
     "debowerify": "^1.2.0",
-    "del": "^1.1.1",
     "gulp": "^3.6.0",
-    "gulp-bower": "~0.0.4",
-    "gulp-inject": "^1.1.1",
-    "gulp-jsbeautifier": "0.0.4",
-    "gulp-jshint": "^1.5.3",
-    "gulp-karma": "0.0.4",
-    "gulp-less": "^1.2.3",
-    "gulp-notify": "^2.1.0",
-    "gulp-plumber": "^0.6.6",
-    "gulp-util": "^3.0.2",
-    "gulp-watch": "^3.0.0",
-    "gulp-webserver": "^0.9.0",
-    "require-dir": "^0.1.0",
-    "run-sequence": "^1.0.2",
-    "vinyl-source-stream": "^1.0.0",
-    "watchify": "^2.2.1"
+    "gulp-zkflow": "0.0.2"
   }
 }
