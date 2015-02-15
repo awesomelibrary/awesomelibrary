@@ -44,8 +44,8 @@ angular
           importLibrary: 'Importuj bibliotekę'
         },
         manageBooks: {
-          namePlaceholder: 'Imię...',
-          titlePlaceholder: 'Tytuł...',
+          namePlaceholder: 'Imię',
+          titlePlaceholder: 'Tytuł',
           actions: {
             'return': 'Zwróć',
             rent: 'Wypożycz',
@@ -65,8 +65,8 @@ angular
           importLibrary: 'Import library'
         },
         manageBooks: {
-          namePlaceholder: 'Name...',
-          titlePlaceholder: 'Title...',
+          namePlaceholder: 'Name',
+          titlePlaceholder: 'Title',
           actions: {
             'return': 'Return',
             rent: 'Rent',
