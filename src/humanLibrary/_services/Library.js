@@ -7,6 +7,8 @@
 function LibraryServiceFactory() {
 
   function Library() {
+    this.startDate = new Date();
+    this.formatVersion = 'v1.0.0';
     this.books = [];
   }
 

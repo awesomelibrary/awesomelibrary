@@ -50,6 +50,17 @@ describe('service librarySerializer', function() {
       expect($window.angular.fromJson).toHaveBeenCalledWith(json);
     });
 
+    it('should parse start date', function() {
+      var startDate = new Date();
+      startDate.setFullYear(startDate.getFullYear() + 1);
+      strippedLibrary = {
+        startDate: startDate.toISOString(),
+        books: []
+      };
+      deserializeLibrary();
+      expect(library.startDate).toEqual(startDate);
+    });
+
     it('should create library model', function() {
       strippedLibrary = {
         books: []

@@ -14,7 +14,7 @@
         </button>
       </li>
       <li>
-        <a class="btn btn-default navbar-btn" data-ng-href="{{libraryExportUrl}}" download="humanLibraryExport.json" title="{{ 'mainMenu.exportLibrary'|translate }}">
+        <a class="btn btn-default navbar-btn" data-ng-href="{{libraryExportUrl}}" download="human-library-edition-{{vm.library.startDate|date:'yyyy-M-d'}}.json" title="{{ 'mainMenu.exportLibrary'|translate }}">
           <i class="glyphicon glyphicon-cloud-download"></i>
         </a>
       </li>
