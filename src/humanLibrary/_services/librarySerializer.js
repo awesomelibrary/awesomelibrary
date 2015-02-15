@@ -17,11 +17,12 @@ function librarySerializerServiceFactory($window, Library, Book, Rental) {
       var library = $window.angular.fromJson(libraryJson);
       var libraryDeserialized = new Library();
 
-      $window.angular.extend(libraryDeserialized, library)
+      $window.angular.extend(libraryDeserialized, library);
+      libraryDeserialized.startDate = new Date(libraryDeserialized.startDate);
 
       $window.angular.forEach(libraryDeserialized.books, function(book, bookIndex) {
 
-        var bookModel = new Book()
+        var bookModel = new Book();
 
         $window.angular.extend(bookModel, book);
 
