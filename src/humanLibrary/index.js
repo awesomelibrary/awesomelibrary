@@ -18,6 +18,7 @@ angular
   .directive('hlImportLibrary', require('./_directives/hlImportLibrary'))
   .directive('hlFileInputWrapper', require('./_directives/hlFileInputWrapper'))
   .directive('hlFileInput', require('./_directives/hlFileInput'))
+  .directive('hlChangeLanguage', require('./_directives/hlChangeLanguage'))
   .filter('timer', require('./_filters/timer'))
   .value('$bookCard', {
     width: 300,
@@ -74,5 +75,5 @@ angular
         }
       });
 
-      $translateProvider.preferredLanguage('pl');
+      $translateProvider.preferredLanguage('en');
     });
