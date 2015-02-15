@@ -2,9 +2,14 @@
 @import "_stylesheets/bootstrapVariables.less";
 @import "_stylesheets/fonts.less";
 
+@import "_stylesheets/navbar.less";
 @import "_stylesheets/widgets/panel-book.less";
 
-body { padding-top: 51px; }
+body {
+  padding-top: 51px;
+  padding-bottom: @grid-gutter-width;
+  min-width: @screen-sm-min;
+}
 
 ////////////////////////////////////////////////////////////////////////////////
 // Elementy występujące raz w całej aplikacji
@@ -29,4 +34,5 @@ body { padding-top: 51px; }
 
 .navbar-nav > li > a.btn {
   padding: 6px 12px;
+  .button-variant(@btn-default-color; @btn-default-bg; @btn-default-border);
 }

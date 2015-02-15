@@ -1,9 +1,12 @@
-<nav id="hl-navbar" class="navbar navbar-default navbar-fixed-top" role="navigation">
-  <div class="container-fluid">
-    <a href class="navbar-brand">{{ 'mainMenu.header'|translate }}</a>
+<nav id="hl-navbar" class="navbar navbar--hl navbar-default navbar-fixed-top" role="navigation">
+  <div class="container">
+    <a href class="navbar-brand">
+      {{ 'mainMenu.header'|translate }}
+    </a>
     <ul class="nav navbar-nav navbar-right">
       <li>
-        <button class="btn btn-primary navbar-btn" data-ng-click="admitBook()">{{ 'mainMenu.admitBook'|translate }}</button>
+        <button class="btn btn-default navbar-btn" data-ng-click="admitBook()">{{ 'mainMenu.admitBook'|translate }}
+        </button>
       </li>
       <li>
         <button class="btn btn-default navbar-btn" data-ng-click="newEdition()" title="{{ 'mainMenu.newEdition'|translate }}">
@@ -27,30 +30,43 @@
   </div>
 </nav>
 
-<div class="panel panel-default panel-book" data-ng-repeat="book in vm.library.books" data-hl-book>
-  <header class="panel-heading" ng-class="{'panel-heading-rented': book.isRented()}">
-    <div class="text-right panel-book-time" data-ng-class="{'text-warning': progress.status == 'warning', 'text-danger': progress.status == 'danger' }">
-      {{progress.timer|timer}}
-      <a href data-ng-click="book.cancelRental()">×</a>
-    </div>
-    <div class="panel-heading-footer">
-      <div class="row">
-        <span class="badge pull-right">{{book.rentals.length}}</span>
-        <div class="col-xs-9">
-          <input class="panel-book-input panel-book-input-lg" type="text" placeholder="{{ 'manageBooks.namePlaceholder'|translate }}" data-ng-model="book.name" />
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4 col-md-3 col-lg-2" data-ng-repeat="book in vm.library.books" data-hl-book>
+      <div class="panel panel-default panel-book">
+        <div class="panel-body text-center">
+          <i class="glyphicon glyphicon-user"></i>
         </div>
-        <div class="col-xs-12">
-          <input class="panel-book-input" type="text" placeholder="{{ 'manageBooks.titlePlaceholder'|translate }}" data-ng-model="book.title" />
-        </div>
+        <header class="panel-heading" ng-class="{'panel-heading-rented': book.isRented()}">
+          <div class="text-right panel-book-time pull-right text-center" data-ng-class="{'text-warning': progress.status == 'warning', 'text-danger': progress.status == 'danger' }">
+            {{progress.timer|timer}}
+          </div>
+          <div class="panel-heading-footer">
+            <div class="row">
+
+              <div class="col-xs-9">
+                <input class="panel-book-input panel-book-input-lg" type="text" placeholder="{{ 'manageBooks.namePlaceholder'|translate }}" data-ng-model="book.name" />
+              </div>
+              <div class="col-xs-3">
+                <span class="badge pull-right">{{book.rentals.length}}</span>
+              </div>
+              <div class="col-xs-12">
+                <input class="panel-book-input" type="text" placeholder="{{ 'manageBooks.titlePlaceholder'|translate }}" data-ng-model="book.title" />
+              </div>
+            </div>
+          </div>
+        </header>
+        <footer class="panel-footer">
+          <div data-ng-show="!book.isRented()">
+            <button class="btn btn-default btn-block" tabindex="-1" data-ng-click="rentBook(book)">{{ 'manageBooks.actions.rent'|translate }}
+            </button>
+          </div>
+          <div data-ng-show="book.isRented()">
+            <button class="btn btn-default btn-block" tabindex="-1" data-ng-click="book.return()">{{ 'manageBooks.actions.return'|translate }}
+            </button>
+          </div>
+        </footer>
       </div>
     </div>
-  </header>
-  <footer class="panel-footer">
-    <div data-ng-show="!book.isRented()">
-      <button class="btn btn-default btn-block" tabindex="-1" data-ng-click="rentBook(book)">{{ 'manageBooks.actions.rent'|translate }}</button>
-    </div>
-    <div data-ng-show="book.isRented()">
-      <button class="btn btn-default btn-block" tabindex="-1" data-ng-click="book.return()">{{ 'manageBooks.actions.return'|translate }}</button>
-    </div>
-  </footer>
+  </div>
 </div>
