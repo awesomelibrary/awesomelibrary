@@ -4,7 +4,10 @@ require('angular');
 require('angular-translate');
 
 angular
-  .module('humanLibrary', ['pascalprecht.translate'])
+  .module('humanLibrary', [
+    require('angular-ui-router'),
+    'pascalprecht.translate'
+  ])
   .controller('LibraryCtrl', require('./_controllers/LibraryCtrl'))
   .factory('Book', require('./_services/Book'))
   .factory('Library', require('./_services/Library'))
@@ -23,6 +26,7 @@ angular
     width: 300,
     height: 167
   })
+  .config(require('./_configs/router'))
   .config(
     /** @ngInject */
     function($compileProvider) {
