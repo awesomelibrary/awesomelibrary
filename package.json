@@ -12,6 +12,7 @@
     "url": "https://github.com/zaklinaczekodu/human-library/issues"
   },
   "dependencies": {
+    "angular-ui-router": "^0.2.13",
     "browserify-ngannotate": "^0.7.1",
     "debowerify": "^1.2.0",
     "gulp": "^3.6.0",
