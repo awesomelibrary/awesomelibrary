@@ -1,0 +1,17 @@
+<div class="book__wrapper">
+  <a ui-sref="humanLibrary" class="book__background"></a>
+  <div class="container book__container">
+    <div class="page-header">
+      <h1>
+        <button class="btn btn-default pull-right" ng-click="vm.delete()"><i class="glyphicon glyphicon-trash"></i>
+        </button>
+        <small><a class="book__close" ui-sref="humanLibrary"><i class="glyphicon glyphicon-circle-arrow-left"></i></a>
+        </small>
+        {{vm.book.name}}
+        <small>
+          {{vm.book.title}}
+        </small>
+      </h1>
+    </div>
+  </div>
+</div>

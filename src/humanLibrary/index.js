@@ -6,7 +6,9 @@ require('angular-translate');
 angular
   .module('humanLibrary', [
     require('angular-ui-router'),
-    'pascalprecht.translate'
+    'pascalprecht.translate',
+
+    require('./book').name
   ])
   .controller('LibraryCtrl', require('./_controllers/LibraryCtrl'))
   .factory('Book', require('./_services/Book'))
