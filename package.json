@@ -16,6 +16,6 @@
     "browserify-ngannotate": "^0.7.1",
     "debowerify": "^1.2.0",
     "gulp": "^3.6.0",
-    "gulp-zkflow": "0.0.2"
+    "gulp-zkflow": "0.0.4"
   }
 }

@@ -14,14 +14,14 @@ function LibraryCtrl($window, $scope, $timeout, libraryLocalStorage, libraryExpo
 
   var vm = this;
 
-  vm.library = libraryLocalStorage.load();
+  $scope.library = libraryLocalStorage.load();
 
-  if ($window.angular.isUndefined(vm.library)) {
-    vm.library = new Library();
-    libraryLocalStorage.save(vm.library);
+  if ($window.angular.isUndefined($scope.library)) {
+    $scope.library = new Library();
+    libraryLocalStorage.save($scope.library);
   }
 
-  $scope.$watch('vm.library', function(newLibrary) {
+  $scope.$watch('library', function(newLibrary) {
     libraryLocalStorage.save(newLibrary);
     $scope.libraryExportUrl = libraryExport(newLibrary);
   }, true);
@@ -31,11 +31,11 @@ function LibraryCtrl($window, $scope, $timeout, libraryLocalStorage, libraryExpo
   };
 
   $scope.admitBook = function() {
-    vm.library.admitBook(new Book());
+    $scope.library.admitBook(new Book());
   };
 
   $scope.newEdition = function() {
-    vm.library = new Library();
+    $scope.library = new Library();
   };
 
   // Ticker

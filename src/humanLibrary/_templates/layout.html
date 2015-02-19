@@ -1,6 +1,6 @@
 <nav id="hl-navbar" class="navbar navbar--hl navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
-    <a href class="navbar-brand">
+    <a ui-sref="humanLibrary" class="navbar-brand">
       {{ 'mainMenu.header'|translate }}
     </a>
     <ul class="nav navbar-nav navbar-right">
@@ -14,12 +14,12 @@
         </button>
       </li>
       <li>
-        <a class="btn btn-default navbar-btn" data-ng-href="{{libraryExportUrl}}" download="human-library-edition-{{vm.library.startDate|date:'yyyy-M-d'}}.json" title="{{ 'mainMenu.exportLibrary'|translate }}">
+        <a class="btn btn-default navbar-btn" data-ng-href="{{libraryExportUrl}}" download="human-library-edition-{{library.startDate|date:'yyyy-M-d'}}.json" title="{{ 'mainMenu.exportLibrary'|translate }}">
           <i class="glyphicon glyphicon-cloud-download"></i>
         </a>
       </li>
       <li>
-        <button class="btn btn-default navbar-btn" title="{{ 'mainMenu.importLibrary'|translate }}" hl-file-input-wrapper hl-import-library="vm.library">
+        <button class="btn btn-default navbar-btn" title="{{ 'mainMenu.importLibrary'|translate }}" hl-file-input-wrapper hl-import-library="library">
           <i class="glyphicon glyphicon-cloud-upload"></i>
         </button>
       </li>
@@ -32,10 +32,10 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-sm-4 col-md-3 col-lg-2" data-ng-repeat="book in vm.library.books" data-hl-book>
+    <div class="col-sm-4 col-md-3 col-lg-2" data-ng-repeat="book in library.books" data-hl-book>
       <div class="panel panel-default panel-book">
         <div class="panel-body text-center">
-          <i class="glyphicon glyphicon-user"></i>
+          <a ui-sref="humanLibrary.book({bookId: $index})" tabindex="-1"><i class="glyphicon glyphicon-user"></i></a>
         </div>
         <header class="panel-heading" ng-class="{'panel-heading-rented': book.isRented()}">
           <div class="text-right panel-book-time pull-right text-center" data-ng-class="{'text-warning': progress.status == 'warning', 'text-danger': progress.status == 'danger' }">
@@ -70,3 +70,5 @@
     </div>
   </div>
 </div>
+
+<ui-view></ui-view>
