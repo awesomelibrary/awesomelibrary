@@ -9,4 +9,5 @@ script:
 after_success:
   - git config --global user.email "$gitUserEmail"
   - git config --global user.name "$gitUserName"
+  - touch ./dist/.nojekyll
   - if [ "$TRAVIS_PULL_REQUEST" == "false" ] && [ "$TRAVIS_BRANCH" == "master" ]; then ./node_modules/.bin/gulp deployGhPages --ghPagesRemoteUrl "$ghPagesRemoteUrl" ; fi

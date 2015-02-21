@@ -14,7 +14,10 @@ gulp.task('deployGhPages', function() {
     }
   }
 
-  return gulp.src('dist/**')
+  return gulp
+    .src('dist/**', {
+      dot: true
+    })
     .pipe(ghPages(options));
 
 });
