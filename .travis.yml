@@ -7,4 +7,6 @@ script:
   - ./node_modules/.bin/gulp ci
 
 after_success:
-  - if [ "$TRAVIS_PULL_REQUEST" == "false" ] && [ "$TRAVIS_BRANCH" == "master" ]; then ./node_modules/.bin/gulp  --ghPagesRemoteUrl "$ghPagesRemoteUrl" ; fi
+  - git config --global user.email "$gitUserEmail"
+  - git config --global user.name "$gitUserName"
+  - if [ "$TRAVIS_PULL_REQUEST" == "false" ] && [ "$TRAVIS_BRANCH" == "master" ]; then ./node_modules/.bin/gulp deployGhPages --ghPagesRemoteUrl "$ghPagesRemoteUrl" ; fi
