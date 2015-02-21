@@ -65,17 +65,6 @@ describe("service Book", function() {
       expect(book.rentals.indexOf(rental)).toEqual(-1);
     });
 
-    it("should cancel last rental", function() {
-      var rental = new Rental(),
-        book = new Book();
-
-      book.rent(rental);
-      book.cancelRental();
-      expect(book.rentals.length).toEqual(0);
-      expect(book.currentRental()).toBe(null);
-      expect(book.isRented()).toBe(false);
-    });
-
   });
 
   describe("after return", function() {
@@ -85,8 +74,7 @@ describe("service Book", function() {
         book = new Book();
 
       book.rent(rental);
-      book.
-      return();
+      book.return();
       expect(book.isRented()).toBe(false);
     });
 
@@ -95,9 +83,20 @@ describe("service Book", function() {
         book = new Book();
 
       book.rent(rental);
-      book.
-      return();
+      book.return();
       expect(book.currentRental()).toBeNull();
+    });
+
+    it("should cancel rental", function() {
+      var rental = new Rental();
+      var rental2 = new Rental();
+      var book = new Book();
+
+      book.rent(rental);
+      book.return();
+      book.rent(rental2);
+      book.cancelRental(rental);
+      expect(book.rentals).toEqual([rental2]);
     });
 
   });
