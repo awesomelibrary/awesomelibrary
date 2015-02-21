@@ -8,10 +8,10 @@ function BookController($scope, $stateParams, $state) {
 
   var vm = this;
 
-  vm.book = $scope.library.books[$stateParams.bookId];
+  $scope.book = $scope.library.books[$stateParams.bookId];
 
   vm.delete = function() {
-    $scope.library.deleteBook(vm.book)
+    $scope.library.deleteBook($scope.book)
     $state.go('humanLibrary');
   }
 

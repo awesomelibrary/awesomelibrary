@@ -19,11 +19,12 @@ function BookServiceFactory($window) {
     this.rentals.unshift(rental);
   };
 
-  Book.prototype.cancelRental = function() {
-    if ($window.angular.isUndefined(this.rentals[0])) {
-      return;
+  Book.prototype.cancelRental = function(rental) {
+    var index = this.rentals.indexOf(rental);
+    if (index !== -1) {
+      this.rentals.splice(index, 1);
     }
-    this.rentals.shift();
+    return index;
   };
 
   Book.prototype.return = function() {

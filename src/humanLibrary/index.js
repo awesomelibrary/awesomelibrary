@@ -56,6 +56,12 @@ angular
             rent: 'Wypożycz',
             cancelRental: 'Anuluj'
           }
+        },
+        book: {
+          numberOfRentals: {
+            prefix: 'Wypożyczona',
+            suffix: 'razy'
+          }
         }
       });
 
@@ -76,6 +82,12 @@ angular
             'return': 'Return',
             rent: 'Rent',
             cancelRental: 'Cancel'
+          }
+        },
+        book: {
+          numberOfRentals: {
+            prefix: 'Rented',
+            suffix: 'times'
           }
         }
       });
