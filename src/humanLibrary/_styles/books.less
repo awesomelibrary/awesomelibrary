@@ -1,0 +1,20 @@
+@books-footer-height: 30px;
+
+.books {
+
+  min-height: 100%;
+  padding-top: (@grid-gutter-width/2);
+  padding-bottom: (@grid-gutter-width/2 + @books-footer-height);
+  position: relative;
+
+  &__footer {
+    background-color: white;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    line-height: @books-footer-height;
+    font-size: 1rem;
+  }
+
+}

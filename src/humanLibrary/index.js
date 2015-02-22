@@ -62,6 +62,11 @@ angular
             prefix: 'Wypożyczona',
             suffix: 'razy'
           }
+        },
+        footer: {
+          madeBy: 'Stworzone przez',
+          zaklinaczeKodu: 'Zaklinaczy Kodu.',
+          file: 'Zgłoś błąd, sugestie lub zadaj pytanie.'
         }
       });
 
@@ -89,6 +94,11 @@ angular
             prefix: 'Rented',
             suffix: 'times'
           }
+        },
+        footer: {
+          madeBy: 'Made by',
+          zaklinaczeKodu: 'Zaklinacze Kodu.',
+          file: 'File bug report, suggestion or ask question.'
         }
       });
 

@@ -30,45 +30,65 @@
   </div>
 </nav>
 
-<div class="container">
-  <div class="row">
-    <div class="col-sm-4 col-md-3 col-lg-2" data-ng-repeat="book in library.books" data-hl-book>
-      <div class="panel panel-default hl-panel hl-panel--book">
-        <div class="panel-body text-center">
-          <a ui-sref="humanLibrary.book({bookId: $index})" tabindex="-1"><i class="glyphicon glyphicon-user"></i></a>
-        </div>
-        <header class="panel-heading" ng-class="{'panel-heading-rented': book.isRented()}">
-          <div class="text-right panel-book-time pull-right text-center" data-ng-class="{'text-warning': progress.status == 'warning', 'text-danger': progress.status == 'danger' }">
-            {{progress.timer|timer}}
-          </div>
-          <div class="panel-heading-footer">
-            <div class="row">
+<div class="books">
 
-              <div class="col-xs-9">
-                <input class="panel-book-input panel-book-input-lg" type="text" placeholder="{{ 'manageBooks.namePlaceholder'|translate }}" data-ng-model="book.name" />
-              </div>
-              <div class="col-xs-3">
-                <span class="badge pull-right">{{book.rentals.length}}</span>
-              </div>
-              <div class="col-xs-12">
-                <input class="panel-book-input" type="text" placeholder="{{ 'manageBooks.titlePlaceholder'|translate }}" data-ng-model="book.title" />
+  <div class="container">
+
+    <div class="row">
+      <div class="col-sm-4 col-md-3 col-lg-2" data-ng-repeat="book in library.books" data-hl-book>
+        <div class="panel panel-default hl-panel hl-panel--book">
+          <div class="panel-body text-center">
+            <a ui-sref="humanLibrary.book({bookId: $index})" tabindex="-1"><i class="glyphicon glyphicon-user"></i></a>
+          </div>
+          <header class="panel-heading" ng-class="{'panel-heading-rented': book.isRented()}">
+            <div class="text-right panel-book-time pull-right text-center" data-ng-class="{'text-warning': progress.status == 'warning', 'text-danger': progress.status == 'danger' }">
+              {{progress.timer|timer}}
+            </div>
+            <div class="panel-heading-footer">
+              <div class="row">
+
+                <div class="col-xs-9">
+                  <input class="panel-book-input panel-book-input-lg" type="text" placeholder="{{ 'manageBooks.namePlaceholder'|translate }}" data-ng-model="book.name" />
+                </div>
+                <div class="col-xs-3">
+                  <span class="badge pull-right">{{book.rentals.length}}</span>
+                </div>
+                <div class="col-xs-12">
+                  <input class="panel-book-input" type="text" placeholder="{{ 'manageBooks.titlePlaceholder'|translate }}" data-ng-model="book.title" />
+                </div>
               </div>
             </div>
-          </div>
-        </header>
-        <footer class="panel-footer">
-          <div data-ng-show="!book.isRented()">
-            <button class="btn btn-default btn-block" tabindex="-1" data-ng-click="rentBook(book)">{{ 'manageBooks.actions.rent'|translate }}
-            </button>
-          </div>
-          <div data-ng-show="book.isRented()">
-            <button class="btn btn-default btn-block" tabindex="-1" data-ng-click="book.return()">{{ 'manageBooks.actions.return'|translate }}
-            </button>
-          </div>
-        </footer>
+          </header>
+          <footer class="panel-footer">
+            <div data-ng-show="!book.isRented()">
+              <button class="btn btn-default btn-block" tabindex="-1" data-ng-click="rentBook(book)">{{ 'manageBooks.actions.rent'|translate }}
+              </button>
+            </div>
+            <div data-ng-show="book.isRented()">
+              <button class="btn btn-default btn-block" tabindex="-1" data-ng-click="book.return()">{{ 'manageBooks.actions.return'|translate }}
+              </button>
+            </div>
+          </footer>
+        </div>
       </div>
     </div>
+
   </div>
+
+  <footer class="books__footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-6 text-muted">
+          {{ 'footer.madeBy'|translate }}
+          <a href="https://github.com/zaklinaczekodu" target="_blank">{{ 'footer.zaklinaczeKodu'|translate }}</a>
+        </div>
+        <div class="col-xs-6 text-muted text-right">
+          <a href="https://github.com/zaklinaczekodu/human-library/issues" target="_blank">{{ 'footer.file'|translate }}</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
 </div>
 
 <ui-view></ui-view>
