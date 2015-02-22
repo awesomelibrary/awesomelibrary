@@ -4,12 +4,16 @@
 
 @import "_styles/navbar";
 @import "_styles/hlPanel";
+@import "_styles/books";
 @import "book/index";
+
+html {
+  min-width: @screen-min-width;
+}
 
 body {
   padding-top: 51px;
-  padding-bottom: @grid-gutter-width;
-  min-width: @screen-sm-min;
+  min-width: @screen-min-width;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -24,6 +28,7 @@ body {
 // kolory biblioteki
 @library-red: #d3401e;
 @library-dark-red: #701e56;
+@screen-min-width: 768px;
 
 @animationBounce: cubic-bezier(.2,0,.2,1.2);
 
@@ -36,4 +41,8 @@ body {
 .navbar-nav > li > a.btn {
   padding: 6px 12px;
   .button-variant(@btn-default-color; @btn-default-bg; @btn-default-border);
+}
+
+.full-height {
+  height: 100%;
 }
