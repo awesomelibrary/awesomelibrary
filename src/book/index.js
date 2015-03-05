@@ -3,7 +3,7 @@
 module.exports = angular
   .module('humanLibrary.book', [
     require('angular-ui-router'),
-    require('./rentals/').name
+    require('./rentals/index').name
   ])
   .controller('BookController', require('./_controllers/BookController'))
   .config(require('./_configs/router'));

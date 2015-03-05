@@ -21,7 +21,7 @@ function hlFileInputWrapperDirective() {
     controller: Controller,
     link: link,
     transclude: true,
-    templateUrl: 'humanLibrary/_templates/hlFileInputWrapperDirective.html'
+    templateUrl: '_templates/hlFileInputWrapperDirective.html'
   };
 
 }

@@ -9,7 +9,7 @@ function routerConfig($stateProvider) {
     url: 'book/:bookId',
     controller: 'BookController',
     controllerAs: 'vm',
-    templateUrl: 'humanLibrary/book/_templates/book.html'
+    templateUrl: 'book/_templates/book.html'
   });
 
 }
