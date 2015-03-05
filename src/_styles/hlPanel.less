@@ -4,7 +4,14 @@
   border: none;
   border-radius: 0;
   box-shadow: 0 0 7px 0 @gray-light;
+  .transition(box-shadow .2s);
 
+  &--warning {
+    box-shadow: 0 0 7px 2px @brand-warning;
+  }
+  &--danger {
+    box-shadow: 0 0 7px 4px @brand-danger;
+  }
   &--book {
     height: 250px;
     position: relative;
