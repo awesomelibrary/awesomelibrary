@@ -11,7 +11,7 @@ function routerConfig($stateProvider, $urlRouterProvider) {
     url: '/',
     controller: 'LibraryCtrl',
     controllerAs: 'vm',
-    templateUrl: 'humanLibrary/_templates/layout.html'
+    templateUrl: '_templates/layout.html'
   });
 
 }
