@@ -1,5 +1,5 @@
 'use strict';
 
-require('gulp-zkflow').use(require('gulp'))();
+require('gulp-zkflow-angular').use(require('gulp'))();
 
-require('./gulp/tasks/deployGhPages')
+require('./gulp/tasks/deployGhPages');
