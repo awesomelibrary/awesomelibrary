@@ -25,7 +25,7 @@ function hlChangeLanguageDirective() {
     restrict: 'E',
     controller: Controller,
     controllerAs: 'vm',
-    templateUrl: '_templates/hlChangeLanguage.html',
+    templateUrl: '/_templates/hlChangeLanguage.html',
     scope: true
   };
 

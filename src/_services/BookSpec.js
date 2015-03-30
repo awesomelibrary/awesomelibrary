@@ -1,3 +1,5 @@
+'use strict';
+
 describe("service Book", function() {
 
   var Book, Rental;
@@ -5,10 +7,12 @@ describe("service Book", function() {
   beforeEach(function() {
 
     angular.mock.module('humanLibrary');
-    angular.mock.inject(['$injector', function($injector) {
-      Book = $injector.get('Book');
-      Rental = $injector.get('Rental');
-    }]);
+    angular.mock.inject(['$injector',
+      function($injector) {
+        Book = $injector.get('Book');
+        Rental = $injector.get('Rental');
+      }
+    ]);
   });
 
   it("should not be rented", function() {

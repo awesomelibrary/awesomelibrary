@@ -1,3 +1,5 @@
+'use strict';
+
 describe("service libraryLocalStorage", function() {
 
   var Library;

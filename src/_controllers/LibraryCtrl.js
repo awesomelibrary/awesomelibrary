@@ -12,8 +12,6 @@
  */
 function LibraryCtrl($window, $scope, $timeout, libraryLocalStorage, libraryExport, Rental, Book, Library) {
 
-  var vm = this;
-
   $scope.library = libraryLocalStorage.load();
 
   if ($window.angular.isUndefined($scope.library)) {
@@ -57,7 +55,7 @@ function LibraryCtrl($window, $scope, $timeout, libraryLocalStorage, libraryExpo
 
   })();
 
-  var ticker = new Ticker();
+  new Ticker();
 
 }
 

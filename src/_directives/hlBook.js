@@ -7,7 +7,7 @@
  */
 function hlBookDirective($bookCard) {
 
-  function link($scope, $elem) {
+  function link($scope) {
     // progress bar and timer
     var Progress = (function() {
       function Progress(book) {
@@ -52,13 +52,13 @@ function hlBookDirective($bookCard) {
 
     refresh();
 
-    $scope.$on('refreshBooksPositions', function(e, attrs) {
+    $scope.$on('refreshBooksPositions', function() {
       refresh();
     });
 
     $scope.progress = new Progress($scope.book);
 
-    $scope.$on('tick', function(e, attrs) {
+    $scope.$on('tick', function() {
       $scope.progress.refresh();
     });
 

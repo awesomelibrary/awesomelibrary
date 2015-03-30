@@ -1,0 +1,11 @@
+{
+  "strict": true,
+  "unused": true,
+  "undef": true,
+  "eqeqeq": true,
+  "node": true,
+  "jasmine": true,
+  "globals": {
+    "angular": false
+  }
+}
