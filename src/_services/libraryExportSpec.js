@@ -1,3 +1,5 @@
+'use strict';
+
 describe("service libraryExport", function() {
 
   var libraryExport;

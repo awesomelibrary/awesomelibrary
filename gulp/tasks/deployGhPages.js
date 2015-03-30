@@ -11,7 +11,7 @@ gulp.task('deployGhPages', function() {
   if (argv.ghPagesRemoteUrl) {
     options = {
       remoteUrl: argv.ghPagesRemoteUrl
-    }
+    };
   }
 
   return gulp

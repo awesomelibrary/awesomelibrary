@@ -1,3 +1,5 @@
+'use strict';
+
 describe("service Book", function() {
 
   var Book, Rental;
