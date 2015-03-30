@@ -8,6 +8,7 @@ angular
     require('angular-ui-router'),
     'pascalprecht.translate',
 
+    require('zk.templates').name,
     require('./book').name
   ])
   .controller('LibraryCtrl', require('./_controllers/LibraryCtrl'))

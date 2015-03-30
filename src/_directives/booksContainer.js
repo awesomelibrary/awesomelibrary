@@ -8,10 +8,10 @@
  */
 function booksContainerDirective($window, $bookCard) {
 
-  function link($scope, $elem, $attrs) {
+  function link($scope, $element) {
 
     var refresh = function() {
-      var width = $elem.width();
+      var width = $element.width();
       $scope.capacity = Math.floor(width / $bookCard.width);
       $scope.margin = (width % $bookCard.width) / ($scope.capacity + 1);
       $scope.$broadcast('refreshBooksPositions');
@@ -23,7 +23,7 @@ function booksContainerDirective($window, $bookCard) {
       refresh();
     });
 
-    $scope.$watch('library.books.length', function(newValue, oldValue) {
+    $scope.$watch('library.books.length', function() {
       $scope.$broadcast('refreshBooksPositions');
     });
   }

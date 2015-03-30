@@ -3,14 +3,14 @@
 /**
  * @ngInject
  */
-function hlImportLibraryDirective(librarySerializer) {
+function hlImportLibraryDirective(librarySerializer, $window) {
 
   function link($scope, $element, $attributes, hlFileInputWrapperCtrl) {
 
     hlFileInputWrapperCtrl.fileInputElement.on('change', function(changeEvent) {
 
       var file = changeEvent.target.files[0];
-      var fileReader = new FileReader();
+      var fileReader = new $window.FileReader();
 
       fileReader.onload = function(loadEvent) {
 
