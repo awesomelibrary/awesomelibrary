@@ -5,9 +5,11 @@ describe("service libraryExport", function() {
   beforeEach(function() {
 
     angular.mock.module('humanLibrary');
-    angular.mock.inject(['$injector', function($injector) {
-      libraryExport = $injector.get('libraryExport');
-    }]);
+    angular.mock.inject(['$injector',
+      function($injector) {
+        libraryExport = $injector.get('libraryExport');
+      }
+    ]);
 
   });
 

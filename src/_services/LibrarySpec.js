@@ -17,9 +17,11 @@ describe("service Library", function() {
       $provide.value('$filter', filter);
     });
 
-    angular.mock.inject(['$injector', function($injector) {
-      library = new($injector.get('Library'))();
-    }]);
+    angular.mock.inject(['$injector',
+      function($injector) {
+        library = new($injector.get('Library'))();
+      }
+    ]);
   });
 
   it("should have no books", function() {
