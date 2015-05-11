@@ -8,7 +8,7 @@ angular
     require('angular-ui-router'),
     'pascalprecht.translate',
 
-    require('zk.templates').name,
+    require('../.tmp/templates').name,
     require('./book').name
   ])
   .controller('LibraryCtrl', require('./_controllers/LibraryCtrl'))
@@ -41,9 +41,9 @@ angular
 
       // Polish translation
       $translateProvider.translations('pl', {
-        title: 'Żywa Biblioteka',
+        title: 'Żywa Biblioteka Polska',
         mainMenu: {
-          header: 'Żywa Biblioteka',
+          header: 'Zywa Biblioteka Polska',
           admitBook: '+ Przyjmij książkę',
           newEdition: 'Nowa edycja',
           exportLibrary: 'Eksportuj bibliotekę',
@@ -73,9 +73,9 @@ angular
 
       // English translation
       $translateProvider.translations('en', {
-        title: 'Human Library',
+        title: 'Human Library Poland',
         mainMenu: {
-          header: 'Human Library',
+          header: 'Human Library Poland',
           admitBook: '+ Admit book',
           newEdition: 'New edition',
           exportLibrary: 'Export library',
