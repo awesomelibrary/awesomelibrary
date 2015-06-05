@@ -8,3 +8,5 @@ require('./_services/libraryLocalStorageSpec');
 require('./_services/LibrarySpec');
 require('./_services/libraryExportSpec');
 require('./_services/librarySerializerSpec');
+
+require('./humanBooks/unitTests');

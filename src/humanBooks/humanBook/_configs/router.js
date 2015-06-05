@@ -5,11 +5,11 @@
  */
 function routerConfig($stateProvider) {
 
-  $stateProvider.state('humanLibrary.book', {
-    url: 'book/:bookId',
+  $stateProvider.state('humanLibrary.humanBook', {
+    url: 'human-book/:bookId',
     controller: 'BookController',
     controllerAs: 'vm',
-    templateUrl: '/book/_templates/book.html'
+    templateUrl: '/humanBooks/humanBook/_templates/humanBook.html'
   });
 
 }
