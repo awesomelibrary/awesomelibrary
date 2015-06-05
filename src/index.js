@@ -1,15 +1,17 @@
 'use strict';
 
 require('angular');
+require('angular-animate');
 require('angular-translate');
 
 angular
   .module('humanLibrary', [
-    require('angular-ui-router'),
+    'ngAnimate',
     'pascalprecht.translate',
+    require('angular-ui-router'),
 
     require('../.tmp/templates').name,
-    require('./book').name
+    require('./humanBooks/').name
   ])
   .controller('LibraryCtrl', require('./_controllers/LibraryCtrl'))
   .factory('Book', require('./_services/Book'))
@@ -18,17 +20,12 @@ angular
   .factory('Rental', require('./_services/Rental'))
   .factory('libraryExport', require('./_services/libraryExport'))
   .factory('librarySerializer', require('./_services/librarySerializer'))
-  .directive('booksContainer', require('./_directives/booksContainer'))
   .directive('hlBook', require('./_directives/hlBook'))
   .directive('hlImportLibrary', require('./_directives/hlImportLibrary'))
   .directive('hlFileInputWrapper', require('./_directives/hlFileInputWrapper'))
   .directive('hlFileInput', require('./_directives/hlFileInput'))
   .directive('hlChangeLanguage', require('./_directives/hlChangeLanguage'))
   .filter('timer', require('./_filters/timer'))
-  .value('$bookCard', {
-    width: 300,
-    height: 167
-  })
   .config(require('./_configs/router'))
   .config(
     /** @ngInject */

@@ -1,11 +1,10 @@
 'use strict';
 
 /**
- * @param $bookCard
  * @returns {{restrict: string, link: link}}
  * @ngInject
  */
-function hlBookDirective($bookCard) {
+function hlBookDirective() {
 
   function link($scope) {
     // progress bar and timer
@@ -43,18 +42,6 @@ function hlBookDirective($bookCard) {
 
       return Progress;
     })();
-
-    var refresh = function() {
-      var row = Math.floor($scope.$index / $scope.capacity);
-      $scope.top = (20 + $bookCard.height) * row + 20;
-      $scope.left = ($scope.margin + $bookCard.width) * ($scope.$index % $scope.capacity) + $scope.margin;
-    };
-
-    refresh();
-
-    $scope.$on('refreshBooksPositions', function() {
-      refresh();
-    });
 
     $scope.progress = new Progress($scope.book);
 

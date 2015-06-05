@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = angular
-  .module('humanLibrary.book', [
+  .module('humanLibrary.humanBooks.humanBook', [
     require('angular-ui-router'),
     require('./rentals/index').name
   ])

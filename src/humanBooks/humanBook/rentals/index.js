@@ -1,5 +1,5 @@
 'use strict';
 
 module.exports = angular
-  .module('humanLibrary.book.rental', [])
+  .module('humanLibrary.humanBooks.humanBook.rental', [])
   .controller('RentalsController', require('./_controllers/RentalsController'));
