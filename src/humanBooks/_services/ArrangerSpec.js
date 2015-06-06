@@ -29,8 +29,12 @@ describe('Service Arranger', function() {
   describe('when registering three elements and container will fit 2 in row', function() {
 
     function verifyOffset(element, horizontalOffset, verticalOffset) {
+      var translate = 'translate(' + horizontalOffset + 'px, ' + verticalOffset + 'px)';
       expect(element.css).toHaveBeenCalledWith({
-        transform: 'translate(' + horizontalOffset + 'px, ' + verticalOffset + 'px)'
+        '-webkit-transform': translate,
+        '-ms-transform': translate,
+        '-o-transform': translate,
+        transform: translate
       });
     }
 

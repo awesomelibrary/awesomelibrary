@@ -15,8 +15,12 @@ function ArrangerServiceFactory() {
     var column = index % arranger.elementsInRow;
     var horizontalOffset = arranger.leftMargin + GUTTER + (ELEMENT_WIDTH + GUTTER) * column;
     var verticalOffset = GUTTER + (ELEMENT_HEIGHT + GUTTER) * row;
+    var translate = 'translate(' + horizontalOffset + 'px, ' + verticalOffset + 'px)';
     element.css({
-      transform: 'translate(' + horizontalOffset + 'px, ' + verticalOffset + 'px)'
+      '-webkit-transform': translate,
+      '-ms-transform': translate,
+      '-o-transform': translate,
+      transform: translate
     });
   }
 
