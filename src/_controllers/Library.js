@@ -10,7 +10,7 @@
  * @constructor
  * @ngInject
  */
-function LibraryCtrl($window, $scope, $timeout, libraryLocalStorage, libraryExport, Rental, Book, Library) {
+function LibraryController($window, $scope, $timeout, libraryLocalStorage, libraryExport, Rental, Book, Library, undo) {
 
   $scope.library = libraryLocalStorage.load();
 
@@ -25,7 +25,18 @@ function LibraryCtrl($window, $scope, $timeout, libraryLocalStorage, libraryExpo
   }, true);
 
   $scope.rentBook = function(book) {
-    book.rent(new Rental());
+    var rental = new Rental();
+    book.rent(rental);
+    undo.done('manageBooks.actions.rented', function() {
+      book.cancelRental(rental);
+    });
+  };
+
+  $scope.returnHumanBook = function(book) {
+    var rental = book.return();
+    undo.done('manageBooks.actions.returned', function() {
+      rental.reopen();
+    });
   };
 
   $scope.admitBook = function() {
@@ -33,7 +44,11 @@ function LibraryCtrl($window, $scope, $timeout, libraryLocalStorage, libraryExpo
   };
 
   $scope.newEdition = function() {
+    var oldLibrary = $scope.library;
     $scope.library = new Library();
+    undo.done('mainMenu.newEditionStarted', function() {
+      $scope.library = oldLibrary;
+    });
   };
 
   // Ticker
@@ -59,4 +74,4 @@ function LibraryCtrl($window, $scope, $timeout, libraryLocalStorage, libraryExpo
 
 }
 
-module.exports = LibraryCtrl;
+module.exports = LibraryController;

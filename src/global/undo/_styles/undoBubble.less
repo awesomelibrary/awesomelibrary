@@ -1,0 +1,34 @@
+.undo-bubble {
+
+  display: block;
+  position: absolute;
+  top: (@navbar-height - 15);
+  right: 0;
+  left: 0;
+  height: 0;
+  text-align: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .3s, visibility .3s;
+
+  &__border {
+    display: inline-block;
+    padding: 3px 15px;
+  }
+
+  &__undo {
+    margin-left: 7px;
+  }
+
+  &__close {
+    font-size: 18px;
+    margin-left: 15px;
+    margin-right: -7px;
+  }
+
+  &--visible {
+    visibility: visible;
+    opacity: 1;
+  }
+
+}

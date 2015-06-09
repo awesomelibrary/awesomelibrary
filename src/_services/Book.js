@@ -33,7 +33,7 @@ function BookServiceFactory($window) {
       return;
     }
 
-    this.currentRental().end();
+    return this.currentRental().end();
   };
 
   Book.prototype.isRented = function() {

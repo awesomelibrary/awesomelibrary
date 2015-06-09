@@ -9,7 +9,7 @@ function routerConfig($stateProvider, $urlRouterProvider) {
 
   $stateProvider.state('humanLibrary', {
     url: '/',
-    controller: 'LibraryCtrl',
+    controller: 'LibraryController',
     controllerAs: 'vm',
     templateUrl: '/_templates/layout.html'
   });

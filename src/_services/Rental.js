@@ -18,6 +18,7 @@ function RentalServiceFactory() {
     if (null === this.returnedAt) {
       this.returnedAt = (new Date()).getTime();
     }
+    return this;
   };
 
   Rental.prototype.reopen = function() {

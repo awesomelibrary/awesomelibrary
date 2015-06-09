@@ -10,17 +10,24 @@ function translationEnglish($translateProvider) {
     mainMenu: {
       header: 'Human Library Poland',
       admitBook: '+ Add Human Book',
-      newEdition: 'New edition',
+      startNewEdition: 'Start new edition',
+      newEditionStarted: 'New edition started',
       exportLibrary: 'Archive current Human Library edition to file',
-      importLibrary: 'Recover Human Library edition from archive file'
+      importLibrary: 'Recover Human Library edition from archive file',
+      humanLibraryRecovered: 'Human Library edition recovered'
+    },
+    undoBubble: {
+      undo: 'Undo'
     },
     manageBooks: {
       namePlaceholder: 'Name',
       titlePlaceholder: 'Title',
       actions: {
         'return': 'Return',
+        returned: 'Returned',
         rent: 'Rent',
-        cancelRental: 'Cancel'
+        rented: 'Rented',
+        removed: 'Removed'
       }
     },
     book: {

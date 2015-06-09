@@ -10,17 +10,24 @@ function translationPolish($translateProvider) {
     mainMenu: {
       header: 'Zywa Biblioteka Polska',
       admitBook: '+ Dodaj Żywą Książkę',
-      newEdition: 'Nowa edycja',
+      startNewEdition: 'Rozpocznij nowę edycję',
+      newEditionStarted: 'Nowa edycja rozpoczęta',
       exportLibrary: 'Zarchiwizuj aktualną edycję Żywej Biblioteki do pliku',
-      importLibrary: 'Przywróc edycję Żywej Biblioteki z pliku archiwum'
+      importLibrary: 'Przywróc edycję Żywej Biblioteki z pliku archiwum',
+      humanLibraryRecovered: 'Przywrócono edycję Żywej Biblioteki'
+    },
+    undoBubble: {
+      undo: 'Cofnij'
     },
     manageBooks: {
       namePlaceholder: 'Imię',
       titlePlaceholder: 'Tytuł',
       actions: {
         'return': 'Zwróć',
+        returned: 'Zwrócono',
         rent: 'Wypożycz',
-        cancelRental: 'Anuluj'
+        rented: 'Wypożyczono',
+        removed: 'Usunięto'
       }
     },
     book: {

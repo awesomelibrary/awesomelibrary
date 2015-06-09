@@ -27,7 +27,7 @@
       </button>
     </div>
     <div data-ng-show="book.isRented()">
-      <button class="btn btn-default btn-block" tabindex="-1" data-ng-click="book.return()">{{ 'manageBooks.actions.return'|translate }}
+      <button class="btn btn-default btn-block" tabindex="-1" data-ng-click="returnHumanBook(book)">{{ 'manageBooks.actions.return'|translate }}
       </button>
     </div>
   </footer>

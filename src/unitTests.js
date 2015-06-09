@@ -9,4 +9,5 @@ require('./_services/LibrarySpec');
 require('./_services/libraryExportSpec');
 require('./_services/librarySerializerSpec');
 
+require('./global/undo/unitTests');
 require('./humanBooks/unitTests');

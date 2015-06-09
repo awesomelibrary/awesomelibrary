@@ -10,10 +10,12 @@ angular
     'pascalprecht.translate',
     require('angular-ui-router'),
 
+    require('./global/undo/').name,
+
     require('../.tmp/templates').name,
     require('./humanBooks/').name
   ])
-  .controller('LibraryCtrl', require('./_controllers/LibraryCtrl'))
+  .controller('LibraryController', require('./_controllers/Library'))
   .factory('Book', require('./_services/Book'))
   .factory('Library', require('./_services/Library'))
   .factory('libraryLocalStorage', require('./_services/libraryLocalStorage'))
