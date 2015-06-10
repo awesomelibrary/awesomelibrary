@@ -25,9 +25,11 @@ function ArrangerServiceFactory() {
   }
 
   function arrange(arranger) {
-    arranger.elements.forEach(function(element, index) {
-      applyOffset(arranger, element, index);
+    sort(arranger);
+    arranger.elements.forEach(function(item, index) {
+      applyOffset(arranger, item.element, index);
     });
+    calculateRows(arranger);
   }
 
   function calculateRows(arranger) {
@@ -38,27 +40,37 @@ function ArrangerServiceFactory() {
     arranger.heightCallback(GUTTER + (ELEMENT_HEIGHT + GUTTER) * arranger.rows);
   }
 
-  function ArrangerService(heightCallback) {
+  function sort(arranger) {
+    arranger.elements.sort(arranger.compare);
+  }
+
+  function ArrangerService(heightCallback, compare) {
     this.elements = [];
     this.heightCallback = heightCallback;
+    this.compare = compare;
   }
 
   ArrangerService.ELEMENT_WIDTH = ELEMENT_WIDTH;
   ArrangerService.ELEMENT_HEIGHT = ELEMENT_HEIGHT;
   ArrangerService.GUTTER = GUTTER;
 
-  ArrangerService.prototype.registerElement = function(element) {
-    applyOffset(this, element, this.elements.length);
-    this.elements.push(element);
-    calculateRows(this);
+  ArrangerService.prototype.registerElement = function(element, model) {
+    this.elements.push({
+      element: element,
+      model: model
+    });
+    arrange(this);
   };
 
   ArrangerService.prototype.unregisterElement = function(element) {
-    var index = this.elements.indexOf(element);
-    if (index === -1) return;
-    this.elements.splice(index, 1);
-    arrange(this);
-    calculateRows(this);
+
+    for (var i = 0; i < this.elements.length; i++) {
+      if (element !== this.elements[i].element) continue;
+      this.elements.splice(i, 1);
+      arrange(this);
+      return;
+    }
+
   };
 
   ArrangerService.prototype.setContainerWidth = function(width, extraOffset) {
@@ -70,7 +82,6 @@ function ArrangerServiceFactory() {
     this.elementsInRow = Math.floor((width - GUTTER) / (ELEMENT_WIDTH + GUTTER));
     this.leftMargin = (width - GUTTER - (ELEMENT_WIDTH + GUTTER) * this.elementsInRow) / 2 + extraOffset;
 
-    calculateRows(this);
     arrange(this);
 
   };

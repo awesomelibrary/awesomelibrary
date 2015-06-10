@@ -15,11 +15,11 @@ function humanBookCardDirective() {
     $scope.$watch('book.isRentable()', function(isRentable) {
       if (isRentable) {
         humanBooksCardsController.unavailableHumanBooksArranger.unregisterElement($element);
-        humanBooksCardsController.availableHumanBooksArranger.registerElement($element);
+        humanBooksCardsController.availableHumanBooksArranger.registerElement($element, $scope.book);
         return;
       }
       humanBooksCardsController.availableHumanBooksArranger.unregisterElement($element);
-      humanBooksCardsController.unavailableHumanBooksArranger.registerElement($element);
+      humanBooksCardsController.unavailableHumanBooksArranger.registerElement($element, $scope.book);
     });
 
   }
