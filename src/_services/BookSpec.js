@@ -1,6 +1,6 @@
 'use strict';
 
-describe("service Book", function() {
+describe('service Book', function() {
 
   var Book, Rental;
 
@@ -13,94 +13,98 @@ describe("service Book", function() {
         Rental = $injector.get('Rental');
       }
     ]);
-  });
 
-  it("should not be rented", function() {
-    var book = new Book();
-
-    expect(book.isRented()).toBe(false);
-  });
-
-  it("should not have current rental", function() {
-    var book = new Book();
-
-    expect(book.currentRental()).toBeNull();
-  });
-
-  it("should not cancel last rental", function() {
-    var book = new Book();
-    book.cancelRental();
-    expect(book.rentals.length).toEqual(0);
-  });
-
-  describe("after rent", function() {
-
-    it("should be rented", function() {
-      var rental = new Rental(),
-        book = new Book();
-
-      book.rent(rental);
-      expect(book.isRented()).toBe(true);
-    });
-
-    it("should have current rental", function() {
-      var rental = new Rental(),
-        book = new Book();
-
-      book.rent(rental);
-      expect(book.currentRental()).toBe(rental);
-    });
-
-    it("should add rental to rental list", function() {
-      var rental = new Rental(),
-        book = new Book();
-
-      book.rent(rental);
-      expect(book.rentals.indexOf(rental)).not.toEqual(-1);
-    });
-
-    it("can't be rented", function() {
-      var rental = new Rental(),
-        book = new Book();
-
-      book.rent(new Rental());
-      book.rent(rental);
-      expect(book.currentRental()).not.toBe(rental);
-      expect(book.rentals.indexOf(rental)).toEqual(-1);
-    });
+    this.book = new Book();
 
   });
 
-  describe("after return", function() {
+  it('should not be rented', function() {
+    expect(this.book.isRented()).toBe(false);
+  });
 
-    it("should not be rented", function() {
-      var rental = new Rental(),
-        book = new Book();
+  it('should not have current rental', function() {
+    expect(this.book.currentRental()).toBeNull();
+  });
 
-      book.rent(rental);
-      book.return();
-      expect(book.isRented()).toBe(false);
+  it('should not cancel last rental', function() {
+    this.book.cancelRental();
+    expect(this.book.rentals.length).toEqual(0);
+  });
+
+  it('should be available', function() {
+    expect(this.book.available).toBe(true);
+  });
+
+  it('should be rantable', function() {
+    expect(this.book.isRentable()).toBe(true);
+  });
+
+  describe('when book is rented', function() {
+
+    beforeEach(function() {
+      this.rental = new Rental();
+      this.book.rent(this.rental);
     });
 
-    it("should not have current rental", function() {
-      var rental = new Rental(),
-        book = new Book();
-
-      book.rent(rental);
-      book.return();
-      expect(book.currentRental()).toBeNull();
+    it('should not be rantable', function() {
+      expect(this.book.isRentable()).toBe(false);
     });
 
-    it("should cancel rental", function() {
+    it('should be rented', function() {
+      expect(this.book.isRented()).toBe(true);
+    });
+
+    it('should have current rental', function() {
+      expect(this.book.currentRental()).toBe(this.rental);
+    });
+
+    it('should add rental to rental list', function() {
+      expect(this.book.rentals.indexOf(this.rental)).not.toEqual(-1);
+    });
+
+    it('cant be rented', function() {
       var rental = new Rental();
-      var rental2 = new Rental();
-      var book = new Book();
+      this.book.rent(rental);
+      expect(this.book.currentRental()).not.toBe(rental);
+      expect(this.book.rentals.indexOf(rental)).toEqual(-1);
+    });
 
-      book.rent(rental);
-      book.return();
-      book.rent(rental2);
-      book.cancelRental(rental);
-      expect(book.rentals).toEqual([rental2]);
+    describe('and then returned', function() {
+
+      beforeEach(function() {
+        this.book.return();
+      });
+
+      it('should not be rented', function() {
+        expect(this.book.isRented()).toBe(false);
+      });
+
+      it('should not have current rental', function() {
+        expect(this.book.currentRental()).toBeNull();
+      });
+
+      it('should cancel rental', function() {
+
+        var rental = new Rental();
+
+        this.book.rent(rental);
+        this.book.cancelRental(this.rental);
+        expect(this.book.rentals).toEqual([rental]);
+
+      });
+
+    });
+
+  });
+
+  describe('when book is not available', function() {
+
+    beforeEach(function() {
+      this.book.available = false;
+    });
+
+    it('should not be rantable', function() {
+      expect(this.book.isRentable()).toBe(false);
     });
 
   });

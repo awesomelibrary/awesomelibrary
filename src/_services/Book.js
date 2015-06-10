@@ -9,7 +9,8 @@ function BookServiceFactory($window) {
 
   function Book() {
     this.rentals = [];
-    this.name = "";
+    this.name = '';
+    this.available = true;
   }
 
   Book.prototype.rent = function(rental) {
@@ -48,6 +49,10 @@ function BookServiceFactory($window) {
       return null;
     }
     return this.rentals[0];
+  };
+
+  Book.prototype.isRentable = function() {
+    return !this.isRented() && this.available;
   };
 
   return Book;

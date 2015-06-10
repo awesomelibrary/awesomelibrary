@@ -20,6 +20,13 @@ function librarySerializerServiceFactory($window, Library, Book, Rental) {
       $window.angular.extend(libraryDeserialized, library);
       libraryDeserialized.startDate = new Date(libraryDeserialized.startDate);
 
+      if (libraryDeserialized.formatVersion === 'v1.0.0') {
+        libraryDeserialized.books.forEach(function(book) {
+          book.available = true;
+        });
+        libraryDeserialized.formatVersion = '2.0.0';
+      }
+
       $window.angular.forEach(libraryDeserialized.books, function(book, bookIndex) {
 
         var bookModel = new Book();

@@ -34,66 +34,95 @@ describe('service librarySerializer', function() {
     expect($window.angular.toJson).toHaveBeenCalledWith(library);
   });
 
-  describe('when deserializing library', function() {
+  describe('when deserializing library in format version v1.0.0', function() {
 
-    var strippedLibrary;
-    var library;
+    beforeEach(function() {
 
-    function deserializeLibrary() {
-      $window.angular.fromJson.and.returnValue(strippedLibrary);
-      library = librarySerializer.deserialize(json);
-    }
-
-    it('should parse json', function() {
-      strippedLibrary = {};
-      deserializeLibrary();
-      expect($window.angular.fromJson).toHaveBeenCalledWith(json);
-    });
-
-    it('should parse start date', function() {
-      var startDate = new Date();
-      startDate.setFullYear(startDate.getFullYear() + 1);
-      strippedLibrary = {
-        startDate: startDate.toISOString(),
-        books: []
-      };
-      deserializeLibrary();
-      expect(library.startDate).toEqual(startDate);
-    });
-
-    it('should create library model', function() {
-      strippedLibrary = {
-        books: []
-      };
-      deserializeLibrary();
-      expect(library).toEqual(jasmine.any(Library));
-      expect(library).toEqual(jasmine.objectContaining(strippedLibrary));
-    });
-
-    it('should create book model', function() {
-      strippedLibrary = {
+      this.strippedLibrary = {
+        formatVersion: 'v1.0.0',
         books: [{
           name: 'a',
           rentals: []
         }]
       };
-      deserializeLibrary();
-      expect(library.books[0]).toEqual(jasmine.any(Book));
-      expect(library.books[0]).toEqual(strippedLibrary.books[0]);
+
+      $window.angular.fromJson.and.returnValue(this.strippedLibrary);
+      this.library = librarySerializer.deserialize('');
+
     });
 
-    it('should create rental model', function() {
-      strippedLibrary = {
+    it('should have version 2.0.0', function() {
+      expect(this.library.formatVersion).toEqual('2.0.0');
+    });
+
+    it('human book should be available', function() {
+      expect(this.library.books[0].available).toBe(true);
+    });
+
+  });
+
+  describe('when deserializing library in format version 2.0.0', function() {
+
+    beforeEach(function() {
+
+      this.startDate = new Date();
+      this.startDate.setFullYear(this.startDate.getFullYear() + 1);
+
+      this.strippedLibrary = {
+        formatVersion: '2.0.0',
+        startDate: this.startDate.toISOString(),
         books: [{
           name: 'a',
+          available: false,
           rentals: [{
+            rentedAt: this.startDate.getTime(),
+            returnedAt: this.startDate.getTime(),
             period: 1
           }]
         }]
       };
-      deserializeLibrary();
-      expect(library.books[0].rentals[0]).toEqual(jasmine.any(Rental));
-      expect(library.books[0].rentals[0]).toEqual(strippedLibrary.books[0].rentals[0]);
+
+      $window.angular.fromJson.and.returnValue(this.strippedLibrary);
+      this.library = librarySerializer.deserialize('');
+
+    });
+
+    it('should parse json', function() {
+      expect($window.angular.fromJson).toHaveBeenCalledWith('');
+    });
+
+    it('should have version 2.0.0', function() {
+      expect(this.library.formatVersion).toEqual('2.0.0');
+    });
+
+    it('should parse start date', function() {
+      expect(this.library.startDate).toEqual(this.startDate);
+    });
+
+    it('should create library model', function() {
+      expect(this.library).toEqual(jasmine.any(Library));
+    });
+
+    it('should create book model', function() {
+      expect(this.library.books[0]).toEqual(jasmine.any(Book));
+      expect(this.library.books[0].name).toEqual(this.strippedLibrary.books[0].name);
+    });
+
+    it('should create rental model', function() {
+      expect(this.library.books[0].rentals[0]).toEqual(jasmine.any(Rental));
+      expect(this.library.books[0].rentals[0].period).toEqual(this.strippedLibrary.books[0].rentals[0].period);
+    });
+
+    it('should have rentedAt date', function() {
+      expect(this.library.books[0].rentals[0].rentedAt).toEqual(this.startDate.getTime());
+    });
+
+    it('should have returnedAt date', function() {
+      expect(this.library.books[0].rentals[0].returnedAt).toEqual(this.startDate.getTime());
+    });
+
+    it('human book should not be available', function() {
+      expect(this.library.books[0].available).toBe(this.strippedLibrary.books[0].available);
     });
 
   });
