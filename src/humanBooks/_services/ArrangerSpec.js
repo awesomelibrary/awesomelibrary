@@ -14,7 +14,9 @@ describe('Service Arranger', function() {
     });
 
     this.heightCallback = jasmine.createSpy('heightCallback');
-    this.arranger = new this.Arranger(this.heightCallback);
+    this.arranger = new this.Arranger(this.heightCallback, function() {
+      return 0;
+    });
 
     this.extraSpace = 2;
     this.containerWidth = 3 * this.Arranger.GUTTER + 2 * this.Arranger.ELEMENT_WIDTH + this.extraSpace;

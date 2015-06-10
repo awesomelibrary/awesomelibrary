@@ -8,7 +8,7 @@ function humanBooksCardsDirective($window) {
   /**
    * @ngInject
    */
-  function Controller(Arranger) {
+  function Controller(Arranger, compareAvailableHumanBooks, compareUnavailableHumanBooks) {
 
     var availableHeight = 0;
     var unavailableHeight = 0;
@@ -26,12 +26,12 @@ function humanBooksCardsDirective($window) {
     this.availableHumanBooksArranger = new Arranger(function(newAvailableHeight) {
       availableHeight = newAvailableHeight;
       checkHeight();
-    });
+    }, compareAvailableHumanBooks);
 
     this.unavailableHumanBooksArranger = new Arranger(function(newUnavailableHeight) {
       unavailableHeight = newUnavailableHeight;
       checkHeight();
-    });
+    }, compareUnavailableHumanBooks);
 
   }
 

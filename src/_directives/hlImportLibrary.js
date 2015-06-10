@@ -3,7 +3,7 @@
 /**
  * @ngInject
  */
-function hlImportLibraryDirective(librarySerializer, $window) {
+function hlImportLibraryDirective(librarySerializer, $window, undo) {
 
   function link($scope, $element, $attributes, hlFileInputWrapperCtrl) {
 
@@ -15,7 +15,11 @@ function hlImportLibraryDirective(librarySerializer, $window) {
       fileReader.onload = function(loadEvent) {
 
         $scope.$apply(function() {
+          var oldLibrary = $scope.library;
           $scope.library = librarySerializer.deserialize(loadEvent.target.result);
+          undo.done('mainMenu.humanLibraryRecovered', function() {
+            $scope.library = oldLibrary;
+          });
         });
 
       };
