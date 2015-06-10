@@ -27,7 +27,9 @@ function translationPolish($translateProvider) {
         returned: 'Zwrócono',
         rent: 'Wypożycz',
         rented: 'Wypożyczono',
-        removed: 'Usunięto'
+        removed: 'Usunięto',
+        makeUnavailable: 'Oznacz jako niedostępną',
+        makeAvailable: 'Oznacz jako dostępną'
       }
     },
     book: {

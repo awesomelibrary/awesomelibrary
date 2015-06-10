@@ -1,14 +1,18 @@
 <div class="panel panel-default hl-panel hl-panel--book" ng-class="{'hl-panel--warning': progress.status == 'warning', 'hl-panel--danger': progress.status == 'danger' }">
+
   <div class="panel-body text-center">
     <a class="hl-panel__book-link" ui-sref="humanLibrary.humanBook({bookId: $index})" tabindex="-1"><i class="glyphicon glyphicon-user"></i></a>
   </div>
-  <header class="panel-heading" ng-class="{'panel-heading-rented': book.isRented()}">
-    <div class="text-right panel-book-time pull-right text-center" ng-class="{'text-warning': progress.status == 'warning', 'text-danger': progress.status == 'danger' }">
+
+  <header class="panel-heading" ng-class="{'panel-heading-rented': !book.isRentable()}">
+    <div class="human-book-card__clock" ng-show="book.isRented()" ng-class="{'text-warning': progress.status == 'warning', 'text-danger': progress.status == 'danger' }">
       {{progress.timer|timer}}
+    </div>
+    <div class="human-book-card__unavailable" ng-hide="book.available || book.isRentable()">
+      <i class="glyphicon glyphicon-time"></i>
     </div>
     <div class="panel-heading-footer">
       <div class="row">
-
         <div class="col-xs-9">
           <input class="panel-book-input panel-book-input-lg" type="text" placeholder="{{ 'manageBooks.namePlaceholder'|translate }}" data-ng-model="book.name" />
         </div>
@@ -21,14 +25,26 @@
       </div>
     </div>
   </header>
+
   <footer class="panel-footer">
-    <div data-ng-show="!book.isRented()">
-      <button class="btn btn-default btn-block" tabindex="-1" data-ng-click="rentBook(book)">{{ 'manageBooks.actions.rent'|translate }}
-      </button>
-    </div>
-    <div data-ng-show="book.isRented()">
-      <button class="btn btn-default btn-block" tabindex="-1" data-ng-click="returnHumanBook(book)">{{ 'manageBooks.actions.return'|translate }}
-      </button>
+    <div class="row">
+      <div class="col-xs-8">
+        <button class="btn btn-default btn-block" tabindex="-1" ng-click="rentBook(book)" ng-disabled="!book.available" ng-hide="book.isRented()">
+          {{ 'manageBooks.actions.rent'|translate }}
+        </button>
+        <div ng-show="book.isRented()">
+          <button class="btn btn-default btn-block" tabindex="-1" ng-click="returnHumanBook(book)">
+            {{ 'manageBooks.actions.return'|translate }}
+          </button>
+        </div>
+      </div>
+      <div class="col-xs-4">
+        <button class="btn btn-default btn-block" title="{{ (book.available ? 'manageBooks.actions.makeUnavailable' : 'manageBooks.actions.makeAvailable')|translate }}" ng-class="{ active: !book.available }" tabindex="-1" ng-click="toggleHumanBookAvailable(book)"
+        ng-disabled="book.isRented()">
+          <i class="glyphicon glyphicon-time"></i>
+        </button>
+      </div>
     </div>
   </footer>
+
 </div>

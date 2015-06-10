@@ -27,7 +27,9 @@ function translationEnglish($translateProvider) {
         returned: 'Returned',
         rent: 'Rent',
         rented: 'Rented',
-        removed: 'Removed'
+        removed: 'Removed',
+        makeUnavailable: 'Mark as unavailable',
+        makeAvailable: 'Mark as available'
       }
     },
     book: {

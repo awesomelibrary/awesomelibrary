@@ -32,6 +32,7 @@ angular
   .config(require('./_configs/translation'))
   .config(require('./_configs/translationEnglish'))
   .config(require('./_configs/translationPolish'))
+  .config(require('./_configs/animate'))
   .config(
     /** @ngInject */
     function($compileProvider) {

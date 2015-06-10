@@ -12,14 +12,14 @@ function humanBookCardDirective() {
       humanBooksCardsController.unavailableHumanBooksArranger.unregisterElement($element);
     });
 
-    $scope.$watch('book.isRented()', function(rented) {
-      if (rented) {
-        humanBooksCardsController.availableHumanBooksArranger.unregisterElement($element);
-        humanBooksCardsController.unavailableHumanBooksArranger.registerElement($element);
+    $scope.$watch('book.isRentable()', function(isRentable) {
+      if (isRentable) {
+        humanBooksCardsController.unavailableHumanBooksArranger.unregisterElement($element);
+        humanBooksCardsController.availableHumanBooksArranger.registerElement($element);
         return;
       }
-      humanBooksCardsController.unavailableHumanBooksArranger.unregisterElement($element);
-      humanBooksCardsController.availableHumanBooksArranger.registerElement($element);
+      humanBooksCardsController.availableHumanBooksArranger.unregisterElement($element);
+      humanBooksCardsController.unavailableHumanBooksArranger.registerElement($element);
     });
 
   }

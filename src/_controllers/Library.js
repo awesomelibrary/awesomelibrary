@@ -51,6 +51,11 @@ function LibraryController($window, $scope, $timeout, libraryLocalStorage, libra
     });
   };
 
+  $scope.toggleHumanBookAvailable = function(book) {
+    book.available = !book.available;
+    undo.bubble.dismiss();
+  };
+
   // Ticker
   var Ticker = (function() {
 
