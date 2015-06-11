@@ -56,6 +56,10 @@ function LibraryController($window, $scope, $timeout, libraryLocalStorage, libra
     undo.bubble.dismiss();
   };
 
+  $scope.onlyAvailable = function(humanBook) {
+    return humanBook.isRentable();
+  };
+
   // Ticker
   var Ticker = (function() {
 

@@ -8,16 +8,22 @@
     </a>
     <ul class="nav navbar-nav navbar-right">
       <li>
-        <button class="btn btn-default navbar-btn" data-ng-click="admitBook()">{{ 'mainMenu.admitBook'|translate }}
+        <button class="btn btn-default navbar-btn" title="{{ 'mainMenu.admitBook'|translate }}" ng-click="admitBook()">
+          <i class="glyphicon glyphicon-plus"></i>
         </button>
       </li>
       <li>
-        <button class="btn btn-default navbar-btn" data-ng-click="newEdition()" title="{{ 'mainMenu.startNewEdition'|translate }}">
+        <button class="btn btn-default navbar-btn" type="button" available-human-books="/_templates/availableHumanBooks.html" title="{{ 'mainMenu.showAvailable'|translate }}">
+          <i class="glyphicon glyphicon-new-window"></i>
+        </button>
+      </li>
+      <li>
+        <button class="btn btn-default navbar-btn" ng-click="newEdition()" title="{{ 'mainMenu.startNewEdition'|translate }}">
           <i class="glyphicon glyphicon-trash"></i>
         </button>
       </li>
       <li>
-        <a class="btn btn-default navbar-btn" data-ng-href="{{libraryExportUrl}}" download="human-library-edition-{{library.startDate|date:'yyyy-M-d'}}.json" title="{{ 'mainMenu.exportLibrary'|translate }}">
+        <a class="btn btn-default navbar-btn" ng-href="{{libraryExportUrl}}" download="human-library-edition-{{library.startDate|date:'yyyy-M-d'}}.json" title="{{ 'mainMenu.exportLibrary'|translate }}">
           <i class="glyphicon glyphicon-save"></i>
         </a>
       </li>
