@@ -17,6 +17,9 @@ function translationEnglish($translateProvider) {
       humanLibraryRecovered: 'Human Library edition recovered',
       showAvailable: 'Show available Human Books in new window'
     },
+    available: {
+      header: 'Available Human Books'
+    },
     undoBubble: {
       undo: 'Undo'
     },

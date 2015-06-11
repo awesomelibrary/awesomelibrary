@@ -3,23 +3,23 @@
 /**
  * @ngInject
  */
-function availableHumanBooksDirective($window, $http, $templateCache, $compile) {
+function showAvailableHumanBooksDirective($window, $http, $templateCache, $compile) {
 
   function link($scope, $element, $attributes) {
 
     $element.on('click', function() {
 
-      var availableHumanBooksWindow = $window.open('about:blank', '', 'menubar=no,status=no');
+      $scope.availableHumanBooksWindow = $window.open('about:blank', '', 'menubar=no,status=no');
 
       $http
-        .get($attributes.availableHumanBooks, {
+        .get($attributes.showAvailableHumanBooks, {
           cache: $templateCache
         })
         .success(function(html) {
 
-          var availableHumanBooksDocument = availableHumanBooksWindow.document;
+          var availableHumanBooksDocument = $scope.availableHumanBooksWindow.document;
 
-          angular.element(availableHumanBooksWindow).ready(function() {
+          angular.element($scope.availableHumanBooksWindow).ready(function() {
             $compile(availableHumanBooksDocument)($scope);
           });
 
@@ -39,4 +39,4 @@ function availableHumanBooksDirective($window, $http, $templateCache, $compile) 
 
 }
 
-module.exports = availableHumanBooksDirective;
+module.exports = showAvailableHumanBooksDirective;

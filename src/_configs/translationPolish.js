@@ -17,6 +17,9 @@ function translationPolish($translateProvider) {
       humanLibraryRecovered: 'Przywrócono edycję Żywej Biblioteki',
       showAvailable: 'Pokaż dostępne Żywe Książki w nowym oknie'
     },
+    available: {
+      header: 'Dostępne Żywe Książki'
+    },
     undoBubble: {
       undo: 'Cofnij'
     },
