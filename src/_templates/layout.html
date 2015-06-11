@@ -1,37 +1,39 @@
-<nav id="hl-navbar" class="navbar navbar--hl navbar-default navbar-fixed-top" role="navigation">
-  <div class="container">
+<top-bar>
 
-    <undo-bubble class="undo-bubble"></undo-bubble>
+  <undo-bubble class="undo-bubble"></undo-bubble>
 
-    <a ui-sref="humanLibrary" class="navbar-brand">
-      <img class="hl-navbar--logo" src="_assets/pictures/logo.svg" alt="logo">{{ 'mainMenu.header'|translate }}
-    </a>
-    <ul class="nav navbar-nav navbar-right">
-      <li>
-        <button class="btn btn-default navbar-btn" data-ng-click="admitBook()">{{ 'mainMenu.admitBook'|translate }}
-        </button>
-      </li>
-      <li>
-        <button class="btn btn-default navbar-btn" data-ng-click="newEdition()" title="{{ 'mainMenu.startNewEdition'|translate }}">
-          <i class="glyphicon glyphicon-trash"></i>
-        </button>
-      </li>
-      <li>
-        <a class="btn btn-default navbar-btn" data-ng-href="{{libraryExportUrl}}" download="human-library-edition-{{library.startDate|date:'yyyy-M-d'}}.json" title="{{ 'mainMenu.exportLibrary'|translate }}">
-          <i class="glyphicon glyphicon-save"></i>
-        </a>
-      </li>
-      <li>
-        <button class="btn btn-default navbar-btn" title="{{ 'mainMenu.importLibrary'|translate }}" hl-file-input-wrapper hl-import-library="library">
-          <i class="glyphicon glyphicon-open"></i>
-        </button>
-      </li>
-      <li>
-        <hl-change-language></hl-change-language>
-      </li>
-    </ul>
-  </div>
-</nav>
+  <ul class="nav navbar-nav navbar-right">
+    <li>
+      <button class="btn btn-default navbar-btn" title="{{ 'mainMenu.admitBook'|translate }}" ng-click="admitBook()">
+        <i class="glyphicon glyphicon-plus"></i>
+      </button>
+    </li>
+    <li>
+      <button class="btn btn-default navbar-btn" type="button" show-available-human-books="/availableHumanBooks/_templates/availableHumanBooks.html" title="{{ 'mainMenu.showAvailable'|translate }}">
+        <i class="glyphicon glyphicon-new-window"></i>
+      </button>
+    </li>
+    <li>
+      <button class="btn btn-default navbar-btn" ng-click="newEdition()" title="{{ 'mainMenu.startNewEdition'|translate }}">
+        <i class="glyphicon glyphicon-trash"></i>
+      </button>
+    </li>
+    <li>
+      <a class="btn btn-default navbar-btn" ng-href="{{libraryExportUrl}}" download="human-library-edition-{{library.startDate|date:'yyyy-M-d'}}.json" title="{{ 'mainMenu.exportLibrary'|translate }}">
+        <i class="glyphicon glyphicon-save"></i>
+      </a>
+    </li>
+    <li>
+      <button class="btn btn-default navbar-btn" title="{{ 'mainMenu.importLibrary'|translate }}" hl-file-input-wrapper hl-import-library="library">
+        <i class="glyphicon glyphicon-open"></i>
+      </button>
+    </li>
+    <li>
+      <hl-change-language></hl-change-language>
+    </li>
+  </ul>
+
+</top-bar>
 
 <div class="human-books">
 

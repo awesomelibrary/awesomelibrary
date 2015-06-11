@@ -9,12 +9,16 @@ function translationEnglish($translateProvider) {
     title: 'Human Library Poland',
     mainMenu: {
       header: 'Human Library Poland',
-      admitBook: '+ Add Human Book',
+      admitBook: 'Add Human Book',
       startNewEdition: 'Start new edition',
       newEditionStarted: 'New edition started',
       exportLibrary: 'Archive current Human Library edition to file',
       importLibrary: 'Recover Human Library edition from archive file',
-      humanLibraryRecovered: 'Human Library edition recovered'
+      humanLibraryRecovered: 'Human Library edition recovered',
+      showAvailable: 'Show available Human Books in new window'
+    },
+    available: {
+      header: 'Available Human Books'
     },
     undoBubble: {
       undo: 'Undo'

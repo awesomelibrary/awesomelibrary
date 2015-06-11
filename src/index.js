@@ -13,7 +13,8 @@ angular
     require('./global/undo/').name,
 
     require('../.tmp/templates').name,
-    require('./humanBooks/').name
+    require('./humanBooks/').name,
+    require('./availableHumanBooks/').name
   ])
   .controller('LibraryController', require('./_controllers/Library'))
   .factory('Book', require('./_services/Book'))
@@ -27,7 +28,11 @@ angular
   .directive('hlFileInputWrapper', require('./_directives/hlFileInputWrapper'))
   .directive('hlFileInput', require('./_directives/hlFileInput'))
   .directive('hlChangeLanguage', require('./_directives/hlChangeLanguage'))
+  .directive('link', require('./_directives/link'))
+  .directive('indexStylesheet', require('./_directives/indexStylesheet'))
+  .directive('topBar', require('./_directives/topBar'))
   .filter('timer', require('./_filters/timer'))
+  .value('stylesheet', {})
   .config(require('./_configs/router'))
   .config(require('./_configs/translation'))
   .config(require('./_configs/translationEnglish'))

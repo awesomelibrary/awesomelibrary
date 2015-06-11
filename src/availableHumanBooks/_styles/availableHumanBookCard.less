@@ -1,0 +1,25 @@
+.available-human-book-card {
+
+  width: 250px;
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: transform .3s ease;
+
+  &.ng-enter,
+  &.ng-leave {
+    transition: opacity .3s;
+  }
+
+  &.ng-leave.ng-leave-active,
+  &.ng-enter {
+    opacity: 0;
+  }
+
+  &.ng-leave,
+  &.ng-enter.ng-enter-active {
+    opacity: 1;
+  }
+
+}

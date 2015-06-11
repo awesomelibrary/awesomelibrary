@@ -14,6 +14,9 @@ function humanBooksCardsDirective($window) {
     var unavailableHeight = 0;
     var height;
     var that = this;
+    var elementHeight = 250;
+    var elementWidth = 170;
+    var gutter = 16;
 
     function checkHeight() {
       var newHeight = Math.max(availableHeight, unavailableHeight);
@@ -23,15 +26,27 @@ function humanBooksCardsDirective($window) {
       that.heightCallback(height);
     }
 
-    this.availableHumanBooksArranger = new Arranger(function(newAvailableHeight) {
-      availableHeight = newAvailableHeight;
-      checkHeight();
-    }, compareAvailableHumanBooks);
+    this.availableHumanBooksArranger = new Arranger({
+      heightCallback: function(newAvailableHeight) {
+        availableHeight = newAvailableHeight;
+        checkHeight();
+      },
+      compare: compareAvailableHumanBooks,
+      elementHeight: elementHeight,
+      elementWidth: elementWidth,
+      gutter: gutter
+    });
 
-    this.unavailableHumanBooksArranger = new Arranger(function(newUnavailableHeight) {
-      unavailableHeight = newUnavailableHeight;
-      checkHeight();
-    }, compareUnavailableHumanBooks);
+    this.unavailableHumanBooksArranger = new Arranger({
+      heightCallback: function(newUnavailableHeight) {
+        unavailableHeight = newUnavailableHeight;
+        checkHeight();
+      },
+      compare: compareUnavailableHumanBooks,
+      elementHeight: elementHeight,
+      elementWidth: elementWidth,
+      gutter: gutter
+    });
 
   }
 

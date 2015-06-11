@@ -13,19 +13,28 @@ describe('Service Arranger', function() {
       beforeEachThis.Arranger = Arranger;
     });
 
+    this.elementWidth = 100;
+    this.elementHeight = 100;
+    this.gutter = 10;
     this.heightCallback = jasmine.createSpy('heightCallback');
-    this.arranger = new this.Arranger(this.heightCallback, function() {
-      return 0;
+    this.arranger = new this.Arranger({
+      heightCallback: this.heightCallback,
+      compare: function() {
+        return 0;
+      },
+      elementWidth: this.elementWidth,
+      elementHeight: this.elementHeight,
+      gutter: this.gutter
     });
 
     this.extraSpace = 2;
-    this.containerWidth = 3 * this.Arranger.GUTTER + 2 * this.Arranger.ELEMENT_WIDTH + this.extraSpace;
+    this.containerWidth = 3 * this.gutter + 2 * this.elementWidth + this.extraSpace;
     this.arranger.setContainerWidth(this.containerWidth);
 
   });
 
   it('should set height to GUTTER', function() {
-    expect(this.heightCallback).toHaveBeenCalledWith(this.Arranger.GUTTER);
+    expect(this.heightCallback).toHaveBeenCalledWith(this.gutter);
   });
 
   describe('when registering three elements and container will fit 2 in row', function() {
@@ -50,12 +59,12 @@ describe('Service Arranger', function() {
       this.arranger.registerElement(this.element2);
       this.arranger.registerElement(this.element3);
 
-      this.horizontalOffset1 = this.Arranger.GUTTER + this.extraSpace / 2;
-      this.verticalOffset1 = this.Arranger.GUTTER;
-      this.horizontalOffset2 = this.Arranger.GUTTER * 2 + this.extraSpace / 2 + this.Arranger.ELEMENT_WIDTH;
-      this.verticalOffset2 = this.Arranger.GUTTER;
-      this.horizontalOffset3 = this.Arranger.GUTTER + this.extraSpace / 2;
-      this.verticalOffset3 = this.Arranger.GUTTER * 2 + this.Arranger.ELEMENT_HEIGHT;
+      this.horizontalOffset1 = this.gutter + this.extraSpace / 2;
+      this.verticalOffset1 = this.gutter;
+      this.horizontalOffset2 = this.gutter * 2 + this.extraSpace / 2 + this.elementWidth;
+      this.verticalOffset2 = this.gutter;
+      this.horizontalOffset3 = this.gutter + this.extraSpace / 2;
+      this.verticalOffset3 = this.gutter * 2 + this.elementHeight;
 
     });
 
@@ -83,7 +92,7 @@ describe('Service Arranger', function() {
       });
 
       it('should set height to one row', function() {
-        var height = this.Arranger.GUTTER * 2 + this.Arranger.ELEMENT_HEIGHT;
+        var height = this.gutter * 2 + this.elementHeight;
         expect(this.heightCallback).toHaveBeenCalledWith(height);
       });
 
@@ -128,7 +137,7 @@ describe('Service Arranger', function() {
     });
 
     it('should set height to two rows', function() {
-      var height = this.Arranger.GUTTER + (this.Arranger.ELEMENT_HEIGHT + this.Arranger.GUTTER) * 2;
+      var height = this.gutter + (this.elementHeight + this.gutter) * 2;
       expect(this.heightCallback).toHaveBeenCalledWith(height);
     });
 
