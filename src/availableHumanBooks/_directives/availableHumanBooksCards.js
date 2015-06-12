@@ -14,9 +14,9 @@ function availableHumanBooksCardsDirective($window, Arranger, compareAvailableHu
 
     availableHumanBooksCardsController.arranger = new Arranger({
       compare: compareAvailableHumanBooks,
-      elementHeight: 71,
+      elementHeight: 130,
       elementWidth: 250,
-      gutter: 16
+      gutter: 10
     });
 
     function setArrangerContainerWidth() {
