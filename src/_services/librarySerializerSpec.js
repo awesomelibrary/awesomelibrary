@@ -1,5 +1,8 @@
 'use strict';
 
+var angular = require('angular');
+require('angular-mocks');
+
 describe('service librarySerializer', function() {
 
   var librarySerializer;
@@ -11,7 +14,7 @@ describe('service librarySerializer', function() {
 
   beforeEach(function() {
 
-    angular.mock.module('humanLibrary');
+    angular.mock.module(require('../'));
 
     angular.mock.inject(function(_$window_, _librarySerializer_, _Library_, _Book_, _Rental_) {
       $window = _$window_;
@@ -22,16 +25,16 @@ describe('service librarySerializer', function() {
     });
 
     json = 'some json string';
-    spyOn($window.angular, 'toJson');
-    spyOn($window.angular, 'fromJson');
+    spyOn(angular, 'toJson');
+    spyOn(angular, 'fromJson');
 
   });
 
   it('when serializing library should convert it to json', function() {
     var library = {};
-    $window.angular.toJson.and.returnValue(json);
+    angular.toJson.and.returnValue(json);
     expect(librarySerializer.serialize(library)).toBe(json);
-    expect($window.angular.toJson).toHaveBeenCalledWith(library);
+    expect(angular.toJson).toHaveBeenCalledWith(library);
   });
 
   describe('when deserializing library in format version v1.0.0', function() {
@@ -46,7 +49,7 @@ describe('service librarySerializer', function() {
         }]
       };
 
-      $window.angular.fromJson.and.returnValue(this.strippedLibrary);
+      angular.fromJson.and.returnValue(this.strippedLibrary);
       this.library = librarySerializer.deserialize('');
 
     });
@@ -82,13 +85,13 @@ describe('service librarySerializer', function() {
         }]
       };
 
-      $window.angular.fromJson.and.returnValue(this.strippedLibrary);
+      angular.fromJson.and.returnValue(this.strippedLibrary);
       this.library = librarySerializer.deserialize('');
 
     });
 
     it('should parse json', function() {
-      expect($window.angular.fromJson).toHaveBeenCalledWith('');
+      expect(angular.fromJson).toHaveBeenCalledWith('');
     });
 
     it('should have version 2.0.0', function() {

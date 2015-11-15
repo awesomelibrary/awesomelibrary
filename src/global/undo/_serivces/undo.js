@@ -4,7 +4,7 @@
  * @returns {undoService}
  * @ngInject
  */
-function undoServiceFactory($timeout) {
+function undoServiceFactory($window, $timeout) {
 
   var bubble = {
     dismiss: dismiss,
@@ -23,7 +23,7 @@ function undoServiceFactory($timeout) {
     bubble.hidden = false;
     bubble.message = message;
 
-    if (angular.isUndefined(undoFunction)) {
+    if ($window.angular.isUndefined(undoFunction)) {
       delete bubble.undo;
       return;
     }

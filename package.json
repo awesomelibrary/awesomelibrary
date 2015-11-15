@@ -7,17 +7,29 @@
     "url": "git@github.com:zaklinaczekodu/human-library.git"
   },
   "author": "Piotr Baranowski",
-  "license": "BSD",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/zaklinaczekodu/human-library/issues"
   },
   "dependencies": {
-    "angular-ui-router": "^0.2.13",
-    "browserify-ngannotate": "^0.7.1",
-    "debowerify": "^1.2.0",
-    "gulp": "^3.6.0",
-    "gulp-gh-pages": "^0.4.0",
-    "gulp-zkflow-angular": "~0.2.6",
-    "yargs": "^3.1.0"
+    "angular": "1.4.7",
+    "angular-animate": "1.4.7",
+    "angular-mocks": "1.4.7",
+    "angular-translate": "2.8.1",
+    "angular-ui-router": "0.2.15",
+    "gulp": "3.9.0",
+    "gulp-autoprefixer": "3.1.0",
+    "gulp-csso": "1.0.1",
+    "gulp-gh-pages": "0.5.4",
+    "gulp-if": "2.0.0",
+    "gulp-less": "3.0.5",
+    "gulp-plumber": "1.0.1",
+    "gulp-rev": "6.0.1",
+    "gulp-streamify": "1.0.2",
+    "gulp-watch": "4.3.5",
+    "gulp-zkflow-angular": "1.0.0-13",
+    "gulp-zkflow-utils": "0.4.1",
+    "q": "1.4.1",
+    "yargs": "3.30.0"
   }
 }

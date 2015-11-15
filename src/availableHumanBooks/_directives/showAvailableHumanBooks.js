@@ -19,7 +19,7 @@ function showAvailableHumanBooksDirective($window, $http, $templateCache, $compi
 
           var availableHumanBooksDocument = $scope.availableHumanBooksWindow.document;
 
-          angular.element($scope.availableHumanBooksWindow).ready(function() {
+          $window.angular.element($scope.availableHumanBooksWindow).ready(function() {
             $compile(availableHumanBooksDocument)($scope);
           });
 

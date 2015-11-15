@@ -25,7 +25,7 @@ function availableHumanBooksCardsDirective($window, Arranger, compareAvailableHu
 
     setArrangerContainerWidth();
 
-    angular.element($scope.availableHumanBooksWindow).on('resize', function() {
+    $window.angular.element($scope.availableHumanBooksWindow).on('resize', function() {
       setArrangerContainerWidth();
     });
 

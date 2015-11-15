@@ -4,10 +4,10 @@
  * @returns {Rental}
  * @ngInject
  */
-function RentalServiceFactory() {
+function RentalServiceFactory($window) {
 
   function Rental(period) {
-    this.period = angular.isDefined(period) ? period : this.PERIOD;
+    this.period = $window.angular.isDefined(period) ? period : this.PERIOD;
     this.rentedAt = (new Date()).getTime();
     this.returnedAt = null;
   }

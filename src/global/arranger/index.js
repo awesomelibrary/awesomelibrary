@@ -1,5 +1,6 @@
 'use strict';
 
-module.exports = angular
+module.exports = require('angular')
   .module('humanLibrary.global.arranger', [])
-  .factory('Arranger', require('./_services/Arranger'));
+  .factory('Arranger', require('./_services/Arranger'))
+  .name;

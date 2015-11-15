@@ -1,5 +1,8 @@
 'use strict';
 
+var angular = require('angular');
+require('angular-mocks');
+
 describe("service libraryLocalStorage", function() {
 
   var Library;
@@ -17,7 +20,7 @@ describe("service libraryLocalStorage", function() {
 
     librarySerializerMock = jasmine.createSpyObj('librarySerializer', ['serialize', 'deserialize']);
 
-    angular.mock.module('humanLibrary', function($provide) {
+    angular.mock.module(require('../'), function($provide) {
       $provide.value('$window', $windowMock);
       $provide.value('librarySerializer', librarySerializerMock);
     });

@@ -1,5 +1,6 @@
 'use strict';
 
+var angular = require('angular');
 require('angular-mocks');
 
 describe('Service Arranger', function() {
@@ -8,7 +9,7 @@ describe('Service Arranger', function() {
 
     var beforeEachThis = this;
 
-    angular.mock.module(require('../').name);
+    angular.mock.module(require('../'));
     angular.mock.inject(function(Arranger) {
       beforeEachThis.Arranger = Arranger;
     });

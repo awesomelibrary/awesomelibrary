@@ -1,12 +1,15 @@
 'use strict';
 
+var angular = require('angular');
+require('angular-mocks');
+
 describe('service Book', function() {
 
   var Book, Rental;
 
   beforeEach(function() {
 
-    angular.mock.module('humanLibrary');
+    angular.mock.module(require('../'));
     angular.mock.inject(['$injector',
       function($injector) {
         Book = $injector.get('Book');

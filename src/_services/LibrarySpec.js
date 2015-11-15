@@ -1,11 +1,13 @@
 'use strict';
 
+var angular = require('angular');
+require('angular-mocks');
+
 describe("service Library", function() {
 
   var Book, library, filter, every;
 
   beforeEach(function() {
-
 
     // create mocks
     Book = jasmine.createSpy('Book');
@@ -14,7 +16,7 @@ describe("service Library", function() {
       return every;
     };
 
-    angular.mock.module('humanLibrary', function($provide) {
+    angular.mock.module(require('../'), function($provide) {
       $provide.value('Book', Book);
       $provide.value('$filter', filter);
     });
@@ -24,6 +26,7 @@ describe("service Library", function() {
         library = new($injector.get('Library'))();
       }
     ]);
+
   });
 
   it("should have no books", function() {

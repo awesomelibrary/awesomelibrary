@@ -1,10 +1,11 @@
 'use strict';
 
-module.exports = angular
+module.exports = require('angular')
   .module('humanLibrary.humanBooks.humanBook', [
     require('angular-ui-router'),
-    require('./rentals/index').name,
-    require('../../global/undo/').name
+    require('./rentals/'),
+    require('../../global/undo/')
   ])
   .controller('BookController', require('./_controllers/Book'))
-  .config(require('./_configs/router'));
+  .config(require('./_configs/router'))
+  .name;

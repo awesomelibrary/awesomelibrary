@@ -8,5 +8,6 @@
 # others
 /dist/
 /dev/
-/test-results.xml
+/reports/
+/test/
 /.tmp/

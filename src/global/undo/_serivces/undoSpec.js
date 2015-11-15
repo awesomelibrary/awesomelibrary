@@ -1,12 +1,15 @@
 'use strict';
 
+var angular = require('angular');
+require('angular-mocks');
+
 describe('Service undo', function() {
 
   beforeEach(function() {
 
     var beforeEachThis = this;
 
-    angular.mock.module(require('../').name);
+    angular.mock.module(require('../'));
     angular.mock.inject(function($timeout, undo) {
       beforeEachThis.$timeout = $timeout;
       beforeEachThis.undo = undo;

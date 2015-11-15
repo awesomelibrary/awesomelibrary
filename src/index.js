@@ -1,20 +1,16 @@
 'use strict';
 
-require('angular');
-require('angular-animate');
-require('angular-translate');
-
-angular
+module.exports = require('angular')
   .module('humanLibrary', [
-    'ngAnimate',
-    'pascalprecht.translate',
+    require('angular-animate'),
+    require('angular-translate'),
     require('angular-ui-router'),
 
-    require('./global/undo/').name,
+    require('./global/undo/'),
 
-    require('../.tmp/templates').name,
-    require('./humanBooks/').name,
-    require('./availableHumanBooks/').name
+    require('../.tmp/templates'),
+    require('./humanBooks/'),
+    require('./availableHumanBooks/')
   ])
   .controller('LibraryController', require('./_controllers/Library'))
   .factory('Book', require('./_services/Book'))
@@ -42,4 +38,5 @@ angular
     /** @ngInject */
     function($compileProvider) {
       $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|blob):/);
-    });
+    })
+  .name;

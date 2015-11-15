@@ -3,10 +3,10 @@
 /**
  * @ngInject
  */
-function linkDirective(stylesheet) {
+function linkDirective($window, stylesheet) {
 
   function link($scope, $element, $attributes) {
-    if ($attributes.rel !== 'stylesheet' || angular.isUndefined($attributes.href)) return;
+    if ($attributes.rel !== 'stylesheet' || $window.angular.isUndefined($attributes.href)) return;
     stylesheet.href = $attributes.href;
   }
 

@@ -1,38 +1,23 @@
 'use strict';
 
 var gulp = require('gulp');
-var zkflowAngular = require('gulp-zkflow-angular');
-var mode;
+var zkflow = require('gulp-zkflow-angular');
 
-mode = zkflowAngular({
-  build: {
-    sequence: [
-      'clean', [
-        'inject',
-        'assets',
-        'copy-bower'
-      ]
-    ]
+var getOutputDir = zkflow.init({
+  bower: {
+    globs: 'bower_components/bootstrap/fonts/**/*',
+    globsOptions: {
+      base: './'
+    },
+    outputDirSuffix: '_assets/'
   },
-  default: {
-    sequence: [
-      'clean', [
-        'inject',
-        'assets',
-        'jshint',
-        'test',
-        'copy-bower'
-      ],
-      'webserver'
-    ]
-  },
-  js: {
-    devEntries: ['./src/index.js']
+  css: {
+    enabled: false
   },
   inject: {
     absolute: false
   }
-}, gulp);
+}, undefined, gulp);
 
-require('./gulp/tasks/copyBower')(mode);
+gulp.task('css', ['bower'], require('./gulp/tasks/css')(getOutputDir));
 require('./gulp/tasks/deployGhPages');

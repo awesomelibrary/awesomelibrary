@@ -4,7 +4,7 @@
  * @returns {ArrangerService}
  * @ngInject
  */
-function ArrangerServiceFactory() {
+function ArrangerServiceFactory($window) {
 
   function applyOffset(arranger, element, index) {
     var row = Math.floor(index / arranger.elementsInRow);
@@ -32,7 +32,7 @@ function ArrangerServiceFactory() {
     var rows = Math.ceil(arranger.elements.length / arranger.elementsInRow);
     if (rows === arranger.rows) return;
     arranger.rows = rows;
-    if (angular.isUndefined(arranger.options.heightCallback)) return;
+    if ($window.angular.isUndefined(arranger.options.heightCallback)) return;
     arranger.options.heightCallback(arranger.options.gutter + (arranger.options.elementHeight + arranger.options.gutter) * arranger.rows);
   }
 
@@ -66,7 +66,7 @@ function ArrangerServiceFactory() {
 
   ArrangerService.prototype.setContainerWidth = function(width, extraOffset) {
 
-    if (angular.isUndefined(extraOffset)) {
+    if ($window.angular.isUndefined(extraOffset)) {
       extraOffset = 0;
     }
 

@@ -22,7 +22,7 @@ function humanBooksCardsDirective($window) {
       var newHeight = Math.max(availableHeight, unavailableHeight);
       if (height === newHeight) return;
       height = newHeight;
-      if (angular.isUndefined(that.heightCallback)) return;
+      if ($window.angular.isUndefined(that.heightCallback)) return;
       that.heightCallback(height);
     }
 
@@ -67,7 +67,7 @@ function humanBooksCardsDirective($window) {
 
     setArrangerContainerWidth();
 
-    angular.element($window).on('resize', function() {
+    $window.angular.element($window).on('resize', function() {
       setArrangerContainerWidth();
     });
 

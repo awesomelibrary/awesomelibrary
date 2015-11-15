@@ -1,10 +1,13 @@
 'use strict';
 
-function timerFilterFactory() {
+/**
+ * @ngInject
+ */
+function timerFilterFactory($window) {
 
   function timerFilter(input) {
     // if it is not number, return null
-    if (!angular.isNumber) {
+    if (!$window.angular.isNumber(input)) {
       return null;
     }
     // round to 1 second
