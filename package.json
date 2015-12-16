@@ -27,7 +27,7 @@
     "gulp-rev": "6.0.1",
     "gulp-streamify": "1.0.2",
     "gulp-watch": "4.3.5",
-    "gulp-zkflow-angular": "1.0.0-13",
+    "gulp-zkflow-angular": "1.0.1",
     "gulp-zkflow-utils": "0.4.1",
     "q": "1.4.1",
     "yargs": "3.30.0"
