@@ -1,7 +1,7 @@
 'use strict';
 
 var gulp = require('gulp');
-var mode = require('gulp-zkflow-angular').mode;
+var mode = require('zkflow-angular').mode;
 
 function getCssTask(getOutputDir) {
 

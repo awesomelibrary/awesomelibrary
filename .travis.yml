@@ -3,25 +3,26 @@ addons:
     sources:
       - ubuntu-toolchain-r-test
     packages:
-      - gcc-4.9
-      - g++-4.9
+      - gcc-5
+      - g++-5
+      - xpra
 
 language: node_js
 
 node_js:
-  - 4
   - 5
 
 os:
   - linux
-#  - osx
 
 env:
   global:
-    - CC=gcc-4.9 CXX=g++-4.9
+    - CC=gcc-5 CXX=g++-5 DISPLAY=:99
 
 before_install:
-  - npm install -g npm
+  - xpra start :99
+  - npm install -g npm@latest
+  - npm config set progress false
 
 script:
   - ./node_modules/.bin/gulp ci
@@ -29,5 +30,4 @@ script:
 after_success:
   - git config --global user.email "$gitUserEmail"
   - git config --global user.name "$gitUserName"
-  - touch ./dist/.nojekyll
-  - if [ "$TRAVIS_PULL_REQUEST" == "false" ] && [ ! -z "$TRAVIS_TAG" ]; then ./node_modules/.bin/gulp deployGhPages --ghPagesRemoteUrl "$ghPagesRemoteUrl" ; fi
+  - if [ "$TRAVIS_PULL_REQUEST" == "false" ] && [ ! -z "$TRAVIS_TAG" ] && [ "$TRAVIS_REPO_SLUG" == "zaklinaczekodu/human-library" ]; then ./node_modules/.bin/gulp deployGhPages --ghPagesRemoteUrl "$ghPagesRemoteUrl" ; fi
