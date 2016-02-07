@@ -1,9 +1,9 @@
 'use strict';
 
 var gulp = require('gulp');
-var zkflow = require('gulp-zkflow-angular');
+var zkflowAngular = require('zkflow-angular');
 
-var getOutputDir = zkflow.init({
+var getOutputDir = zkflowAngular.init({
   bower: {
     globs: 'bower_components/bootstrap/fonts/**/*',
     globsOptions: {
@@ -16,6 +16,12 @@ var getOutputDir = zkflow.init({
   },
   inject: {
     absolute: false
+  },
+  assets: {
+    globs: [
+      'src/**/_assets/**',
+      'src/.nojekyll'
+    ]
   }
 }, undefined, gulp);
 
