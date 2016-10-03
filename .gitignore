@@ -1,6 +1,5 @@
 # dependencies
 /node_modules/
-/bower_components/
 
 # webstorm
 /.idea/
@@ -11,3 +10,4 @@
 /reports/
 /test/
 /.tmp/
+/.DS_Store

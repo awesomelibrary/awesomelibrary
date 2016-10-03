@@ -4,13 +4,6 @@ var gulp = require('gulp');
 var zkflowAngular = require('zkflow-angular');
 
 var getOutputDir = zkflowAngular.init({
-  bower: {
-    globs: 'bower_components/bootstrap/fonts/**/*',
-    globsOptions: {
-      base: './'
-    },
-    outputDirSuffix: '_assets/'
-  },
   css: {
     enabled: false
   },
@@ -20,10 +13,11 @@ var getOutputDir = zkflowAngular.init({
   assets: {
     globs: [
       'src/**/_assets/**',
-      'src/.nojekyll'
+      '.nojekyll',
+      'node_modules/bootstrap/fonts/**'
     ]
   }
 }, undefined, gulp);
 
-gulp.task('css', ['bower'], require('./gulp/tasks/css')(getOutputDir));
+gulp.task('css', require('./gulp/tasks/css')(getOutputDir));
 require('./gulp/tasks/deployGhPages');

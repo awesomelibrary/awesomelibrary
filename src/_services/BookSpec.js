@@ -5,7 +5,8 @@ require('angular-mocks');
 
 describe('service Book', function() {
 
-  var Book, Rental;
+  var Book;
+  var Rental;
 
   beforeEach(function() {
 
@@ -108,6 +109,13 @@ describe('service Book', function() {
 
     it('should not be rantable', function() {
       expect(this.book.isRentable()).toBe(false);
+    });
+
+    it('and is being rented should be rented and become available', function() {
+      this.rental = new Rental();
+      this.book.rent(this.rental);
+      expect(this.book.isRented()).toBe(true);
+      expect(this.book.available).toBe(true);
     });
 
   });

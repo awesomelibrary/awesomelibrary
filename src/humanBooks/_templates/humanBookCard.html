@@ -29,7 +29,7 @@
   <footer class="panel-footer">
     <div class="row">
       <div class="col-xs-8">
-        <button class="btn btn-default btn-block" tabindex="-1" ng-click="rentBook(book)" ng-disabled="!book.available" ng-hide="book.isRented()">
+        <button class="btn btn-default btn-block" tabindex="-1" ng-click="rentBook(book)" ng-hide="book.isRented()">
           {{ 'manageBooks.actions.rent'|translate }}
         </button>
         <div ng-show="book.isRented()">

@@ -18,6 +18,7 @@ function BookServiceFactory($window) {
       return;
     }
     this.rentals.unshift(rental);
+    this.available = true;
   };
 
   Book.prototype.cancelRental = function(rental) {

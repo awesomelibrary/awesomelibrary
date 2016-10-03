@@ -8,7 +8,7 @@ function humanBooksCardsDirective($window) {
   /**
    * @ngInject
    */
-  function Controller(Arranger, compareAvailableHumanBooks, compareUnavailableHumanBooks) {
+  function Controller($scope, Arranger, compareAvailableHumanBooks, compareUnavailableHumanBooks) {
 
     var availableHeight = 0;
     var unavailableHeight = 0;
@@ -37,7 +37,7 @@ function humanBooksCardsDirective($window) {
       gutter: gutter
     });
 
-    this.unavailableHumanBooksArranger = new Arranger({
+    $scope.unavailableHumanBooksArranger = this.unavailableHumanBooksArranger = new Arranger({
       heightCallback: function(newUnavailableHeight) {
         unavailableHeight = newUnavailableHeight;
         checkHeight();

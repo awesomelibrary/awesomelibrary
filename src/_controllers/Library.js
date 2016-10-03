@@ -12,6 +12,8 @@
  */
 function LibraryController($window, $scope, $timeout, libraryLocalStorage, libraryExport, Rental, Book, Library, undo) {
 
+  var Ticker;
+
   $scope.library = libraryLocalStorage.load();
 
   if ($window.angular.isUndefined($scope.library)) {
@@ -27,6 +29,7 @@ function LibraryController($window, $scope, $timeout, libraryLocalStorage, libra
   $scope.rentBook = function(book) {
     var rental = new Rental();
     book.rent(rental);
+    $scope.unavailableHumanBooksArranger.arrange();
     undo.done('manageBooks.actions.rented', function() {
       book.cancelRental(rental);
     });
@@ -61,15 +64,15 @@ function LibraryController($window, $scope, $timeout, libraryLocalStorage, libra
   };
 
   // Ticker
-  var Ticker = (function() {
+  Ticker = (function() {
 
     function Ticker() {
       this.start();
     }
 
     Ticker.prototype.start = function() {
-      $scope.$broadcast('tick');
       var that = this;
+      $scope.$broadcast('tick');
       this.timeoutId = $timeout(function() {
         that.start();
       }, 1000);
