@@ -1,5 +1,3 @@
-'use strict';
-
 module.exports = require('angular')
   .module('humanLibrary.global.undo', [])
   .directive('undoBubble', require('./_directives/undoBubble'))

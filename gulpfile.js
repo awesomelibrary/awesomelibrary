@@ -1,9 +1,7 @@
-'use strict';
-
 var gulp = require('gulp');
-var zkflowAngular = require('zkflow-angular');
+var refillAngular = require('refill-angular');
 
-var getOutputDir = zkflowAngular.init({
+var getOutputDir = refillAngular.init({
   css: {
     enabled: false
   },

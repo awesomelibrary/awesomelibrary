@@ -1,5 +1,3 @@
-'use strict';
-
 /**
  * @returns {{restrict: string, link: link}}
  * @ngInject
