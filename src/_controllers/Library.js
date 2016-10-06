@@ -1,14 +1,5 @@
-/**
- * @param $scope
- * @param $timeout
- * @param libraryLocalStorage
- * @param Rental
- * @param Book
- * @param Library
- * @constructor
- * @ngInject
- */
 function LibraryController($window, $scope, $timeout, libraryLocalStorage, libraryExport, Rental, Book, Library, undo) {
+  'ngInject';
 
   var Ticker;
 

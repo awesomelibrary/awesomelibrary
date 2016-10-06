@@ -1,31 +1,25 @@
-/**
- * @ngInject
- */
-function showAvailableHumanBooksDirective($window, $http, $templateCache, $compile) {
+import templateAvailableHumanBooks from '../../templateAvailableHumanBooks';
+
+function showAvailableHumanBooksDirective($window, $compile) {
+  'ngInject';
 
   function link($scope, $element, $attributes) {
 
-    $element.on('click', function() {
+    $element.on('click', function () {
+
+      var availableHumanBooksDocument;
 
       $scope.availableHumanBooksWindow = $window.open('about:blank', '', 'menubar=no,status=no');
 
-      $http
-        .get($attributes.showAvailableHumanBooks, {
-          cache: $templateCache
-        })
-        .success(function(html) {
+      availableHumanBooksDocument = $scope.availableHumanBooksWindow.document;
 
-          var availableHumanBooksDocument = $scope.availableHumanBooksWindow.document;
+      $window.angular.element($scope.availableHumanBooksWindow).ready(function () {
+        $compile(availableHumanBooksDocument.documentElement)($scope);
+      });
 
-          $window.angular.element($scope.availableHumanBooksWindow).ready(function() {
-            $compile(availableHumanBooksDocument)($scope);
-          });
-
-          availableHumanBooksDocument.open();
-          availableHumanBooksDocument.write(html);
-          availableHumanBooksDocument.close();
-
-        });
+      availableHumanBooksDocument.open();
+      availableHumanBooksDocument.write(templateAvailableHumanBooks);
+      availableHumanBooksDocument.close();
 
     });
 

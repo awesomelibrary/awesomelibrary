@@ -1,10 +1,5 @@
-/**
- * @param $window
- * @param librarySerializer
- * @returns {libraryExportService}
- * @ngInject
- */
 function libraryExportServiceFactory($window, librarySerializer) {
+  'ngInject';
 
   var libraryBlob;
 

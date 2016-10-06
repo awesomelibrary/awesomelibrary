@@ -1,7 +1,5 @@
-/**
- * @ngInject
- */
 function translationEnglish($translateProvider) {
+  'ngInject';
 
   $translateProvider.translations('en', {
     title: 'Human Library Poland',

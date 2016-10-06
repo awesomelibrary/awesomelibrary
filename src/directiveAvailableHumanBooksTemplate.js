@@ -1,10 +1,12 @@
-<top-bar>
+const directiveAvailableHumanBooksTemplate =
+`<top-bar>
   <p class="navbar-text pull-right">{{ 'available.header'|translate }}</p>
 </top-bar>
 
 <div>
   <available-human-books-cards class="available-human-books-cards">
-    <available-human-book-card class="available-human-book-card animate" ng-repeat="humanBook in library.books|filter:onlyAvailable">
+    <available-human-book-card class="available-human-book-card animate"
+                               ng-repeat="humanBook in library.books|filter:onlyAvailable">
       <div class="panel panel-default hl-panel">
         <div class="panel-heading">
           <h2 class="panel-title heading-with-button-sm">
@@ -17,4 +19,6 @@
       </div>
     </available-human-book-card>
   </available-human-books-cards>
-</div>
+</div>`;
+
+export default directiveAvailableHumanBooksTemplate;

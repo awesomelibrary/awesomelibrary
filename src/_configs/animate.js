@@ -1,7 +1,5 @@
-/**
- * @ngInject
- */
 function animateConfig($animateProvider) {
+  'ngInject';
   $animateProvider.classNameFilter(/animate/);
 }
 

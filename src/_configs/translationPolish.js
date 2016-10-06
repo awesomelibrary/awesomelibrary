@@ -1,7 +1,5 @@
-/**
- * @ngInject
- */
 function translationPolish($translateProvider) {
+  'ngInject';
 
   $translateProvider.translations('pl', {
     title: 'Żywa Biblioteka Polska',

@@ -1,12 +1,9 @@
-/**
- * @ngInject
- */
 function availableHumanBooksCardsDirective($window, Arranger, compareAvailableHumanBooks) {
+  'ngInject';
 
-  /**
-   * @ngInject
-   */
-  function Controller() {}
+  function Controller() {
+    'ngInject';
+  }
 
   function link($scope, $element, $attributes, availableHumanBooksCardsController) {
 

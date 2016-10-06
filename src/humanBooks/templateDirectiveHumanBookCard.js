@@ -1,4 +1,5 @@
-<div class="panel panel-default hl-panel hl-panel--book" ng-class="{'hl-panel--warning': progress.status == 'warning', 'hl-panel--danger': progress.status == 'danger' }">
+const templateDirectiveHumanBookCard =
+`<div class="panel panel-default hl-panel hl-panel--book" ng-class="{'hl-panel--warning': progress.status == 'warning', 'hl-panel--danger': progress.status == 'danger' }">
 
   <div class="panel-body text-center">
     <a class="hl-panel__book-link" ui-sref="humanLibrary.humanBook({bookId: $index})" tabindex="-1"><i class="glyphicon glyphicon-user"></i></a>
@@ -47,4 +48,6 @@
     </div>
   </footer>
 
-</div>
+</div>`;
+
+export default templateDirectiveHumanBookCard;

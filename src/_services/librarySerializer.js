@@ -1,8 +1,5 @@
-/**
- * @returns {LibrarySerializer}
- * @ngInject
- */
 function librarySerializerServiceFactory($window, Library, Book, Rental) {
+  'ngInject';
 
   function LibrarySerializer() {
 

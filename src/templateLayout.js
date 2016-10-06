@@ -1,4 +1,5 @@
-<top-bar>
+const templateLayout =
+`<top-bar>
 
   <undo-bubble class="undo-bubble"></undo-bubble>
 
@@ -9,7 +10,7 @@
       </button>
     </li>
     <li>
-      <button class="btn btn-default navbar-btn" type="button" show-available-human-books="/availableHumanBooks/_templates/availableHumanBooks.html" title="{{ 'mainMenu.showAvailable'|translate }}">
+      <button class="btn btn-default navbar-btn" type="button" show-available-human-books title="{{ 'mainMenu.showAvailable'|translate }}">
         <i class="glyphicon glyphicon-new-window"></i>
       </button>
     </li>
@@ -62,4 +63,6 @@
 
 </div>
 
-<ui-view></ui-view>
+<ui-view></ui-view>`;
+
+export default templateLayout;

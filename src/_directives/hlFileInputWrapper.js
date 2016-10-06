@@ -1,13 +1,11 @@
-/**
- * @ngInject
- */
-function hlFileInputWrapperDirective() {
+import templateDirectiveHlFileInputWrapper from '../templateDirectiveHlFileInputWrapper';
 
-  /**
-   * @constructor
-   * @ngInject
-   */
-  function Controller() {}
+function hlFileInputWrapperDirective() {
+  'ngInject';
+
+  function Controller() {
+    'ngInject';
+  }
 
   function link($scope, $element, $attributes, hlFileInputWrapperCtrl) {
     $element.on('click', function() {
@@ -19,7 +17,7 @@ function hlFileInputWrapperDirective() {
     controller: Controller,
     link: link,
     transclude: true,
-    templateUrl: '/_templates/hlFileInputWrapperDirective.html'
+    template: templateDirectiveHlFileInputWrapper
   };
 
 }

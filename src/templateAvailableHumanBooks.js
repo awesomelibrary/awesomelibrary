@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+const templateAvailableHumanBooks =
+`<!DOCTYPE html>
 <html>
 
 <head>
@@ -32,7 +33,10 @@
 
 </head>
 
-<body ng-include="'/availableHumanBooks/_templates/availableHumanBooksBody.html'">
+<body>
+  <available-human-books></available-human-books>
 </body>
 
-</html>
+</html>`;
+
+export default templateAvailableHumanBooks;

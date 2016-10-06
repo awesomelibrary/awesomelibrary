@@ -1,4 +1,5 @@
-<nav id="hl-navbar" class="navbar navbar--hl navbar-default navbar-fixed-top" role="navigation">
+const templateDirectiveTopBar =
+`<nav id="hl-navbar" class="navbar navbar--hl navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
 
     <a ui-sref="humanLibrary" class="navbar-brand">
@@ -8,4 +9,6 @@
     <div ng-transclude></div>
 
   </div>
-</nav>
+</nav>`;
+
+export default templateDirectiveTopBar;

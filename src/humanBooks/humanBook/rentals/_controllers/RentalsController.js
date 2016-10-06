@@ -1,8 +1,5 @@
-/**
- * @constructor
- * @ngInject
- */
 function RentalsController($scope) {
+  'ngInject';
 
   var vm = this;
 

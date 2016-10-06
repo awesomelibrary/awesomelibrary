@@ -1,3 +1,5 @@
+import directiveAvailableHumanBooks from './directiveAvailableHumanBooks';
+
 module.exports = require('angular')
   .module('humanLibrary', [
     require('angular-animate'),
@@ -6,7 +8,6 @@ module.exports = require('angular')
 
     require('./global/undo/'),
 
-    require('../.tmp/templates'),
     require('./humanBooks/'),
     require('./availableHumanBooks/')
   ])
@@ -25,6 +26,7 @@ module.exports = require('angular')
   .directive('link', require('./_directives/link'))
   .directive('indexStylesheet', require('./_directives/indexStylesheet'))
   .directive('topBar', require('./_directives/topBar'))
+  .directive('availableHumanBooks', directiveAvailableHumanBooks)
   .filter('timer', require('./_filters/timer'))
   .value('stylesheet', {})
   .config(require('./_configs/router'))
@@ -33,8 +35,8 @@ module.exports = require('angular')
   .config(require('./_configs/translationPolish'))
   .config(require('./_configs/animate'))
   .config(
-    /** @ngInject */
     function($compileProvider) {
+      'ngInject';
       $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|blob):/);
     })
   .name;

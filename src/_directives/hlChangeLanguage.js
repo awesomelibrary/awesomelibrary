@@ -1,13 +1,10 @@
-/**
- * @ngInject
- */
-function hlChangeLanguageDirective() {
+import templateDirectiveHlChangeLanguage from '../templateDirectiveHlChangeLanguage';
 
-  /**
-   * @constructor
-   * @ngInject
-   */
+function hlChangeLanguageDirective() {
+  'ngInject';
+
   function Controller($scope, $translate) {
+    'ngInject';
 
     var vm = this;
 
@@ -23,7 +20,7 @@ function hlChangeLanguageDirective() {
     restrict: 'E',
     controller: Controller,
     controllerAs: 'vm',
-    templateUrl: '/_templates/hlChangeLanguage.html',
+    template: templateDirectiveHlChangeLanguage,
     scope: true
   };
 

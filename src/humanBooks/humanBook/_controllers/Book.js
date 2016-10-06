@@ -1,8 +1,5 @@
-/**
- * @constructor
- * @ngInject
- */
 function BookController($scope, $stateParams, $state, undo) {
+  'ngInject';
 
   var vm = this;
 

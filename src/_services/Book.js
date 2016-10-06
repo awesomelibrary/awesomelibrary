@@ -1,9 +1,5 @@
-/**
- * @param $window
- * @returns {Book}
- * @ngInject
- */
 function BookServiceFactory($window) {
+  'ngInject';
 
   function Book() {
     this.rentals = [];

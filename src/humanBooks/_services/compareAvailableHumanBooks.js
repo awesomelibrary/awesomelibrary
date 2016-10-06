@@ -1,8 +1,5 @@
-/**
- * @returns {compareAvailableHumanBooksService}
- * @ngInject
- */
 function compareAvailableHumanBooksServiceFactory() {
+  'ngInject';
 
   function compareAvailableHumanBooksService(a, b) {
     if (a.model.title > b.model.title) {

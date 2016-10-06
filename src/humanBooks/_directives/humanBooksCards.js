@@ -1,12 +1,10 @@
-/**
- * @ngInject
- */
-function humanBooksCardsDirective($window) {
+import templateDirectiveHumanBooksCards from '../templateDirectiveHumanBooksCards';
 
-  /**
-   * @ngInject
-   */
+function humanBooksCardsDirective($window) {
+  'ngInject';
+
   function Controller($scope, Arranger, compareAvailableHumanBooks, compareUnavailableHumanBooks) {
+    'ngInject';
 
     var availableHeight = 0;
     var unavailableHeight = 0;
@@ -74,7 +72,7 @@ function humanBooksCardsDirective($window) {
   return {
     require: 'humanBooksCards',
     restrict: 'E',
-    templateUrl: '/humanBooks/_templates/humanBooksCards.html',
+    template: templateDirectiveHumanBooksCards,
     link: link,
     controller: Controller
   };

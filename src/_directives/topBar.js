@@ -1,11 +1,11 @@
-/**
- * @ngInject
- */
+import templateDirectiveTopBar from '../templateDirectiveTopBar';
+
 function topBarDirective() {
+  'ngInject';
 
   return {
     restrict: 'E',
-    templateUrl: '/_templates/topBar.html',
+    template: templateDirectiveTopBar,
     transclude: true
   };
 

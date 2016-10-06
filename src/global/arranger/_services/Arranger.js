@@ -1,8 +1,5 @@
-/**
- * @returns {ArrangerService}
- * @ngInject
- */
 function ArrangerServiceFactory($window) {
+  'ngInject';
 
   function applyOffset(arranger, element, index) {
     var row = Math.floor(index / arranger.elementsInRow);

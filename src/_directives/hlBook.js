@@ -1,8 +1,5 @@
-/**
- * @returns {{restrict: string, link: link}}
- * @ngInject
- */
 function hlBookDirective() {
+  'ngInject';
 
   function link($scope) {
     // progress bar and timer

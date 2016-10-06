@@ -1,7 +1,7 @@
-/**
- * @ngInject
- */
+import templateLayout from '../templateLayout';
+
 function routerConfig($stateProvider, $urlRouterProvider) {
+  'ngInject';
 
   $urlRouterProvider.otherwise('/');
 
@@ -9,7 +9,7 @@ function routerConfig($stateProvider, $urlRouterProvider) {
     url: '/',
     controller: 'LibraryController',
     controllerAs: 'vm',
-    templateUrl: '/_templates/layout.html'
+    template: templateLayout
   });
 
 }

@@ -1,7 +1,5 @@
-/**
- * @ngInject
- */
 function timerFilterFactory($window) {
+  'ngInject';
 
   function timerFilter(input) {
 

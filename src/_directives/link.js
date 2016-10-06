@@ -1,7 +1,5 @@
-/**
- * @ngInject
- */
 function linkDirective($window, stylesheet) {
+  'ngInject';
 
   function link($scope, $element, $attributes) {
     if ($attributes.rel !== 'stylesheet' || $window.angular.isUndefined($attributes.href)) return;
