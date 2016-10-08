@@ -16,7 +16,7 @@ function translationEnglish($translateProvider) {
     available: {
       header: 'Available Human Books',
       humanBooks: {
-        helpHeader: 'Choose Human Book and tell librarian the title'
+        helpHeader: 'Find title and pass it to a librarian'
       }
     },
     undoBubble: {

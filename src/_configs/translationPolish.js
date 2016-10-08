@@ -16,7 +16,7 @@ function translationPolish($translateProvider) {
     available: {
       header: 'Dostępne Żywe Książki',
       humanBooks: {
-        helpHeader: 'Wybierz Żywą Książkę i przekarz bibliotekarzowi tytuł'
+        helpHeader: 'Znajdź tytuł i przekaż bibliotekarzowi'
       }
     },
     undoBubble: {
