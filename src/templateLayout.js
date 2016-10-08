@@ -10,7 +10,7 @@ const templateLayout =
       </button>
     </li>
     <li>
-      <button class="btn btn-default navbar-btn" type="button" show-available-human-books title="{{ 'mainMenu.showAvailable'|translate }}">
+      <button class="btn btn-default navbar-btn" type="button" ng-click="vm.toggleReadersMonitorWindow()" title="{{ 'mainMenu.showAvailable'|translate }}">
         <i class="glyphicon glyphicon-new-window"></i>
       </button>
     </li>
