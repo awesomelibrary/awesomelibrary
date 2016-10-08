@@ -1,4 +1,4 @@
-function LibraryController($window, $scope, $timeout, libraryLocalStorage, libraryExport, Rental, Book, Library, undo) {
+function LibraryController($window, $scope, $timeout, $rootScope, libraryLocalStorage, libraryExport, Rental, Book, Library, undo, readersMonitorWindow, getBaseUrl) {
   'ngInject';
 
   var Ticker;
@@ -72,6 +72,12 @@ function LibraryController($window, $scope, $timeout, libraryLocalStorage, libra
   })();
 
   new Ticker();
+
+  this.toggleReadersMonitorWindow = function () {
+    readersMonitorWindow.toggle($scope);
+  };
+
+  $rootScope.baseUrl = getBaseUrl();
 
 }
 

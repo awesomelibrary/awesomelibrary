@@ -3,7 +3,7 @@ const templateDirectiveTopBar =
   <div class="container">
 
     <a ui-sref="humanLibrary" class="navbar-brand">
-      <img class="hl-navbar--logo" src="src/_assets/pictures/logo.svg" alt="logo">{{ 'mainMenu.header'|translate }}
+      <img class="hl-navbar--logo" ng-src="{{$root.baseUrl}}src/_assets/pictures/logo.svg" alt="logo">{{ 'mainMenu.header'|translate }}
     </a>
 
     <div ng-transclude></div>
