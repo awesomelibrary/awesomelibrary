@@ -8,6 +8,7 @@ function LibraryController($window, $scope, $timeout, $rootScope, libraryLocalSt
   if ($window.angular.isUndefined($scope.library)) {
     $scope.library = new Library();
     libraryLocalStorage.save($scope.library);
+    newEditionStartedEvent();
   }
 
   $scope.$watch('library', function(newLibrary) {
@@ -19,6 +20,7 @@ function LibraryController($window, $scope, $timeout, $rootScope, libraryLocalSt
     var rental = new Rental();
     book.rent(rental);
     $scope.unavailableHumanBooksArranger.arrange();
+    $window.ga('send', 'event', 'Human Book', 'Rented', book.title);
     undo.done('manageBooks.actions.rented', function() {
       book.cancelRental(rental);
     });
@@ -26,6 +28,7 @@ function LibraryController($window, $scope, $timeout, $rootScope, libraryLocalSt
 
   $scope.returnHumanBook = function(book) {
     var rental = book.return();
+    $window.ga('send', 'event', 'Human Book', 'Returned', book.title);
     undo.done('manageBooks.actions.returned', function() {
       rental.reopen();
     });
@@ -33,11 +36,13 @@ function LibraryController($window, $scope, $timeout, $rootScope, libraryLocalSt
 
   $scope.admitBook = function() {
     $scope.library.admitBook(new Book());
+    $window.ga('send', 'event', 'Human Library', 'Added Human Book');
   };
 
   $scope.newEdition = function() {
     var oldLibrary = $scope.library;
     $scope.library = new Library();
+    newEditionStartedEvent();
     undo.done('mainMenu.newEditionStarted', function() {
       $scope.library = oldLibrary;
     });
@@ -45,6 +50,7 @@ function LibraryController($window, $scope, $timeout, $rootScope, libraryLocalSt
 
   $scope.toggleHumanBookAvailable = function(book) {
     book.available = !book.available;
+    $window.ga('send', 'event', 'Human Book', 'Abailable toggle', book.title);
     undo.bubble.dismiss();
   };
 
@@ -78,6 +84,10 @@ function LibraryController($window, $scope, $timeout, $rootScope, libraryLocalSt
   };
 
   $rootScope.baseUrl = getBaseUrl();
+
+  function newEditionStartedEvent() {
+    $window.ga('send', 'event', 'Human Library', 'New edition started');
+  }
 
 }
 

@@ -34,7 +34,7 @@
     "gulp-watch": "4.3.10",
     "gulp-zkflow-utils": "0.5.0",
     "q": "1.4.1",
-    "refill-angular": "2.0.0-9",
+    "refill-angular": "2.0.0",
     "yargs": "6.0.0"
   }
 }
