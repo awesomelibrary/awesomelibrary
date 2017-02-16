@@ -1,4 +1,5 @@
-<div class="book__wrapper">
+const templateHumanBook =
+`<div class="book__wrapper">
   <a ui-sref="humanLibrary" class="book__background"></a>
 
   <div class="container book__container">
@@ -47,4 +48,6 @@
 
   </div>
 
-</div>
+</div>`;
+
+export default templateHumanBook;

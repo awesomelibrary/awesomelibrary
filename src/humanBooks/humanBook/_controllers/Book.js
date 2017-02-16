@@ -1,10 +1,5 @@
-'use strict';
-
-/**
- * @constructor
- * @ngInject
- */
-function BookController($scope, $stateParams, $state, undo) {
+function BookController($scope, $stateParams, $state, $window, undo) {
+  'ngInject';
 
   var vm = this;
 
@@ -13,6 +8,7 @@ function BookController($scope, $stateParams, $state, undo) {
   vm.delete = function() {
     var removedBook = $scope.book;
     $scope.library.deleteBook($scope.book);
+    $window.ga('send', 'event', 'Human Library', 'Deleted Human Book', removedBook.title);
     undo.done('manageBooks.actions.removed', function() {
       $scope.library.admitBook(removedBook);
     });

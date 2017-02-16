@@ -1,22 +1,14 @@
-'use strict';
+function LibraryController($window, $scope, $timeout, $rootScope, libraryLocalStorage, libraryExport, Rental, Book, Library, undo, readersMonitorWindow, getBaseUrl) {
+  'ngInject';
 
-/**
- * @param $scope
- * @param $timeout
- * @param libraryLocalStorage
- * @param Rental
- * @param Book
- * @param Library
- * @constructor
- * @ngInject
- */
-function LibraryController($window, $scope, $timeout, libraryLocalStorage, libraryExport, Rental, Book, Library, undo) {
+  var Ticker;
 
   $scope.library = libraryLocalStorage.load();
 
   if ($window.angular.isUndefined($scope.library)) {
     $scope.library = new Library();
     libraryLocalStorage.save($scope.library);
+    newEditionStartedEvent();
   }
 
   $scope.$watch('library', function(newLibrary) {
@@ -27,6 +19,8 @@ function LibraryController($window, $scope, $timeout, libraryLocalStorage, libra
   $scope.rentBook = function(book) {
     var rental = new Rental();
     book.rent(rental);
+    $scope.unavailableHumanBooksArranger.arrange();
+    $window.ga('send', 'event', 'Human Book', 'Rented', book.title);
     undo.done('manageBooks.actions.rented', function() {
       book.cancelRental(rental);
     });
@@ -34,6 +28,7 @@ function LibraryController($window, $scope, $timeout, libraryLocalStorage, libra
 
   $scope.returnHumanBook = function(book) {
     var rental = book.return();
+    $window.ga('send', 'event', 'Human Book', 'Returned', book.title);
     undo.done('manageBooks.actions.returned', function() {
       rental.reopen();
     });
@@ -41,11 +36,13 @@ function LibraryController($window, $scope, $timeout, libraryLocalStorage, libra
 
   $scope.admitBook = function() {
     $scope.library.admitBook(new Book());
+    $window.ga('send', 'event', 'Human Library', 'Added Human Book');
   };
 
   $scope.newEdition = function() {
     var oldLibrary = $scope.library;
     $scope.library = new Library();
+    newEditionStartedEvent();
     undo.done('mainMenu.newEditionStarted', function() {
       $scope.library = oldLibrary;
     });
@@ -53,6 +50,7 @@ function LibraryController($window, $scope, $timeout, libraryLocalStorage, libra
 
   $scope.toggleHumanBookAvailable = function(book) {
     book.available = !book.available;
+    $window.ga('send', 'event', 'Human Book', 'Abailable toggle', book.title);
     undo.bubble.dismiss();
   };
 
@@ -61,15 +59,15 @@ function LibraryController($window, $scope, $timeout, libraryLocalStorage, libra
   };
 
   // Ticker
-  var Ticker = (function() {
+  Ticker = (function() {
 
     function Ticker() {
       this.start();
     }
 
     Ticker.prototype.start = function() {
-      $scope.$broadcast('tick');
       var that = this;
+      $scope.$broadcast('tick');
       this.timeoutId = $timeout(function() {
         that.start();
       }, 1000);
@@ -80,6 +78,16 @@ function LibraryController($window, $scope, $timeout, libraryLocalStorage, libra
   })();
 
   new Ticker();
+
+  this.toggleReadersMonitorWindow = function () {
+    readersMonitorWindow.toggle($scope);
+  };
+
+  $rootScope.baseUrl = getBaseUrl();
+
+  function newEditionStartedEvent() {
+    $window.ga('send', 'event', 'Human Library', 'New edition started');
+  }
 
 }
 

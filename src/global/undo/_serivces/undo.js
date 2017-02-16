@@ -1,10 +1,5 @@
-'use strict';
-
-/**
- * @returns {undoService}
- * @ngInject
- */
 function undoServiceFactory($window, $timeout) {
+  'ngInject';
 
   var bubble = {
     dismiss: dismiss,

@@ -1,27 +1,27 @@
-'use strict';
-
-/**
- * @ngInject
- */
 function timerFilterFactory($window) {
+  'ngInject';
 
   function timerFilter(input) {
+
+    var output;
+    var m;
+    var s;
+
     // if it is not number, return null
     if (!$window.angular.isNumber(input)) {
       return null;
     }
     // round to 1 second
     input = Math.round(input / 1000);
-    var output;
     if (input < 0) {
       output = '-';
       input = -input;
     } else {
       output = '';
     }
-    var m = Math.floor(input / 60);
+    m = Math.floor(input / 60);
     output += (m < 10 ? '0' + m : m) + ':';
-    var s = input % 60;
+    s = input % 60;
     output += s < 10 ? '0' + s : s;
 
     return output;

@@ -1,4 +1,5 @@
-<div class="panel panel-default hl-panel hl-panel--book" ng-class="{'hl-panel--warning': progress.status == 'warning', 'hl-panel--danger': progress.status == 'danger' }">
+const templateDirectiveHumanBookCard =
+`<div class="panel panel-default hl-panel hl-panel--book" ng-class="{'hl-panel--warning': progress.status == 'warning', 'hl-panel--danger': progress.status == 'danger' }">
 
   <div class="panel-body text-center">
     <a class="hl-panel__book-link" ui-sref="humanLibrary.humanBook({bookId: $index})" tabindex="-1"><i class="glyphicon glyphicon-user"></i></a>
@@ -29,7 +30,7 @@
   <footer class="panel-footer">
     <div class="row">
       <div class="col-xs-8">
-        <button class="btn btn-default btn-block" tabindex="-1" ng-click="rentBook(book)" ng-disabled="!book.available" ng-hide="book.isRented()">
+        <button class="btn btn-default btn-block" tabindex="-1" ng-click="rentBook(book)" ng-hide="book.isRented()">
           {{ 'manageBooks.actions.rent'|translate }}
         </button>
         <div ng-show="book.isRented()">
@@ -47,4 +48,6 @@
     </div>
   </footer>
 
-</div>
+</div>`;
+
+export default templateDirectiveHumanBookCard;

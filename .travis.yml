@@ -1,33 +1,32 @@
+sudo: required
+dist: trusty
+
 addons:
   apt:
-    sources:
-      - ubuntu-toolchain-r-test
     packages:
-      - gcc-4.9
-      - g++-4.9
+      - dbus-x11
+      - xpra
 
 language: node_js
 
 node_js:
-  - 4
-  - 5
+  - 6
 
 os:
   - linux
-#  - osx
 
 env:
   global:
-    - CC=gcc-4.9 CXX=g++-4.9
+    - DISPLAY=:99
 
 before_install:
-  - npm install -g npm
+  - xpra start :99
+  - npm install -g npm@latest
 
 script:
-  - ./node_modules/.bin/gulp ci
+  - dbus-launch --exit-with-session ./node_modules/.bin/gulp ci
 
 after_success:
   - git config --global user.email "$gitUserEmail"
   - git config --global user.name "$gitUserName"
-  - touch ./dist/.nojekyll
-  - if [ "$TRAVIS_PULL_REQUEST" == "false" ] && [ ! -z "$TRAVIS_TAG" ]; then ./node_modules/.bin/gulp deployGhPages --ghPagesRemoteUrl "$ghPagesRemoteUrl" ; fi
+  - if [ "$TRAVIS_PULL_REQUEST" == "false" ] && [ ! -z "$TRAVIS_TAG" ] && [ "$TRAVIS_REPO_SLUG" == "zaklinaczekodu/human-library" ]; then ./node_modules/.bin/gulp deployGhPages --ghPagesRemoteUrl "$ghPagesRemoteUrl" ; fi

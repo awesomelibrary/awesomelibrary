@@ -1,1 +1,0 @@
-[ChangeLog on GitHub](https://github.com/zaklinaczekodu/human-library/releases)

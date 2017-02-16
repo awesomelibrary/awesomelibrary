@@ -1,6 +1,9 @@
-'use strict';
+import angular from 'angular';
+import directiveAvailableHumanBooks from './directiveAvailableHumanBooks';
+import ServiceReadersMonitorWindow from './ServiceReadersMonitorWindow';
+import factoryGetBaseUrl from './global/url/factoryGetBaseUrl';
 
-module.exports = require('angular')
+module.exports = angular
   .module('humanLibrary', [
     require('angular-animate'),
     require('angular-translate'),
@@ -8,7 +11,6 @@ module.exports = require('angular')
 
     require('./global/undo/'),
 
-    require('../.tmp/templates'),
     require('./humanBooks/'),
     require('./availableHumanBooks/')
   ])
@@ -19,6 +21,8 @@ module.exports = require('angular')
   .factory('Rental', require('./_services/Rental'))
   .factory('libraryExport', require('./_services/libraryExport'))
   .factory('librarySerializer', require('./_services/librarySerializer'))
+  .factory('getBaseUrl', factoryGetBaseUrl)
+  .service('readersMonitorWindow', ServiceReadersMonitorWindow)
   .directive('hlBook', require('./_directives/hlBook'))
   .directive('hlImportLibrary', require('./_directives/hlImportLibrary'))
   .directive('hlFileInputWrapper', require('./_directives/hlFileInputWrapper'))
@@ -27,6 +31,7 @@ module.exports = require('angular')
   .directive('link', require('./_directives/link'))
   .directive('indexStylesheet', require('./_directives/indexStylesheet'))
   .directive('topBar', require('./_directives/topBar'))
+  .directive('availableHumanBooks', directiveAvailableHumanBooks)
   .filter('timer', require('./_filters/timer'))
   .value('stylesheet', {})
   .config(require('./_configs/router'))
@@ -35,8 +40,8 @@ module.exports = require('angular')
   .config(require('./_configs/translationPolish'))
   .config(require('./_configs/animate'))
   .config(
-    /** @ngInject */
     function($compileProvider) {
+      'ngInject';
       $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|blob):/);
     })
   .name;

@@ -1,14 +1,10 @@
-'use strict';
-
-/**
- * @ngInject
- */
 function translationPolish($translateProvider) {
+  'ngInject';
 
   $translateProvider.translations('pl', {
-    title: 'Żywa Biblioteka Polska',
+    title: 'Żywa Biblioteka',
     mainMenu: {
-      header: 'Zywa Biblioteka Polska',
+      header: 'Zywa Biblioteka',
       admitBook: 'Dodaj Żywą Książkę',
       startNewEdition: 'Rozpocznij nowę edycję',
       newEditionStarted: 'Nowa edycja rozpoczęta',
@@ -18,7 +14,10 @@ function translationPolish($translateProvider) {
       showAvailable: 'Pokaż dostępne Żywe Książki w nowym oknie'
     },
     available: {
-      header: 'Dostępne Żywe Książki'
+      header: 'Dostępne Żywe Książki',
+      humanBooks: {
+        helpHeader: 'Znajdź tytuł, który chcesz wypożyczyć i przekaż go bibliotekarzowi'
+      }
     },
     undoBubble: {
       undo: 'Cofnij'

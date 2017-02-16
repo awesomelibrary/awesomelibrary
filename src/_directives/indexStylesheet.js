@@ -1,12 +1,8 @@
-'use strict';
-
-/**
- * @ngInject
- */
-function indexStylesheetDirective(stylesheet) {
+function indexStylesheetDirective(stylesheet, getBaseUrl) {
+  'ngInject';
 
   function link($scope, $element, $attributes) {
-    $attributes.$set('href', stylesheet.href);
+    $attributes.$set('href', getBaseUrl() + stylesheet.href);
   }
 
   return {

@@ -1,9 +1,5 @@
-'use strict';
-
-/**
- * @ngInject
- */
 function availableHumanBookCardDirective() {
+  'ngInject';
 
   function link($scope, $element, $attributes, availableHumanBooksCardsController) {
 

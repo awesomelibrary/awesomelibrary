@@ -1,10 +1,5 @@
-'use strict';
-
-/**
- * @returns {compareUnavailableHumanBooksService}
- * @ngInject
- */
 function compareUnavailableHumanBooksServiceFactory() {
+  'ngInject';
 
   function compareUnavailableHumanBooksService(a, b) {
 

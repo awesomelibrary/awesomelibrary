@@ -1,8 +1,11 @@
-<form class="navbar-form">
+const templateDirectiveHlChangeLanguage =
+`<form class="navbar-form">
   <div class="form-group">
     <select class="form-control" ng-model="vm.language">
       <option value="pl">Polski</option>
       <option value="en">English</option>
     </select>
   </div>
-</form>
+</form>`;
+
+export default templateDirectiveHlChangeLanguage;

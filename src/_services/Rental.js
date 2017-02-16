@@ -1,10 +1,5 @@
-'use strict';
-
-/**
- * @returns {Rental}
- * @ngInject
- */
 function RentalServiceFactory($window) {
+  'ngInject';
 
   function Rental(period) {
     this.period = $window.angular.isDefined(period) ? period : this.PERIOD;

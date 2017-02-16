@@ -1,11 +1,12 @@
-'use strict';
-
 var angular = require('angular');
 require('angular-mocks');
 
-describe("service Library", function() {
+describe('service Library', function() {
 
-  var Book, library, filter, every;
+  var Book;
+  var library;
+  var filter;
+  var every;
 
   beforeEach(function() {
 
@@ -29,19 +30,19 @@ describe("service Library", function() {
 
   });
 
-  it("should have no books", function() {
+  it('should have no books', function() {
     expect(library.books.length).toBe(0);
   });
 
   describe('admitBook() method', function() {
 
-    it("should create book entry", function() {
+    it('should create book entry', function() {
       library.admitBook(new Book());
       expect(library.books.length).toBe(1);
       expect(library.books[0]).toEqual(jasmine.any(Book));
     });
 
-    it("should create two diffrent book entries when called twice", function() {
+    it('should create two diffrent book entries when called twice', function() {
       library.admitBook(new Book());
       library.admitBook(new Book());
       expect(library.books.length).toBe(2);
@@ -50,9 +51,10 @@ describe("service Library", function() {
       expect(library.books[0]).not.toBe(library.books[1]);
     });
 
-    it("should preserve old book entries when called more than once", function() {
+    it('should preserve old book entries when called more than once', function() {
+      var firstBook;
       library.admitBook(new Book());
-      var firstBook = library.books[0];
+      firstBook = library.books[0];
       library.admitBook(new Book());
       expect(library.books).toContain(firstBook);
     });

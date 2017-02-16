@@ -1,9 +1,5 @@
-'use strict';
-
-/**
- * @ngInject
- */
 function hlImportLibraryDirective(librarySerializer, $window, undo) {
+  'ngInject';
 
   function link($scope, $element, $attributes, hlFileInputWrapperCtrl) {
 

@@ -1,14 +1,10 @@
-'use strict';
+import templateDirectiveUndoBubble from '../templateDirectiveUndoBubble';
 
-/**
- * @ngInject
- */
 function undoBubbleDirective($animate) {
+  'ngInject';
 
-  /**
-   * @ngInject
-   */
   function Controller(undo) {
+    'ngInject';
     var vm = this;
     vm.bubble = undo.bubble;
   }
@@ -25,7 +21,7 @@ function undoBubbleDirective($animate) {
     controller: Controller,
     link: link,
     controllerAs: 'vm',
-    templateUrl: '/global/undo/_templates/undoBubbleDirective.html'
+    template: templateDirectiveUndoBubble
   };
 
 }

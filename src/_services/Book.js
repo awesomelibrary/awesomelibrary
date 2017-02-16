@@ -1,11 +1,5 @@
-'use strict';
-
-/**
- * @param $window
- * @returns {Book}
- * @ngInject
- */
 function BookServiceFactory($window) {
+  'ngInject';
 
   function Book() {
     this.rentals = [];
@@ -18,6 +12,7 @@ function BookServiceFactory($window) {
       return;
     }
     this.rentals.unshift(rental);
+    this.available = true;
   };
 
   Book.prototype.cancelRental = function(rental) {

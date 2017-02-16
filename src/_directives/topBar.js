@@ -1,13 +1,11 @@
-'use strict';
+import templateDirectiveTopBar from '../templateDirectiveTopBar';
 
-/**
- * @ngInject
- */
 function topBarDirective() {
+  'ngInject';
 
   return {
     restrict: 'E',
-    templateUrl: '/_templates/topBar.html',
+    template: templateDirectiveTopBar,
     transclude: true
   };
 

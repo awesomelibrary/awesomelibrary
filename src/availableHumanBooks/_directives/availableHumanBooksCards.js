@@ -1,14 +1,9 @@
-'use strict';
-
-/**
- * @ngInject
- */
 function availableHumanBooksCardsDirective($window, Arranger, compareAvailableHumanBooks) {
+  'ngInject';
 
-  /**
-   * @ngInject
-   */
-  function Controller() {}
+  function Controller() {
+    'ngInject';
+  }
 
   function link($scope, $element, $attributes, availableHumanBooksCardsController) {
 
@@ -20,14 +15,15 @@ function availableHumanBooksCardsDirective($window, Arranger, compareAvailableHu
     });
 
     function setArrangerContainerWidth() {
+      var width = $element[0].clientWidth;
+      if (width === 0) {
+        return;
+      }
       availableHumanBooksCardsController.arranger.setContainerWidth($element[0].clientWidth);
     }
 
-    setArrangerContainerWidth();
-
-    $window.angular.element($scope.availableHumanBooksWindow).on('resize', function() {
-      setArrangerContainerWidth();
-    });
+    $window.angular.element($scope.availableHumanBooksWindow).on('resize', setArrangerContainerWidth);
+    $scope.$watch(() => $element[0].clientWidth, setArrangerContainerWidth);
 
   }
 

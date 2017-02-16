@@ -1,26 +1,12 @@
-'use strict';
-
-/**
- * @param $window
- * @param librarySerializer
- * @returns {libraryLocalStorageServiceFactory.LibraryLocalStorage}
- * @ngInject
- */
 function libraryLocalStorageServiceFactory($window, librarySerializer) {
+  'ngInject';
 
-  /**
-   * @private
-   * @throws Local storage not available
-   */
   function checkIfLocalStorageIsAvailable() {
     if ($window.angular.isUndefined($window.Storage)) {
       throw new Error('Local storage not available');
     }
   }
 
-  /**
-   * @constructor
-   */
   function LibraryLocalStorage() {}
 
   LibraryLocalStorage.prototype.save = function(library) {

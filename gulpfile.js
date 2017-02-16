@@ -1,23 +1,21 @@
-'use strict';
-
 var gulp = require('gulp');
-var zkflow = require('gulp-zkflow-angular');
+var refillAngular = require('refill-angular');
 
-var getOutputDir = zkflow.init({
-  bower: {
-    globs: 'bower_components/bootstrap/fonts/**/*',
-    globsOptions: {
-      base: './'
-    },
-    outputDirSuffix: '_assets/'
-  },
+var getOutputDir = refillAngular.init({
   css: {
     enabled: false
   },
   inject: {
     absolute: false
+  },
+  assets: {
+    globs: [
+      'src/**/_assets/**',
+      '.nojekyll',
+      'node_modules/bootstrap/fonts/**'
+    ]
   }
 }, undefined, gulp);
 
-gulp.task('css', ['bower'], require('./gulp/tasks/css')(getOutputDir));
+gulp.task('css', require('./gulp/tasks/css')(getOutputDir));
 require('./gulp/tasks/deployGhPages');

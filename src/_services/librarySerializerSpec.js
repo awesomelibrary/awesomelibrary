@@ -1,12 +1,9 @@
-'use strict';
-
 var angular = require('angular');
 require('angular-mocks');
 
 describe('service librarySerializer', function() {
 
   var librarySerializer;
-  var $window;
   var json;
   var Library;
   var Book;
@@ -16,8 +13,7 @@ describe('service librarySerializer', function() {
 
     angular.mock.module(require('../'));
 
-    angular.mock.inject(function(_$window_, _librarySerializer_, _Library_, _Book_, _Rental_) {
-      $window = _$window_;
+    angular.mock.inject(function(_librarySerializer_, _Library_, _Book_, _Rental_) {
       librarySerializer = _librarySerializer_;
       Library = _Library_;
       Book = _Book_;

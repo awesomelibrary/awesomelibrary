@@ -1,10 +1,5 @@
-'use strict';
-
-/**
- * @returns {ArrangerService}
- * @ngInject
- */
 function ArrangerServiceFactory($window) {
+  'ngInject';
 
   function applyOffset(arranger, element, index) {
     var row = Math.floor(index / arranger.elementsInRow);
@@ -18,14 +13,6 @@ function ArrangerServiceFactory($window) {
       '-o-transform': translate,
       transform: translate
     });
-  }
-
-  function arrange(arranger) {
-    sort(arranger);
-    arranger.elements.forEach(function(item, index) {
-      applyOffset(arranger, item.element, index);
-    });
-    calculateRows(arranger);
   }
 
   function calculateRows(arranger) {
@@ -45,20 +32,31 @@ function ArrangerServiceFactory($window) {
     this.options = options;
   }
 
+  ArrangerService.prototype.arrange = function() {
+    var that = this;
+    sort(this);
+    this.elements.forEach(function(item, index) {
+      applyOffset(that, item.element, index);
+    });
+    calculateRows(this);
+  };
+
   ArrangerService.prototype.registerElement = function(element, model) {
     this.elements.push({
       element: element,
       model: model
     });
-    arrange(this);
+    this.arrange();
   };
 
   ArrangerService.prototype.unregisterElement = function(element) {
 
-    for (var i = 0; i < this.elements.length; i++) {
+    var i;
+
+    for (i = 0; i < this.elements.length; i++) {
       if (element !== this.elements[i].element) continue;
       this.elements.splice(i, 1);
-      arrange(this);
+      this.arrange();
       return;
     }
 
@@ -73,7 +71,7 @@ function ArrangerServiceFactory($window) {
     this.elementsInRow = Math.floor((width - this.options.gutter) / (this.options.elementWidth + this.options.gutter));
     this.leftMargin = (width - this.options.gutter - (this.options.elementWidth + this.options.gutter) * this.elementsInRow) / 2 + extraOffset;
 
-    arrange(this);
+    this.arrange();
 
   };
 

@@ -1,14 +1,10 @@
-'use strict';
-
-/**
- * @ngInject
- */
 function translationEnglish($translateProvider) {
+  'ngInject';
 
   $translateProvider.translations('en', {
-    title: 'Human Library Poland',
+    title: 'Human Library',
     mainMenu: {
-      header: 'Human Library Poland',
+      header: 'Human Library',
       admitBook: 'Add Human Book',
       startNewEdition: 'Start new edition',
       newEditionStarted: 'New edition started',
@@ -18,7 +14,10 @@ function translationEnglish($translateProvider) {
       showAvailable: 'Show available Human Books in new window'
     },
     available: {
-      header: 'Available Human Books'
+      header: 'Available Human Books',
+      humanBooks: {
+        helpHeader: 'Find title and pass it to a librarian'
+      }
     },
     undoBubble: {
       undo: 'Undo'

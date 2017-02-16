@@ -11,25 +11,30 @@
   "bugs": {
     "url": "https://github.com/zaklinaczekodu/human-library/issues"
   },
+  "engines": {
+    "node": ">=4.2",
+    "npm": ">=3.3.3"
+  },
   "dependencies": {
-    "angular": "1.4.7",
-    "angular-animate": "1.4.7",
-    "angular-mocks": "1.4.7",
-    "angular-translate": "2.8.1",
-    "angular-ui-router": "0.2.15",
-    "gulp": "3.9.0",
-    "gulp-autoprefixer": "3.1.0",
-    "gulp-csso": "1.0.1",
+    "angular": "1.5.8",
+    "angular-animate": "1.5.8",
+    "angular-mocks": "1.5.8",
+    "angular-translate": "2.12.1",
+    "angular-ui-router": "0.3.1",
+    "bootstrap": "3.3.7",
+    "gulp": "3.9.1",
+    "gulp-autoprefixer": "3.1.1",
+    "gulp-csso": "2.0.0",
     "gulp-gh-pages": "0.5.4",
-    "gulp-if": "2.0.0",
-    "gulp-less": "3.0.5",
-    "gulp-plumber": "1.0.1",
-    "gulp-rev": "6.0.1",
+    "gulp-if": "2.0.1",
+    "gulp-less": "3.1.0",
+    "gulp-plumber": "1.1.0",
+    "gulp-rev": "7.1.2",
     "gulp-streamify": "1.0.2",
-    "gulp-watch": "4.3.5",
-    "gulp-zkflow-angular": "1.0.0-13",
-    "gulp-zkflow-utils": "0.4.1",
+    "gulp-watch": "4.3.10",
+    "gulp-zkflow-utils": "0.5.0",
     "q": "1.4.1",
-    "yargs": "3.30.0"
+    "refill-angular": "2.0.0",
+    "yargs": "6.0.0"
   }
 }

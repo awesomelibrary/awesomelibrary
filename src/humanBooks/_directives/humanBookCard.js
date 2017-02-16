@@ -1,9 +1,7 @@
-'use strict';
+import templateDirectiveHumanBookCard from '../templateDirectiveHumanBookCard';
 
-/**
- * @ngInject
- */
 function humanBookCardDirective() {
+  'ngInject';
 
   function link($scope, $element, $attributes, humanBooksCardsController) {
 
@@ -28,7 +26,7 @@ function humanBookCardDirective() {
     require: '^humanBooksCards',
     restrict: 'E',
     link: link,
-    templateUrl: '/humanBooks/_templates/humanBookCard.html'
+    template: templateDirectiveHumanBookCard
   };
 
 }
