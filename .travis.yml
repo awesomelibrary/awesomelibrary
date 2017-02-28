@@ -25,8 +25,3 @@ before_install:
 
 script:
   - dbus-launch --exit-with-session ./node_modules/.bin/gulp ci
-
-after_success:
-  - git config --global user.email "$gitUserEmail"
-  - git config --global user.name "$gitUserName"
-  - if [ "$TRAVIS_PULL_REQUEST" == "false" ] && [ ! -z "$TRAVIS_TAG" ] && [ "$TRAVIS_REPO_SLUG" == "zaklinaczekodu/human-library" ]; then ./node_modules/.bin/gulp deployGhPages --ghPagesRemoteUrl "$ghPagesRemoteUrl" ; fi

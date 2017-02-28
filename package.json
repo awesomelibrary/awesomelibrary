@@ -1,15 +1,15 @@
 {
-  "name": "human-library",
+  "name": "humanlibrary",
   "version": "2.3.0",
   "description": "Human library",
   "repository": {
     "type": "git",
-    "url": "git@github.com:zaklinaczekodu/human-library.git"
+    "url": "git@github.com:humanlibrary/humanlibrary.git"
   },
   "author": "Piotr Baranowski",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/zaklinaczekodu/human-library/issues"
+    "url": "https://github.com/humanlibrary/humanlibrary/issues"
   },
   "engines": {
     "node": ">=4.2",
