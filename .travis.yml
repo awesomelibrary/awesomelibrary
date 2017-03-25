@@ -10,7 +10,7 @@ addons:
 language: node_js
 
 node_js:
-  - 6
+  - 7
 
 os:
   - linux
@@ -35,6 +35,7 @@ after_success:
       [ ! -z "$TRAVIS_TAG" ] &&
       [ "$TRAVIS_REPO_SLUG" == "humanlibrary/humanlibrary" ];
     then
+      echo "services.humanlibrary.org" > dist/CNAME
       ./node_modules/.bin/gulp deployGhPages --ghPagesRemoteUrl "$HLTRAVIS_GIT_PRODUCTION_URL" ;
     fi
   - >
