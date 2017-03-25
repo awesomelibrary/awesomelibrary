@@ -3,7 +3,7 @@ const directiveAvailableHumanBooksTemplate =
   <div class="container">
 
     <span class="navbar-brand pull-right">
-      <img class="hl-navbar--logo" ng-src="{{$root.baseUrl}}src/_assets/pictures/logo.svg" alt="logo">{{ 'mainMenu.header'|translate }}
+      <img class="hl-navbar--logo" ng-src="{{$root.baseUrl}}src/_assets/pictures/logo.svg" alt="logo">Human Library
     </span>
 
     <h1 class="top-bar__header">{{ 'available.header'|translate }}</h1>
