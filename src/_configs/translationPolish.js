@@ -2,9 +2,9 @@ function translationPolish($translateProvider) {
   'ngInject';
 
   $translateProvider.translations('pl', {
-    title: 'Żywa Biblioteka',
+    title: 'Human Library Services',
     mainMenu: {
-      header: 'Zywa Biblioteka',
+      header: 'Human Library Services',
       admitBook: 'Dodaj Żywą Książkę',
       startNewEdition: 'Rozpocznij nowę edycję',
       newEditionStarted: 'Nowa edycja rozpoczęta',
@@ -42,9 +42,7 @@ function translationPolish($translateProvider) {
       }
     },
     footer: {
-      madeBy: 'Stworzone przez',
-      zaklinaczeKodu: 'Zaklinaczy Kodu.',
-      file: 'Zgłoś błąd, sugestie lub zadaj pytanie.'
+      file: 'Zgłoś błąd, zostaw sugestię lub zadaj pytanie'
     }
   });
 

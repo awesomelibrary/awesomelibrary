@@ -2,9 +2,9 @@ function translationEnglish($translateProvider) {
   'ngInject';
 
   $translateProvider.translations('en', {
-    title: 'Human Library',
+    title: 'Human Library Services',
     mainMenu: {
-      header: 'Human Library',
+      header: 'Human Library Services',
       admitBook: 'Add Human Book',
       startNewEdition: 'Start new edition',
       newEditionStarted: 'New edition started',
@@ -42,9 +42,7 @@ function translationEnglish($translateProvider) {
       }
     },
     footer: {
-      madeBy: 'Made by',
-      zaklinaczeKodu: 'Zaklinacze Kodu.',
-      file: 'File bug report, suggestion or ask question.'
+      file: 'File bug report, leave suggestion or ask question'
     }
   });
 

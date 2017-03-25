@@ -41,23 +41,10 @@ const templateLayout =
   <human-books-cards class="human-books__cards"></human-books-cards>
 
   <footer class="human-books__footer">
-    <div class="container">
-      <div class="row">
-        <div class="col-xs-6 text-muted">
-          <p>
-            {{ 'footer.madeBy'|translate }}
-            <a href="https://github.com/zaklinaczekodu" target="_blank">{{ 'footer.zaklinaczeKodu'|translate }}</a>&nbsp;&nbsp;&nbsp;
-            <a href="https://github.com/zaklinaczekodu/human-library/issues" target="_blank">{{ 'footer.file'|translate }}</a>
-          </p>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-xs-12 text-muted">
-          <img src="src/_assets/pictures/hajs.svg" class="pull-left human-books__hajs">Program do obsługi Żywych Bibliotek w Polsce został stworzony w ramach projektu
-          <br>“Rozwój Żywych Bibliotek w Polsce - przeciwdziałajmy dyskryminacji lokalnie”.
-          <br>Sfinansowano ze środków Programu "Obywatele dla Demokracji" z Funduszy EOG.
-        </div>
-      </div>
+    <div class="container text-right">
+      Made by
+      <a href="mailto:bolczyslaw@gmail.com" target="_blank">Piotrek Baranowski</a>&nbsp;&nbsp;&nbsp;
+      <a href="https://github.com/humanlibrary/humanlibrary/issues" target="_blank">{{ 'footer.file'|translate }}</a>
     </div>
   </footer>
 
