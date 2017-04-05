@@ -15,6 +15,10 @@
     "node": ">=4.2",
     "npm": ">=3.3.3"
   },
+  "scripts": {
+    "build": "gulp build",
+    "ci": "gulp ci"
+  },
   "dependencies": {
     "angular": "1.5.8",
     "angular-animate": "1.5.8",
