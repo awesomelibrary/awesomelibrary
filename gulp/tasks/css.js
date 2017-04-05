@@ -1,5 +1,5 @@
 var gulp = require('gulp');
-var mode = require('refill-angular').mode;
+var mode = require('../../tasks/').mode;
 
 function getCssTask(getOutputDir) {
 

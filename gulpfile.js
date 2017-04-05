@@ -1,5 +1,5 @@
 var gulp = require('gulp');
-var refillAngular = require('refill-angular');
+var refillAngular = require('./tasks/');
 
 var getOutputDir = refillAngular.init({
   css: {
