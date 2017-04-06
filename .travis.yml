@@ -24,7 +24,7 @@ before_install:
   - npm install -g npm@latest
 
 script:
-  - dbus-launch --exit-with-session ./node_modules/.bin/gulp ci
+  - dbus-launch --exit-with-session npm run ci
 
 after_success:
   - git config --global user.email "$HLTRAVIS_GIT_MAIL"
