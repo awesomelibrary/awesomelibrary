@@ -1,2 +1,1 @@
-Rental tracking for Human Library
-=================================
+Loans tracking for Human Library
