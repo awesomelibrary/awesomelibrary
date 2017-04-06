@@ -1,17 +1,17 @@
 .hl-panel {
 
-  background-color: @gray-lighter;
+  background-color: $gray-lighter;
   border: none;
   border-radius: 0;
-  box-shadow: 0 0 7px 0 @gray-light;
-  .transition(box-shadow .2s);
+  box-shadow: 0 0 7px 0 $gray-light;
+  transition: box-shadow .2s;
   margin: 0;
 
   &--warning {
-    box-shadow: 0 0 7px 2px @brand-warning;
+    box-shadow: 0 0 7px 2px $brand-warning;
   }
   &--danger {
-    box-shadow: 0 0 7px 4px @brand-danger;
+    box-shadow: 0 0 7px 4px $brand-danger;
   }
   &--book {
     height: 250px;
@@ -26,22 +26,22 @@
       top: 0;
       left: 0;
       position: absolute;
-      padding: calc(@panel-body-padding + 50px) @panel-body-padding @panel-body-padding @panel-body-padding;
-      .translate(0; -200px);
+      padding: calc(#{$panel-body-padding} + 50px) $panel-body-padding $panel-body-padding $panel-body-padding;
+      transform: translate(0, -200px);
 
-      .transition-transform(@animationBounce .3s);
+      transition: transform $animationBounce .3s;
 
       .panel-heading-footer {
         position: absolute;
         bottom: 0;
         left: 0;
         right: 0;
-        padding: @panel-body-padding;
+        padding: $panel-body-padding;
       }
     }
 
     .panel-heading-rented {
-      .translate(0; -50px);
+      transform: translate(0, -50px);
     }
 
     .panel-footer {
@@ -51,7 +51,7 @@
       left: 0;
       right: 0;
       background-color: rgba(255, 255, 255, 0.9);
-      padding: @panel-body-padding;
+      padding: $panel-body-padding;
     }
 
     .panel-body {
@@ -59,17 +59,17 @@
       margin-bottom: 45px;
       font-size: 120px;
       position: relative;
-      color: @gray-light;
+      color: $gray-light;
     }
 
   }
 
   &__book-link {
-    color: lighten(@gray-light, 30%);
+    color: lighten($gray-light, 30%);
     transition: .15s color;
 
     &:hover {
-      color: lighten(@gray, 30%);
+      color: lighten($gray, 30%);
     }
   }
 
@@ -87,11 +87,11 @@
   outline: none;
   height: auto;
   border-bottom: 1px solid transparent;
-  .transition(border-color .2s);
+  transition: border-color .2s;
 
   &:focus, &:hover {
-    border-bottom-color: @input-border;
-    .box-shadow(none);
+    border-bottom-color: $input-border;
+    box-shadow: none;
   }
 }
 

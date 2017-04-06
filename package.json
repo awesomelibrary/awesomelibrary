@@ -17,7 +17,8 @@
   },
   "scripts": {
     "build": "gulp build",
-    "ci": "gulp ci"
+    "ci": "gulp ci",
+    "start": "gulp"
   },
   "dependencies": {
     "angular": "1.5.8",
@@ -25,7 +26,7 @@
     "angular-mocks": "1.5.8",
     "angular-translate": "2.12.1",
     "angular-ui-router": "0.3.1",
-    "bootstrap": "3.3.7",
+    "bootstrap-sass": "^3.3.7",
     "gulp": "3.9.1",
     "gulp-autoprefixer": "3.1.1",
     "gulp-css-globbing": "^0.1.8",
@@ -34,7 +35,6 @@
     "gulp-htmlmin": "^3.0.0",
     "gulp-if": "2.0.1",
     "gulp-inject": "^4.1.0",
-    "gulp-less": "3.1.0",
     "gulp-plumber": "1.1.0",
     "gulp-rev": "7.1.2",
     "gulp-sass": "^2.3.2",
@@ -43,10 +43,8 @@
     "gulp-template": "^4.0.0",
     "gulp-watch": "4.3.10",
     "gulp-webserver": "0.9.1",
-    "gulp-zkflow-utils": "0.5.0",
     "lodash.defaults": "^4.2.0",
     "lodash.foreach": "^4.5.0",
-    "q": "1.4.1",
     "refill": "^1.2.2",
     "refill-globby": "^1.0.1",
     "refill-logger": "^1.0.3",
