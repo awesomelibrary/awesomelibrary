@@ -1,6 +1,6 @@
+@import "_styles/variables";
+@import "../node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
 
-@import "../node_modules/bootstrap/less/bootstrap";
-@import "_styles/bootstrapVariables";
 @import "_styles/fonts";
 
 @import "_styles/navbar";
@@ -10,33 +10,28 @@
 
 @import "availableHumanBooks/_styles/availableHumanBookCard";
 @import "availableHumanBooks/_styles/availableHumanBooksCards";
-@import "humanBooks/index";
-@import "StyleTopBar";
+
+@import "humanBooks/_styles/humanBooks";
+@import "humanBooks/_styles/humanBookCard";
+
+@import "humanBooks/humanBook/_styles/humanBook";
+
+@import "_styles/StyleTopBar";
 
 html {
-  min-width: @screen-min-width;
+  min-width: $screen-min-width;
 }
 
 body {
   padding-top: 51px;
-  min-width: @screen-min-width;
+  min-width: $screen-min-width;
 }
 
-////////////////////////////////////////////////////////////////////////////////
-// Elementy występujące raz w całej aplikacji
 #hl-navbar {
     .navbar-right .navbar-btn {
         margin-right: 8px;
     }
 }
-
-////////////////////////////
-// kolory biblioteki
-@library-red: #d3401e;
-@library-dark-red: #701e56;
-@screen-min-width: 768px;
-
-@animationBounce: cubic-bezier(.2,0,.2,1.2);
 
 .fake-hidden {
   overflow: hidden;
@@ -46,7 +41,7 @@ body {
 
 .navbar-nav > li > a.btn {
   padding: 6px 12px;
-  .button-variant(@btn-default-color; @btn-default-bg; @btn-default-border);
+  @include button-variant($btn-default-color, $btn-default-bg, $btn-default-border);
 }
 
 .full-height {

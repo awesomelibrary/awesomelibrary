@@ -24,7 +24,7 @@ before_install:
   - npm install -g npm@latest
 
 script:
-  - dbus-launch --exit-with-session ./node_modules/.bin/gulp ci
+  - dbus-launch --exit-with-session npm run ci
 
 after_success:
   - git config --global user.email "$HLTRAVIS_GIT_MAIL"
@@ -37,12 +37,4 @@ after_success:
     then
       echo "services.humanlibrary.org" > dist/CNAME
       ./node_modules/.bin/gulp deployGhPages --ghPagesRemoteUrl "$HLTRAVIS_GIT_PRODUCTION_URL" ;
-    fi
-  - >
-    if
-      [ "$TRAVIS_PULL_REQUEST" == "false" ] &&
-      [ "$TRAVIS_BRANCH" == "develop" ] &&
-      [ "$TRAVIS_REPO_SLUG" == "humanlibrary/humanlibrary" ];
-    then
-      ./node_modules/.bin/gulp deployGhPages --ghPagesRemoteUrl "$HLTRAVIS_GIT_DEVELOP_URL" ;
     fi

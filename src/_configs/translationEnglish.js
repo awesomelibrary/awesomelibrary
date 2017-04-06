@@ -28,8 +28,8 @@ function translationEnglish($translateProvider) {
       actions: {
         'return': 'Return',
         returned: 'Returned',
-        rent: 'Rent',
-        rented: 'Rented',
+        rent: 'Loan',
+        rented: 'Loaned',
         removed: 'Removed',
         makeUnavailable: 'Mark as unavailable',
         makeAvailable: 'Mark as available'
@@ -37,7 +37,7 @@ function translationEnglish($translateProvider) {
     },
     book: {
       numberOfRentals: {
-        prefix: 'Rented',
+        prefix: 'Loaned',
         suffix: 'times'
       }
     },
