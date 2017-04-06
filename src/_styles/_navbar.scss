@@ -1,6 +1,6 @@
 .navbar--hl {
-  min-width: @screen-min-width;
-  box-shadow: 0 0 20px 0 @navbar-default-bg;
+  min-width: $screen-min-width;
+  box-shadow: 0 0 20px 0 $navbar-default-bg;
 }
 
 .navbar-brand {

@@ -1,0 +1,34 @@
+$library-red: #d3401e;
+$library-dark-red: #701e56;
+$screen-min-width: 768px;
+
+$animationBounce: cubic-bezier(.2,0,.2,1.2);
+
+$font-family-sans-serif: "Open Sans", Helvetica, Arial, sans-serif;
+$icon-font-path: "node_modules/bootstrap-sass/assets/fonts/bootstrap/";
+
+$headings-font-weight: 300;
+$btn-font-weight: 300;
+
+
+$body-bg: #EDEDED;
+
+$navbar-default-bg: black;
+
+$border-radius-base: 2px;
+$border-radius-large: 3px;
+$border-radius-small: 1px;
+
+$navbar-default-color: white;
+$navbar-default-brand-color: white;
+
+$grid-gutter-width: 5px;
+
+$panel-body-padding: 5px;
+$panel-heading-padding: 5px;
+$panel-default-heading-bg: #fff;
+
+$screen-xs: 0;
+$screen-sm: 1px;
+
+$brand-primary: $library-dark-red;

@@ -1,10 +1,7 @@
 var gulp = require('gulp');
 var refillAngular = require('./tasks/');
 
-var getOutputDir = refillAngular.init({
-  css: {
-    enabled: false
-  },
+refillAngular.init({
   inject: {
     absolute: false
   },
@@ -12,10 +9,9 @@ var getOutputDir = refillAngular.init({
     globs: [
       'src/**/_assets/**',
       '.nojekyll',
-      'node_modules/bootstrap/fonts/**'
+      'node_modules/bootstrap-sass/assets/fonts/**'
     ]
   }
 }, undefined, gulp);
 
-gulp.task('css', require('./gulp/tasks/css')(getOutputDir));
 require('./gulp/tasks/deployGhPages');
