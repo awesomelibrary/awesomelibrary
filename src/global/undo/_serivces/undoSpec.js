@@ -62,8 +62,6 @@ describe('Service undo', function() {
         this.undo.bubble.undo();
       });
 
-      it('should cancel timeout', function() {});
-
       it('should call undo function', function() {
         expect(this.undoFunction).toHaveBeenCalled();
       });
@@ -79,8 +77,6 @@ describe('Service undo', function() {
       beforeEach(function() {
         this.undo.bubble.dismiss();
       });
-
-      it('should cancel timeout', function() {});
 
       it('should not call undo function', function() {
         expect(this.undoFunction).not.toHaveBeenCalled();
@@ -116,10 +112,6 @@ describe('Service undo', function() {
 
     });
 
-  });
-
-  afterEach(function() {
-    this.$timeout.verifyNoPendingTasks();
   });
 
 });

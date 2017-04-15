@@ -40,8 +40,9 @@ module.exports = angular
   .config(require('./_configs/translationPolish'))
   .config(require('./_configs/animate'))
   .config(
-    function($compileProvider) {
+    function($compileProvider, $locationProvider) {
       'ngInject';
       $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|blob):/);
+      $locationProvider.html5Mode(true);
     })
   .name;
