@@ -3,55 +3,17 @@ import humanLibraryModule from '../../';
 
 describe('factoryGetBaseUrl', function () {
 
-  beforeEach(function () {
-
-    this.$locationMock = jasmine.createSpyObj('$locationMock', ['absUrl', 'url']);
+  it('should get base URL', function () {
+    this.$locationMock = jasmine.createSpyObj('$locationMock', ['protocol', 'host', 'port', 'url']);
 
     angular.mock.module(humanLibraryModule, {
       $location: this.$locationMock
     });
     angular.mock.inject(getBaseUrl => this.getBaseUrl = getBaseUrl);
-
-  });
-
-  it('should get base URL when there is no hash and no search', function () {
-    this.$locationMock.absUrl.and.returnValue('http://some.exampledomain.com/');
-    expect(this.getBaseUrl()).toEqual('http://some.exampledomain.com/');
-  });
-
-  it('should get base URL when there is hash', function () {
-    this.$locationMock.absUrl.and.returnValue('http://some.exampledomain.com/#some-hash');
-    expect(this.getBaseUrl()).toEqual('http://some.exampledomain.com/');
-  });
-
-  it('should get base URL when there is search', function () {
-    this.$locationMock.absUrl.and.returnValue('http://some.exampledomain.com/?key=value');
-    expect(this.getBaseUrl()).toEqual('http://some.exampledomain.com/');
-  });
-
-  it('should get base URL when there is search and hash', function () {
-    this.$locationMock.absUrl.and.returnValue('http://some.exampledomain.com/?key=value#other-hash');
-    expect(this.getBaseUrl()).toEqual('http://some.exampledomain.com/');
-  });
-
-  it('should get base URL with trailing /', function () {
-    this.$locationMock.absUrl.and.returnValue('http://some.exampledomain.com');
-    expect(this.getBaseUrl()).toEqual('http://some.exampledomain.com/');
-  });
-
-  it('should get base URL with trailing / when there is hash', function () {
-    this.$locationMock.absUrl.and.returnValue('http://some.exampledomain.com#some-hash');
-    expect(this.getBaseUrl()).toEqual('http://some.exampledomain.com/');
-  });
-
-  it('should get base URL with trailing / when there is search', function () {
-    this.$locationMock.absUrl.and.returnValue('http://some.exampledomain.com?key=value');
-    expect(this.getBaseUrl()).toEqual('http://some.exampledomain.com/');
-  });
-
-  it('should get base URL with trailing / when there is search and hash', function () {
-    this.$locationMock.absUrl.and.returnValue('http://some.exampledomain.com?key=value#other-hash');
-    expect(this.getBaseUrl()).toEqual('http://some.exampledomain.com/');
+    this.$locationMock.protocol.and.returnValue('http');
+    this.$locationMock.host.and.returnValue('some.exampledomain.com');
+    this.$locationMock.port.and.returnValue('80');
+    expect(this.getBaseUrl()).toEqual('http://some.exampledomain.com:80/');
   });
 
 });

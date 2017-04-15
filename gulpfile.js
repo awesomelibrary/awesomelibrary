@@ -8,10 +8,8 @@ refillAngular.init({
   assets: {
     globs: [
       'src/**/_assets/**',
-      '.nojekyll',
-      'node_modules/bootstrap-sass/assets/fonts/**'
+      'node_modules/bootstrap-sass/assets/fonts/**',
+      '_redirects'
     ]
   }
 }, undefined, gulp);
-
-require('./gulp/tasks/deployGhPages');
