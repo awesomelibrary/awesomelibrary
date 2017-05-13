@@ -4,7 +4,7 @@ import './index.scss';
 import angular from 'angular';
 import angularAnimate from 'angular-animate';
 import angularTranslate from 'angular-translate';
-import angularUiRouter from 'angular-ui-router';
+import angularUiRouter from '@uirouter/angularjs';
 import { undoModule } from './global/undo/index';
 import { humanBooksModule } from './humanBooks/index';
 import { availableHumanBooksModule } from './availableHumanBooks/index';

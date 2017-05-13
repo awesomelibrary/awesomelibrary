@@ -1,13 +1,13 @@
 const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const {optimize} = require('webpack');
+const { optimize } = require('webpack');
 
 const webpackDistConfig = {
   output: {
     filename: 'index-[hash].js'
   },
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.tsx?$/,
         loader: 'awesome-typescript-loader'
