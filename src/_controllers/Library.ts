@@ -58,6 +58,14 @@ export function LibraryController($window, $scope, $timeout, $rootScope, library
     return humanBook.isRentable();
   };
 
+  $scope.setNewLibrary = function (newLibrary) {
+    var oldLibrary = $scope.library;
+    $scope.library = newLibrary;
+    undo.done('mainMenu.humanLibraryRecovered', function() {
+      $scope.library = oldLibrary;
+    });
+  };
+
   // Ticker
   Ticker = (function() {
 

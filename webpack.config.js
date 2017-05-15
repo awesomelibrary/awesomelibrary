@@ -3,6 +3,7 @@ const NgAnnotateWebpackPlugin = require('ng-annotate-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { isDevelopment } = require('./isDevelopment');
 const { CheckerPlugin } = require('awesome-typescript-loader');
+const { SourceMapDevToolPlugin } = require('webpack');
 const mergeWith = require('lodash.mergewith');
 const config = {};
 
@@ -20,6 +21,10 @@ const commonConfig = {
     new CheckerPlugin(),
     new HtmlWebpackPlugin({
       template: 'src/index.html'
+    }),
+    new SourceMapDevToolPlugin({
+      filename: null,
+      test: /\.(ts|js)($|\?)/i
     })
   ]
 };

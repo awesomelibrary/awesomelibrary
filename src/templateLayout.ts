@@ -25,7 +25,7 @@ const templateLayout =
       </a>
     </li>
     <li>
-      <button class="btn btn-default navbar-btn" title="{{ 'mainMenu.importLibrary'|translate }}" hl-file-input-wrapper hl-import-library="library">
+      <button class="btn btn-default navbar-btn" title="{{ 'mainMenu.importLibrary'|translate }}" hl-file-input-wrapper hl-import-library="setNewLibrary(importedLibrary)">
         <i class="glyphicon glyphicon-open"></i>
       </button>
     </li>

@@ -16,7 +16,7 @@ module.exports = function(config) {
     ],
 
     preprocessors: {
-      'src/indexSpec.ts': ['webpack']
+      'src/indexSpec.ts': ['webpack', 'sourcemap']
     },
 
     reporters: ['progress'],
@@ -38,7 +38,8 @@ module.exports = function(config) {
     webpack: {
       module: webpackConfig.module,
       resolve: webpackConfig.resolve,
-      plugins: webpackConfig.plugins
+      plugins: webpackConfig.plugins,
+      devtool: webpackConfig.devtool
     },
 
     mime: {

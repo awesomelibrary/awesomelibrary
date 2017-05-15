@@ -1,5 +1,5 @@
 import angular from 'angular';
-import angularUiRouter from 'angular-ui-router';
+import angularUiRouter from '@uirouter/angularjs';
 import { rentalsModule } from './rentals/index';
 import { undoModule } from '../../global/undo/index';
 import { BookController } from './_controllers/Book';

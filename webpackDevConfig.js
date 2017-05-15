@@ -6,7 +6,7 @@ const webpackDevConfig = {
     filename: 'index.js'
   },
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.tsx?$/,
         loader: 'awesome-typescript-loader'
@@ -24,7 +24,12 @@ const webpackDevConfig = {
                 sourceMap: true
               }
             },
-            'postcss-loader',
+            {
+              loader: 'postcss-loader',
+              options: {
+                sourceMap: true
+              }
+            },
             {
               loader: 'sass-loader',
               options: {

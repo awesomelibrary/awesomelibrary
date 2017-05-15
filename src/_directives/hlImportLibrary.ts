@@ -1,4 +1,4 @@
-export function hlImportLibraryDirective(librarySerializer, $window, undo) {
+export function hlImportLibraryDirective(librarySerializer, $window) {
   'ngInject';
 
   function link($scope, $element, $attributes, hlFileInputWrapperCtrl) {
@@ -9,15 +9,7 @@ export function hlImportLibraryDirective(librarySerializer, $window, undo) {
       var fileReader = new $window.FileReader();
 
       fileReader.onload = function(loadEvent) {
-
-        $scope.$apply(function() {
-          var oldLibrary = $scope.library;
-          $scope.library = librarySerializer.deserialize(loadEvent.target.result);
-          undo.done('mainMenu.humanLibraryRecovered', function() {
-            $scope.library = oldLibrary;
-          });
-        });
-
+        $scope.setLibrary({ importedLibrary: librarySerializer.deserialize(loadEvent.target.result) });
       };
 
       fileReader.readAsText(file);
@@ -31,7 +23,7 @@ export function hlImportLibraryDirective(librarySerializer, $window, undo) {
     link: link,
     require: 'hlFileInputWrapper',
     scope: {
-      library: '=hlImportLibrary'
+      setLibrary: '&hlImportLibrary'
     }
   };
 
