@@ -1,5 +1,4 @@
-export function BookServiceFactory($window) {
-  'ngInject';
+export const BookServiceFactory = ['$window', function ($window) {
 
   function Book() {
     this.rentals = [];
@@ -52,4 +51,4 @@ export function BookServiceFactory($window) {
 
   return Book;
 
-}
+}];

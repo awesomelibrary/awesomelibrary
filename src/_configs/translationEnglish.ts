@@ -1,5 +1,4 @@
-export function translationEnglishConfig($translateProvider) {
-  'ngInject';
+export const translationEnglishConfig = ['$translateProvider', function ($translateProvider) {
 
   $translateProvider.translations('en', {
     title: 'Human Library Services',
@@ -46,4 +45,4 @@ export function translationEnglishConfig($translateProvider) {
     }
   });
 
-}
+}];

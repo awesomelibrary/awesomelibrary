@@ -1,5 +1,4 @@
 export function availableHumanBookCardDirective() {
-  'ngInject';
 
   function link($scope, $element, $attributes, availableHumanBooksCardsController) {
 

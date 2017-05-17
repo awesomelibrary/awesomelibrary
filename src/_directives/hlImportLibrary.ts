@@ -1,5 +1,4 @@
-export function hlImportLibraryDirective(librarySerializer, $window) {
-  'ngInject';
+export const hlImportLibraryDirective = ['librarySerializer', '$window', function (librarySerializer, $window) {
 
   function link($scope, $element, $attributes, hlFileInputWrapperCtrl) {
 
@@ -27,4 +26,4 @@ export function hlImportLibraryDirective(librarySerializer, $window) {
     }
   };
 
-}
+}];

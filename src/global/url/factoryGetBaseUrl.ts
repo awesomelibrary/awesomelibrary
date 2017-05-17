@@ -1,5 +1,4 @@
-export function factoryGetBaseUrl($location) {
-  'ngInject';
+export const factoryGetBaseUrl = ['$location', function ($location) {
 
   function getBaseUrl() {
 
@@ -9,4 +8,4 @@ export function factoryGetBaseUrl($location) {
 
   return getBaseUrl;
 
-}
+}];

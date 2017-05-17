@@ -1,7 +1,6 @@
 import templateDirectiveTopBar from '../templateDirectiveTopBar.html';
 
 export function topBarDirective() {
-  'ngInject';
 
   return {
     restrict: 'E',

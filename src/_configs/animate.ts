@@ -1,4 +1,3 @@
-export function animateConfig($animateProvider) {
-  'ngInject';
+export const animateConfig = ['$animateProvider', function ($animateProvider) {
   $animateProvider.classNameFilter(/animate/);
-}
+}];

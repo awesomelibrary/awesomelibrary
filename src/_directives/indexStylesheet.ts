@@ -1,5 +1,4 @@
-export function indexStylesheetDirective(stylesheet, getBaseUrl) {
-  'ngInject';
+export const indexStylesheetDirective = ['stylesheet', 'getBaseUrl', function (stylesheet, getBaseUrl) {
 
   function link($scope, $element, $attributes) {
     $attributes.$set('href', getBaseUrl() + stylesheet.href);
@@ -9,4 +8,4 @@ export function indexStylesheetDirective(stylesheet, getBaseUrl) {
     link: link
   };
 
-}
+}];

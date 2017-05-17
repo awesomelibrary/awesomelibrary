@@ -1,5 +1,4 @@
 const path = require('path');
-const NgAnnotateWebpackPlugin = require('ng-annotate-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { isDevelopment } = require('./isDevelopment');
 const { CheckerPlugin } = require('awesome-typescript-loader');
@@ -17,7 +16,6 @@ const commonConfig = {
     extensions: ['.ts', '.tsx', '.js', '.jsx']
   },
   plugins: [
-    new NgAnnotateWebpackPlugin(),
     new CheckerPlugin(),
     new HtmlWebpackPlugin({
       template: 'src/index.html'

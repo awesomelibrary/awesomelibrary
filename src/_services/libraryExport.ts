@@ -1,5 +1,4 @@
-export function libraryExportServiceFactory($window, librarySerializer) {
-  'ngInject';
+export const libraryExportServiceFactory = ['$window', 'librarySerializer', function ($window, librarySerializer) {
 
   var libraryBlob;
 
@@ -15,4 +14,4 @@ export function libraryExportServiceFactory($window, librarySerializer) {
 
   return libraryExportService;
 
-}
+}];
