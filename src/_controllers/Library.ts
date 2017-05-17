@@ -61,8 +61,8 @@ export const LibraryController = [
     };
 
     $scope.toggleHumanBookAvailable = function (book) {
-      book.available = !book.available;
-      $window.ga('send', 'event', 'Human Book', 'Abailable toggle', book.title);
+      book.toggleAvailable();
+      $window.ga('send', 'event', 'Human Book', 'Available toggle', book.title);
       undo.bubble.dismiss();
     };
 

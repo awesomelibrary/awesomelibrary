@@ -49,6 +49,11 @@ export const BookServiceFactory = ['$window', function ($window) {
     return !this.isRented() && this.available;
   };
 
+  Book.prototype.toggleAvailable = function() {
+    this.available = !this.available;
+    this.return();
+  };
+
   return Book;
 
 }];

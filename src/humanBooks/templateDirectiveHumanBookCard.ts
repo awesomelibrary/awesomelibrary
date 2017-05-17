@@ -40,8 +40,7 @@ const templateDirectiveHumanBookCard =
         </div>
       </div>
       <div class="col-xs-4">
-        <button class="btn btn-default btn-block" title="{{ (book.available ? 'manageBooks.actions.makeUnavailable' : 'manageBooks.actions.makeAvailable')|translate }}" ng-class="{ active: !book.available }" tabindex="-1" ng-click="toggleHumanBookAvailable(book)"
-        ng-disabled="book.isRented()">
+        <button class="btn btn-default btn-block" title="{{ (book.available ? 'manageBooks.actions.makeUnavailable' : 'manageBooks.actions.makeAvailable')|translate }}" ng-class="{ active: !book.available }" tabindex="-1" ng-click="toggleHumanBookAvailable(book)">
           <i class="glyphicon glyphicon-time"></i>
         </button>
       </div>
