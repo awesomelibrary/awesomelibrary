@@ -1,5 +1,4 @@
 export function compareUnavailableHumanBooksServiceFactory() {
-  'ngInject';
 
   function compareUnavailableHumanBooksService(a, b) {
 

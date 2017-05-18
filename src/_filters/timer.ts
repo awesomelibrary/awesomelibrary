@@ -1,5 +1,4 @@
-export function timerFilterFactory($window) {
-  'ngInject';
+export const timerFilterFactory = ['$window', function ($window) {
 
   function timerFilter(input) {
 
@@ -29,4 +28,4 @@ export function timerFilterFactory($window) {
 
   return timerFilter;
 
-}
+}];

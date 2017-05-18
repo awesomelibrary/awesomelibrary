@@ -97,12 +97,32 @@ describe('service Book', function() {
 
     });
 
+    describe('should toggle available', function() {
+
+      beforeEach(function() {
+        this.book.toggleAvailable();
+      });
+
+      it('should not be rented', function() {
+        expect(this.book.isRented()).toBe(false);
+      });
+
+      it('should not have current rental', function() {
+        expect(this.book.currentRental()).toBeNull();
+      });
+
+    });
+
   });
 
-  describe('when book is not available', function() {
+  describe('when book available is toggled', function() {
 
     beforeEach(function() {
-      this.book.available = false;
+      this.book.toggleAvailable();
+    });
+
+    it('should toggle available', function() {
+      expect(this.book.available).toBe(false);
     });
 
     it('should not be rantable', function() {

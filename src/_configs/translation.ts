@@ -1,5 +1,4 @@
-export function translationConfig($translateProvider) {
-  'ngInject';
+export const translationConfig = ['$translateProvider', function ($translateProvider) {
   $translateProvider.preferredLanguage('en');
   $translateProvider.useSanitizeValueStrategy('escape');
-}
+}];

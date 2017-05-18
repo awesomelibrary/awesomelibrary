@@ -1,5 +1,4 @@
-export function librarySerializerServiceFactory($window, Library, Book, Rental) {
-  'ngInject';
+export const librarySerializerServiceFactory = ['$window', 'Library', 'Book', 'Rental', function ($window, Library, Book, Rental) {
 
   function LibrarySerializer() {
 
@@ -44,4 +43,4 @@ export function librarySerializerServiceFactory($window, Library, Book, Rental) 
 
   return new LibrarySerializer();
 
-}
+}];

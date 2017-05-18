@@ -1,5 +1,4 @@
-export function RentalsController($scope, $window) {
-  'ngInject';
+export const RentalsController = ['$scope', '$window', function($scope, $window) {
 
   var vm = this;
 
@@ -8,4 +7,4 @@ export function RentalsController($scope, $window) {
     $window.ga('send', 'event', 'Human Book', 'Cancelled rental', $scope.book.title);
   };
 
-}
+}];

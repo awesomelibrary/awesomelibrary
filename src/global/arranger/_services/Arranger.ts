@@ -1,5 +1,4 @@
-export function ArrangerServiceFactory($window) {
-  'ngInject';
+export const ArrangerServiceFactory = ['$window', function ($window) {
 
   function applyOffset(arranger, element, index) {
     var row = Math.floor(index / arranger.elementsInRow);
@@ -77,4 +76,4 @@ export function ArrangerServiceFactory($window) {
 
   return ArrangerService;
 
-}
+}];

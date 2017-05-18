@@ -1,5 +1,4 @@
-export function undoServiceFactory($window, $timeout) {
-  'ngInject';
+export const undoServiceFactory = ['$window', '$timeout', function($window, $timeout) {
 
   var timeoutPromise;
   var bubble: {
@@ -46,4 +45,4 @@ export function undoServiceFactory($window, $timeout) {
     bubble: bubble
   };
 
-}
+}];

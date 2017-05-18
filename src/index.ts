@@ -70,9 +70,8 @@ export const humanLibraryModule =  angular
   .config(translationPolishConfig)
   .config(animateConfig)
   .config(
-    function($compileProvider, $locationProvider) {
-      'ngInject';
+    ['$compileProvider', '$locationProvider', function($compileProvider, $locationProvider) {
       $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|blob):/);
       $locationProvider.html5Mode(true);
-    })
+    }])
   .name;

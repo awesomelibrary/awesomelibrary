@@ -1,5 +1,4 @@
-export function linkDirective($window, stylesheet) {
-  'ngInject';
+export const linkDirective = ['$window', 'stylesheet', function($window, stylesheet) {
 
   function link($scope, $element, $attributes) {
     if ($attributes.rel !== 'stylesheet' || $window.angular.isUndefined($attributes.href)) return;
@@ -10,4 +9,4 @@ export function linkDirective($window, stylesheet) {
     link: link
   };
 
-}
+}];

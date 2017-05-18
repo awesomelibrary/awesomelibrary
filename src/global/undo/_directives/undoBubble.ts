@@ -1,13 +1,11 @@
 import templateDirectiveUndoBubble from '../templateDirectiveUndoBubble';
 
-export function undoBubbleDirective($animate) {
-  'ngInject';
+export const undoBubbleDirective = ['$animate', function ($animate) {
 
-  function Controller(undo) {
-    'ngInject';
+  const Controller = ['undo', function (undo) {
     var vm = this;
     vm.bubble = undo.bubble;
-  }
+  }];
 
   function link($scope, $element) {
     $scope.$watch('vm.bubble.hidden', function(hidden) {
@@ -24,4 +22,4 @@ export function undoBubbleDirective($animate) {
     template: templateDirectiveUndoBubble
   };
 
-}
+}];

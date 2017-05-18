@@ -1,5 +1,4 @@
-export function RentalServiceFactory($window) {
-  'ngInject';
+export const RentalServiceFactory = ['$window', function ($window) {
 
   function Rental(period) {
     this.period = $window.angular.isDefined(period) ? period : this.PERIOD;
@@ -26,4 +25,4 @@ export function RentalServiceFactory($window) {
 
   return Rental;
 
-}
+}];

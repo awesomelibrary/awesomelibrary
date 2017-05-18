@@ -1,10 +1,8 @@
 import templateDirectiveHlChangeLanguage from '../templateDirectiveHlChangeLanguage';
 
 export function hlChangeLanguageDirective() {
-  'ngInject';
 
-  function Controller($scope, $translate) {
-    'ngInject';
+  const Controller = ['$scope', '$translate', function Controller($scope, $translate) {
 
     var vm = this;
 
@@ -14,7 +12,7 @@ export function hlChangeLanguageDirective() {
       $translate.use(newLanguage);
     });
 
-  }
+  }];
 
   return {
     restrict: 'E',

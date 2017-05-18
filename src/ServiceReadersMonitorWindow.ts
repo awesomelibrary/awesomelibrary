@@ -1,8 +1,7 @@
 import angular from 'angular';
 import templateAvailableHumanBooks from './templateAvailableHumanBooks';
 
-export function ServiceReadersMonitorWindow($window, $compile) {
-  'ngInject';
+export const ServiceReadersMonitorWindow = ['$window', '$compile', function ($window, $compile) {
 
   var readersMonitorWindowWindow;
 
@@ -39,4 +38,4 @@ export function ServiceReadersMonitorWindow($window, $compile) {
     }
   };
 
-}
+}];

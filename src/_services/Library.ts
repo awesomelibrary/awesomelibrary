@@ -1,5 +1,4 @@
 export function LibraryServiceFactory() {
-  'ngInject';
 
   function Library() {
     this.startDate = new Date();

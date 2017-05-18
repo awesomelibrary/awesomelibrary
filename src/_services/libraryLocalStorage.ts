@@ -1,5 +1,4 @@
-export function libraryLocalStorageServiceFactory($window, librarySerializer) {
-  'ngInject';
+export const libraryLocalStorageServiceFactory = ['$window', 'librarySerializer', function($window, librarySerializer) {
 
   function checkIfLocalStorageIsAvailable() {
     if ($window.angular.isUndefined($window.Storage)) {
@@ -28,4 +27,4 @@ export function libraryLocalStorageServiceFactory($window, librarySerializer) {
 
   return new LibraryLocalStorage();
 
-}
+}];

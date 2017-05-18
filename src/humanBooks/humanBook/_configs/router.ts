@@ -1,7 +1,6 @@
 import templateHumanBook from '../templateHumanBook';
 
-export function routerConfig($stateProvider) {
-  'ngInject';
+export const routerConfig = ['$stateProvider', function($stateProvider) {
 
   $stateProvider.state('humanLibrary.humanBook', {
     url: 'human-book/:bookId',
@@ -10,4 +9,4 @@ export function routerConfig($stateProvider) {
     template: templateHumanBook
   });
 
-}
+}];

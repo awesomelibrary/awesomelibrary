@@ -1,5 +1,4 @@
-export function BookController($scope, $stateParams, $state, $window, undo) {
-  'ngInject';
+export const BookController = ['$scope', '$stateParams', '$state', '$window', 'undo', function($scope, $stateParams, $state, $window, undo) {
 
   var vm = this;
 
@@ -15,4 +14,4 @@ export function BookController($scope, $stateParams, $state, $window, undo) {
     $state.go('humanLibrary');
   };
 
-}
+}];

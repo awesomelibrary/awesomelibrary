@@ -1,7 +1,6 @@
 import templateDirectiveHumanBookCard from '../templateDirectiveHumanBookCard';
 
 export function humanBookCardDirective() {
-  'ngInject';
 
   function link($scope, $element, $attributes, humanBooksCardsController) {
 

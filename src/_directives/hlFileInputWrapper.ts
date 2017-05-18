@@ -1,11 +1,8 @@
 import templateDirectiveHlFileInputWrapper from '../templateDirectiveHlFileInputWrapper';
 
 export function hlFileInputWrapperDirective() {
-  'ngInject';
 
-  function Controller() {
-    'ngInject';
-  }
+  function Controller() {}
 
   function link($scope, $element, $attributes, hlFileInputWrapperCtrl) {
     $element.on('click', function() {

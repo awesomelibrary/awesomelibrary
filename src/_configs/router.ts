@@ -1,7 +1,6 @@
 import templateLayout from '../templateLayout';
 
-export function routerConfig($stateProvider, $urlRouterProvider) {
-  'ngInject';
+export const routerConfig = ['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
 
   $urlRouterProvider.otherwise('/');
 
@@ -12,4 +11,4 @@ export function routerConfig($stateProvider, $urlRouterProvider) {
     template: templateLayout
   });
 
-}
+}];

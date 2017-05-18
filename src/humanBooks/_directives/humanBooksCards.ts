@@ -1,10 +1,8 @@
 import templateDirectiveHumanBooksCards from '../templateDirectiveHumanBooksCards';
 
-export function humanBooksCardsDirective($window) {
-  'ngInject';
+export const humanBooksCardsDirective = ['$window', function($window) {
 
-  function Controller($scope, Arranger, compareAvailableHumanBooks, compareUnavailableHumanBooks) {
-    'ngInject';
+  const Controller = ['$scope', 'Arranger', 'compareAvailableHumanBooks', 'compareUnavailableHumanBooks', function($scope, Arranger, compareAvailableHumanBooks, compareUnavailableHumanBooks) {
 
     var availableHeight = 0;
     var unavailableHeight = 0;
@@ -44,7 +42,7 @@ export function humanBooksCardsDirective($window) {
       gutter: gutter
     });
 
-  }
+  }];
 
   function link($scope, $element, $attributes, humanBooksCardsController) {
 
@@ -77,4 +75,4 @@ export function humanBooksCardsDirective($window) {
     controller: Controller
   };
 
-}
+}];

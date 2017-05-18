@@ -1,9 +1,6 @@
-export function availableHumanBooksCardsDirective($window, Arranger, compareAvailableHumanBooks) {
-  'ngInject';
+export const availableHumanBooksCardsDirective = ['$window', 'Arranger', 'compareAvailableHumanBooks', function ($window, Arranger, compareAvailableHumanBooks) {
 
-  function Controller() {
-    'ngInject';
-  }
+  function Controller() {}
 
   function link($scope, $element, $attributes, availableHumanBooksCardsController) {
 
@@ -34,4 +31,4 @@ export function availableHumanBooksCardsDirective($window, Arranger, compareAvai
     controller: Controller
   };
 
-}
+}];
