@@ -1,7 +1,4 @@
-const templateLayout =
-`<top-bar>
-
-  <undo-bubble class="undo-bubble"></undo-bubble>
+<top-bar>
 
   <ul class="nav navbar-nav navbar-right">
     <li>
@@ -36,6 +33,22 @@ const templateLayout =
 
 </top-bar>
 
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6 col-md-4 flex">
+      <svg class="icon on-input-left" viewBox="0 0 64 64">
+        <use xlink:href="${require('../_assets/ikons/magnifying_glass.svg')}#Layer_1"/>
+      </svg>
+      <input class="input" type="text" placeholder="{{'search.placeholder'|translate}}" ng-model="vm.query" hl-search hl-search-on-esc="vm.clearQuery()">
+      <button type="button" class="button on-input-right" ng-show="vm.query" ng-click="vm.clearQuery()">
+        <svg class="icon icon--button" viewBox="0 0 64 64">
+          <use xlink:href="${require('../_assets/ikons/close.svg')}#Layer_1"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div>
+
 <div class="human-books">
 
   <human-books-cards class="human-books__cards"></human-books-cards>
@@ -50,6 +63,6 @@ const templateLayout =
 
 </div>
 
-<ui-view></ui-view>`;
+<ui-view></ui-view>
 
-export default templateLayout;
+<undo-bubble class="undo-bubble"></undo-bubble>

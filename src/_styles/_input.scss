@@ -1,0 +1,31 @@
+.input {
+  padding: 5px 30px 5px 30px;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid $color-light-gray;
+  transition: border-color .15s;
+  font-size: 14px;
+  width: 100%;
+
+  &:focus {
+    border-bottom-color: $color-gray;
+  }
+  &:hover {
+    border-bottom-color: $color-dark-gray;
+  }
+
+}
+
+.on-input-left {
+  margin-right: -21px;
+}
+
+.on-input-right {
+  margin-left: -30px;
+}
+
+.flex {
+  display: flex;
+  margin-top: 16px;
+}

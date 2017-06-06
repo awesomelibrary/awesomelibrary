@@ -1,0 +1,11 @@
+<span class="undo-bubble__border">
+  {{ vm.bubble.message|translate }}
+  <a class="undo-bubble__undo" ng-show="vm.bubble.undo" href ng-click="vm.bubble.undo()">
+    {{ 'undoBubble.undo'|translate }}
+  </a>
+  <button type="button" class="button button--undo" ng-click="vm.bubble.dismiss()">
+    <svg class="icon icon--undo" viewBox="0 0 64 64">
+      <use xlink:href="${require('../../../_assets/ikons/close.svg')}#Layer_1"/>
+    </svg>
+  </button>
+</span>

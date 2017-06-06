@@ -1,4 +1,4 @@
-export const translationPolishConfig = ['$translateProvider', function ($translateProvider) {
+export const translationPolishConfig = ['$translateProvider', function($translateProvider) {
 
   $translateProvider.translations('pl', {
     title: 'Human Library Services',
@@ -25,7 +25,7 @@ export const translationPolishConfig = ['$translateProvider', function ($transla
       namePlaceholder: 'Imię',
       titlePlaceholder: 'Tytuł',
       actions: {
-        'return': 'Zwróć',
+        return: 'Zwróć',
         returned: 'Zwrócono',
         rent: 'Wypożycz',
         rented: 'Wypożyczono',
@@ -42,6 +42,9 @@ export const translationPolishConfig = ['$translateProvider', function ($transla
     },
     footer: {
       file: 'Zgłoś błąd, zostaw sugestię lub zadaj pytanie'
+    },
+    search: {
+      placeholder: 'Zacznij pisać aby wyszukać'
     }
   });
 

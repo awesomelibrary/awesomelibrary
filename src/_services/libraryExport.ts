@@ -1,6 +1,6 @@
-export const libraryExportServiceFactory = ['$window', 'librarySerializer', function ($window, librarySerializer) {
+export const libraryExportServiceFactory = ['$window', 'librarySerializer', function($window, librarySerializer) {
 
-  var libraryBlob;
+  let libraryBlob;
 
   function libraryExportService(library) {
     if ($window.angular.isDefined(libraryBlob)) {

@@ -6,7 +6,7 @@ export const linkDirective = ['$window', 'stylesheet', function($window, stylesh
   }
 
   return {
-    link: link
+    link
   };
 
 }];

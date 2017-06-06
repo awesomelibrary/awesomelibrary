@@ -1,4 +1,4 @@
-export const translationEnglishConfig = ['$translateProvider', function ($translateProvider) {
+export const translationEnglishConfig = ['$translateProvider', function($translateProvider) {
 
   $translateProvider.translations('en', {
     title: 'Human Library Services',
@@ -25,7 +25,7 @@ export const translationEnglishConfig = ['$translateProvider', function ($transl
       namePlaceholder: 'Name',
       titlePlaceholder: 'Title',
       actions: {
-        'return': 'Return',
+        return: 'Return',
         returned: 'Returned',
         rent: 'Loan',
         rented: 'Loaned',
@@ -42,6 +42,9 @@ export const translationEnglishConfig = ['$translateProvider', function ($transl
     },
     footer: {
       file: 'File bug report, leave suggestion or ask question'
+    },
+    search: {
+      placeholder: 'Start typing to search'
     }
   });
 

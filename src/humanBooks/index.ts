@@ -1,10 +1,10 @@
 import angular from 'angular';
 import { arrangerModule } from '../global/arranger/index';
-import { humanBookModule } from './humanBook/index';
-import { humanBooksCardsDirective } from './_directives/humanBooksCards';
 import { humanBookCardDirective } from './_directives/humanBookCard';
+import { humanBooksCardsDirective } from './_directives/humanBooksCards';
 import { compareAvailableHumanBooksServiceFactory } from './_services/compareAvailableHumanBooks';
 import { compareUnavailableHumanBooksServiceFactory } from './_services/compareUnavailableHumanBooks';
+import { humanBookModule } from './humanBook/index';
 
 export const humanBooksModule = angular
   .module('humanLibrary.humanBooks', [

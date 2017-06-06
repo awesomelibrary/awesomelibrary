@@ -1,59 +1,61 @@
-export const BookServiceFactory = ['$window', function ($window) {
+import angular from 'angular';
 
-  function Book() {
-    this.rentals = [];
-    this.name = '';
-    this.available = true;
-  }
+export class Book {
 
-  Book.prototype.rent = function(rental) {
+  public rentals: any[] = [];
+  public name: string = '';
+  public title: string = '';
+  public available: boolean = true;
+
+  public rent(rental): void {
     if (this.isRented()) {
       return;
     }
     this.rentals.unshift(rental);
     this.available = true;
-  };
+  }
 
-  Book.prototype.cancelRental = function(rental) {
-    var index = this.rentals.indexOf(rental);
+  public cancelRental(rental): number {
+    const index = this.rentals.indexOf(rental);
     if (index !== -1) {
       this.rentals.splice(index, 1);
     }
     return index;
-  };
+  }
 
-  Book.prototype.return = function() {
+  public return(): any {
 
     if (!this.isRented()) {
       return;
     }
 
     return this.currentRental().end();
-  };
+  }
 
-  Book.prototype.isRented = function() {
-    if ($window.angular.isUndefined(this.rentals[0])) {
+  public isRented(): boolean {
+    if (angular.isUndefined(this.rentals[0])) {
       return false;
     }
     return !this.rentals[0].isEnded();
-  };
+  }
 
-  Book.prototype.currentRental = function() {
+  public currentRental(): any {
     if (!this.isRented()) {
       return null;
     }
     return this.rentals[0];
-  };
+  }
 
-  Book.prototype.isRentable = function() {
+  public isRentable(): boolean {
     return !this.isRented() && this.available;
-  };
+  }
 
-  Book.prototype.toggleAvailable = function() {
+  public toggleAvailable(): void {
     this.available = !this.available;
     this.return();
-  };
+  }
+}
 
+export const BookServiceFactory = () => {
   return Book;
-
-}];
+};

@@ -1,10 +1,10 @@
-export const timerFilterFactory = ['$window', function ($window) {
+export const timerFilterFactory = ['$window', function($window) {
 
   function timerFilter(input) {
 
-    var output;
-    var m;
-    var s;
+    let output;
+    let m;
+    let s;
 
     // if it is not number, return null
     if (!$window.angular.isNumber(input)) {

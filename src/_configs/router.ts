@@ -1,6 +1,6 @@
-import templateLayout from '../templateLayout';
+import templateLayout from '../_templates/layout.html';
 
-export const routerConfig = ['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
+export const routerConfig = ['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
 
   $urlRouterProvider.otherwise('/');
 

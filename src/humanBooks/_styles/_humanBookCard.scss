@@ -5,7 +5,7 @@
   position: absolute;
   top: 0;
   left: 0;
-  transition: transform .3s ease 1s;
+  transition: transform .3s ease;
 
   &.ng-enter,
   &.ng-leave {

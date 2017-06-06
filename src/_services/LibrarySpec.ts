@@ -3,10 +3,10 @@ import { humanLibraryModule } from '../';
 
 describe('service Library', function() {
 
-  var Book;
-  var library;
-  var filter;
-  var every;
+  let Book;
+  let library;
+  let filter;
+  let every;
 
   beforeEach(function() {
 
@@ -52,7 +52,7 @@ describe('service Library', function() {
     });
 
     it('should preserve old book entries when called more than once', function() {
-      var firstBook;
+      let firstBook;
       library.admitBook(new Book());
       firstBook = library.books[0];
       library.admitBook(new Book());

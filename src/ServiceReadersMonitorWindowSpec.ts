@@ -1,11 +1,11 @@
 import angular from 'angular';
 import { humanLibraryModule } from './';
 
-describe('ServiceReadersMonitorWindow', function () {
+describe('ServiceReadersMonitorWindow', function() {
 
-  beforeEach(function () {
+  beforeEach(function() {
 
-    var $compileMock = jasmine.createSpy('$compileMock');
+    const $compileMock = jasmine.createSpy('$compileMock');
     $compileMock.and.returnValue(() => {});
 
     this.readersMonitorWindowWindow = jasmine.createSpyObj('readersMonitorWindowWindow', ['close']);
@@ -30,37 +30,37 @@ describe('ServiceReadersMonitorWindow', function () {
 
   });
 
-  it('when page is closed should not try to close window', function () {
+  it('when page is closed should not try to close window', function() {
     this.windowMock.onbeforeunload();
     expect(this.readersMonitorWindowWindow.close).not.toHaveBeenCalled();
   });
 
-  describe('when toggle', function () {
+  describe('when toggle', function() {
 
-    beforeEach(function () {
+    beforeEach(function() {
       this.readersMonitorWindow.toggle(this.$scope);
     });
 
-    it('should open new window', function () {
+    it('should open new window', function() {
       expect(this.windowMock.open).toHaveBeenCalledWith('about:blank', '', 'menubar=no,status=no');
     });
 
-    it('and page is closed should close window', function () {
+    it('and page is closed should close window', function() {
       this.windowMock.onbeforeunload();
       expect(this.readersMonitorWindowWindow.close).toHaveBeenCalled();
     });
 
-    describe('and toggle again', function () {
+    describe('and toggle again', function() {
 
-      beforeEach(function () {
+      beforeEach(function() {
         this.readersMonitorWindow.toggle(this.$scope);
       });
 
-      it('should close window', function () {
+      it('should close window', function() {
         expect(this.readersMonitorWindowWindow.close).toHaveBeenCalled();
       });
 
-      it('and toggle again should open window', function () {
+      it('and toggle again should open window', function() {
         this.windowMock.open.calls.reset();
         this.readersMonitorWindow.toggle(this.$scope);
         expect(this.windowMock.open).toHaveBeenCalledWith('about:blank', '', 'menubar=no,status=no');
