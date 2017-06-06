@@ -5,7 +5,7 @@ export function hlFileInputDirective() {
   }
 
   return {
-    link: link,
+    link,
     require: '^hlFileInputWrapper'
   };
 

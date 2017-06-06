@@ -1,19 +1,45 @@
-export const LibraryController = [
-  '$window',
-  '$scope',
-  '$timeout',
-  '$rootScope',
-  'libraryLocalStorage',
-  'libraryExport',
-  'Rental',
-  'Book',
-  'Library',
-  'undo',
-  'readersMonitorWindow',
-  'getBaseUrl',
-  function ($window, $scope, $timeout, $rootScope, libraryLocalStorage, libraryExport, Rental, Book, Library, undo, readersMonitorWindow, getBaseUrl) {
+import {Book} from '../_services/Book';
 
-    var Ticker;
+export class LibraryController {
+
+  public static $inject: string[] = [
+    '$document',
+    '$window',
+    '$scope',
+    '$timeout',
+    '$rootScope',
+    'libraryLocalStorage',
+    'libraryExport',
+    'Rental',
+    'Book',
+    'Library',
+    'undo',
+    'readersMonitorWindow',
+    'getBaseUrl',
+    'searcher'
+  ];
+
+  public filteredBooks: Book[] = [];
+  public query: string = '';
+
+  constructor(
+    $document,
+    $window,
+    private $scope,
+    $timeout,
+    $rootScope,
+    libraryLocalStorage,
+    libraryExport,
+    Rental,
+    Book,
+    Library,
+    undo,
+    private readersMonitorWindow,
+    getBaseUrl,
+    private searcher
+  ) {
+
+    let Ticker;
 
     $scope.library = libraryLocalStorage.load();
 
@@ -23,72 +49,83 @@ export const LibraryController = [
       newEditionStartedEvent();
     }
 
-    $scope.$watch('library', function (newLibrary) {
+    $scope.$watch('vm.query', this.syncFilteredBooks.bind(this));
+
+    $scope.$watch('library', (newLibrary) => {
       libraryLocalStorage.save(newLibrary);
       $scope.libraryExportUrl = libraryExport(newLibrary);
     }, true);
 
-    $scope.rentBook = function (book) {
-      var rental = new Rental();
+    $scope.rentBook = (book) => {
+      const rental = new Rental();
       book.rent(rental);
       $scope.unavailableHumanBooksArranger.arrange();
       $window.ga('send', 'event', 'Human Book', 'Rented', book.title);
-      undo.done('manageBooks.actions.rented', function () {
+      undo.done('manageBooks.actions.rented', () => {
         book.cancelRental(rental);
       });
     };
 
-    $scope.returnHumanBook = function (book) {
-      var rental = book.return();
+    $scope.returnHumanBook = (book) => {
+      const rental = book.return();
       $window.ga('send', 'event', 'Human Book', 'Returned', book.title);
-      undo.done('manageBooks.actions.returned', function () {
+      undo.done('manageBooks.actions.returned', () => {
         rental.reopen();
       });
     };
 
-    $scope.admitBook = function () {
+    $scope.admitBook = () => {
+      this.clearQuery();
       $scope.library.admitBook(new Book());
       $window.ga('send', 'event', 'Human Library', 'Added Human Book');
     };
 
-    $scope.newEdition = function () {
-      var oldLibrary = $scope.library;
+    $scope.newEdition = () => {
+      const oldLibrary = $scope.library;
       $scope.library = new Library();
+      this.clearQuery();
+      this.syncFilteredBooks();
       newEditionStartedEvent();
-      undo.done('mainMenu.newEditionStarted', function () {
+      undo.done('mainMenu.newEditionStarted', () => {
         $scope.library = oldLibrary;
+        this.clearQuery();
+        this.syncFilteredBooks();
       });
     };
 
-    $scope.toggleHumanBookAvailable = function (book) {
+    $scope.toggleHumanBookAvailable = (book) => {
       book.toggleAvailable();
       $window.ga('send', 'event', 'Human Book', 'Available toggle', book.title);
       undo.bubble.dismiss();
     };
 
-    $scope.onlyAvailable = function (humanBook) {
+    $scope.onlyAvailable = (humanBook) => {
       return humanBook.isRentable();
     };
 
-    $scope.setNewLibrary = function (newLibrary) {
-      var oldLibrary = $scope.library;
+    $scope.setNewLibrary = (newLibrary) => {
+      const oldLibrary = $scope.library;
       $scope.library = newLibrary;
-      undo.done('mainMenu.humanLibraryRecovered', function () {
+      this.clearQuery();
+      this.syncFilteredBooks();
+      undo.done('mainMenu.humanLibraryRecovered', () => {
         $scope.library = oldLibrary;
+        this.clearQuery();
+        this.syncFilteredBooks();
       });
     };
 
     // Ticker
-    Ticker = (function () {
+    Ticker = (() => {
 
       function Ticker() {
         this.start();
       }
 
-      Ticker.prototype.start = function () {
-        var that = this;
+      Ticker.prototype.start = function() {
+        const that = this;
         $scope.$broadcast('tick');
-        this.timeoutId = $timeout(function () {
+        this.timeoutId = $timeout(function() {
           that.start();
         }, 1000);
       };
@@ -99,10 +136,6 @@ export const LibraryController = [
 
     new Ticker();
 
-    this.toggleReadersMonitorWindow = function () {
-      readersMonitorWindow.toggle($scope);
-    };
-
     $rootScope.baseUrl = getBaseUrl();
 
     function newEditionStartedEvent() {
@@ -110,4 +143,21 @@ export const LibraryController = [
     }
 
   }
-];
+
+  public toggleReadersMonitorWindow(): void {
+    this.readersMonitorWindow.toggle(this.$scope);
+  }
+
+  public syncFilteredBooks(): void {
+    if (this.query === '') {
+      this.filteredBooks = this.$scope.library.books;
+      return;
+    }
+    this.filteredBooks = this.searcher.search(this.$scope.library.books, this.query);
+  }
+
+  public clearQuery() {
+    this.query = '';
+  }
+
+}

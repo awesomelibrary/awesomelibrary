@@ -3,11 +3,11 @@ import { humanLibraryModule } from '../';
 
 describe('service librarySerializer', function() {
 
-  var librarySerializer;
-  var json;
-  var Library;
-  var Book;
-  var Rental;
+  let librarySerializer;
+  let json;
+  let Library;
+  let Book;
+  let Rental;
 
   beforeEach(function() {
 
@@ -27,7 +27,7 @@ describe('service librarySerializer', function() {
   });
 
   it('when serializing library should convert it to json', function() {
-    var library = {};
+    const library = {};
     angular.toJson.and.returnValue(json);
     expect(librarySerializer.serialize(library)).toBe(json);
     expect(angular.toJson).toHaveBeenCalledWith(library);
@@ -38,11 +38,11 @@ describe('service librarySerializer', function() {
     beforeEach(function() {
 
       this.strippedLibrary = {
-        formatVersion: 'v1.0.0',
         books: [{
           name: 'a',
           rentals: []
-        }]
+        }],
+        formatVersion: 'v1.0.0'
       };
 
       angular.fromJson.and.returnValue(this.strippedLibrary);

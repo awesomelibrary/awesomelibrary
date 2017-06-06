@@ -1,37 +1,39 @@
 /// <reference path="index.d.ts" />
 
-import './index.scss';
+import angularUiRouter from '@uirouter/angularjs';
 import angular from 'angular';
 import angularAnimate from 'angular-animate';
 import angularTranslate from 'angular-translate';
-import angularUiRouter from '@uirouter/angularjs';
-import { undoModule } from './global/undo/index';
-import { humanBooksModule } from './humanBooks/index';
-import { availableHumanBooksModule } from './availableHumanBooks/index';
-import { LibraryController } from './_controllers/Library';
-import { BookServiceFactory } from './_services/Book';
-import { LibraryServiceFactory } from './_services/Library';
-import { libraryLocalStorageServiceFactory } from './_services/libraryLocalStorage';
-import { RentalServiceFactory } from './_services/Rental';
-import { libraryExportServiceFactory } from './_services/libraryExport';
-import { librarySerializerServiceFactory } from './_services/librarySerializer';
-import { factoryGetBaseUrl } from './global/url/factoryGetBaseUrl';
-import { ServiceReadersMonitorWindow } from './ServiceReadersMonitorWindow';
-import { hlBookDirective } from './_directives/hlBook';
-import { hlImportLibraryDirective } from './_directives/hlImportLibrary';
-import { hlFileInputWrapperDirective } from './_directives/hlFileInputWrapper';
-import { hlFileInputDirective } from './_directives/hlFileInput';
-import { hlChangeLanguageDirective } from './_directives/hlChangeLanguage';
-import { linkDirective } from './_directives/link';
-import { indexStylesheetDirective } from './_directives/indexStylesheet';
-import { topBarDirective } from './_directives/topBar';
-import { directiveAvailableHumanBooks } from './directiveAvailableHumanBooks';
-import { timerFilterFactory } from './_filters/timer';
+import { animateConfig } from './_configs/animate';
 import { routerConfig } from './_configs/router';
 import { translationConfig } from './_configs/translation';
 import { translationEnglishConfig } from './_configs/translationEnglish';
 import { translationPolishConfig } from './_configs/translationPolish';
-import { animateConfig } from './_configs/animate';
+import { LibraryController } from './_controllers/Library';
+import { hlBookDirective } from './_directives/hlBook';
+import { hlChangeLanguageDirective } from './_directives/hlChangeLanguage';
+import { hlFileInputDirective } from './_directives/hlFileInput';
+import { hlFileInputWrapperDirective } from './_directives/hlFileInputWrapper';
+import { hlImportLibraryDirective } from './_directives/hlImportLibrary';
+import {hlSearchDirective} from './_directives/hlSearch';
+import { indexStylesheetDirective } from './_directives/indexStylesheet';
+import { linkDirective } from './_directives/link';
+import { topBarDirective } from './_directives/topBar';
+import { timerFilterFactory } from './_filters/timer';
+import { BookServiceFactory } from './_services/Book';
+import { LibraryServiceFactory } from './_services/Library';
+import { libraryExportServiceFactory } from './_services/libraryExport';
+import { libraryLocalStorageServiceFactory } from './_services/libraryLocalStorage';
+import { librarySerializerServiceFactory } from './_services/librarySerializer';
+import { RentalServiceFactory } from './_services/Rental';
+import { searcher } from './_services/searcher';
+import { availableHumanBooksModule } from './availableHumanBooks/index';
+import { directiveAvailableHumanBooks } from './directiveAvailableHumanBooks';
+import { undoModule } from './global/undo/index';
+import { factoryGetBaseUrl } from './global/url/factoryGetBaseUrl';
+import { humanBooksModule } from './humanBooks/index';
+import './index.scss';
+import { ServiceReadersMonitorWindow } from './ServiceReadersMonitorWindow';
 
 export const humanLibraryModule =  angular
   .module('humanLibrary', [
@@ -53,6 +55,7 @@ export const humanLibraryModule =  angular
   .factory('librarySerializer', librarySerializerServiceFactory)
   .factory('getBaseUrl', factoryGetBaseUrl)
   .factory('readersMonitorWindow', ServiceReadersMonitorWindow)
+  .service('searcher', searcher)
   .directive('hlBook', hlBookDirective)
   .directive('hlImportLibrary', hlImportLibraryDirective)
   .directive('hlFileInputWrapper', hlFileInputWrapperDirective)
@@ -62,6 +65,7 @@ export const humanLibraryModule =  angular
   .directive('indexStylesheet', indexStylesheetDirective)
   .directive('topBar', topBarDirective)
   .directive('availableHumanBooks', directiveAvailableHumanBooks)
+  .directive('hlSearch', hlSearchDirective)
   .filter('timer', timerFilterFactory)
   .value('stylesheet', {})
   .config(routerConfig)

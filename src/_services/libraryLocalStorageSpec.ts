@@ -3,9 +3,9 @@ import { humanLibraryModule } from '../';
 
 describe('service libraryLocalStorage', function() {
 
-  var libraryLocalStorage;
-  var $windowMock;
-  var librarySerializerMock;
+  let libraryLocalStorage;
+  let $windowMock;
+  let librarySerializerMock;
 
   beforeEach(function() {
 
@@ -45,8 +45,8 @@ describe('service libraryLocalStorage', function() {
     });
 
     it('should save library to local storage', function() {
-      var library = {};
-      var serializedLibrary = '{}';
+      const library = {};
+      const serializedLibrary = '{}';
       librarySerializerMock.serialize.and.returnValue(serializedLibrary);
       libraryLocalStorage.save(library);
       expect(librarySerializerMock.serialize).toHaveBeenCalledWith(library);
@@ -54,7 +54,7 @@ describe('service libraryLocalStorage', function() {
     });
 
     it('and humanLibrary is in localStorage should load library from local storage', function() {
-      var library = {};
+      const library = {};
       $windowMock.localStorage.humanLibrary = '{}';
       librarySerializerMock.deserialize.and.returnValue(library);
       expect(libraryLocalStorage.load()).toBe(library);

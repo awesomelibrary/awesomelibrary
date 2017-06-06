@@ -11,7 +11,7 @@ export function LibraryServiceFactory() {
   };
 
   Library.prototype.deleteBook = function(book) {
-    var index = this.books.indexOf(book);
+    const index = this.books.indexOf(book);
     if (index !== -1) {
       this.books.splice(index, 1);
     }

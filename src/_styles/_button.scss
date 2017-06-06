@@ -1,0 +1,20 @@
+.button {
+  padding: 0 7px 0 7px;
+  outline: none;
+  border: none;
+  background-color: transparent;
+  &:focus .icon, &:hover .icon {
+    fill: $color-dark-gray;
+  }
+  &:active .icon {
+    fill: $color-extra-dark-gray;
+  }
+  &--undo {
+    &:focus .icon, &:hover .icon {
+      fill: $color-light-gray;
+    }
+    &:active .icon {
+      fill: white;
+    }
+  }
+}

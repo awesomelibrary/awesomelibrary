@@ -1,4 +1,4 @@
-export const RentalServiceFactory = ['$window', function ($window) {
+export const RentalServiceFactory = ['$window', function($window) {
 
   function Rental(period) {
     this.period = $window.angular.isDefined(period) ? period : this.PERIOD;

@@ -1,10 +1,14 @@
+@import "_styles/colors";
 @import "_styles/variables";
-@import "../node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+@import "_styles/bootstrap";
 
 @import "_styles/fonts";
 
 @import "_styles/navbar";
 @import "_styles/hlPanel";
+@import "_styles/input";
+@import "_styles/button";
+@import "_styles/icon";
 
 @import "global/undo/_styles/undoBubble";
 

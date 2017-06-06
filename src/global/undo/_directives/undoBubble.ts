@@ -1,4 +1,4 @@
-import templateDirectiveUndoBubble from '../templateDirectiveUndoBubble';
+import templateDirectiveUndoBubble from '../_templates/directiveUndoBubble.html';
 
 export const undoBubbleDirective = ['$animate', function ($animate) {
 

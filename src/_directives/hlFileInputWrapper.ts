@@ -12,7 +12,7 @@ export function hlFileInputWrapperDirective() {
 
   return {
     controller: Controller,
-    link: link,
+    link,
     transclude: true,
     template: templateDirectiveHlFileInputWrapper
   };

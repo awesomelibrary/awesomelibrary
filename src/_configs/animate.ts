@@ -1,3 +1,3 @@
-export const animateConfig = ['$animateProvider', function ($animateProvider) {
+export const animateConfig = ['$animateProvider', function($animateProvider) {
   $animateProvider.classNameFilter(/animate/);
 }];

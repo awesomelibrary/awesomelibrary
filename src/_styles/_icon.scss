@@ -1,0 +1,18 @@
+.icon {
+  height: 12px;
+  margin-top: 10px;
+  margin-bottom: 8px;
+  fill: $color-gray;
+  &--button {
+    height: 16px;
+    margin-top: 8px;
+    margin-bottom: 2px;
+    transition: fill .15s;
+  }
+  &--undo {
+    height: 16px;
+    transition: fill .15s;
+    margin-top: 2px;
+    margin-bottom: -3px;
+  }
+}

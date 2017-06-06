@@ -1,15 +1,15 @@
 import angular from 'angular';
 import templateAvailableHumanBooks from './templateAvailableHumanBooks';
 
-export const ServiceReadersMonitorWindow = ['$window', '$compile', function ($window, $compile) {
+export const ServiceReadersMonitorWindow = ['$window', '$compile', function($window, $compile) {
 
-  var readersMonitorWindowWindow;
+  let readersMonitorWindowWindow;
 
   function isClosed() {
     return angular.isUndefined(readersMonitorWindowWindow) || readersMonitorWindowWindow.closed;
   }
 
-  $window.onbeforeunload = function () {
+  $window.onbeforeunload = function() {
     if (isClosed()) {
       return;
     }
@@ -17,10 +17,10 @@ export const ServiceReadersMonitorWindow = ['$window', '$compile', function ($wi
   };
 
   return {
-    toggle: function ($scope) {
+    toggle($scope) {
 
-      var templateAvailableHumanBooksHeadElement;
-      var templateAvailableHumanBooksBodyElement;
+      let templateAvailableHumanBooksHeadElement;
+      let templateAvailableHumanBooksBodyElement;
 
       if (!isClosed()) {
         readersMonitorWindowWindow.close();

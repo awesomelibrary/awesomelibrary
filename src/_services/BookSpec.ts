@@ -3,8 +3,8 @@ import { humanLibraryModule } from '../';
 
 describe('service Book', function() {
 
-  var Book;
-  var Rental;
+  let Book;
+  let Rental;
 
   beforeEach(function() {
 
@@ -65,7 +65,7 @@ describe('service Book', function() {
     });
 
     it('cant be rented', function() {
-      var rental = new Rental();
+      const rental = new Rental();
       this.book.rent(rental);
       expect(this.book.currentRental()).not.toBe(rental);
       expect(this.book.rentals.indexOf(rental)).toEqual(-1);
@@ -87,7 +87,7 @@ describe('service Book', function() {
 
       it('should cancel rental', function() {
 
-        var rental = new Rental();
+        const rental = new Rental();
 
         this.book.rent(rental);
         this.book.cancelRental(this.rental);

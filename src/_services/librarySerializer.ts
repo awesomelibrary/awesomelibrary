@@ -1,4 +1,4 @@
-export const librarySerializerServiceFactory = ['$window', 'Library', 'Book', 'Rental', function ($window, Library, Book, Rental) {
+export const librarySerializerServiceFactory = ['$window', 'Library', 'Book', 'Rental', function($window, Library, Book, Rental) {
 
   function LibrarySerializer() {
 
@@ -8,8 +8,8 @@ export const librarySerializerServiceFactory = ['$window', 'Library', 'Book', 'R
 
     this.deserialize = function(libraryJson) {
 
-      var library = $window.angular.fromJson(libraryJson);
-      var libraryDeserialized = new Library();
+      const library = $window.angular.fromJson(libraryJson);
+      const libraryDeserialized = new Library();
 
       $window.angular.extend(libraryDeserialized, library);
       libraryDeserialized.startDate = new Date(libraryDeserialized.startDate);
@@ -23,7 +23,7 @@ export const librarySerializerServiceFactory = ['$window', 'Library', 'Book', 'R
 
       $window.angular.forEach(libraryDeserialized.books, function(book, bookIndex) {
 
-        var bookModel = new Book();
+        const bookModel = new Book();
 
         $window.angular.extend(bookModel, book);
 

@@ -4,7 +4,7 @@ export function hlChangeLanguageDirective() {
 
   const Controller = ['$scope', '$translate', function Controller($scope, $translate) {
 
-    var vm = this;
+    const vm = this;
 
     vm.language = $translate.use();
 

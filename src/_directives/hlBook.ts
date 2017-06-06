@@ -2,7 +2,7 @@ export function hlBookDirective() {
 
   function link($scope) {
     // progress bar and timer
-    var Progress = (function() {
+    const Progress = (function() {
       function Progress(book) {
         this.book = book;
         this.percent = 0;
@@ -13,8 +13,8 @@ export function hlBookDirective() {
 
       Progress.prototype.refresh = function() {
 
-        var period;
-        var timer;
+        let period;
+        let timer;
 
         if (null === this.book.currentRental()) {
           this.percent = 0;
@@ -56,7 +56,7 @@ export function hlBookDirective() {
 
   return {
     restrict: 'A',
-    link: link
+    link
   };
 
 }
