@@ -32,4 +32,16 @@
     overflow: hidden;
   }
 
+  &--line-through {
+    text-decoration: line-through;
+    color: $color-light-gray;
+    & .panel-heading {
+      color: $color-light-gray;
+    }
+    & .hl-panel {
+      box-shadow: none;
+      border: 1px solid $color-extra-light-gray;
+    }
+  }
+
 }

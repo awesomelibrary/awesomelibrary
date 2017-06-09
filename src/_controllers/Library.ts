@@ -27,7 +27,7 @@ export class LibraryController {
     $window,
     private $scope,
     $timeout,
-    $rootScope,
+    private $rootScope,
     libraryLocalStorage,
     libraryExport,
     Rental,
@@ -61,16 +61,20 @@ export class LibraryController {
       book.rent(rental);
       $scope.unavailableHumanBooksArranger.arrange();
       $window.ga('send', 'event', 'Human Book', 'Rented', book.title);
+      this.$rootScope.$emit('libraryController.humanBookStateChanged');
       undo.done('manageBooks.actions.rented', () => {
         book.cancelRental(rental);
+        this.$rootScope.$emit('libraryController.humanBookStateChanged');
       });
     };
 
     $scope.returnHumanBook = (book) => {
       const rental = book.return();
       $window.ga('send', 'event', 'Human Book', 'Returned', book.title);
+      this.$rootScope.$emit('libraryController.humanBookStateChanged');
       undo.done('manageBooks.actions.returned', () => {
         rental.reopen();
+        this.$rootScope.$emit('libraryController.humanBookStateChanged');
       });
     };
 
@@ -100,7 +104,7 @@ export class LibraryController {
     };
 
     $scope.onlyAvailable = (humanBook) => {
-      return humanBook.isRentable();
+      return humanBook.available;
     };
 
     $scope.setNewLibrary = (newLibrary) => {
