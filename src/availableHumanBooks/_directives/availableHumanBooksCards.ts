@@ -1,4 +1,4 @@
-export const availableHumanBooksCardsDirective = ['$window', 'Arranger', 'compareAvailableHumanBooks', function ($window, Arranger, compareAvailableHumanBooks) {
+export const availableHumanBooksCardsDirective = ['$window', 'Arranger', 'compareAvailableHumanBooks', '$rootScope', function ($window, Arranger, compareAvailableHumanBooks, $rootScope) {
 
   function Controller() {}
 
@@ -21,6 +21,10 @@ export const availableHumanBooksCardsDirective = ['$window', 'Arranger', 'compar
 
     $window.angular.element($scope.availableHumanBooksWindow).on('resize', setArrangerContainerWidth);
     $scope.$watch(() => $element[0].clientWidth, setArrangerContainerWidth);
+
+    $rootScope.$on('libraryController.humanBookStateChanged', () => {
+      availableHumanBooksCardsController.arranger.arrange();
+    });
 
   }
 
