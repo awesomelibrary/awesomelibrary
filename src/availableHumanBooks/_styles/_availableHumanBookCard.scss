@@ -23,12 +23,13 @@
   }
 
   & .panel-heading {
-    height: 40px;
+    height: 101px;
     overflow: hidden;
+    font-size: 16px;
   }
 
   & .panel-body {
-    height: 90px;
+    height: 29px;
     overflow: hidden;
   }
 
@@ -43,5 +44,19 @@
       border: 1px solid $color-extra-light-gray;
     }
   }
+
+  &__dymek {
+    margin-top: -22px;
+    width: 70px;
+    height: 25px;
+  }
+
+  &__timer {
+    margin-bottom: -3px;
+    width: 70px;
+    color: $color-gray;
+    fill: $color-gray;
+  }
+
 
 }

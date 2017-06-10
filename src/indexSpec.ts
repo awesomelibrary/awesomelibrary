@@ -1,6 +1,7 @@
 import 'angular';
 import 'angular-mocks';
 
+import './_filters/approxmiateTimerSpec';
 import './_services/BookSpec';
 import './_services/libraryLocalStorageSpec';
 import './_services/librarySerializerSpec';

@@ -1,9 +1,12 @@
-/// <reference path="index.d.ts" />
+/// <reference path='index.d.ts' />
 
 import angularUiRouter from '@uirouter/angularjs';
 import angular from 'angular';
 import angularAnimate from 'angular-animate';
+import angularCookies from 'angular-cookies';
 import angularTranslate from 'angular-translate';
+import 'angular-translate-storage-cookie';
+import 'angular-translate-storage-local';
 import { animateConfig } from './_configs/animate';
 import { routerConfig } from './_configs/router';
 import { translationConfig } from './_configs/translation';
@@ -34,10 +37,12 @@ import { factoryGetBaseUrl } from './global/url/factoryGetBaseUrl';
 import { humanBooksModule } from './humanBooks/index';
 import './index.scss';
 import { ServiceReadersMonitorWindow } from './ServiceReadersMonitorWindow';
+import {approximateTimerFactory} from './_filters/approximateTimer';
 
 export const humanLibraryModule =  angular
   .module('humanLibrary', [
     angularAnimate,
+    angularCookies,
     angularTranslate,
     angularUiRouter,
 
@@ -67,6 +72,7 @@ export const humanLibraryModule =  angular
   .directive('availableHumanBooks', directiveAvailableHumanBooks)
   .directive('hlSearch', hlSearchDirective)
   .filter('timer', timerFilterFactory)
+  .filter('approximateTimer', approximateTimerFactory)
   .value('stylesheet', {})
   .config(routerConfig)
   .config(translationConfig)

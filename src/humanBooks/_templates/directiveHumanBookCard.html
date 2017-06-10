@@ -1,5 +1,4 @@
-const templateDirectiveHumanBookCard =
-`<div class="panel panel-default hl-panel hl-panel--book" ng-class="{'hl-panel--warning': progress.status == 'warning', 'hl-panel--danger': progress.status == 'danger' }">
+<div class="panel panel-default hl-panel hl-panel--book" ng-class="{'hl-panel--warning': progress.status == 'warning', 'hl-panel--danger': progress.status == 'danger' }">
 
   <div class="panel-body text-center">
     <a class="hl-panel__book-link" ui-sref="humanLibrary.humanBook({bookId: $index})" tabindex="-1"><i class="glyphicon glyphicon-user"></i></a>
@@ -14,14 +13,14 @@ const templateDirectiveHumanBookCard =
     </div>
     <div class="panel-heading-footer">
       <div class="row">
+        <div class="col-xs-12">
+          <input class="panel-book-input panel-book-input-lg" type="text" placeholder="{{ 'manageBooks.titlePlaceholder'|translate }}" title="{{ 'manageBooks.titlePlaceholder'|translate }}" data-ng-model="book.title">
+        </div>
         <div class="col-xs-9">
-          <input class="panel-book-input panel-book-input-lg" type="text" placeholder="{{ 'manageBooks.namePlaceholder'|translate }}" data-ng-model="book.name" />
+          <input class="panel-book-input" type="text" placeholder="{{ 'manageBooks.namePlaceholder'|translate }}" title="{{ 'manageBooks.namePlaceholder'|translate }}" data-ng-model="book.name">
         </div>
         <div class="col-xs-3">
           <span class="badge pull-right">{{book.rentals.length}}</span>
-        </div>
-        <div class="col-xs-12">
-          <input class="panel-book-input" type="text" placeholder="{{ 'manageBooks.titlePlaceholder'|translate }}" data-ng-model="book.title" />
         </div>
       </div>
     </div>
@@ -47,6 +46,4 @@ const templateDirectiveHumanBookCard =
     </div>
   </footer>
 
-</div>`;
-
-export default templateDirectiveHumanBookCard;
+</div>
