@@ -1,4 +1,4 @@
-/// <reference path="index.d.ts" />
+/// <reference path='index.d.ts' />
 
 import angularUiRouter from '@uirouter/angularjs';
 import angular from 'angular';
@@ -34,6 +34,7 @@ import { factoryGetBaseUrl } from './global/url/factoryGetBaseUrl';
 import { humanBooksModule } from './humanBooks/index';
 import './index.scss';
 import { ServiceReadersMonitorWindow } from './ServiceReadersMonitorWindow';
+import {approximateTimerFactory} from './_filters/approximateTimer';
 
 export const humanLibraryModule =  angular
   .module('humanLibrary', [
@@ -67,6 +68,7 @@ export const humanLibraryModule =  angular
   .directive('availableHumanBooks', directiveAvailableHumanBooks)
   .directive('hlSearch', hlSearchDirective)
   .filter('timer', timerFilterFactory)
+  .filter('approximateTimer', approximateTimerFactory)
   .value('stylesheet', {})
   .config(routerConfig)
   .config(translationConfig)

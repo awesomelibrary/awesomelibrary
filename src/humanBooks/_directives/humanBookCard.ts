@@ -1,4 +1,4 @@
-import templateDirectiveHumanBookCard from '../templateDirectiveHumanBookCard';
+import templateDirectiveHumanBookCard from '../_templates/directiveHumanBookCard.html';
 
 export function humanBookCardDirective() {
 
@@ -22,9 +22,9 @@ export function humanBookCardDirective() {
   }
 
   return {
+    link,
     require: '^humanBooksCards',
     restrict: 'E',
-    link: link,
     template: templateDirectiveHumanBookCard
   };
 

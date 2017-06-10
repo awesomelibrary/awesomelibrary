@@ -4,6 +4,11 @@ const templateAvailableHumanBooks = {
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title data-ng-bind="'title' | translate"></title>
+<style>
+.ng-hide:not(.ng-hide-animate) {
+    display: none !important;
+}
+</style>
 <link rel="stylesheet" index-stylesheet>`,
   body:
 `

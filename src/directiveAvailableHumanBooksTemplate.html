@@ -11,7 +11,7 @@
 </nav>
 
 <div class="container">
-  <h3><strong>{{ 'available.humanBooks.helpHeader'|translate }}</strong></h3>
+  <h3><strong><u>{{ 'available.humanBooks.helpHeader'|translate }}</u></strong></h3>
 </div>
 
 <available-human-books-cards class="available-human-books-cards">
@@ -19,12 +19,18 @@
                              ng-repeat="humanBook in library.books|filter:onlyAvailable">
     <div class="panel panel-default hl-panel">
       <div class="panel-heading">
-        <h2 class="panel-title heading-with-button-sm">
-          {{ humanBook.name }}
-        </h2>
+        <div class="available-human-book-card__timer pull-right" ng-show="humanBook.isRented()">
+          <div class="text-center" ng-show="humanBook.isRented()">
+            ~{{humanBook.currentRental()|approximateTimer}} min
+          </div>
+          <svg class="available-human-book-card__dymek" viewBox="0 0 111 62.891" preserveAspectRatio="none">
+            <use xlink:href="${require('./_assets/pictures/dymek.svg')}#Layer_1"/>
+          </svg>
+        </div>
+        {{ humanBook.title }}
       </div>
       <div class="panel-body">
-        {{ humanBook.title }}
+        {{ humanBook.name }}
       </div>
     </div>
   </available-human-book-card>

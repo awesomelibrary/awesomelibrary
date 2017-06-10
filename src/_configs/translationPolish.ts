@@ -15,7 +15,7 @@ export const translationPolishConfig = ['$translateProvider', function($translat
     available: {
       header: 'Dostępne Żywe Książki',
       humanBooks: {
-        helpHeader: 'Znajdź tytuł, który chcesz wypożyczyć i przekaż go bibliotekarzowi'
+        helpHeader: 'Znajdź tytuł, który chcesz wypożyczyć i przekaż go bibliotekarzom'
       }
     },
     undoBubble: {
