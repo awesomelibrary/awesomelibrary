@@ -3,7 +3,10 @@
 import angularUiRouter from '@uirouter/angularjs';
 import angular from 'angular';
 import angularAnimate from 'angular-animate';
+import angularCookies from 'angular-cookies';
 import angularTranslate from 'angular-translate';
+import 'angular-translate-storage-cookie';
+import 'angular-translate-storage-local';
 import { animateConfig } from './_configs/animate';
 import { routerConfig } from './_configs/router';
 import { translationConfig } from './_configs/translation';
@@ -39,6 +42,7 @@ import {approximateTimerFactory} from './_filters/approximateTimer';
 export const humanLibraryModule =  angular
   .module('humanLibrary', [
     angularAnimate,
+    angularCookies,
     angularTranslate,
     angularUiRouter,
 

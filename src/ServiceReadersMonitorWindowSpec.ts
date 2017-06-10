@@ -18,6 +18,7 @@ describe('ServiceReadersMonitorWindow', function() {
       this.readersMonitorWindowWindow.closed = false;
       return this.readersMonitorWindowWindow;
     });
+    this.windowMock.document = {};
 
     angular.mock.module(humanLibraryModule, {
       $window: this.windowMock,

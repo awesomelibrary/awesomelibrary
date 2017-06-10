@@ -9,19 +9,21 @@ describe('service libraryLocalStorage', function() {
 
   beforeEach(function() {
 
-    $windowMock = jasmine.createSpyObj('$window', ['localStorage']);
-    $windowMock.angular = angular;
-    $windowMock.localStorage = {};
+    $windowMock = {
+      angular,
+      document: {},
+      localStorage: {}
+    };
 
     librarySerializerMock = jasmine.createSpyObj('librarySerializer', ['serialize', 'deserialize']);
 
-    angular.mock.module(humanLibraryModule, function($provide) {
-      $provide.value('$window', $windowMock);
-      $provide.value('librarySerializer', librarySerializerMock);
+    angular.mock.module(humanLibraryModule, {
+      $window: $windowMock,
+      librarySerializer: librarySerializerMock
     });
 
-    angular.mock.inject(function($injector) {
-      libraryLocalStorage = $injector.get('libraryLocalStorage');
+    angular.mock.inject((_libraryLocalStorage_) => {
+      libraryLocalStorage = _libraryLocalStorage_;
     });
 
   });
