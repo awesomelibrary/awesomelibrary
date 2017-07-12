@@ -7,6 +7,7 @@ import './_services/libraryLocalStorageSpec';
 import './_services/librarySerializerSpec';
 import './_services/LibrarySpec';
 import './_services/SearcherSpec';
+import './_services/TickerSpec';
 import './global/arranger/_services/ArrangerSpec';
 import './global/undo/_serivces/undoSpec';
 import './global/url/factoryGetBaseUrlSpec';

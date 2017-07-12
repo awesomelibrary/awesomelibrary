@@ -38,6 +38,7 @@ import { humanBooksModule } from './humanBooks/index';
 import './index.scss';
 import { ServiceReadersMonitorWindow } from './ServiceReadersMonitorWindow';
 import {approximateTimerFactory} from './_filters/approximateTimer';
+import {Ticker} from './_services/Ticker';
 
 export const humanLibraryModule =  angular
   .module('humanLibrary', [
@@ -61,6 +62,7 @@ export const humanLibraryModule =  angular
   .factory('getBaseUrl', factoryGetBaseUrl)
   .factory('readersMonitorWindow', ServiceReadersMonitorWindow)
   .service('searcher', searcher)
+  .service('ticker', Ticker)
   .directive('hlBook', hlBookDirective)
   .directive('hlImportLibrary', hlImportLibraryDirective)
   .directive('hlFileInputWrapper', hlFileInputWrapperDirective)
