@@ -1,0 +1,30 @@
+version: 2
+jobs:
+    build:
+        docker:
+            - image: circleci/node:8-browsers
+        environment:
+            - DISPLAY: ":99"
+
+        working_directory: ~/repo
+
+        steps:
+            - checkout
+
+            - restore_cache:
+                keys:
+                    - dependencies-{{ checksum "package.json" }}
+                    - dependencies-
+
+            - run: sudo apt-get -yq --no-install-suggests --no-install-recommends --force-yes install xpra dbus-x11
+            - run: xpra start :99
+            - run: npm install
+
+            - save_cache:
+                paths:
+                    - node_modules
+                key: dependencies-{{ checksum "package.json" }}
+
+            - run: dbus-launch --exit-with-session npm run ci
+            - store_test_results:
+                path: reports/unitTests

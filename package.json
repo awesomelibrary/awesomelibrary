@@ -14,7 +14,7 @@
   "scripts": {
     "build": "rm -rf dist/* && NODE_ENV=production webpack",
     "ci": "NODE_ENV=production concurrently \"npm run build\" \"npm run test\"",
-    "test": "karma start",
+    "test": "rm -rf reports/unitTests/*.xml && karma start",
     "lint-js": "tslint src/**/*.ts src/*.ts -t stylish",
     "start": "webpack-dev-server"
   },
@@ -51,6 +51,7 @@
     "karma": "^1.6.0",
     "karma-chrome-launcher": "^2.0.0",
     "karma-jasmine": "^1.1.0",
+    "karma-junit-reporter": "^1.2.0",
     "karma-sourcemap-loader": "^0.3.7",
     "karma-webpack": "^2.0.3",
     "tslint": "^5.4.3",

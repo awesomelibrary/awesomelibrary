@@ -6,7 +6,6 @@
 
 # others
 /dist/
-/dev/
-/reports/
-/test/
-/.DS_Store
+/reports/unitTests/*
+.DS_Store
+!.keep
