@@ -1,6 +1,6 @@
 {
   "name": "humanlibrary",
-  "version": "2.11.0",
+  "version": "2.11.1",
   "description": "Human library",
   "repository": {
     "type": "git",
@@ -11,14 +11,10 @@
   "bugs": {
     "url": "https://github.com/humanlibrary/humanlibrary/issues"
   },
-  "engines": {
-    "node": ">=4.2",
-    "npm": ">=3.3.3"
-  },
   "scripts": {
     "build": "rm -rf dist/* && NODE_ENV=production webpack",
     "ci": "NODE_ENV=production concurrently \"npm run build\" \"npm run test\"",
-    "test": "karma start",
+    "test": "rm -rf reports/unitTests/*.xml && karma start",
     "lint-js": "tslint src/**/*.ts src/*.ts -t stylish",
     "start": "webpack-dev-server"
   },
@@ -44,7 +40,7 @@
     "lodash.mergewith": "^4.6.0",
     "moment": "^2.18.1",
     "ng-annotate-webpack-plugin": "0.2.1-pre",
-    "node-sass": "^4.5.2",
+    "node-sass": "^4.13.1",
     "postcss-loader": "^2.0.5",
     "sass-loader": "^6.0.3",
     "typescript": "^2.3.2",
@@ -55,6 +51,7 @@
     "karma": "^1.6.0",
     "karma-chrome-launcher": "^2.0.0",
     "karma-jasmine": "^1.1.0",
+    "karma-junit-reporter": "^1.2.0",
     "karma-sourcemap-loader": "^0.3.7",
     "karma-webpack": "^2.0.3",
     "tslint": "^5.4.3",
