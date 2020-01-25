@@ -1,4 +1,5 @@
 import {Book} from '../_services/Book';
+import {Ticker} from '../_services/Ticker';
 
 export class LibraryController {
 
@@ -16,7 +17,8 @@ export class LibraryController {
     'undo',
     'readersMonitorWindow',
     'getBaseUrl',
-    'searcher'
+    'searcher',
+    'ticker'
   ];
 
   public filteredBooks: Book[] = [];
@@ -36,10 +38,11 @@ export class LibraryController {
     undo,
     private readersMonitorWindow,
     getBaseUrl,
-    private searcher
+    private searcher,
+    ticker: Ticker
   ) {
 
-    let Ticker;
+    ticker.start();
 
     $scope.library = libraryLocalStorage.load();
 
@@ -118,27 +121,6 @@ export class LibraryController {
         this.syncFilteredBooks();
       });
     };
-
-    // Ticker
-    Ticker = (() => {
-
-      function Ticker() {
-        this.start();
-      }
-
-      Ticker.prototype.start = function() {
-        const that = this;
-        $scope.$broadcast('tick');
-        this.timeoutId = $timeout(function() {
-          that.start();
-        }, 1000);
-      };
-
-      return Ticker;
-
-    })();
-
-    new Ticker();
 
     $rootScope.baseUrl = getBaseUrl();
 

@@ -19,7 +19,7 @@ module.exports = function(config) {
       'src/indexSpec.ts': ['webpack', 'sourcemap']
     },
 
-    reporters: ['progress'],
+    reporters: ['progress', 'junit'],
 
     port: 9876,
 
@@ -44,6 +44,10 @@ module.exports = function(config) {
 
     mime: {
       'text/x-typescript': ['ts','tsx']
+    },
+
+    junitReporter: {
+      outputDir: 'reports/unitTests'
     }
 
   })
