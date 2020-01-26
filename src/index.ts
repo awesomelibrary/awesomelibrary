@@ -12,6 +12,7 @@ import { routerConfig } from './_configs/router';
 import { translationConfig } from './_configs/translation';
 import { translationEnglishConfig } from './_configs/translationEnglish';
 import { translationPolishConfig } from './_configs/translationPolish';
+import { translationDutchConfig } from './_configs/translationDutch';
 import { LibraryController } from './_controllers/Library';
 import { hlBookDirective } from './_directives/hlBook';
 import { hlChangeLanguageDirective } from './_directives/hlChangeLanguage';
@@ -80,6 +81,7 @@ export const humanLibraryModule =  angular
   .config(translationConfig)
   .config(translationEnglishConfig)
   .config(translationPolishConfig)
+  .config(translationDutchConfig)
   .config(animateConfig)
   .config(
     ['$compileProvider', '$locationProvider', function($compileProvider, $locationProvider) {
