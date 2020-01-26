@@ -4,6 +4,7 @@ const templateDirectiveHlChangeLanguage =
     <select class="form-control" ng-model="vm.language">
       <option value="pl">Polski</option>
       <option value="en">English</option>
+      <option value="nl">Nederlands</option>
     </select>
   </div>
 </form>`;
