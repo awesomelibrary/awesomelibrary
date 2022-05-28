@@ -43,7 +43,7 @@ const webpackDevConfig = {
         })
       },
       {
-        test: /\.(png|jpg|gif|svg|ico|eot|ttf|woff|woff2)$/,
+        test: /\.(png|jpg|gif|svg|ico|eot|ttf|woff|woff2|webmanifest)$/,
         loader: 'file-loader?name=[path][name].[ext]'
       },
       {

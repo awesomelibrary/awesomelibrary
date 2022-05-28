@@ -1,9 +1,9 @@
 export const translationPolishConfig = ['$translateProvider', function($translateProvider) {
 
   $translateProvider.translations('pl', {
-    title: 'Human Library Services',
+    title: 'Żywa bilioteka',
     mainMenu: {
-      header: 'Human Library Services',
+      header: 'Żywa biblioteka',
       admitBook: 'Dodaj Żywą Książkę',
       startNewEdition: 'Rozpocznij nowę edycję',
       newEditionStarted: 'Nowa edycja rozpoczęta',

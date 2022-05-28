@@ -1,15 +1,15 @@
 export const translationEnglishConfig = ['$translateProvider', function($translateProvider) {
 
   $translateProvider.translations('en', {
-    title: 'Human Library Services',
+    title: 'Living library',
     mainMenu: {
-      header: 'Human Library Services',
+      header: 'Living library',
       admitBook: 'Add Human Book',
       startNewEdition: 'Start new edition',
       newEditionStarted: 'New edition started',
-      exportLibrary: 'Archive current Human Library edition to file',
-      importLibrary: 'Recover Human Library edition from archive file',
-      humanLibraryRecovered: 'Human Library edition recovered',
+      exportLibrary: 'Archive current livingl Library edition to file',
+      importLibrary: 'Recover living library edition from archive file',
+      humanLibraryRecovered: 'living library edition recovered',
       showAvailable: 'Show available Human Books in new window'
     },
     available: {

@@ -37,7 +37,7 @@ const webpackDistConfig = {
         })
       },
       {
-        test: /\.(png|jpg|gif|svg|ico|eot|ttf|woff|woff2)$/,
+        test: /\.(png|jpg|gif|svg|ico|eot|ttf|woff|woff2|webmanifest)$/,
         loader: 'file-loader?name=[path][name]-[hash].[ext]'
       },
       {

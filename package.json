@@ -16,7 +16,7 @@
     "ci": "NODE_ENV=production concurrently \"npm run build\" \"npm run test\"",
     "test": "rm -rf reports/unitTests/*.xml && karma start",
     "lint-js": "tslint src/**/*.ts src/*.ts -t stylish",
-    "start": "webpack-dev-server"
+    "start": "webpack-dev-server --host 0.0.0.0"
   },
   "dependencies": {
     "@types/jasmine": "^2.5.47",
