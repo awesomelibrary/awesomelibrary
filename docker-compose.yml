@@ -5,6 +5,7 @@ services:
       - .:/awesomelibrary
     ports:
       - "8080:8080"
+
   npm-install:
     build: .
     volumes:
@@ -12,6 +13,7 @@ services:
     command: [ "npm", "install" ]
     profiles:
       - install
+
   build:
     build: .
     volumes:
@@ -19,6 +21,7 @@ services:
     command: [ "npm", "run", "build" ]
     profiles:
       - build
+
   lint-js:
     build: .
     volumes:
@@ -26,13 +29,18 @@ services:
     command: [ "npm", "run", "lint-js" ]
     profiles:
       - lint-js
+
   test:
     build: .
     volumes:
       - .:/awesomelibrary
+    environment:
+      - NODE_ENV=production
+      - CHROME_BIN=/usr/bin/google-chrome-stable
     command: [ "npm", "run", "test" ]
     profiles:
       - test
+
   ci:
     build: .
     volumes:
