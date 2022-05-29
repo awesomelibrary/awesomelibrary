@@ -4,16 +4,16 @@ export const translationEnglishConfig = ['$translateProvider', function($transla
     title: 'Living library',
     mainMenu: {
       header: 'Living library',
-      admitBook: 'Add Human Book',
+      admitBook: 'Add Living Book',
       startNewEdition: 'Start new edition',
       newEditionStarted: 'New edition started',
       exportLibrary: 'Archive current livingl Library edition to file',
       importLibrary: 'Recover living library edition from archive file',
       humanLibraryRecovered: 'living library edition recovered',
-      showAvailable: 'Show available Human Books in new window'
+      showAvailable: 'Show available Living Books in new window'
     },
     available: {
-      header: 'Available Human Books',
+      header: 'Available Living Books',
       humanBooks: {
         helpHeader: 'Find title and pass it to a librarian'
       }

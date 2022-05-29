@@ -2,16 +2,16 @@
   <div class="container">
 
     <span class="navbar-brand pull-right">
-      <img class="hl-navbar--logo" ng-src="{{$root.baseUrl}}${require('_assets/pictures/logo.svg')}" alt="logo">Human Library
+      <img class="hl-navbar--logo" ng-src="{{$root.baseUrl}}${require('_assets/pictures/open-book.svg')}" alt="logo">{{ 'mainMenu.header'|translate }}
     </span>
 
-    <h1 class="top-bar__header">{{ 'available.header'|translate }}</h1>
+    <span class="navbar-brand top-bar__header">{{ 'available.header'|translate }}</span>
 
   </div>
 </nav>
 
 <div class="container">
-  <h3><strong><u>{{ 'available.humanBooks.helpHeader'|translate }}</u></strong></h3>
+  <h3>{{ 'available.humanBooks.helpHeader'|translate }}</h3>
 </div>
 
 <available-human-books-cards class="available-human-books-cards">

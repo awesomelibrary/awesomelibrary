@@ -36,6 +36,7 @@ jobs:
         uses: nwtgck/actions-netlify@v1.2
         with:
           publish-dir: './'
+          github-token: ${{ secrets.TOKEN_GITHUB }}
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
@@ -54,6 +55,7 @@ jobs:
         with:
           publish-dir: './'
           production-deploy: true
+          github-token: ${{ secrets.TOKEN_GITHUB }}
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}

@@ -1,5 +1,5 @@
 services:
-  npm-start:
+  start:
     build: .
     volumes:
       - .:/awesomelibrary
