@@ -12,7 +12,7 @@
     "url": "https://github.com/humanlibrary/humanlibrary/issues"
   },
   "scripts": {
-    "build": "rm -rf dist/* && NODE_ENV=production webpack",
+    "build": "rm -rf dist/* && NODE_ENV=production webpack && cp _headers _redirects dist/",
     "ci": "NODE_ENV=production concurrently \"npm run build\" \"npm run test\"",
     "test": "rm -rf reports/unitTests/*.xml && karma start",
     "lint-js": "tslint src/**/*.ts src/*.ts -t stylish",
