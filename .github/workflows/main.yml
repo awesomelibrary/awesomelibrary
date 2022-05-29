@@ -22,10 +22,27 @@ jobs:
         with:
           name: awesomelibrary
           path: dist
-  deploy:
+  deploy-staging:
+    runs-on: ubuntu-latest
+    environment: staging
+    needs: build
+    steps:
+      - name: download
+        uses: actions/download-artifact@v3
+        with:
+          name: awesomelibrary
+      - name: deploy
+        uses: nwtgck/actions-netlify@v1.2
+        with:
+          publish-dir: './'
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+  deploy-production:
     runs-on: ubuntu-latest
     environment: production
-    needs: build
+    needs: deploy-staging
+    if: github.ref == 'refs/heads/master'
     steps:
       - name: download
         uses: actions/download-artifact@v3
