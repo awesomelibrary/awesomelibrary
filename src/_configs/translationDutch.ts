@@ -1,15 +1,15 @@
 export const translationDutchConfig = ['$translateProvider', function($translateProvider) {
 
   $translateProvider.translations('nl', {
-    title: 'Human Library Uitleenprogramma',
+    title: 'Living library',
     mainMenu: {
-      header: 'Human Library Uitleenprogramma',
+      header: 'Living library',
       admitBook: 'Voeg Levend Boek toe',
       startNewEdition: 'Start een nieuwe editie',
       newEditionStarted: 'Nieuwe editie gestart',
-      exportLibrary: ' Sla deze Human Library editie op in een bestand',
-      importLibrary: 'Herstel Human Library editie via een opgeslagen bestand',
-      humanLibraryRecovered: 'Human Library editie hersteld',
+      exportLibrary: ' Sla deze living library editie op in een bestand',
+      importLibrary: 'Herstel living library editie via een opgeslagen bestand',
+      humanLibraryRecovered: 'Living library editie hersteld',
       showAvailable: 'Laat beschikbare boeken zien in nieuw venster'
     },
     available: {

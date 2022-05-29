@@ -1,0 +1,50 @@
+services:
+  npm-start:
+    build: .
+    volumes:
+      - .:/awesomelibrary
+    ports:
+      - "8080:8080"
+
+  npm-install:
+    build: .
+    volumes:
+      - .:/awesomelibrary
+    command: [ "npm", "install" ]
+    profiles:
+      - install
+
+  build:
+    build: .
+    volumes:
+      - .:/awesomelibrary
+    command: [ "npm", "run", "build" ]
+    profiles:
+      - build
+
+  lint-js:
+    build: .
+    volumes:
+      - .:/awesomelibrary
+    command: [ "npm", "run", "lint-js" ]
+    profiles:
+      - lint-js
+
+  test:
+    build: .
+    volumes:
+      - .:/awesomelibrary
+    environment:
+      - NODE_ENV=production
+      - CHROME_BIN=/usr/bin/google-chrome-stable
+    command: [ "npm", "run", "test" ]
+    profiles:
+      - test
+
+  ci:
+    build: .
+    volumes:
+      - .:/awesomelibrary
+    command: [ "npm", "run", "ci" ]
+    profiles:
+      - ci

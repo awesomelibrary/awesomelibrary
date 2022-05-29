@@ -1,0 +1,59 @@
+name: main
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: install
+        run: docker compose up npm-install --exit-code-from=npm-install
+      - name: build
+        run: docker compose up build --exit-code-from=build
+      - name: test
+        run: docker compose up test --exit-code-from=test
+      - name: publish
+        uses: actions/upload-artifact@v3
+        with:
+          name: awesomelibrary
+          path: dist
+  deploy-staging:
+    runs-on: ubuntu-latest
+    environment: staging
+    needs: build
+    steps:
+      - name: download
+        uses: actions/download-artifact@v3
+        with:
+          name: awesomelibrary
+      - name: deploy
+        uses: nwtgck/actions-netlify@v1.2
+        with:
+          publish-dir: './'
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+  deploy-production:
+    runs-on: ubuntu-latest
+    environment: production
+    needs: deploy-staging
+    if: github.ref == 'refs/heads/master'
+    steps:
+      - name: download
+        uses: actions/download-artifact@v3
+        with:
+          name: awesomelibrary
+      - name: deploy
+        uses: nwtgck/actions-netlify@v1.2
+        with:
+          publish-dir: './'
+          production-deploy: true
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
