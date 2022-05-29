@@ -1,4 +1,4 @@
-name: CI
+name: main
 
 on:
   push:
@@ -17,3 +17,25 @@ jobs:
         run: docker compose up build --exit-code-from=build
       - name: test
         run: docker compose up test --exit-code-from=test
+      - name: publish
+        uses: actions/upload-artifact@v3
+        with:
+          name: awesomelibrary
+          path: dist
+  deploy:
+    runs-on: ubuntu-latest
+    environment: production
+    needs: build
+    steps:
+      - name: download
+        uses: actions/download-artifact@v3
+        with:
+          name: awesomelibrary
+      - name: deploy
+        uses: nwtgck/actions-netlify@v1.2
+        with:
+          publish-dir: './'
+          production-deploy: true
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
