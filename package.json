@@ -40,7 +40,7 @@
     "lodash.mergewith": "^4.6.0",
     "moment": "^2.18.1",
     "ng-annotate-webpack-plugin": "0.2.1-pre",
-    "node-sass": "^4.13.1",
+    "node-sass": "^7.0.0",
     "postcss-loader": "^2.0.5",
     "sass-loader": "^6.0.3",
     "typescript": "^2.3.2",
